@@ -95,3 +95,7 @@ Here are a few ways you can seek help and get answers to your questions:
 - `man <command>` - the manual is a set of pages that explain everything on the command, including what it does. In the man page, type `/` to search specific words.
 - [StackOverflow](https://stackoverflow.com/)
 - [ChatGPT](https://chat.openai.com/)
+
+# Self check questions
+
+TBD

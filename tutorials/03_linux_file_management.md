@@ -239,7 +239,7 @@ myuser@hostname:~$ ln -s myfile.txt my-soft-link
 
 # Self check questions
 
-
+TBD
 
 # Exercises
 

@@ -192,7 +192,7 @@ Do you see how **"On a Linux system, everything is a file"**. Keep in mind this 
 
 # Self check questions 
 
-
+TBD
 
 # Exercises 
 

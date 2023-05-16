@@ -2,7 +2,7 @@
 
 ## Motivation 
 
-![](../.img/alice-bob.png)
+![](../../.img/alice-bob.png)
 
 Alice, Bob, and Eve are often used in cryptography to represent different entities with varying levels of trust.
 Alice and Bob are usually considered trusted parties who want to communicate securely,
@@ -29,7 +29,7 @@ The same plaintext encrypts to different ciphertext with different keys.
 
 Symmetric key encryption is a method of cryptography in which the same secret key is used for both encryption and decryption.
 
-![](../.img/symmetric-key-enc.png)
+![](../../.img/symmetric-key-enc.png)
 
 We'll use `openssl` to encrypt messages:
 
@@ -77,7 +77,7 @@ Asymmetric key encryption, also known as **public key cryptography**, uses a pai
 One key, known as the **public key**, is shared with anyone who wants to send encrypted data to the owner of the key.
 The other key, known as the **private key**, is kept secret and used to decrypt data that has been encrypted with the public key.
 
-![](../.img/asymmetric-key-enc.png)
+![](../../.img/asymmetric-key-enc.png)
 
 Let's generate a public-private key pair and encrypt messages. We will use `openssl` again.
 
@@ -118,7 +118,7 @@ Now Alice is sending a message to Bob. She encrypts the message using her **priv
 
 What is wrong here?
 
-![](../.img/digital-signature.png)
+![](../../.img/digital-signature.png)
 
 This scheme has no meaning in terms of encryption! But it can be a useful technique to verify the **authenticity and integrity** of a message.
 

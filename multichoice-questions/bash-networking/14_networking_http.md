@@ -91,7 +91,7 @@ Assume the RES bash variable contains the response status of some request. Which
 
 By default, a load balancer redirects an incoming requests to a random server:
 
-![](../.img/load-balancer.png)
+![](../../.img/load-balancer.png)
 
 
 Sometimes, it is useful to redirect incoming requests to the same server with which a given user was originally redirected to. For example, if a given user was redirected to server B when initially accessed the website, from now on, the load balancer will redirect every request of this user to server B/

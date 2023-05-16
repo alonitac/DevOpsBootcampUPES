@@ -4,7 +4,7 @@
 
 The Hypertext Transfer Protocol (HTTP) is an application-level protocol that is being widely used over the Web. HTTP is a **request/response** protocol, which means, the client sends a request to the server in the form of a request method, URI, protocol version, followed by headers, and possible body content. The server responds with a status code line, a success or error code, followed by server headers information, and possible entity-body content.
 
-![](../.img/http-req-res.png)
+![](../../.img/http-req-res.png)
 
 Under the hood, HTTP requests and responses are sent over a TCP socket with default port 80 (on the server side). The HTTP client first initiates a TCP connection with the server, once the connection is established, the client and the server access TCP through their respective socket interfaces.
 
@@ -117,7 +117,7 @@ This simplifies server design and has permitted engineers to develop high-perfor
 
 An HTTP cookie is a small piece of data that a server sends to a user's web browser. The browser may store the cookie and send it back to the same server with later requests. Most major commercial websites use cookies today.
 
-![](../.img/cookies.png)
+![](../../.img/cookies.png)
 
 As shown in the figure above, a cookie has four components:
 

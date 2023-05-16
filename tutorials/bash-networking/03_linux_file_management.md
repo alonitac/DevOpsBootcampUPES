@@ -216,7 +216,7 @@ A link is nothing more than a way of matching two or more file names to the same
 **Hard link** associates two or more file names with the same inode. Hard links share the same data blocks on the hard disk, while they continue to behave as independent files.
 **Soft link** or symbolic link (sometimes pronounced "symlink") is a small file that is a pointer to another file.
 
-![](../.img/links.png)
+![](../../.img/links.png)
 
 Use the **ln** command to create a hard/soft link:
 

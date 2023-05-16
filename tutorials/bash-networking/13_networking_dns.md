@@ -28,7 +28,7 @@ A simple design for DNS would have one DNS server that contains all the mappings
 In fact, the DNS is a wonderful example of how a distributed database can be implemented in the Internet. Let's delve into details.
 There are three classes of DNS servers: **root** DNS servers, **top-level domain** (TLD) DNS servers, and **authoritative** DNS servers.
 
-![](../.img/dns-levels.png)
+![](../../.img/dns-levels.png)
 
 - **Root DNS servers** - clients first contacts one of the root servers, which returns IP addresses for TLD servers for the top-level domain. As of 2012, there are 13 root DNS servers (actually 247 after replication).
 - **Top-level domain (TLD) servers** - are responsible for top-level domains such as .com, .org, .net, .edu, and .gov, and all of the country top-level domains such as uk, fr etc... Look [here](https://www.iana.org/domains/root/db) for a full list. When client reaches TLD server in order to resolve a domain name, e.g. google.com, it is **not** responded with the desired IP address of the domain, but with a list of Authoritative Servers from which to request the desired IP address.
@@ -78,7 +78,7 @@ Below is common DNS records type
 
 ## The local DNS server 
 
-![](../.img/resolve-google.png)
+![](../../.img/resolve-google.png)
 
 In real life, the actual hostname resolve is done by your ISP local DNS serve. 
 Every ISP maintains its own local DNS server. When a host connects to an ISP, it provides the IP addresses of its local DNS server(s).

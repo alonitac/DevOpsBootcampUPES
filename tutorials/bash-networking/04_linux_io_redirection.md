@@ -105,7 +105,7 @@ sudo:   myuser :
 
 How does it work? IO redirection reveals a very interesting structure for Linux systems.
 
-![](../.img/ioredirect.png)
+![](../../.img/ioredirect.png)
 
 Most Linux commands read input, such as a filename, and write output to screen. By default, your keyboard is represented in linux by the standard input (**stdin**) device, and the screen or a particular terminal window is represented by the standard output (**stdout**) device. We already said that in linux everything is a file, and indeed, you can find the stdin and stdout files in the `/dev` directory.
 

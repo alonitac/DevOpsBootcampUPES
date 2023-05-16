@@ -65,14 +65,6 @@ myuser@hostname:~$ cat original_message.txt
 I'm Bob, want to tr...
 ```
 
-> ### :pencil2: Exercise - Playing with symmetric encryption
->
-> 1. Encrypt some file
-> 2. Try to decrypt the encrypted file using different secret you've used to encrypt. What happened? 
-> 3. Add some text to **encrypted file**, then try to decrypt it. What happen? [Read here](https://security.stackexchange.com/questions/9437/does-symmetric-encryption-provide-data-integrity) about how `openssl` provide data integrity in symmetric encryption. 
-> 3. Encrypt the same file, but using different key. Make sure different encryption is generated for different keys. 
-
-
 ## Asymmetric Key Encryption
 
 In the previous section we've seen how client and server can communicate using a shared key.
@@ -169,24 +161,6 @@ This certificate serves as proof that Alice's public key belongs to her and has 
 
 Bob can then verify the certificate using the CA's public key (which is typically included in his web browser or operating system) and be reasonably sure that the key actually belongs to Alice and has not been tampered with.
 
-> ### :pencil2: Exercise - Self-signed Certificate
->
-> In this exercise you will generate an SSL certificate. In real life, a trusted authority (like Amazon) should sign on your certificates, which gives them validity.
-> But just for the learning, you will generate a certificate and sign it yourself (a.k.a. self-signed certificate).
-> In the public Internet, there is no value for self-signed certificate, but organizations do sign their own certificates for internal usage. 
-> 
-> We will be using, right guess, `openssl`:
-> 
-> ```
-> openssl req -x509 -newkey rsa:1024 -keyout key.pem -out cert.pem -sha256 -days 365
-> ```
-> 
-> The program will ask you some identifiable information: who are you? what is the organization you are belong to? your country, your mail etc... All these details, including a public key, will be encoded into a file called `cert.pem`. Note that this certificate has an expiration time of 365 days.
-> 
-> `cat cert.pem` to see how a certificate may look like. In our simplified TLS handshake model, the server's certificate is the first thing that was sent to the client.
-> 
-
-
 ## Putting it all together - HTTPS protocol and the TLS Handshake 
 
 **Although we will be focusing on the HTTPS and TLS protocols, the discussed security techniques are widely used in many other protocols and systems.**
@@ -260,4 +234,39 @@ Hash functions are commonly used to store passwords securely.
 Instead of storing the actual passwords, the hash of the password is stored in the database. 
 When a user attempts to log in, the password entered is hashed and compared to the hashed password in the database. 
 If they match, the user is granted access.
+
+# Self-check questions
+
+TBD
+
+# Exercises
+
+## Exercise 1 - Playing with symmetric encryption
+
+1. Encrypt some file using `openssl`
+2. Try to decrypt the encrypted file using a different secret you've used to encrypt. What happened?
+3. Add some text to the encrypted file, then try to decrypt it. What happened? [Read here](https://security.stackexchange.com/questions/9437/does-symmetric-encryption-provide-data-integrity) about how openssl provides data integrity in symmetric encryption.
+4. Encrypt the same file, but using a different key. Make sure different encryption is generated for different keys.
+
+## Exercise 2 - Self-signed Certificate
+
+In this exercise you will generate an SSL certificate. In real life, a trusted authority (like Amazon, DigiCert) should sign on your certificates, which gives them validity. But just for the learning, you will generate a certificate and sign it yourself (a.k.a. self-signed certificate). In the public Internet, there is no value for self-signed certificates, but organizations do sign their own certificates for internal usage. We will be using, right guess, `openssl`:
+
+```bash
+openssl req -x509 -newkey rsa:1024 -keyout key.pem -out cert.pem -sha256 -days 365
+```
+
+The program will ask you some identifiable information: who are you? What is the organization you belong to? your country, your mail etc... All these details, including a public key, will be encoded into a file called `cert.pem`. Note that this certificate has an expiration time of 365 days.
+
+`cat cert.pem` to see how a certificate may look like. In the simplified TLS handshake model you’ve learned, the server's certificate is the first thing that was sent to the client.
+
+## Exercise 3 - Authenticity verification
+
+Under `signature_verification` in our shared repo, you are given 5 signatures and the corresponding messages. Determine which of the signatures are authentic.
+
+## Exercise 4 - Verify the integrity of apt-get packages
+
+Debian package verification works by checking the cryptographic hash of the package against the expected value in the package metadata. The package metadata includes the SHA-256 hash of the package contents and is signed by the package maintainer's GPG key.
+
+In our shared repo, under `package_integrity_verification/Packages`, you are given the metadata of 2 Debian packages, visit the docker binaries server: https://download.docker.com/linux/ubuntu/, download the binaries (the .deb file) to your machine according to the path specified in `Filename:`, and verify the package integrity using the `SHA512` value.
 

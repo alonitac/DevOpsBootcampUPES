@@ -2,7 +2,12 @@
 
 ## Intro
 
-Linux is a free and open-source operating system based on the Unix operating system. It was created in 1991 by Linus Torvalds and has since become one of the most widely used operating systems in the world. Linux is known for its stability, security, and flexibility, which makes it a popular choice for servers, embedded systems, and supercomputers. In recent years, Linux has gained popularity among desktop users as well, due to its ease of use and the availability of a wide range of free and open-source software applications.
+Linux is a free and open-source operating system based on the Unix operating system. 
+It was created in 1991 by Linus Torvalds and has since become one of the most widely used operating systems in the world. 
+
+Linux is known for its stability, security, and flexibility, which makes it a popular choice for servers, embedded systems, and supercomputers. 
+In recent years, Linux has gained popularity among desktop users as well, due to its ease of use and the availability of a wide range of free and open-source software applications.
+
 Learning Linux is a very valuable skill for DevOps engineers, as it provides a deep understanding of the operation system upon which many modern applications and services are operating.
 In this course we will cover two main core components of every Linux system: files and processes, as well as a lot of small topics such as io redirect, package management, environment variables and useful commands.
 

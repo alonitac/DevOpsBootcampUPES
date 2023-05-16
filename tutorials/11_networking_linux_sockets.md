@@ -143,3 +143,17 @@ These lines reflect both halves of an established connection between two process
 The first is bound to port 59330 (probably a randomly assigned client port), and the second to the port 631.
 Some process on the local machine must be communicating with the `cupsd` daemon.
 
+
+# Self-check questions
+
+TBD
+
+# Exercises
+
+
+## Exercise 1 - client and server communication over TCP socket
+
+Using the `./server` application create multiple connections between different clients to the same server.
+Explore the connections in `netstat`'s output.
+Once the server is running, explore `/proc/<pid>/fd` while `<pid>` is the server process id, to see the created socket file for each client.
+Try to run 2 servers on the same machine. What is the returned error and why?

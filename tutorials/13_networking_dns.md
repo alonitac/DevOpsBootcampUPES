@@ -148,3 +148,30 @@ myuser@hostname:~$ whois google.com
 ```
 
 
+# Self-check questions
+
+TBD
+
+# Exercises
+
+## Exercise 1 - playing more with the `dig` command
+
+Use `dig` to answer the below questions:
+
+1. Resolve the IP address of `stanford.edu`.
+2. How much did it take to resolve the query?
+3. Resolve `stanford.edu` again, how much did it take now? Why?
+4. How can you measure the time passed **between** the first resolution to the second one?
+5. How many authoritative servers does `stanford.edu` have?
+6. Does the above answer come from the cache of some server rather than from an authoritative Stanford DNS server?
+
+## Exercise - `systemd-resolve`
+
+`systemd-resolve` is a system-level service provided by the `systemd` init system on Linux systems, responsible for providing name resolution services to applications running on the system. Ubuntu, like many other modern Linux distributions, uses systemd to manage system services, including the `systemd-resolved` service, which provides the name resolution functionality.
+
+1. Explore `/etc/resolv.conf` and find your ISP primary and secondary local DNS server
+
+`systemd-resolve` stores recently resolved DNS queries and their corresponding responses in memory, which can reduce the number of DNS queries sent to remote DNS servers and improve the performance of DNS resolution on Linux systems. The `systemd-resolve --statistics` command can display cache statistics. Try it.
+
+2. What does **cache hit** mean?  
+3. Wait for 3-5 minutes and execute `systemd-resolve --statistics` again, how did the value of “Current Cache Size” decrease?

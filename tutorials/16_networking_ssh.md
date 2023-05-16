@@ -33,9 +33,6 @@ On subsequent connections to the same server, the SSH client will check the fing
 If the fingerprint of the server's public key has changed, the SSH client will display a warning message and refuse to connect to the server.
 This helps to protect against man-in-the-middle attacks.
 
-> ### :pencil2: Exercise - Change fingerprint
-> TBD
-
 
 ## Generating a public-private key-pair locally
 
@@ -102,3 +99,80 @@ ifdown          100% |*****************************| 3676   00:00
 ifdown-ippp     100% |*****************************| 820    00:00
 ifdown-ipv6     100% |*****************************| 4076   00:00
 ```
+
+# Self-check questions
+
+TBD
+
+# Exercises
+
+Since the essence of SSH is communication between two machines, you will be running a Docker container on your local machine, and communicating with this container from your local machine. If you are not familiar with containers, don’t worry, they will be taught later on. For now, think about Docker containers as a small, lightweight OS running within your real OS  (we don’t believe we say that… Docker containers are **far away** from being small OS!).
+
+Pre-requisites:
+
+1. Install Docker on your machine if you don’t have it yet.
+2. Generate RSA key pair using the `ssh-keygen` command. **Important:** usually the default directory to store keys is the `~/.ssh`. But in this exercise set, you must store the generated key outside the `~/.ssh` directory).
+3. Run the container by:
+
+```bash
+docker run --rm --name=ssh-server -p 2222:2222 -e USER_NAME=elvis -e PUBLIC_KEY="$(cat /path/to/your/public-key-file)" lscr.io/linuxserver/openssh-server:latest
+
+docker run --rm --name=ssh-server -p 2222:2222 -e USER_NAME=elvis -e PUBLIC_KEY="$(cat /home/alon/.ssh/id_rsa.pub)" -e SUDO_ACCESS=ture lscr.io/linuxserver/openssh-server:latest bash -c "sed -i 's/AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config &&  nc -l -k 8087"
+```
+
+4. In another terminal session, execute the below command to extract the IP address of your container:
+
+```bash
+docker inspect ssh-server | jq -r '.[0].NetworkSettings.IPAddress'
+```
+
+Solve the below exercises while the container is running. The IP address you just extracted is the “remote” machine IP that should be used to connect to the machine, the port is 2222, the user is `elvis`.
+
+## Exercise 1 - Simple connection
+
+Use the `ssh` command to  connect to your machine.
+
+## Exercise 2 - Change fingerprint
+
+Stop the docker container process (you can do it by CTRL+c), and start again, try to connect again to the remote machine using the ssh command from the previous exercise. What happened, why? How can you fix it?
+
+## Exercise 3 - port forward
+
+SSH port forwarding allows you to securely tunnel traffic between a local and a remote machine over an encrypted SSH connection, enabling access to remote services as if they were running on the local machine.
+
+Connect to the remote server while forwarding port 8087 from the remote into port 8085 in the local machine.
+
+
+## Exercise 4 - add new keys
+
+Generate another RSA key-pair. Allow ssh connection using this new key-pair. The `authorized_keys` file is located in the remote machine under `/config/.ssh/` .
+
+## Exercise 5 - password auth
+
+Password authentication in SSH is the ability to authenticate with a username and password pair. It is not recommended to use password authentication because it is vulnerable to brute-force attacks, where an attacker can repeatedly guess passwords until they gain access to the system. It is safer to use key-based authentication, which is more secure and allows for automated access without exposing passwords.
+
+You know that the password for elvis username is a 4 digit number. Simpliy trying all possible passwords (1000-9999) is the sure way to discover elvis’ password. It will take no more than 10 minutes.
+
+1. Try to authenticate without your key-pair. You should see the Password prompt, asking you to insert the password. Try your luck...
+2. Install `sshpass` if you don’t have one.
+3. Execute the below bash script until you find the correct password.
+
+```bash
+for i in $(seq 1000 3000); do
+  echo trying $i
+  sshpass -p $i ssh -o StrictHostKeyChecking=no -p 2222 elvis@172.17.0.2
+done
+```
+
+## Exercise 5 - change the ssh daemon
+
+To change the SSH daemon configuration, you can modify the `sshd_config` file on the server. This file typically resides in the `/etc/ssh/` directory. 
+You can edit this file with `nano` to change various settings such as the port number, authentication methods, and allowed users/groups. 
+After making changes to the `sshd_config` file, you'll need to restart the SSH daemon for the changes to take effect. 
+Usually it’s done by `systemctl restart sshd`, but since you are working on a Docker container, it’s done by running the following command **from within the machine**:
+
+```bash
+kill -HUP $(cat /config/sshd.pid)
+```
+
+Your goal is to configure the `sshd` to not allow password authentication at all!

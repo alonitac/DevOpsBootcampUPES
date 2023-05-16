@@ -190,7 +190,7 @@ TBD
 
 # Exercises
 
-## Services into...
+## Services intro
 
 1. How many days is the `systemd-resolved` service running?
 2. Is `ufw` service active in your system? Is it running? If not, what is the exit code of the process that runs the service?

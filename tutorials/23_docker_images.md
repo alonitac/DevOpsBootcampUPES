@@ -153,7 +153,7 @@ Here's the Dockerfile you'll use as the starting point in order to pack our app 
 ```dockerfile
 FROM python:3.8.12-slim-buster
 WORKDIR /app
-COPY . .
+COPY docker-containers .
 RUN pip install -r requirements.txt
 
 CMD ["python3", "app.py"]

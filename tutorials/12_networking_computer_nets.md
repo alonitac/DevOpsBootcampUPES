@@ -212,7 +212,7 @@ We will then perform a network performance test using `iperf` to see the impact 
 $ sudo bash -e init.sh
 ```
 
-![](../../.img/subnet_ex.png)
+![](../.img/subnet_ex.png)
 
 2. Now, start a bash session “within” subnet `ns1` (again, we use the term “subnet” just to get you to understand the simulated scenario.  From now on, instead of subnet, we will use the correct term - network namespace)
 

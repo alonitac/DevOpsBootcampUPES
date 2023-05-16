@@ -219,7 +219,7 @@ Change to `/etc`.
 
 The Linux Kernel was presented in our first linux lecture - the main component of a Linux OS which functions as the core interface between a computer’s hardware and its applications.
 
-![](../../.img/linuxkernel.png)
+![](../.img/linuxkernel.png)
 
 Then we moved to learn how to use the Terminal and communicate with the OS using commands such as `ls` or `chmod`.  
 But how does it really work? We type a command and hit the Enter key, then what happens? This question tries to investigate this point.

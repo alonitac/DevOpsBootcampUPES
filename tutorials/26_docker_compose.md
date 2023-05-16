@@ -18,7 +18,7 @@ A `docker-compose.yml` looks like this:
 version: "3.9"
 services:
   web:
-    build: .
+    build: docker-containers
     ports:
       - "8000:5000"
     volumes:
@@ -29,7 +29,7 @@ services:
   redis:
     image: redis
 volumes:
-  logvolume01: {}
+  logvolume01: { }
 ```
 
 The given Docker Compose file describes a multi-service application with two services: `web` and `redis`. 

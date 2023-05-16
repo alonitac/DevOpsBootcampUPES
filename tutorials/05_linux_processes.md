@@ -15,7 +15,7 @@ myuser@hostname:~$ top
 
 In linux, multiple users running multiple processes, at the same time and on the same system. The CPU manages all these processes simultaneously, according to the below state diagram:
 
-![](../../.img/process_state.png)
+![](../.img/process_state.png)
 
 A process can be in one of several states at any given time, indicating its current status or activity. These states are important to understand for managing and troubleshooting system performance.
 

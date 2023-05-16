@@ -24,7 +24,7 @@ The four layers of the TCP/IP model, in order from top to bottom, are:
 
 In reality, network systems and protocols are much more complicated than discussed here. Let's see some analogy: 
 
-![](../../.img/osi-analogy.png)
+![](../.img/osi-analogy.png)
 
 The airline system can be used as an analogy to the OSI model to help understand how the different layers of a network work together to transmit data.
 
@@ -117,8 +117,8 @@ Run it by:
 myuser@hostname:~$ wireshark
 ```
 
-Start capturing packets, by clicking on the ![](../../.img/wiresharkstart.png) button  
-In wireshark, apply(![](../../.img/wireshark_apply.png)) the following filter to catch only packets destined for google.com
+Start capturing packets, by clicking on the ![](../.img/wiresharkstart.png) button  
+In wireshark, apply(![](../.img/wireshark_apply.png)) the following filter to catch only packets destined for google.com
 
 ```text
 http.host == "google.com"
@@ -132,7 +132,7 @@ myuser@hostname:~$ curl google.com
 
 Explore the **packet details pane**.
 
-![](../../.img/wireshark_packet_pane.png)
+![](../.img/wireshark_packet_pane.png)
 
 This pane displays the contents of the selected packet (packet here is referred to as “any piece of data that traverses down the model layers”). You can expand or collapse each layer to view the details of the corresponding layer, such as the source and destination addresses, protocol flags, data payloads, and other relevant information.
 

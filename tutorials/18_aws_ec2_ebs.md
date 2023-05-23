@@ -54,31 +54,11 @@ Open the terminal in your local machine, and connect to your instance by:
 ssh -i "</path/key-pair-name.pem>" ubuntu@<instance-public-dns-name-or-ip>
 ```
 
-### Spot check
-
-- Make sure your instance has public access to the internet.
-- Use `route -n` and the information under `/etc/resolve.conf` to determine the IP addresses of your **local DNS server**, and the **default gateway**.
-- Search in `/var/log/syslog` logs that indicate the communication of the instance with the DHCP server (`grep` may be useful...).
-  Specifically, find and indication for the 4 phases of DHCP IP allocation (DORA).
-
-1. Go to your instance overview page
-2. Identify the instance's internal and external DNS
-3. Try to resolve both of them from within the instance, which IP did you get?
-
-### Solution 
-
-TBD
-
 ## Amazon Machine Image
 
 An Amazon Machine Image (**AMI**) is a pre-configured virtual machine image used to create EC2 instances.
 AMIs contain all the information needed to launch a new instance, including the operating system, application server, and any additional software.
 AMIs provide a fast and reliable way to launch instances with specific configurations, making it easy to replicate complex environments or deploy new instances with consistent configurations.
-
-### Spot check
-
-What is the AMI id your instance is based on? 
-
 
 ## Instance lifecycle
 
@@ -187,9 +167,8 @@ The following example output shows that the file system size of the data volume 
    The following example output shows that the file system size of `/dev/nvme1n1` is the same as the data volume size\.  
    ![\[Display of file systems showing data volume file system size has been increased.\]](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/file-system-extended-disk-space.png)
 
-## spot check 
 
-how much does it cost for month? 
+Calculate how much does it cost for month? 
 
 ## Create and mount EBS volume to your EC2 instance
 
@@ -216,7 +195,9 @@ how much does it cost for month?
 3. Define the appropriate rules in the instance's security group.
 4. Visit the app.
 
-### Spot check 
+# Exercises
+
+## Exercise 1 - EC2 pricing
 
 Explore the [pricing page](https://aws.amazon.com/ec2/pricing/on-demand/) of on-demand instances.
 
@@ -231,22 +212,6 @@ Compute the monthly cost of the below instance characteristics:-
 7. `8TB` of data transferred from the instance to other instances in the same AZ.
 8. `1TB` of data transferred from the instance to instance in another region.
 
-### Solution
-
-As of May 2023, the calculated price is:
-
-1. The price for an `t3.micro` instance is $0.0104 per hour, or approximately $7.51 per month for 24/7 running.
-2. The price for `8GB` of gp3 EBS storage is $0.080 per month.
-3. Data transferred into an EC2 instance is free.
-4. The price of data transfer from EC2 to S3 is free.
-5. The price for `230GB` of data transfer out of EC2 to customers around the world is $0.09 per GB, $20.70 per month.
-6. Data transfer between EC2 instances in the same AZ is free.
-7. The price for `1TB` of data transfer between EC2 instances in different regions is $0.02 per GB, $20 per month.
-
-Total of 48.29$.
-
-
-# Exercises
 
 ## Exercise 1 - Control EC2 from AWS cli
 

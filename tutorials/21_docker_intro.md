@@ -200,14 +200,6 @@ In a moment, you'll run you first container, this is the execution order of the 
 
 ![](../.img/docker-cont-run.png)
 
-### Spot check
-
-Given the fact that the docker client and the daemon are communicating using a socket located under `/var/run/docker.sock`, why is `sudo` required to execute `docker` command?  
-
-### Solution 
-
-This is because the Docker daemon runs with root-level permissions for security reasons, and the default Unix socket file (`/var/run/docker.sock`) is only accessible by the root user or users in the `docker` group.
-
 ## Hello world example 
 
 The Docker "Hello World" container is a simple and lightweight container that is often used to verify if Docker is properly installed and functioning on a system. It is based on the official Docker image called [hello-world](https://hub.docker.com/_/hello-world).

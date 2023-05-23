@@ -41,19 +41,13 @@ In the above output:
 - `funny_blackburn` is a random alphabetical name that docker assigned to the container. 
 
 
-### Spot check
+### Try it yourself
 
 Pull and run the container [`hello-world`](https://hub.docker.com/_/hello-world).
 
 1. What is the status of the container after some moments  of running?
 2. Use `docker images hello-world` to get some information about the image from which the container has run. What is the image size?
 3. What is the command used to launch the container `hello-world`? 
-
-### Solution 
-
-1. The container prints "hello world" to the screen and stops.
-2. It depends on the image version, but the image size is not more than a few KBs.
-3. `docker container ls -a` discovers the running command: `/hello`. 
 
 
 ### Override the default command 

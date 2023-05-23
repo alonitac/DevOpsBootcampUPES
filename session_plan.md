@@ -20,7 +20,7 @@
 | #  |  Date |  Notes |
 |---|---|---|
 | 1 | 	1\6 | 
-| 2 | 	2\6 | Compile `strace_ex` and upload to public bucket in AWS. Replace `<group-repo-link>` with the object public link. |
+| 2 | 	2\6 | :heavy_check_mark: Compile `strace_ex` and upload to public bucket in AWS. Replace `<group-repo-link>` with the object public link. |
 | 3 | 	5\6 | 
 | 4 | 	6\6 |  Review [Network Security](tutorials/15_networking_security.md) together with the students, demonstrate different encryption on your machine (symmetric/public/digital signature)  |
 | 5 | 	7\6 |  

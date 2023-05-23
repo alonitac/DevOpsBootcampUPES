@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Linux Processes</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
+[comment]: # (mdslides presentation.md --include media)
+
+[comment]: # (The list of themes is at https://revealjs.com/themes/)
+[comment]: # (The list of code themes is at https://highlightjs.org/)
+
+[comment]: # (markdown: { smartypants: true })
+
+
+DevOps Bootcamp - UPES University
+
+# Linux Processes
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Today’s agenda
+
+- Linux processes introduced
+- Process state
+- Scheduling algorithms
+- `/proc` directory - you’ll find there everything about your running processes!
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+"On a UNIX system, everything is a **file**; if something is not a file, it is a **process**."
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Process definition
+
+Processes are an instance of an executing program.
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Linux processes
+
+- If you are viewing this text in a web browser, your browser is running as a process.
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Processes examples
+
+- If you are viewing this text in a web browser, your browser is running as a process.
+- If you are typing some bash commands, each one of them is running as a process.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Linux processes
+
+The lifecycle of every process can be described by the below diagram
+
+![](media/processes.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Process Resources
+
+Here are the components that constitute a process:
+
+<br>
+
+- **Execution Context**: Physical memory, no other process can access it.
+- **I/O Context**: Open File Descriptors, Memory Mapped Files, Filesystem Context(work dir, etc..)
+- **Environment Variables**
+- **Heritage Information**: PID, parent process, children processes
+- **Credentials**: owning user and group
+- **Resource Statistics and Limits**: CPU and RAM utilizations
+
+<br>
+
+
+Each running process on the system is represented as a subdirectory in the `/proc` directory, with the name of the directory corresponding to the process ID (PID) of the process.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Process Resources
+
+
+![](media/procresources.png)
+
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
+
+# Thanks
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

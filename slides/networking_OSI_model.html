@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>The OSI Model</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
+[comment]: # (mdslides presentation.md --include media)
+
+[comment]: # (The list of themes is at https://revealjs.com/themes/)
+[comment]: # (The list of code themes is at https://highlightjs.org/)
+
+[comment]: # (markdown: { smartypants: true })
+
+
+DevOps Bootcamp - UPES University
+
+# The OSI Model
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Today’s agenda
+
+- Networking protocols
+- The OSI simplifies 4-layered model
+- The aireplan system as an analogy
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## The OSI Model
+
+- In order to get data over the network, lots of different hard- and software needs to work and communicate together via a well-defined **protocols**.
+- All these different types of communication protocols are classified in 7 layers, which are known as the **Open Systems Interconnection Reference Model**.
+
+<br><br>
+
+| Layer Name      | Used protocol  |
+| ----------- | ----------- |
+| Application Layer     | HTTP, DNS, SMTP, SSH       |
+| Transport Layer     | TCP, UDP       |
+| Network Layer     | IP, ICMP       |
+| Network Interface Layer     | Ethernet       |
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# Networking Protocol
+
+A protocol is, simply put, a set of rules for communication
+
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Human analogy - the airline system
+
+The airline system can be used as an analogy to the OSI model to help understand how the different layers of a network work together to transmit data.
+
+
+![](media/airline.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Application Layer
+
+This layer corresponds to the various applications and services offered by the airline, such as ticket sales and flight status updates.
+
+![](media/airline.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Application Layer
+
+This layer corresponds to the various applications and services offered by the airline, such as ticket sales and flight status updates.
+
+
+Just as the application layer in the airline system provides end-to-end services directly to passengers and customers. The application layer in the OSI model provides services directly to users or applications.
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Transport Layer
+
+This layer corresponds to the services provided to passengers, such as ticketing, baggage handling.
+
+![](media/airline.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Transport Layer
+
+This layer corresponds to the services provided to passengers, such as ticketing, baggage handling.
+
+
+Just as the transport layer in the airline system provides end-to-end services to passengers during their journey, the transport layer in the OSI model provides end-to-end communication services between applications.
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Network Layer
+
+This layer corresponds to the routing and addressing of planes within the airline system, such as flight paths and destinations.
+
+![](media/airline.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Network Layer
+
+This layer corresponds to the routing and addressing of planes within the airline system, such as flight paths and destinations.
+
+
+Just as the network layer in the airline system determines how planes are routed to their destinations, the network layer in the OSI model determines how data is routed through a network.
+
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+
+## Network Interface layer
+
+This layer corresponds to the physical infrastructure of the airline system, such as the planes, runways, and airports.
+
+![](media/airline.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+
+## Network Interface layer
+
+This layer corresponds to the physical infrastructure of the airline system, such as the planes, runways, and airports.
+
+
+Just as the physical layer in the airline system deals with the physical transportation of passengers and cargo, the physical layer in the OSI model deals with the physical transmission of data over a network.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+
+
+## Process Resources
+
+
+![](media/procresources.png)
+
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
+
+# Thanks
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

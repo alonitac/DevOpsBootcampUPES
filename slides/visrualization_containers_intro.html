@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Introduction to Virtualization and Containers</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
+[comment]: # (mdslides presentation.md --include media)
+
+[comment]: # (The list of themes is at https://revealjs.com/themes/)
+[comment]: # (The list of code themes is at https://highlightjs.org/)
+
+[comment]: # (markdown: { smartypants: true })
+
+
+DevOps Bootcamp - UPES University
+
+# Introduction to Virtualization and Containers
+
+<img src="media/docker.png" width="30%">
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Today’s agenda
+
+- Bare metal systems
+- Virtual machines
+- Containers
+- Building containers from scratch.
+- Introducing Docker
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Bare metal systems
+
+- Applications are typically executed directly on the OS system.
+- There is no "virtualized" layer, everything is running on the same environment.
+- This is how you usually work on your machine.
+
+![](media/baremetal.png)
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Bare metal systems disadvantages
+
+
+- Dependency Conflicts
+- Resource Underutilization
+- Limited Scalability
+- Lack of Flexibility
+- High Maintenance Overhead
+- Limited Fault Isolation
+
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Virtual machines
+
+Virtual machines (VMs) are an abstraction layer that enables the creation and operation of multiple isolated instances of virtual hardware within a single physical host.
+
+- The **Hypervisor** partitions the host resources and allows each VM to have its own virtualized hardware.
+- **Type 1** Hypervisor is loaded directly on the hardware: [Linux KVM](https://www.linux-kvm.org/page/Main_Page), [Windows Hyper-V](https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/)
+- **Type 2** Hypervisor loaded in an OS running  on the hardware: [VMwere](https://www.vmware.com/), [VirtualBox](https://www.virtualbox.org/)
+
+![](media/hypervisor.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+## Virtual machines
+
+![](media/vm.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## IT Challenges Before Virtualization
+
+- Data centers are out of space
+- AC power panels are out of capacity
+- Backups are slow and expensive
+- Server utilization is VERY LOW
+- Administrators are struggling with troubleshooting
+- Load balancing for all applications is nearly impossible
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## VMs offer several advantages
+
+
+- Isolation
+- Hardware Abstraction
+- Operating System Flexibility
+- Resource Optimization
+- Snapshotting and Rollbacks
+- Scalability and Elasticity
+- Migration and High Availability
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+![](media/vm.gif)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## But...
+
+The fact that every VM requires its own dedicated OS is a major flaw!
+
+Every OS consumes CPU, RAM and storage that could otherwise be used to power more applications
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# Container introduced
+
+Live demo - Container from scratch 
+
+https://ericchiang.github.io/post/containers-from-scratch/
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Hello Containers
+
+Instead of virtualizing at the hardware layer, containers are an abstraction at the app layer that packages code and dependencies together.
+
+- Containers utilize native Linux features like [cgroups](https://en.wikipedia.org/wiki/Cgroups) and [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces) to provide isolation while **sharing the same kernel**.
+- This lightweight approach allows for faster startup times, improved resource efficiency, and easier scalability compared to traditional virtual machines.
+
+![](media/containers-vm.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+
+## Containers advantages
+
+- Lightweight and Portable
+- Isolation and Resource Efficiency
+- Consistent and Reproducible Builds
+- Scalability and Elasticity
+- DevOps and Continuous Integration/Deployment (CI/CD)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+Under the hoods, containers are merely a **linux processes**
+
+That "lives" in an **loosely** isolated environment.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Introducing Docker
+
+
+Docker is an open platform for developing, building and shipping images, and running containers.
+
+
+![](media/docker.svg)
+
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
+
+# Thanks
+
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

@@ -207,24 +207,11 @@ myuser@hostname:~$ ln myfile.txt my-hard-link
 myuser@hostname:~$ ln -s myfile.txt my-soft-link
 ```
 
-
-> ### :pencil2: Exercise - Links
-> 1. Create a file called test1.
-> 1. Create a hard link called test2 to test1.
-> 1. Are the two files sharing the same inode?
-> 1. Change test1 content by echo "hi" >> test1
-> 1. What does test2 look like?
-> 1. What happens when you copy test2 to another directory? What happens when you move test2 to another directory?
-> 1. Create a symlink for test1.
-> 1. Remove test1, what happened to the symlink you've just created?
-
 # Self check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_file_management.html)
 
 # Exercises
-
-[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_file_management.html)
 
 ### Exercise - Wildcards
 
@@ -249,6 +236,18 @@ Put the permissions back to how they were.
 
 Archive the contents of your home directory (including any subdirectories) using `tar`.
 Now extract the contents into a `backup` directory.
+
+## Links
+
+1. Create a file called test1.
+1. Create a hard link called test2 to test1.
+1. Are the two files sharing the same inode?
+1. Change test1 content by echo "hi" >> test1
+1. What does test2 look like?
+1. What happens when you copy test2 to another directory? What happens when you move test2 to another directory?
+1. Create a symlink for test1.
+1. Remove test1, what happened to the symlink you've just created?
+
 
 ## Broken Symlink
 

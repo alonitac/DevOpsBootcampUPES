@@ -17,10 +17,14 @@
 
 ## Session notes
 
+- :mortar_board: - self-paced tutorials (+ multichoice questions + exercises )
+- :clapper: - slides
+- :mag_right: - QnA, code review, demo
+
 | #  |  Date |  Notes |
 |---|---|---|
 | 1 | 	1\6 | 
-| 2 | 	2\6 | :heavy_check_mark: Compile `strace_ex` and upload to public bucket in AWS. Replace `<group-repo-link>` with the object public link. |
+| 2 | 	2\6 | :clapper: Linux intro, :mortar_board: Linux intro, :mortar_board: File management, :mortar_board: IO redirection, :clapper: Linux processes, :mortar_board: processes, :mortar_board: package management, :mortar_board: env var <br>:heavy_check_mark: Compile `strace_ex` and upload to public bucket in AWS. Replace `<group-repo-link>` with the object public link. |
 | 3 | 	5\6 | 
 | 4 | 	6\6 |  Review [Network Security](tutorials/15_networking_security.md) together with the students, demonstrate different encryption on your machine (symmetric/public/digital signature)  |
 | 5 | 	7\6 |  

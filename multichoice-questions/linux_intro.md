@@ -1,4 +1,4 @@
-# Linux - The very beginning - multichoice questions
+# Linux - Intro- multichoice questions
 
 The `ls` command is used to list directory contents. Use the `ls --help` command and the below sample invocations to answer the next 4 questions.
 

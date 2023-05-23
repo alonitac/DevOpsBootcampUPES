@@ -1,0 +1,215 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Linux - IO redirection - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Linux - IO redirection - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>To allow the search pattern <code>HELLO</code> to match both <code>hello</code> and <code>HELLO</code>, you would use the <code>grep</code>
+command with which command line switch?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>-i</code></li>
+<li><input type="checkbox"> <code>-r</code></li>
+<li><input type="checkbox"> <code>-w</code></li>
+<li><input type="checkbox"> <code>-k</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 2</h2>
+<p>Which of the following command lines would list all lines from <code>/usr/share/dict/words</code>
+which contain the text sun, preceded by their line number?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>grep -n sun /usr/share/dict/words</code></li>
+<li><input type="checkbox"> <code>grep -N /usr/share/dict/words sun</code></li>
+<li><input type="checkbox"> <code>grep -r /usr/share/dict/words sun</code></li>
+<li><input type="checkbox"> <code>grep -r sun /usr/share/dict/words</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 3</h2>
+<p>Which of the following command lines would list every line which contains the text <code>cdrom</code> from
+the file <code>README</code>, along with two lines of context before and after the matching line?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>grep cdrom README | head -2 | tail -2</code></li>
+<li><input type="checkbox"> <code>grep -n2 cdrom README</code></li>
+<li><input type="checkbox"> <code>grep -n2 README cdrom</code></li>
+<li><input type="checkbox"> <code>grep -k2 cdrom README</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 4</h2>
+<p>Which of the following command lines would list the names of files (and only the names of files)
+found underneath the <code>/etc</code> directory which contain the word <code>network</code> (i.e., the word networking
+would not count).</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>grep -rwl network /etc</code></li>
+<li><input type="checkbox"> <code>grep -wl network /etc</code></li>
+<li><input type="checkbox"> <code>grep -rl network /etc</code></li>
+<li><input type="checkbox"> <code>grep -ilw network /etc</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 5</h2>
+<p>The command <code>echo file.1 file.2</code> will</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> copy <code>file.1</code> to <code>file.2</code></li>
+<li><input type="checkbox"> display the contents of <code>file.1</code> and <code>file.2</code> on STDOUT</li>
+<li><input type="checkbox"> produce an error message because there is no redirection symbol</li>
+<li><input type="checkbox"> display "file.1 file.2" on STDOUT</li>
+</ul>
+<h2>Question 6</h2>
+<p>For the user <code>elvis</code>, with <code>/home/elvis</code> for a home directory, which of the following commands
+would succeed on a default Ubuntu Linux installation?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>ls /etc &gt; /etc/lsetc.txt</code></li>
+<li><input type="checkbox"> <code>/etc/lsetc.txt &lt; ls /etc</code></li>
+<li><input type="checkbox"> <code>ls /etc &gt; /home/elvis/lsetc.txt</code></li>
+<li><input type="checkbox"> <code>/home/elvis/lsetc.txt &lt; ls /etc</code></li>
+</ul>
+<h2>Question 7</h2>
+<p>Which of the following commands would successfully redirect the output of the <code>cal</code> command to the file lsout.txt?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>lsout.txt &gt; cal</code></li>
+<li><input type="checkbox"> <code>cal ==&gt; lsout.txt</code></li>
+<li><input type="checkbox"> <code>cal &gt; lsout.txt</code></li>
+<li><input type="checkbox"> <code>cal } lsout.txt</code></li>
+</ul>
+<h2>Question 8</h2>
+<p>Given the file <code>logs.txt</code>. Which of the following commands may increase the size of the file (its total bytes)</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>cat logs.txt</code></li>
+<li><input type="checkbox"> <code>echo "hiiiiiiiiiiiiiiiiiiii" &gt; logs.txt</code></li>
+<li><input type="checkbox"> <code>rm logs.txt</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 9</h2>
+<p>Given the file <code>logs.txt</code>. Which of the following commands will necessarily increase the size of the file (its total bytes)</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>cat logs.txt</code></li>
+<li><input type="checkbox"> <code>echo "hiiiiiiiiiiiiiiiiiiii" &gt; logs.txt</code></li>
+<li><input type="checkbox"> <code>rm logs.txt</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 10</h2>
+<p>Which of the following command lines would list lines from the file <code>/etc/group</code> which contain the text <code>elvis</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>grep /etc/group elvis</code></li>
+<li><input type="checkbox"> <code>echo elvis | grep /etc/group</code></li>
+<li><input type="checkbox"> <code>echo /etc/group | grep elvis</code></li>
+<li><input type="checkbox"> A and C</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 11</h2>
+<p>Which of the following command lines would return the number of lines which contain the text
+<code>freedom</code> found in the file <code>/usr/share/doc/redhat-release-5Server/GPL</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>grep freedom /usr/share/doc/redhat-release-5Server/GPL | wc -w</code></li>
+<li><input type="checkbox"> <code>grep freedom /usr/share/doc/redhat-release-5Server/GPL | wc -l</code></li>
+<li><input type="checkbox"> <code>grep freedom /usr/share/doc/redhat-release-5Server/GPL | wc -c</code></li>
+<li><input type="checkbox"> <code>grep freedom /usr/share/doc/redhat-release-5Server/GPL | wc -n</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 12</h2>
+<p>To copy <code>file1.txt</code> to <code>file2.txt</code>, you could use</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>cp file1.txt &gt; file2.txt</code></li>
+<li><input type="checkbox"> <code>cat file1.txt &gt; file2.txt</code></li>
+<li><input type="checkbox"> <code>dupe file1.txt file2.txt</code></li>
+<li><input type="checkbox"> <code>mv file1.txt file2.txt</code></li>
+</ul>
+<h2>Question 13</h2>
+<p>What will be in out.txt?</p>
+<pre><code class="language-bash">ls nonexistentfile | grep &quot;No such file&quot; &gt; out.txt
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> No such file</li>
+<li><input type="checkbox"> ls: cannot access nonexistentfile: No such file or directory</li>
+<li><input type="checkbox"> Nothing, out.txt will be empty.</li>
+<li><input type="checkbox"> It will be the contents of nonexistentfile.</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

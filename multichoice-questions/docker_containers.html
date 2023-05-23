@@ -1,0 +1,508 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Docker - containers - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Docker - containers - multichoice questions</h1>
+<h3>Question</h3>
+<p>You are trying to run a docker container based on the <a href="https://hub.docker.com/_/ubuntu">Ubuntu image</a>, with the <code>-it</code> flags, and get the below error:</p>
+<pre><code class="language-bash">docker run ubuntu -it
+</code></pre>
+<pre><code class="language-text">docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: &quot;-it&quot;: executable file not found in $PATH: unknown.
+ERRO[0005] error waiting for container: context canceled
+</code></pre>
+<p>What is the root cause? </p>
+<ol>
+<li>Docker daemon is not up and running. Execute <code>sudo systemctl start docker</code>.</li>
+<li>The machine cannot run containers.</li>
+<li>Docker recognizes the <code>-it</code> flags as the container command. Execute <code>docker run -it ubuntu</code> instead.</li>
+<li>The <code>ubuntu</code> docker image doesn't exist on the machine. Execute <code>docker pull ubuntu</code> before. </li>
+</ol>
+<h3>Question</h3>
+<p>From the perspective of the host machine, a running Docker container is essentially considered as just another process within the system. 
+However, inside the container itself, the running process operates within its own isolated environment, perceiving itself as the sole process within that system.</p>
+<p>Choose the correct sentence(s) regarding the process id:</p>
+<ol>
+<li>The PID of the container as it is seen from the host machine is the same as it seen within the container.</li>
+<li>The PID of the container as it is seen from the host machine is different from the PID as it is seen within the container.</li>
+<li>The PID of the container as it is seen within the container is 1.</li>
+<li>The PID of the container is the same as the docker daemon's PID (<code>dockerd</code>).</li>
+</ol>
+<h3>Question</h3>
+<p>After a while, what is the status of the container started by:</p>
+<pre><code class="language-bash">docker run ubuntu ps
+</code></pre>
+<ol>
+<li>Running</li>
+<li>Stopped</li>
+<li>Existed</li>
+<li>Created</li>
+<li>None of the above.</li>
+</ol>
+<h3>Question</h3>
+<p>When running <code>docker run -e MYSQL_ROOT_PASSWORD=1234 mysql</code>, what is the main process name of the container as it's seen <strong>from the host machine</strong>?</p>
+<ol>
+<li><code>mysqld</code></li>
+<li><code>dockerd</code></li>
+<li><code>containerd</code></li>
+<li><code>runc</code></li>
+<li>None of the above</li>
+</ol>
+<p>Based on the below output of <code>docker inspect 303ce6e8af55</code> on some running container:</p>
+<pre><code class="language-json">[
+    {
+        &quot;Id&quot;: &quot;303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810&quot;,
+        &quot;Created&quot;: &quot;2023-05-08T08:11:49.412947069Z&quot;,
+        &quot;Path&quot;: &quot;docker-entrypoint.sh&quot;,
+        &quot;Args&quot;: [
+            &quot;mysqld&quot;
+        ],
+        &quot;State&quot;: {
+            &quot;Status&quot;: &quot;running&quot;,
+            &quot;Running&quot;: true,
+            &quot;Paused&quot;: false,
+            &quot;Restarting&quot;: false,
+            &quot;OOMKilled&quot;: false,
+            &quot;Dead&quot;: false,
+            &quot;Pid&quot;: 294355,
+            &quot;ExitCode&quot;: 0,
+            &quot;Error&quot;: &quot;&quot;,
+            &quot;StartedAt&quot;: &quot;2023-05-08T08:11:51.873706592Z&quot;,
+            &quot;FinishedAt&quot;: &quot;0001-01-01T00:00:00Z&quot;
+        },
+        &quot;Image&quot;: &quot;sha256:8189e588b0e8fcc95b0d764d6f7bdb55b5b41e9249157177d73781058f603ca9&quot;,
+        &quot;ResolvConfPath&quot;: &quot;/var/lib/docker/containers/303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810/resolv.conf&quot;,
+        &quot;HostnamePath&quot;: &quot;/var/lib/docker/containers/303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810/hostname&quot;,
+        &quot;HostsPath&quot;: &quot;/var/lib/docker/containers/303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810/hosts&quot;,
+        &quot;LogPath&quot;: &quot;/var/lib/docker/containers/303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810/303ce6e8af55f0bd6a431a01dcc3dbca140bdcc5b55d4f1e21c6a3fcba3e5810-json.log&quot;,
+        &quot;Name&quot;: &quot;/tender_keldysh&quot;,
+        &quot;RestartCount&quot;: 0,
+        &quot;Driver&quot;: &quot;overlay2&quot;,
+        &quot;Platform&quot;: &quot;linux&quot;,
+        &quot;MountLabel&quot;: &quot;&quot;,
+        &quot;ProcessLabel&quot;: &quot;&quot;,
+        &quot;AppArmorProfile&quot;: &quot;docker-default&quot;,
+        &quot;ExecIDs&quot;: null,
+        &quot;HostConfig&quot;: {
+            &quot;Binds&quot;: null,
+            &quot;ContainerIDFile&quot;: &quot;&quot;,
+            &quot;LogConfig&quot;: {
+                &quot;Type&quot;: &quot;json-file&quot;,
+                &quot;Config&quot;: {}
+            },
+            &quot;NetworkMode&quot;: &quot;default&quot;,
+            &quot;PortBindings&quot;: {},
+            &quot;RestartPolicy&quot;: {
+                &quot;Name&quot;: &quot;no&quot;,
+                &quot;MaximumRetryCount&quot;: 0
+            },
+            &quot;AutoRemove&quot;: false,
+            &quot;VolumeDriver&quot;: &quot;&quot;,
+            &quot;VolumesFrom&quot;: null,
+            &quot;CapAdd&quot;: null,
+            &quot;CapDrop&quot;: null,
+            &quot;CgroupnsMode&quot;: &quot;host&quot;,
+            &quot;Dns&quot;: [],
+            &quot;DnsOptions&quot;: [],
+            &quot;DnsSearch&quot;: [],
+            &quot;ExtraHosts&quot;: null,
+            &quot;GroupAdd&quot;: null,
+            &quot;IpcMode&quot;: &quot;private&quot;,
+            &quot;Cgroup&quot;: &quot;&quot;,
+            &quot;Links&quot;: null,
+            &quot;OomScoreAdj&quot;: 0,
+            &quot;PidMode&quot;: &quot;&quot;,
+            &quot;Privileged&quot;: false,
+            &quot;PublishAllPorts&quot;: false,
+            &quot;ReadonlyRootfs&quot;: false,
+            &quot;SecurityOpt&quot;: null,
+            &quot;UTSMode&quot;: &quot;&quot;,
+            &quot;UsernsMode&quot;: &quot;&quot;,
+            &quot;ShmSize&quot;: 67108864,
+            &quot;Runtime&quot;: &quot;runc&quot;,
+            &quot;ConsoleSize&quot;: [
+                0,
+                0
+            ],
+            &quot;Isolation&quot;: &quot;&quot;,
+            &quot;CpuShares&quot;: 0,
+            &quot;Memory&quot;: 0,
+            &quot;NanoCpus&quot;: 0,
+            &quot;CgroupParent&quot;: &quot;&quot;,
+            &quot;BlkioWeight&quot;: 0,
+            &quot;BlkioWeightDevice&quot;: [],
+            &quot;BlkioDeviceReadBps&quot;: null,
+            &quot;BlkioDeviceWriteBps&quot;: null,
+            &quot;BlkioDeviceReadIOps&quot;: null,
+            &quot;BlkioDeviceWriteIOps&quot;: null,
+            &quot;CpuPeriod&quot;: 0,
+            &quot;CpuQuota&quot;: 0,
+            &quot;CpuRealtimePeriod&quot;: 0,
+            &quot;CpuRealtimeRuntime&quot;: 0,
+            &quot;CpusetCpus&quot;: &quot;&quot;,
+            &quot;CpusetMems&quot;: &quot;&quot;,
+            &quot;Devices&quot;: [],
+            &quot;DeviceCgroupRules&quot;: null,
+            &quot;DeviceRequests&quot;: null,
+            &quot;KernelMemory&quot;: 0,
+            &quot;KernelMemoryTCP&quot;: 0,
+            &quot;MemoryReservation&quot;: 0,
+            &quot;MemorySwap&quot;: 0,
+            &quot;MemorySwappiness&quot;: null,
+            &quot;OomKillDisable&quot;: false,
+            &quot;PidsLimit&quot;: null,
+            &quot;Ulimits&quot;: null,
+            &quot;CpuCount&quot;: 0,
+            &quot;CpuPercent&quot;: 0,
+            &quot;IOMaximumIOps&quot;: 0,
+            &quot;IOMaximumBandwidth&quot;: 0,
+            &quot;MaskedPaths&quot;: [
+                &quot;/proc/asound&quot;,
+                &quot;/proc/acpi&quot;,
+                &quot;/proc/kcore&quot;,
+                &quot;/proc/keys&quot;,
+                &quot;/proc/latency_stats&quot;,
+                &quot;/proc/timer_list&quot;,
+                &quot;/proc/timer_stats&quot;,
+                &quot;/proc/sched_debug&quot;,
+                &quot;/proc/scsi&quot;,
+                &quot;/sys/firmware&quot;
+            ],
+            &quot;ReadonlyPaths&quot;: [
+                &quot;/proc/bus&quot;,
+                &quot;/proc/fs&quot;,
+                &quot;/proc/irq&quot;,
+                &quot;/proc/sys&quot;,
+                &quot;/proc/sysrq-trigger&quot;
+            ]
+        },
+        &quot;GraphDriver&quot;: {
+            &quot;Data&quot;: {
+                &quot;LowerDir&quot;: &quot;/var/lib/docker/overlay2/0527b66c2da10505245168d1f084e150f9e56e4d42624569e1215536ec68231e-init/diff:/var/lib/docker/overlay2/d583e5274db743d86305fcfd36400a8a7a284f85709be7867bc0aa0b4cfaf32c/diff:/var/lib/docker/overlay2/0894921d7fe333aecd2516569141b5b70bfc2176128bf702eb7a974b8b7d183f/diff:/var/lib/docker/overlay2/c85383b79b37477fcbc236d42a5c5d228aea3f6933545e766a18029bc15b325d/diff:/var/lib/docker/overlay2/e7b712edcfed325a29bd24988e0d333fe8319398d3b38f71693af0a42e0a44a1/diff:/var/lib/docker/overlay2/ec9e92d41afa2d9fce8319582088669a16a48410d4e6ada53808d3089edc1765/diff:/var/lib/docker/overlay2/dc8021555938324415ceb966ce65bf42d6073797506032e69ed20448a7782e12/diff:/var/lib/docker/overlay2/040dae4ad608f96f9d68bee713db988728c6eadb6b516fabbf7d6b894be3b38d/diff:/var/lib/docker/overlay2/977da7c8267e343cad6a45505a2b590751988723e82b010a3e244f7132c0eeac/diff:/var/lib/docker/overlay2/da5008015b904ebf4b70df8d72c7a52567153d1586a0f7725d30036cd872f5ac/diff:/var/lib/docker/overlay2/253485cdcce0d7e45d6da86be4bee0dace9eef58fbf02bc1f009b3c7a95ab54d/diff:/var/lib/docker/overlay2/b89da9e305923e3c37291ad5f0cd90696d6f2e5e76f0fca87d1e1bcf9178714d/diff&quot;,
+                &quot;MergedDir&quot;: &quot;/var/lib/docker/overlay2/0527b66c2da10505245168d1f084e150f9e56e4d42624569e1215536ec68231e/merged&quot;,
+                &quot;UpperDir&quot;: &quot;/var/lib/docker/overlay2/0527b66c2da10505245168d1f084e150f9e56e4d42624569e1215536ec68231e/diff&quot;,
+                &quot;WorkDir&quot;: &quot;/var/lib/docker/overlay2/0527b66c2da10505245168d1f084e150f9e56e4d42624569e1215536ec68231e/work&quot;
+            },
+            &quot;Name&quot;: &quot;overlay2&quot;
+        },
+        &quot;Mounts&quot;: [
+            {
+                &quot;Type&quot;: &quot;volume&quot;,
+                &quot;Name&quot;: &quot;d6865699c2f97b1abd429d41e9902e29f1a909355242ef1f6f4bb7abf0dd296e&quot;,
+                &quot;Source&quot;: &quot;/var/lib/docker/volumes/d6865699c2f97b1abd429d41e9902e29f1a909355242ef1f6f4bb7abf0dd296e/_data&quot;,
+                &quot;Destination&quot;: &quot;/var/lib/mysql&quot;,
+                &quot;Driver&quot;: &quot;local&quot;,
+                &quot;Mode&quot;: &quot;&quot;,
+                &quot;RW&quot;: true,
+                &quot;Propagation&quot;: &quot;&quot;
+            }
+        ],
+        &quot;Config&quot;: {
+            &quot;Hostname&quot;: &quot;303ce6e8af55&quot;,
+            &quot;Domainname&quot;: &quot;&quot;,
+            &quot;User&quot;: &quot;&quot;,
+            &quot;AttachStdin&quot;: false,
+            &quot;AttachStdout&quot;: true,
+            &quot;AttachStderr&quot;: true,
+            &quot;ExposedPorts&quot;: {
+                &quot;3306/tcp&quot;: {},
+                &quot;33060/tcp&quot;: {}
+            },
+            &quot;Tty&quot;: false,
+            &quot;OpenStdin&quot;: false,
+            &quot;StdinOnce&quot;: false,
+            &quot;Env&quot;: [
+                &quot;MYSQL_ROOT_PASSWORD=1234&quot;,
+                &quot;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&quot;,
+                &quot;GOSU_VERSION=1.16&quot;,
+                &quot;MYSQL_MAJOR=8.0&quot;,
+                &quot;MYSQL_VERSION=8.0.33-1.el8&quot;,
+                &quot;MYSQL_SHELL_VERSION=8.0.33-1.el8&quot;
+            ],
+            &quot;Cmd&quot;: [
+                &quot;mysqld&quot;
+            ],
+            &quot;Image&quot;: &quot;mysql&quot;,
+            &quot;Volumes&quot;: {
+                &quot;/var/lib/mysql&quot;: {}
+            },
+            &quot;WorkingDir&quot;: &quot;&quot;,
+            &quot;Entrypoint&quot;: [
+                &quot;docker-entrypoint.sh&quot;
+            ],
+            &quot;OnBuild&quot;: null,
+            &quot;Labels&quot;: {}
+        },
+        &quot;NetworkSettings&quot;: {
+            &quot;Bridge&quot;: &quot;&quot;,
+            &quot;SandboxID&quot;: &quot;ee1dd90916d4b1078246e248676863a4d3c0ab454bef7a1bc5476da95aa0f176&quot;,
+            &quot;HairpinMode&quot;: false,
+            &quot;LinkLocalIPv6Address&quot;: &quot;&quot;,
+            &quot;LinkLocalIPv6PrefixLen&quot;: 0,
+            &quot;Ports&quot;: {
+                &quot;3306/tcp&quot;: null,
+                &quot;33060/tcp&quot;: null
+            },
+            &quot;SandboxKey&quot;: &quot;/var/run/docker/netns/ee1dd90916d4&quot;,
+            &quot;SecondaryIPAddresses&quot;: null,
+            &quot;SecondaryIPv6Addresses&quot;: null,
+            &quot;EndpointID&quot;: &quot;6cf6a9c5505da1d30922219bccbd91c6fea71aaa3c67ab53163b99144e40bd11&quot;,
+            &quot;Gateway&quot;: &quot;172.17.0.1&quot;,
+            &quot;GlobalIPv6Address&quot;: &quot;&quot;,
+            &quot;GlobalIPv6PrefixLen&quot;: 0,
+            &quot;IPAddress&quot;: &quot;172.17.0.3&quot;,
+            &quot;IPPrefixLen&quot;: 16,
+            &quot;IPv6Gateway&quot;: &quot;&quot;,
+            &quot;MacAddress&quot;: &quot;02:42:ac:11:00:03&quot;,
+            &quot;Networks&quot;: {
+                &quot;bridge&quot;: {
+                    &quot;IPAMConfig&quot;: null,
+                    &quot;Links&quot;: null,
+                    &quot;Aliases&quot;: null,
+                    &quot;NetworkID&quot;: &quot;c870c05c5ce1e9d7a8711ada1826eead7e54ecf4847f61e43be30e672008bdbd&quot;,
+                    &quot;EndpointID&quot;: &quot;6cf6a9c5505da1d30922219bccbd91c6fea71aaa3c67ab53163b99144e40bd11&quot;,
+                    &quot;Gateway&quot;: &quot;172.17.0.1&quot;,
+                    &quot;IPAddress&quot;: &quot;172.17.0.3&quot;,
+                    &quot;IPPrefixLen&quot;: 16,
+                    &quot;IPv6Gateway&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6Address&quot;: &quot;&quot;,
+                    &quot;GlobalIPv6PrefixLen&quot;: 0,
+                    &quot;MacAddress&quot;: &quot;02:42:ac:11:00:03&quot;,
+                    &quot;DriverOpts&quot;: null
+                }
+            }
+        }
+    }
+]
+</code></pre>
+<p>Answer the bellow 6 questions.</p>
+<h3>Question</h3>
+<p>What is the IP address of the container? </p>
+<ol>
+<li><code>172.17.0.1</code>.</li>
+<li><code>172.17.0.3</code>.</li>
+<li><code>127.0.0.1</code>.</li>
+<li>IP v6: <code>02:42:ac:11:00:03</code>.</li>
+</ol>
+<h3>Question</h3>
+<p>How many ports are exposed by the container? </p>
+<ol>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>None of the above</li>
+</ol>
+<h3>Question</h3>
+<p>How many environment variables are given to the container process?</p>
+<ol>
+<li>0</li>
+<li>2</li>
+<li>4</li>
+<li>6</li>
+<li>8</li>
+</ol>
+<h3>Question</h3>
+<p>Was the container run with the <code>-it</code> flags? </p>
+<ol>
+<li>Yes</li>
+<li>No</li>
+<li>We couldn't know from the output.</li>
+</ol>
+<h3>Question</h3>
+<p>The container status is:</p>
+<ol>
+<li>Exited</li>
+<li>Created</li>
+<li>Running </li>
+<li>Restarting</li>
+<li>We couldn't know from the output.</li>
+</ol>
+<h3>Question</h3>
+<p>What is the PID of the container as it is seen from the host machine? </p>
+<ol>
+<li>1</li>
+<li>294355</li>
+<li>67108864</li>
+<li>We couldn't know from the output. </li>
+</ol>
+<h3>Question</h3>
+<p>The <a href="https://hub.docker.com/_/mysql">official <code>mysql</code> image</a> is running by the following command: <code>docker run -e MYSQL_ROOT_PASSWORD=1234 mysql</code>. </p>
+<p>Choose the correct answer: </p>
+<ol>
+<li>The MySQL database is accessible from the host machine on port <code>3306</code>.</li>
+<li>The MySQL database is accessible from the host machine on port <code>8080</code>.</li>
+<li>The MySQL database is accessible from the host machine on port <code>80</code>.</li>
+<li>The database is not accessible from the host machine. </li>
+</ol>
+<h3>Question</h3>
+<p>The <a href="https://hub.docker.com/_/mysql">official <code>mysql</code> image</a> is running by the following command: <code>docker run -e MYSQL_ROOT_PASSWORD=1234 mysql</code>.</p>
+<p>Which of the below docker commands can help with debugging the <code>/var/run/mysqld/mysqld.sock</code> file, which is located within the container? </p>
+<ol>
+<li><code>docker exec</code></li>
+<li><code>docker logs</code></li>
+<li><code>docker run</code></li>
+<li><code>docker top</code></li>
+</ol>
+<h3>Question</h3>
+<p>When the docker service is restarted by (under default docker daemon configurations):</p>
+<pre><code class="language-bash">sudo systemctl restart docker
+</code></pre>
+<p>What happens to the running containers? </p>
+<ol>
+<li>Running containers are killed.</li>
+<li>Running containers are stopped.</li>
+<li>Nothing happens since Docker doesn't run the containers itself, but <code>runc</code> does.</li>
+<li>None of the above. </li>
+</ol>
+<h3>Question</h3>
+<p>Which command(s) can help you to resolve the following error: </p>
+<pre><code class="language-text">Error response from daemon: You cannot remove a running container 76004df79402d330992abe9f423715904fb590663f797fee3bca4e9e877f0ac0. Stop the container before attempting removal or force remove
+</code></pre>
+<ol>
+<li><code>docker run 76004df794</code></li>
+<li><code>docker kill --signal STOP 76004df794</code></li>
+<li><code>docker top 76004df794</code></li>
+<li><code>docker stop 76004df794</code></li>
+<li><code>docker pause 76004df794</code></li>
+</ol>
+<h3>Question</h3>
+<p>What is the docker image name with which the below container is running?</p>
+<pre><code class="language-bash">docker run --name mybusy busybox wget localhost
+</code></pre>
+<ol>
+<li><code>mybusy</code></li>
+<li><code>busybox</code></li>
+<li><code>wget</code></li>
+<li><code>localhost</code></li>
+<li>None of the above</li>
+</ol>
+<h3>Question</h3>
+<p>Consider the bellow two <code>docker run</code> commands:</p>
+<pre><code class="language-bash">docker run -p 8080:80 nginx
+docker run -p 8080:80 nginx
+</code></pre>
+<p>Assume there are no other containers running on the host machine. 
+Choose the correct sentence:</p>
+<ol>
+<li>The commands create and run two different containers successfully.</li>
+<li>The second command does nothing since the first command runs the nginx container image successfully.</li>
+<li>The seconds command will fail since you are not able to run two different containers from the <code>nginx</code> image.</li>
+<li>None of the above.</li>
+</ol>
+<h3>Question</h3>
+<p>The following command has run successfully:</p>
+<pre><code class="language-bash">docker run -it ubuntu /bin/bash
+</code></pre>
+<p>What can be id for sure regarding the container:</p>
+<ol>
+<li>The <code>ubuntu</code> image existed on the machine before the command was executed.</li>
+<li>The binary <code>/bin/bash</code> exists in the container's file system. </li>
+<li>The <code>-it</code> flags allow you to run within the container every command that is available on the host machine.</li>
+<li>None of the above.</li>
+</ol>
+<h3>Question</h3>
+<p>You are trying to run an <code>nginx</code> container using the following command: </p>
+<pre><code class="language-bash">docker run --name some-nginx -e DEBUG=true nginx
+</code></pre>
+<p>But encounter the following error:</p>
+<pre><code class="language-text">docker: Error response from daemon: Conflict. The container name &quot;/some-nginx&quot; is already in use by container &quot;761aacef37cfe438f77fe92d6e4a2eeecc6d72c9cea9eb5f73d5af5a1ae377d2&quot;. You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'
+</code></pre>
+<p>Which command can help you resolve the problem? </p>
+<ol>
+<li><code>docker run --force --name some-nginx -e DEBUG=true nginx</code></li>
+<li><code>docker rm some-nginx</code></li>
+<li><code>docker kill some-nginx</code></li>
+<li><code>docker rename some-nginx some-ng</code></li>
+</ol> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

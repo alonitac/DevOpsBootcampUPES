@@ -16,14 +16,6 @@ Let's review some basic commands that you can use to navigate and control the fi
 **Note:** there is no undo! The Linux cli does not have an undo feature. Perform destructive actions carefully.
 
 
-> ### :pencil2: Exercise - File System Orientation Commands
-> 1. Create a directory in your home directory. In that directory, create a series of files and directories.
-> 2. Delete one of the directories that has other files and directories in them, preferably in 1 command. Are you able to remove non-empty directories?
-> 3. Copy the complete content of one directory to another, in 1 command.
-> 4. Rename one of the files (how?).
-> 5. Create a file and its name contain space, e.g. my file.txt
-> 6. Now go to your home directory using 4 different methods?
-
 ## Linux Text Editor
 
 Use `nano` or `vim`.
@@ -84,17 +76,6 @@ myuser@hostname:/etc$ ls b*
 ```
 
 The above example prints all files starting with `b`.
-
-> ### :pencil2: Exercise - Wildcards
-> 
-> A good directory to play with is `/etc` which is a directory containing config files for the system. As a normal user you may view the files but you can't make any changes so we can't do any harm.
-> 
-> 1. List files with only files that contain an extension.
-> 2. List files with only a 3 letter extension.
-> 3. List files whose name contains an uppercase letter.
-> 4. List all python files (files with .py extension).
-> 5. List files whose name is 4 characters long.
-
 
 ## File Permissions
 
@@ -242,6 +223,19 @@ myuser@hostname:~$ ln -s myfile.txt my-soft-link
 TBD
 
 # Exercises
+
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_file_management.html)
+
+### Exercise - Wildcards
+
+A good directory to play with is `/etc` which is a directory containing config files for the system. As a normal user you may view the files but you can't make any changes so we can't do any harm.
+
+1. List files with only files that contain an extension.
+2. List files with only a 3 letter extension.
+3. List files whose name contains an uppercase letter.
+4. List all python files (files with .py extension).
+5. List files whose name is 4 characters long.
+
 
 ## Your neighbors home directory
 

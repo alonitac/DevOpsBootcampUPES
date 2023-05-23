@@ -1,0 +1,253 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Linux - The very beginning - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Linux - The very beginning - multichoice questions</h1>
+<p>The <code>ls</code> command is used to list directory contents. Use the <code>ls --help</code> command and the below sample invocations to answer the next 4 questions.</p>
+<pre><code class="language-console">myuser@localhost:~$ touch --help
+Usage: touch [OPTION]... FILE...
+...
+myuser@localhost:~$ ls /etc
+debian_version      host.conf           lsb-release
+…
+myuser@localhost:~$ lss /etc
+-bash: lss: command not found
+myuser@localhost:~$ ls -z /etc
+ls: invalid option -- 'z'
+Try 'ls --help' for more information.
+</code></pre>
+<h2>Question 1</h2>
+<p>Which best describes why <code>myuser</code> got the "command not found" error message when running
+<code>lss /etc</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The directory <code>/etc</code> does not exist.</li>
+<li><input type="checkbox"> myuser misspelled the command name, and no command named <code>lss</code> could be found.</li>
+<li><input type="checkbox"> The <code>ls</code> command requires a mandatory <code>-a</code> flag.</li>
+<li><input type="checkbox"> <code>myuser</code> does not have the right permissions to execute the command.</li>
+</ul>
+<h2>Question 2</h2>
+<p>Which best describes why <code>myuser</code> got the "invalid option" error message when running touch
+<code>ls -z /etc</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The directory <code>/etc</code> does not exist.</li>
+<li><input type="checkbox"> <code>myuser</code> misspelled the command name, and no command named <code>lss</code> could be found.</li>
+<li><input type="checkbox"> The <code>ls</code> command requires a mandatory <code>-a</code> flag.</li>
+<li><input type="checkbox"> The <code>ls</code> command doesn't support the <code>-z</code> flag.</li>
+</ul>
+<h2>Question 3</h2>
+<p>When <code>myuser</code> ran the command <code>ls /etc</code>, what best describes the role of
+the word <code>/etc</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The word serves as an argument to the <code>ls</code> command.</li>
+<li><input type="checkbox"> The word serves as a parameter to the <code>-r</code> flag.</li>
+<li><input type="checkbox"> The word serves as the name of the command to run.</li>
+<li><input type="checkbox"> The word is misplaced, and caused the command to exit in failure.</li>
+</ul>
+<h2>Question 4</h2>
+<p>Which of the following would be a legitimate invocation of the <code>ls</code> command?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>ls /etc -a</code></li>
+<li><input type="checkbox"> <code>ls --nolist /etc</code></li>
+<li><input type="checkbox"> <code>ls -l/etc</code></li>
+<li><input type="checkbox"> <code>ls -l /etc</code></li>
+</ul>
+<h2>Question 5</h2>
+<p>Which control sequence causes bash to clear the screen?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> CTRL+C</li>
+<li><input type="checkbox"> CTRL+D</li>
+<li><input type="checkbox"> CTRL+L</li>
+<li><input type="checkbox"> CTRL+S</li>
+<li><input type="checkbox"> CTRL+U</li>
+</ul>
+<h2>Question 6</h2>
+<p>Which command will list the contents of the directory <code>report</code> recursively?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>lsdir report</code></li>
+<li><input type="checkbox"> <code>ls --recur report</code></li>
+<li><input type="checkbox"> <code>ls -r report</code></li>
+<li><input type="checkbox"> <code>ls -R report</code></li>
+<li><input type="checkbox"> <code>ls report \r</code></li>
+</ul>
+<h2>Question 7</h2>
+<p>Which of the following is an absolute directory reference?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/home/student</code></li>
+<li><input type="checkbox"> <code>../etc</code></li>
+<li><input type="checkbox"> <code>..</code></li>
+<li><input type="checkbox"> <code>home/myuser</code></li>
+</ul>
+<h2>Question 8</h2>
+<p>Which of the following is a relative directory reference?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/home/student</code></li>
+<li><input type="checkbox"> <code>/etc</code></li>
+<li><input type="checkbox"> <code>..</code></li>
+<li><input type="checkbox"> <code>~</code></li>
+</ul>
+<h2>Question 9</h2>
+<p>Which of the following could have been displayed by <code>pwd</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>home/student</code></li>
+<li><input type="checkbox"> <code>/etc</code></li>
+<li><input type="checkbox"> <code>..</code></li>
+<li><input type="checkbox"> <code>~</code></li>
+</ul>
+<h2>Question 10</h2>
+<p>Following the command <code>cd ~</code>, which is the most likely result from <code>pwd</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/home/myuser</code></li>
+<li><input type="checkbox"> <code>/etc</code></li>
+<li><input type="checkbox"> <code>..</code></li>
+<li><input type="checkbox"> <code>~</code></li>
+</ul>
+<h2>Question 11</h2>
+<p>The file <code>named.conf</code> is a system configuration file. This file belongs in</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/tmp</code></li>
+<li><input type="checkbox"> <code>/etc</code></li>
+<li><input type="checkbox"> <code>/bin</code></li>
+<li><input type="checkbox"> <code>/home/myuser</code></li>
+</ul>
+<h2>Question 12</h2>
+<p>The file <code>e2fsck</code> is a privileged command that must always be available to the system and being used by the system admin. This file would be found in</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/tmp</code></li>
+<li><input type="checkbox"> <code>/etc</code></li>
+<li><input type="checkbox"> <code>/var/lib</code></li>
+<li><input type="checkbox"> <code>/sbin</code></li>
+</ul>
+<h2>Question 13</h2>
+<p>Which of the following commands could not be used to create a file in <code>/tmp</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>touch /newfile</code></li>
+<li><input type="checkbox"> <code>touch /tmp/newfile</code></li>
+<li><input type="checkbox"> <code>touch ../newfile</code></li>
+<li><input type="checkbox"> <code>touch ../tmp/newfile</code></li>
+</ul>
+<h2>Question 14</h2>
+<p>Use the <code>file</code> command to help answer the question.</p>
+<p>What type of file is <code>/dev/log</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> A character special file</li>
+<li><input type="checkbox"> A block special file</li>
+<li><input type="checkbox"> A socket</li>
+<li><input type="checkbox"> A symbolic link</li>
+<li><input type="checkbox"> A compiled ELF object</li>
+</ul>
+<h2>Question 15</h2>
+<p>Which of the following commands would display the first 5 lines of the file <code>/etc/passwd</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>head -5 /etc/passwd</code></li>
+<li><input type="checkbox"> <code>head -n /etc/passwd</code></li>
+<li><input type="checkbox"> <code>head --five /etc/passwd</code></li>
+<li><input type="checkbox"> <code>head /etc/passwd &gt; 5</code></li>
+<li><input type="checkbox"> <code>head /5 /etc/passwd</code></li>
+</ul>
+<h2>Question 16</h2>
+<p>What type of file is <code>/usr/bin/md5sum</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> A compiled ELF object</li>
+<li><input type="checkbox"> An Awk script</li>
+<li><input type="checkbox"> A Bash (Bourne-Again) shell script</li>
+<li><input type="checkbox"> A Symbolic Link</li>
+<li><input type="checkbox"> A <code>/usr/bin/perl</code> script</li>
+</ul>
+<h2>Question 17</h2>
+<p>Given the path <code>/home/username/secret.txt</code>, choose the correct sentence:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>secret.txt</code> is a file</li>
+<li><input type="checkbox"> <code>secret.txt</code> is a directory</li>
+<li><input type="checkbox"> <code>secret.txt</code> can be either file or a directory</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

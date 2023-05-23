@@ -45,7 +45,7 @@ PATH=$PATH:/home/myuser/mytools
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_environment_variables.html)
 
 # Exercises
 
@@ -77,7 +77,7 @@ Find specific env var to manipulate, such that the command `cd ~` will actually 
 This hack should work for any child process spawned from your current terminal session.
 
 
-## Elvis custom ls command
+## Elvis custom `ls` command
 
 The PATH variable on `elvis`’ machine looks like:
 

@@ -186,7 +186,7 @@ In the above output, UNIT represents the unit name, LOAD indicates that the unit
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_processes.html)
 
 # Exercises
 

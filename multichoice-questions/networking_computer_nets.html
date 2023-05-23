@@ -1,0 +1,305 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Networking - subnets - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Networking - subnets - multichoice questions</h1>
+<h3>Question 1</h3>
+<p>How many different hosts can be connected to the subnet denoted by <code>10.0.1.0/24</code>?</p>
+<ol>
+<li><input type="checkbox"> 254</li>
+<li><input type="checkbox"> 24</li>
+<li><input type="checkbox"> 1024</li>
+<li><input type="checkbox"> 255</li>
+</ol>
+<h3>Question 2</h3>
+<p>Which of the following subnets is most specifically describes the following list of hosts IP:</p>
+<ul style="list-style-type: none;">
+<li>172.31.8.17</li>
+<li>172.31.37.152</li>
+<li>172.31.33.152</li>
+<li>172.31.42.73</li>
+<li>
+<p>172.31.8.46</p>
+</li>
+<li>
+<p><input type="checkbox"> <code>172.31.0.0/16</code></p>
+</li>
+<li><input type="checkbox"> <code>172.31.0.0/24</code></li>
+<li><input type="checkbox"> <code>172.31.8.0/24</code></li>
+<li><input type="checkbox"> <code>172.0.0.0/16</code></li>
+</ul>
+<p>Use the following transcript to answer the next 4 questions.</p>
+<pre><code class="language-console">[madonna@station madonna]$ ip address
+eth0        Link encap:Ethernet HWaddr 00:00:86:4D:F0:0C
+inet addr:118.45.92.51 Bcast:118.45.92.255 Mask:255.255.255.0
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+RX packets:242939 errors:0 dropped:0 overruns:0 frame:0
+TX packets:302515 errors:0 dropped:0 overruns:1 carrier:1
+collisions:0 txqueuelen:100
+RX bytes:24308852 (23.1 Mb) TX bytes:166603272 (158.8 Mb)
+Interrupt:11 Base address:0xd400
+
+lo          Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+UP LOOPBACK RUNNING MTU:16436 Metric:1
+RX packets:29291 errors:0 dropped:0 overruns:0 frame:0
+TX packets:29291 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:0
+RX bytes:2661822 (2.5 Mb) TX bytes:2661822 (2.5 Mb)
+
+[madonna@station madonna]$ route -n
+Kernel IP routing table
+Destination     Gateway     Genmask         Flags Metric Ref Use Iface
+118.45.92.0     0.0.0.0     255.255.255.0   U   0   0 0 eth0
+</code></pre>
+<h3>Question 3</h3>
+<p>What is the IP address of madonna's machine?</p>
+<ol>
+<li><input type="checkbox"> <code>118.45.92.0</code></li>
+<li><input type="checkbox"> <code>127.0.0.1</code></li>
+<li><input type="checkbox"> <code>118.45.92.51</code></li>
+<li><input type="checkbox"> <code>66.23.35.53</code></li>
+<li><input type="checkbox"> Not enough information is provided.</li>
+</ol>
+<h3>Question 4</h3>
+<p>Which file is used when resolving the hostname localhost?</p>
+<ol>
+<li><input type="checkbox"> <code>/etc/inittab</code></li>
+<li><input type="checkbox"> <code>/etc/hosts</code></li>
+<li><input type="checkbox"> <code>/etc/resolv.conf</code></li>
+<li><input type="checkbox"> <code>/etc/sysconfig/localhost</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<h3>Question 5</h3>
+<p>Which of the following error messages most likely appear when madonna sends traffic to 16.74.114.3</p>
+<ol>
+<li>Host is not resolvable</li>
+<li>404 page not found</li>
+<li>Internal server error</li>
+<li>No route to host</li>
+<li>None of the above</li>
+</ol>
+<h3>Question 6</h3>
+<p>To which network interface will the traffic be routed for the IP address <code>127.1.1.1</code>?</p>
+<ol>
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<h3>Question 7</h3>
+<p>Suppose you have the following IP address: <code>192.168.1.128</code>
+Using the <a href="https://en.wikipedia.org/wiki/Longest_prefix_match">longest prefix match</a> algorithm to determine the route, which of the following networks will this IP address be routed to?</p>
+<ol>
+<li><input type="checkbox"> <code>192.168.1.0/32</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/24</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/16</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/0</code></li>
+</ol>
+<h3>Question 8</h3>
+<p>Given an IP address of <code>10101010 11110000 00111111 00001111</code>, which of the below routes would be taken when using the longest prefix match algorithm?</p>
+<ol>
+<li><input type="checkbox"> <code>10000000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>11000000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>10100000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>10000000 00000000 00000000 00000000/3</code></li>
+</ol>
+<h3>Question 9</h3>
+<p>Given the below output of the <code>ip address</code> command:</p>
+<pre><code class="language-text">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+inet 192.168.0.2/24 brd 192.168.0.255 scope global eth0
+valid_lft forever preferred_lft forever
+
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+inet 192.168.1.2/24 brd 192.168.1.255 scope global wlan0
+valid_lft forever preferred_lft forever
+</code></pre>
+<p>Assuming that a request is made to the IP address <code>192.168.2.0</code>, which network interface will be used to route this request?</p>
+<ol>
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<p>Consider the below network, described by <code>156.1.0.0/16</code>.</p>
+<pre><code class="language-text">                    +--------------+
+                    |  Subnet A    |
+                    | 127 hosts    |
+                    | 156.1.1.0/24 |
+                    +--------------+
+                           |
+                           |
+                           |
+          +-----------------------------+
+          |                             |
++-----------------+                   +----------------+
+|    Subnet B     |                   |    Subnet C    |
+|    58 hosts     |                   |    29 hosts    |
+|   156.1.45.0/24 |                   | 156.1.5.0/24   |
++-----------------+                   +----------------+
+</code></pre>
+<p>Answer the below 4 question:</p>
+<h3>Question 10</h3>
+<p>Is the address space public or private?</p>
+<ol>
+<li><input type="checkbox"> Public</li>
+<li><input type="checkbox"> Private</li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<h3>Question 11</h3>
+<p>Excluding the network address, and broadcast address of each subnet, how many hosts can potentially be in the whole network?</p>
+<ol>
+<li><input type="checkbox"> 256 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 512 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 65536 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 214 - 6 (network and broadcast addresses)</li>
+</ol>
+<h3>Question 12</h3>
+<p>What is the first address of subnet A (excluding the network and broadcast addresses)?</p>
+<ol>
+<li><input type="checkbox"> <code>156.1.1.0</code></li>
+<li><input type="checkbox"> <code>156.1.1.1</code></li>
+<li><input type="checkbox"> <code>156.1.1.255</code></li>
+<li><input type="checkbox"> <code>156.1.0.0</code></li>
+</ol>
+<h3>Question 13</h3>
+<p>What is the broadcast address of subnet A?</p>
+<ol>
+<li><input type="checkbox"> <code>156.1.1.0</code></li>
+<li><input type="checkbox"> <code>156.1.1.1</code></li>
+<li><input type="checkbox"> <code>156.1.1.255</code></li>
+<li><input type="checkbox"> <code>156.1.0.0</code></li>
+</ol>
+<p>Suppose the following route table of host Y:</p>
+<pre><code class="language-text">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 eth0
+10.0.0.0        10.0.0.1        255.255.255.0   UG    0      0        0 eth1
+192.168.1.0     0.0.0.0         255.255.255.0   U     100    0        0 eth0
+</code></pre>
+<p>Answer the below 4 questions.</p>
+<h3>Question 14</h3>
+<p>What is the default gateway address of Y?</p>
+<ol>
+<li><input type="checkbox"> <code>192.168.1.0</code></li>
+<li><input type="checkbox"> <code>192.168.1.1</code></li>
+<li><input type="checkbox"> <code>10.0.0.1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<h3>Question 15</h3>
+<p>What is most likely the CIDR of the subnet host Y belongs to?</p>
+<ol>
+<li><input type="checkbox"> <code>192.168.1.0/16</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/24</code></li>
+<li><input type="checkbox"> <code>10.0.0.1/24</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/32</code></li>
+</ol>
+<h3>Question 16</h3>
+<p>To which network interface will the traffic to <code>10.0.0.234</code> be routed?</p>
+<ol>
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>eth1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ol>
+<h3>Question 17</h3>
+<p>To which network interface will the traffic to <code>10.0.1.234</code> be routed?</p>
+<ol>
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>eth1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ol> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,127 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Networking - OSI Model - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "e443169117a184f91186b401133b20be670c7c0896f9886075e5d9b81e9d076b", "2": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "3": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Networking - OSI Model - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>Which of the following services are guaranteed by UDP?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Control packet order flow</li>
+<li><input type="checkbox"> Detect corrupted packets</li>
+<li><input type="checkbox"> Make sure all packets have been transferred</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 2</h2>
+<p>WhatsUp voice call feature has two major components:</p>
+<ol>
+<li>Call manager - responsible to initialize the call to the destined participant, to ring, and to start the conversation session once the two sides are on-line.</li>
+<li>Call streamer - responsible to transmit the recorded voice buffer between participants.</li>
+</ol>
+<p>Choose the <strong>most suitable</strong> underlying protocol for each component:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The call manager relying on TCP while the streamer on UDP</li>
+<li><input type="checkbox"> The call manager relying on UDP while the streamer on TCP</li>
+<li><input type="checkbox"> Both components relying on TCP</li>
+<li><input type="checkbox"> Both components relying on UDP</li>
+</ul>
+<h2>Question 3</h2>
+<p>Complete the missing words in the below paragraph:</p>
+<p>In the <strong><em>_</em>_ layer, bits are passing from one node to another, for example using wires. The </strong><strong><em>_ layer handles the delivery of segments from the application layer, in a reliable or unreliable way. Then comes the </em></strong><strong><em> layer which is responsible for moving packets from the source host to the destination host.
+Lastly, the </em></strong>___ layer handles messages from a variety of network applications such as Outlook mail.</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Transport, application, network interface, network</li>
+<li><input type="checkbox"> Network Interface,  transport, network, application</li>
+<li><input type="checkbox"> Application, network, transport, network interface</li>
+<li><input type="checkbox"> Network, Network interface,  transport, application</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

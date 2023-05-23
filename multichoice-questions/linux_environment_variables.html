@@ -1,0 +1,153 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Linux - Environment variables - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "66af92bf73fffb190214fde65933fcbf013365a674cc320576909d939d0c1440", "3": "90c057678bcaee0767b2d39294da097a6d1ac3cf2b3c1e64d496fa5d229b1c2d", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "bd0308960fed21e376a1708cc8b18794374cb1296806b554113adf32feabacd6", "6": "d27337d22345358538f83acd45537e5078da9fcd04e2dffc5ea509da617f0efe"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Linux - Environment variables - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>When a user runs the command <code>who</code> from the command line, which of the following best describes what happens?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The shell asks the kernel to execute the contents of the file <code>/usr/bin/who</code> as a separate process, displaying the process's output on the terminal.</li>
+<li><input type="checkbox"> The shell makes the <code>who</code> system call, prompting the Linux kernel for the output directly.</li>
+<li><input type="checkbox"> The shell exits, and is replaced by the <code>who</code> process. When the <code>who</code> process terminates, it replaces itself with a new shell process.</li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 2</h2>
+<p>Which of the following could not be used as the name of an environment variable?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>NAME</code></li>
+<li><input type="checkbox"> <code>PHONE_1</code></li>
+<li><input type="checkbox"> <code>Addr2</code></li>
+<li><input type="checkbox"> <code>ZipCode</code></li>
+<li><input type="checkbox"> All of the above could be used as the name of an environment variable.</li>
+</ul>
+<h2>Question 3</h2>
+<p>Which of the following would correctly set the environment variable <code>ADDR</code> to “123 Elm St.”?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>ADDR= 123_Elm_St.</code></li>
+<li><input type="checkbox"> <code>export ADDR=123 Elm St.</code></li>
+<li><input type="checkbox"> <code>export ADDR="123 Elm St."</code></li>
+<li><input type="checkbox"> <code>export ADDR=123_Elm_St.</code></li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 4</h2>
+<p>Which of the following is not a feature of environment variables?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> All processes use environment variables, not just those running the bash shell.</li>
+<li><input type="checkbox"> Environment variables are inherited by child processes by default.</li>
+<li><input type="checkbox"> Upon startup, the bash shell clears all previously defined environment variables.</li>
+<li><input type="checkbox"> Environment variables can be examined using files found in the <code>/proc</code> filesystem.</li>
+</ul>
+<h2>Question 5</h2>
+<p>Which of the following commands would append the directory <code>/opt/bin</code> to the current value
+of the <code>PATH</code> environment variable?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>PATH=$PATH:/opt/bin</code></li>
+<li><input type="checkbox"> <code>PATH+=/opt/bin</code></li>
+<li><input type="checkbox"> <code>PATH=${PATH}+"/opt/bin"</code></li>
+<li><input type="checkbox"> A and B</li>
+<li><input type="checkbox"> All of the above</li>
+</ul>
+<h2>Question 6</h2>
+<p>The user elvis performs the following command.</p>
+<pre><code class="language-contole">[elvis@station elvis]$ export STYLE=terse
+</code></pre>
+<p>Which of the following commands would delete the environment variable STYLE?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>set</code></li>
+<li><input type="checkbox"> <code>env STYLE</code></li>
+<li><input type="checkbox"> <code>rm /proc/$$/environ</code></li>
+<li><input type="checkbox"> <code>import STYLE</code></li>
+<li><input type="checkbox"> <code>unset STYLE</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

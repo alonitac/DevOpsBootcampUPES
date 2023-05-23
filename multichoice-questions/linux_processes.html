@@ -1,0 +1,225 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Linux - Processes - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Linux - Processes - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>A user started a process and logged out from the terminal. Which command he used if the process still running in the background:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>nokill</code></li>
+<li><input type="checkbox"> <code>nohup</code></li>
+<li><input type="checkbox"> <code>nofg</code></li>
+<li><input type="checkbox"> <code>bg</code></li>
+</ul>
+<h2>Question 2</h2>
+<p>Which of the following is a true statement?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Only the root user may run processes from a shell.</li>
+<li><input type="checkbox"> The shell is a process that is commonly used to execute other processes.</li>
+<li><input type="checkbox"> The shell is the kernel component that interacts directly with hardware.</li>
+<li><input type="checkbox"> Only one instance of a shell may be running as a process.</li>
+</ul>
+<h2>Question 3</h2>
+<p>Which of the following is not true for the Linux operating system?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Multiple processes appear to be running at the same time.</li>
+<li><input type="checkbox"> Only one instance of any given program may be running as a process.</li>
+<li><input type="checkbox"> Programs are stored as files in the filesystem.</li>
+<li><input type="checkbox"> Only one instance of the kernel may be running at any given time.</li>
+</ul>
+<h2>Question 4</h2>
+<p>Open a new terminal session and type the command <code>python</code>. Then send a SIGINT signal using your keyboard. What best describes how the python process responds to the SIGINT signal? (you can exit this process by typing <code>exit()</code> in the python console)</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The program ignores the SIGINT signal.</li>
+<li><input type="checkbox"> The program has implemented a custom signal handler for the SIGINT signal.</li>
+<li><input type="checkbox"> The program behaves as the kernel's default signal handler for the SIGINT signal, which is to terminate the process.</li>
+<li><input type="checkbox"> The program behaves as the kernel's default signal handler for the SIGINT signal, which is to stop (suspend) the process.</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 5</h2>
+<p>Given the bellow terminal output:</p>
+<pre><code class="language-console">myuser@localhost:~$ sleep 600 &amp;
+myuser@localhost:~$ sleep 600 &amp;
+myuser@localhost:~$ sleep 600 &amp;
+</code></pre>
+<p>Which command could be used to know how many processes are running in the background terminal session?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>process</code></li>
+<li><input type="checkbox"> <code>jobs</code></li>
+<li><input type="checkbox"> <code>work</code></li>
+<li><input type="checkbox"> <code>list</code></li>
+</ul>
+<h2>Question 6</h2>
+<p>Given a terminal session with a long process running in it, how will you <strong>ask</strong> this process to terminate?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> CTRL+z</li>
+<li><input type="checkbox"> CTRL+c</li>
+<li><input type="checkbox"> CTRL+l</li>
+<li><input type="checkbox"> CTRL+c twice</li>
+</ul>
+<h2>Question 7</h2>
+<p>Given a terminal session with a long process running in it, how will you <strong>ask</strong> this process to stop?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> CTRL+z</li>
+<li><input type="checkbox"> CTRL+c</li>
+<li><input type="checkbox"> CTRL+l</li>
+<li><input type="checkbox"> CTRL+c twice</li>
+</ul>
+<h2>Question 8</h2>
+<p>How would you run the <code>sleep 10</code> command as a foreground process?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>fg sleep 10</code></li>
+<li><input type="checkbox"> <code>sleep 10 &amp;</code></li>
+<li><input type="checkbox"> <code>foreground sleep 10</code></li>
+<li><input type="checkbox"> <code>sleep 10</code></li>
+</ul>
+<p>Given the following output:</p>
+<pre><code class="language-console">[maxwell@station maxwell]$ ps -U maxwell
+PID  TTY    TIME    CMD
+4785 ?      00:00:00 gnome-session
+4828 ?      00:00:00 ssh-agent
+...
+4846 ?      00:00:00 xscreensaver
+5410 pts/8  00:00:00 bash
+5451 ?      00:00:00 same-gnome
+5452 ?      00:00:00 same-gnome
+5454 ?      00:00:01 gimp
+5455 ?      00:00:00 script-fu
+5463 pts/8  00:00:00 ps
+5907 pts/7  00:00:00 bash
+5942 pts/7  00:00:00 find
+</code></pre>
+<p>Answer the next 3 questions below.</p>
+<h2>Question 9</h2>
+<p>Which of the following commands would deliver a SIGTERM to the <code>xscreensaver</code> process?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>kill TERM xscreensaver</code></li>
+<li><input type="checkbox"> <code>kill 4846</code></li>
+<li><input type="checkbox"> <code>kill xscreensaver</code></li>
+<li><input type="checkbox"> <code>kill -9 4846</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 10</h2>
+<p>Which of the following would deliver a SIGKILL to the <code>xscreensaver</code> command?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>kill -9 4846</code></li>
+<li><input type="checkbox"> <code>kill xscreensaver</code></li>
+<li><input type="checkbox"> <code>kill -KILL xscreensaver</code></li>
+<li><input type="checkbox"> <code>kill -15 4846</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 11</h2>
+<p>Which of the following would send a SIGCHLD (signal number 17) to the <code>ssh-agent</code> process?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>kill -CHLD ssh-agent</code></li>
+<li><input type="checkbox"> <code>kill -17 ssh-agent</code></li>
+<li><input type="checkbox"> <code>kill -CHLD 4828</code></li>
+<li><input type="checkbox"> All of the above</li>
+<li><input type="checkbox"> A and C only</li>
+</ul>
+<h2>Question 12</h2>
+<p>Which key pressed within the <code>top</code> command allows the user to send a signal to a process?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>s</code></li>
+<li><input type="checkbox"> <code>z</code></li>
+<li><input type="checkbox"> <code>t</code></li>
+<li><input type="checkbox"> <code>k</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 13</h2>
+<p>The <code>kill</code> command always terminates a process.</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> True</li>
+<li><input type="checkbox"> False</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

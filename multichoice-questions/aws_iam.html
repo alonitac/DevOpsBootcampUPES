@@ -1,0 +1,223 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    AWS - IAM - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>AWS - IAM - multichoice questions</h1>
+<h3>Question 1</h3>
+<p>Which of the below actions can be controlled with IAM policies?</p>
+<ol>
+<li>Creating an Amazon S3 bucket.</li>
+<li>Control who can SSH into an EC2 instance.</li>
+<li>Control the name of an EC2 instance.</li>
+<li>Control the time in which IAM user can login to the web console. </li>
+</ol>
+<h3>Question 2</h3>
+<p>Which of the following statements best describes how a request to AWS in authorized?</p>
+<ol>
+<li>The request is default denied, but this can be overridden by an allow. In contrast, if a policy explicitly denies a request, it can be overridden but only by certain requests.</li>
+<li>The request is default denied, but this can be overridden by an allow. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+<li>The request can either be allowed or denied depending on the request and each can be overwritten by the other. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+<li>The request is default allowed, but this can be overridden by a deny. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+</ol>
+<h3>Question 3</h3>
+<p>Your AWS account has 350 IAM users.
+Your product manager asks you to allow to 50 users full access on S3. 
+How can you implement this <strong>effectively</strong>?</p>
+<ol>
+<li>Create an IAM group, add the 50 users, and apply the policy to group.</li>
+<li>Create a policy and apply it to multiple users using a Bash script.</li>
+<li>Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
+<li>Create a new role and add each user to the IAM role.</li>
+</ol>
+<h3>Question 4</h3>
+<p>What does the following policy for Amazon EC2 do?</p>
+<pre><code class="language-json">{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: {
+    &quot;Effect&quot;: &quot;Deny&quot;,
+    &quot;Action&quot;: &quot;*&quot;,
+    &quot;Resource&quot;: &quot;*&quot;,
+    &quot;Condition&quot;: {
+      &quot;NotIpAddress&quot;: {
+        &quot;aws:SourceIp&quot;: [
+          &quot;192.0.2.0/24&quot;,
+          &quot;203.0.113.0/24&quot;
+        ]
+      },
+      &quot;Bool&quot;: {&quot;aws:ViaAWSService&quot;: &quot;false&quot;}
+    }
+  }
+}
+</code></pre>
+<ol>
+<li>Allow users with the above source IP to access resources.</li>
+<li>Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.</li>
+<li>Denies access to AWS based on the source IP.</li>
+<li>Denies access from EC2 instance to the above IP ranges.</li>
+</ol>
+<h3>Question 5</h3>
+<p>What does the below policy do?</p>
+<pre><code class="language-json">{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Action&quot;: [
+        &quot;ec2:DescribeInstances&quot;,
+        &quot;ec2:DescribeSecurityGroups&quot;,
+        &quot;ec2:DescribeSecurityGroupReferences&quot;,
+        &quot;ec2:DescribeStaleSecurityGroups&quot;
+      ],
+      &quot;Resource&quot;: &quot;*&quot;,
+      &quot;Effect&quot;: &quot;Allow&quot;
+    },
+    {
+      &quot;Action&quot;: [
+        &quot;ec2:AuthorizeSecurityGroupEgress&quot;,
+        &quot;ec2:AuthorizeSecurityGroupIngress&quot;,
+        &quot;ec2:RevokeSecurityGroupEgress&quot;,
+        &quot;ec2:RevokeSecurityGroupIngress&quot;,
+        &quot;ec2:StartInstances&quot;,
+        &quot;ec2:StopInstances&quot;
+      ],
+      &quot;Resource&quot;: [
+        &quot;arn:aws:ec2:*:*:instance/*&quot;,
+        &quot;arn:aws:ec2:*:*:security-group/*&quot;
+      ],
+      &quot;Effect&quot;: &quot;Allow&quot;
+    }
+  ]
+}
+</code></pre>
+<ol>
+<li>Allows starting or stopping an EC2 instance and creating a security group.</li>
+<li>Allows starting or stopping an EC2 instance and modifying a security group.</li>
+<li>Allows starting or stopping an EC2 instance and deleting a security group.</li>
+<li>Allows creating an EC2 instance and modifying a security group.</li>
+</ol>
+<h3>Question 6</h3>
+<p>You EC2 instance should read objects from <code>mybucket</code> S3 bucket.
+Your instance assumes a role with the following policy: </p>
+<pre><code class="language-json">{
+  &quot;Version&quot;: &quot;2012-10-17&quot;,
+  &quot;Statement&quot;: [
+    {
+      &quot;Action&quot;: [
+        &quot;s3:GetObject&quot;,
+        &quot;s3:GetObjectVersion&quot;
+      ],
+      &quot;Effect&quot;: &quot;Allow&quot;,
+      &quot;Resource&quot;: &quot;arn:aws:s3:::mybucket&quot;
+    }
+  ]
+}
+</code></pre>
+<p>However, when the app running in the EC2 tries to read object, you receive the error: </p>
+<pre><code class="language-text">Action does not apply to any resource(s) in statement.
+</code></pre>
+<p>How can you fix the error?</p>
+<ol>
+<li>Change the IAM permissions by applying <code>PutBucketPolicy</code> permissions.</li>
+<li>Verify that the policy has the same name as the EC2 instance.</li>
+<li>Add <code>arn:aws:s3:::mybucket/*</code> to the <code>Resource</code> section.</li>
+<li>Add an action <code>s3:ListBucket</code>.</li>
+</ol>
+<h3>Question 7</h3>
+<p>An IAM user is trying to perform an action on an object belonging to some other account’s S3 bucket.</p>
+<p>Which of the bellow permission(s) would result a successful action?</p>
+<ol>
+<li>Identity based policy which allow the users to perform operation on S3 buckets.</li>
+<li>Only the root user account can perform this kind of operation. </li>
+<li>Allow the user to access the other account's bucket using permission boundaries. </li>
+<li>Resource based policy on the bucket which grant permission on the user's account.</li>
+</ol> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

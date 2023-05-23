@@ -132,7 +132,7 @@ In this example we are filtering lines containing the text `stdin` or `stdout`, 
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/linux_io_redirection.html)
 
 # Exercises
 

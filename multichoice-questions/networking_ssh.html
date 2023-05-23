@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    Networking SSH protocol - self-check questions
+    Networking - SSH - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -31,90 +31,87 @@
     </head>
     <body>
     
-    <article class="markdown-body">
+    <article class="markdown-body">  
     
-        <a href="index.html">Main self-check questions page</a>
-    
-    
-    <h1>Networking SSH protocol - self-check questions</h1>
-<h2>Question 1</h2>
+    <h1>Networking - SSH - multichoice questions</h1>
+<h3>Question 1</h3>
 <p>In which file does SSH store a user's private RSA key, by default?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>~/.key.private</code></li>
 <li><input type="checkbox"> <code>~/.ssh/rsa</code></li>
 <li><input type="checkbox"> <code>~/.ssh/id_rsa</code></li>
 <li><input type="checkbox"> <code>~/.sshrc</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ul>
-<h2>Question 2</h2>
+</ol>
+<h3>Question 2</h3>
 <p>When using SSH public key authentication, which file must exist on the remote machine?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>~/.ssh/id_dsa.pub</code></li>
 <li><input type="checkbox"> <code>~/.ssh/known_hosts</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_keys</code></li>
 <li><input type="checkbox"> A and C</li>
 <li><input type="checkbox"> All of the above</li>
-</ul>
-<h2>Question 3</h2>
-<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo 'hi' | grep h &gt; /tmp/greet&quot;
+</ol>
+<h3>Question 3</h3>
+<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi’ | grep h &gt; /tmp/greet&quot;
 </code></pre>
 <p>On the remote machine, which of the following processes was not executed as a result of this
 Command?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>echo</code></li>
 <li><input type="checkbox"> <code>ssh</code></li>
 <li><input type="checkbox"> <code>grep</code></li>
 <li><input type="checkbox"> All of the above processes are executed on the remote machine.</li>
-</ul>
-<h2>Question 4</h2>
-<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo 'hi' | grep h &gt; /tmp/greet&quot;
+</ol>
+<h3>Question 4</h3>
+<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi’ | grep h &gt; /tmp/greet&quot;
 </code></pre>
-<p>On which machine was the file <code>/tmp/greet</code> created?</p>
-<ul style="list-style-type: none;">
+<p>On which machine was the file /tmp/greet created?</p>
+<ol>
 <li><input type="checkbox"> The local machine</li>
 <li><input type="checkbox"> The remote machine</li>
 <li><input type="checkbox"> Not enough information is provided.</li>
-</ul>
-<h2>Question 5</h2>
+</ol>
+<h3>Question 5</h3>
 <pre><code class="language-console">[elvis@statio]$ ssh ec2-user@69.57.97.126 mkdir tmp
 [elvis@statio]$ scp .bashrc jules@69.57.97.126:tmp .bashrc
 100% |*****************************|    124  00:00
 </code></pre>
 <p>Which file on the remote machine contains a copy of the local file ~/.bashrc?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>~/.bashrc</code></li>
 <li><input type="checkbox"> <code>~/tmp/.bashrc</code></li>
 <li><input type="checkbox"> <code>/tmp/.bashrc</code></li>
 <li><input type="checkbox"> <code>~/tmp</code></li>
 <li><input type="checkbox"> Not enough information is provided.</li>
-</ul>
-<h2>Question 6</h2>
+</ol>
+<h3>Question 6</h3>
 <p>Which file is automatically updated whenever the first connection to a new host is accepted?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>~/.ssh/id_dsa.pub</code></li>
 <li><input type="checkbox"> <code>~/.ssh/known_hosts</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_keys</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_hosts</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ul>
-<h2>Question 7</h2>
+</ol>
+<h3>Question 7</h3>
 <p>Which of the following command lines could be used to recursively copy the <code>~/backups</code>
 directory to a remote machine's <code>/tmp</code> directory?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> <code>scp backups ec2-user@69.57.97.126:tmp</code></li>
 <li><input type="checkbox"> <code>scp -r backups ec2-user@69.57.97.126:/tmp</code></li>
 <li><input type="checkbox"> <code>scp -R /tmp/backups ec2-user@69.57.97.126:</code></li>
 <li><input type="checkbox"> <code>scp backups ec2-user@69.57.97.126:</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ul>
-<h2>Question 8</h2>
+</ol>
+<h3>Question 8</h3>
 <p>In order to connect to a remote machine, which of the following information must exist in the remote machine?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> The client OS version</li>
 <li><input type="checkbox"> The client public key</li>
 <li><input type="checkbox"> The client private key</li>
 <li><input type="checkbox"> The client home directory path</li>
-</ul> 
+</ol> 
     
         <script>
     

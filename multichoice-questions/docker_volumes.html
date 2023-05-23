@@ -1,0 +1,147 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Docker - volumes - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Docker - volumes - multichoice questions</h1>
+<h3>Question</h3>
+<p>What is wrong in the following command: </p>
+<pre><code class="language-bash">docker run -it -v ../../etc/resolv.conf:/etc/resolv.conf busybox /bin/sh
+</code></pre>
+<ol>
+<li>There is no such image <code>busybox</code>.</li>
+<li>The file <code>/etc/resolv.conf</code> doesn't exist in the container.</li>
+<li>Relative path is not allowed in the first part of <code>-v</code> value. </li>
+<li>The flag <code>--name</code> is missing. </li>
+</ol>
+<h3>Question</h3>
+<p>If you use <code>-v</code> to bind-mount a file or directory that does not yet exist on the host machine. </p>
+<ol>
+<li><code>-v</code> creates the endpoint for you. It is always creates as a directory.</li>
+<li><code>-v</code> doesn't create the endpoint for you.</li>
+<li><code>-v</code> creates either the file or directory endpoint for you.</li>
+<li>The docker daemon exits with an Error: <code>Path not found</code>.</li>
+</ol>
+<h3>Question</h3>
+<p>Given the below container running command:</p>
+<pre><code class="language-bash">docker run -v /home/elvis/data:/data mysql
+</code></pre>
+<ol>
+<li><code>/home/elvis/data</code> is a path in the host machine.</li>
+<li><code>/home/elvis/data</code> is a path in the container.</li>
+<li><code>/data</code> is a path in the container.</li>
+<li><code>/data</code> is a path in the host machine.</li>
+</ol>
+<h3>Question</h3>
+<p>Given the below running container command executed by <code>elvis</code>:</p>
+<pre><code class="language-bash">[elvis@hostname]$ docker run -it -v /test_data:/test_data busybox /bin/sh
+</code></pre>
+<p>Assume the command <code>touch /test_data/hi</code> was successfully executed from within the container. 
+When running <code>ls -l /test_data</code> <strong>from the host machine</strong>, who are the user and group owners of the created <code>hi</code> file?</p>
+<ol>
+<li><code>elvis</code></li>
+<li><code>dockerd</code></li>
+<li><code>root</code></li>
+<li>Since this file was created from within a container in the host machine fs, there is no user and group owning the file. </li>
+<li>None of the above.</li>
+</ol>
+<h3>Question</h3>
+<p>You want to mount the path <code>/etc/resolv.conf</code> from your host machine into the container file system. 
+So the container will share the content of <code>/etc/resolv.conf</code> as it's defined in the host machine. </p>
+<p>Which method will work?</p>
+<ol>
+<li>Using bind-mount.</li>
+<li>Using volumes.</li>
+<li>Both volumes and bind-mount will work.</li>
+<li><code>tmpfs</code> mounts</li>
+</ol> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,154 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Docker - compose - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Docker - compose - multichoice questions</h1>
+<p>Consider the below YAML:</p>
+<pre><code class="language-yaml">hosts: 
+  - google.com
+  - apple.com
+  - amazon.com  
+spec:
+  image: busybox
+volume: gp2
+nothing:
+</code></pre>
+<h2>Question</h2>
+<p>What is the data type of each key?</p>
+<ol>
+<li><code>hosts</code> is null, <code>spec</code> is a list, <code>volume</code> is string, <code>nothing</code> isn't valid syntax.</li>
+<li><code>hosts</code> is a list, <code>spec</code> is a dictionary, <code>volume</code> is string, <code>nothing</code> is null.</li>
+<li><code>hosts</code> is a list, <code>spec</code> isn't valid syntax, <code>volume</code> is string, <code>nothing</code> isn't valid syntax.</li>
+<li><code>hosts</code> isn't a valid syntax, <code>spec</code> is a dictionary, <code>volume</code> isn't valid syntax, <code>nothing</code> is null.</li>
+</ol>
+<h2>Question</h2>
+<p>Which of the following option(s) is equivalent to <code>volume: gp2</code>?</p>
+<ol>
+<li><code>volume: gp2</code></li>
+<li><code>volume: 'gp2'</code></li>
+<li>```yaml
+   volume:<ul style="list-style-type: none;">
+<li>"gp2"
+   ```</li>
+</ul>
+</li>
+<li><code>volume: "gp2"</code></li>
+</ol>
+<p>Given the below <code>docker-compose.yaml</code> file:</p>
+<pre><code class="language-yaml">version: &quot;3.9&quot;
+services:
+  app:
+    image: &quot;ubuntu&quot;
+  redis:
+    image: &quot;redis:alpine&quot;
+    expose:
+      - 6379
+</code></pre>
+<p>Answer the below 2 questions.</p>
+<h2>Question</h2>
+<p>What is the network used when deploy the two specified services? </p>
+<ol>
+<li>The default docker <code>bridge</code> network.</li>
+<li>Compose automatically creates custom network for this project. </li>
+<li>Networking is disabled in this compose project.</li>
+<li>None of the above.</li>
+</ol>
+<h2>Question</h2>
+<p>How can the <code>app</code> service access the <code>redis</code> service? </p>
+<ol>
+<li>We need <code>redis</code>'s IP address.</li>
+<li>By <code>redis:6379</code>.</li>
+<li>By <code>services.redis:6379</code></li>
+<li>The <code>redis</code> service is not accessible from the <code>app</code> service. </li>
+</ol> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

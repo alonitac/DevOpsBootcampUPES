@@ -180,3 +180,4 @@ Given the path `/home/username/secret.txt`, choose the correct sentence:
 - [ ] `secret.txt` is a file
 - [ ] `secret.txt` is a directory
 - [ ] `secret.txt` can be either file or a directory
+

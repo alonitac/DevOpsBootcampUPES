@@ -1,10 +1,40 @@
+from collections import defaultdict, OrderedDict
+import json
+import markdown
+import glob
+import re
 
+# pip install Markdown
+
+title_re = r"<h1>(.*?)</h1>"
+
+with open('.sol.json') as s:
+    sol = json.load(s)
+
+
+def generate(file):
+    with open(file) as f:
+        md = f.read()
+
+    # Convert Markdown to HTML with checkboxes
+    html = markdown.markdown(md, extensions=['fenced_code'], output_format='html5')
+
+    match = re.search(title_re, html)
+
+    if match:
+        # Extract content between <h1> tags
+        title = match.group(1)
+    else:
+        title = 'Multichoice questions'
+
+
+    html = '''
     
     <!DOCTYPE html>
     <html>
     <head>
         <title>
-    OSI Model self-check questions
+    ''' + title + '''
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -26,50 +56,14 @@
             }
         </style>
         <script>
-            const solutions = {"1": "e443169117a184f91186b401133b20be670c7c0896f9886075e5d9b81e9d076b", "2": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "3": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542"}
+            const solutions = ''' + json.dumps(sol[file]) + '''
         </script>
     </head>
     <body>
     
-    <article class="markdown-body">
+    <article class="markdown-body">  
     
-        <a href="index.html">Main self-check questions page</a>
-    
-    
-    <h1>OSI Model self-check questions</h1>
-<h2>Question 1</h2>
-<p>Which of the following services are guaranteed by UDP?</p>
-<ul style="list-style-type: none;">
-<li><input type="checkbox"> Control packet order flow</li>
-<li><input type="checkbox"> Detect corrupted packets</li>
-<li><input type="checkbox"> Make sure all packets have been transferred</li>
-<li><input type="checkbox"> None of the above</li>
-</ul>
-<h2>Question 2</h2>
-<p>WhatsUp voice call feature has two major components:</p>
-<ul style="list-style-type: none;">
-<li>Call manager - responsible to initialize the call to the destined participant, to ring, and to start the conversation session once the two sides are on-line.</li>
-<li>Call streamer - responsible to transmit the recorded voice buffer between participants.</li>
-</ul>
-<p>Choose the most suitable underlying protocol for each component:</p>
-<ul style="list-style-type: none;">
-<li><input type="checkbox"> The call manager relying on TCP while the streamer on UDP</li>
-<li><input type="checkbox"> The call manager relying on UDP while the streamer on TCP</li>
-<li><input type="checkbox"> Both components relying on TCP</li>
-<li><input type="checkbox"> Both components relying on UDP</li>
-</ul>
-<h2>Question 3</h2>
-<p>Complete the missing words in the below paragraph:</p>
-<p>In the <strong>??????</strong> layer, bits are passing from one node to another, for example using wires.
-The <strong>??????</strong> layer handles the delivery of segments from the application layer, in a reliable or unreliable way.
-Then comes the <strong>??????</strong> layer which is responsible for moving packets from the source host to the destination host.
-Lastly, the <strong>??????</strong> layer handles messages from a variety of network applications such as Outlook mail.</p>
-<ul style="list-style-type: none;">
-<li><input type="checkbox"> Transport, application, network interface, network</li>
-<li><input type="checkbox"> Network Interface,  transport, network, application</li>
-<li><input type="checkbox"> Application, network, transport, network interface</li>
-<li><input type="checkbox"> Network, Network interface,  transport, application</li>
-</ul> 
+    ''' + html.replace('[ ]', '<input type="checkbox">').replace('<ul>', '<ul style="list-style-type: none;">') + ''' 
     
         <script>
     
@@ -129,4 +123,23 @@ Lastly, the <strong>??????</strong> layer handles messages from a variety of net
     </body>
     </html>
     
-    
+    '''
+
+    with open(file.split('.')[0] + '.html', 'w') as f:
+        f.write(html)
+
+    return title
+
+
+if __name__ == '__main__':
+    toc = OrderedDict()
+    for file in sorted(glob.glob("*.md")):
+        unit = file.split('_')[0]
+        title = generate(file)
+
+        if not toc.get(unit):
+            toc[unit] = ''
+
+        toc[unit] += f'''
+        <li><a href="{file.replace('.md', '.html')}" target="_blank">{title}</a></li>
+        '''

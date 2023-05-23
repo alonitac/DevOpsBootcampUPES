@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    Networking DNS - self-check questions
+    Networking - DNS - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -31,69 +31,67 @@
     </head>
     <body>
     
-    <article class="markdown-body">
+    <article class="markdown-body">  
     
-        <a href="index.html">Main self-check questions page</a>
-    
-    
-    <h1>Networking DNS - self-check questions</h1>
-<h2>Question 1</h2>
+    <h1>Networking - DNS - multichoice questions</h1>
+<h3>Question 1</h3>
 <p>Which file is used when resolving the hostname localhost?</p>
-<ul style="list-style-type: none;">
-<li><input type="checkbox"> <code>/etc/inittab</code></li>
-<li><input type="checkbox"> <code>/etc/hosts</code></li>
-<li><input type="checkbox"> <code>/etc/resolv.conf</code></li>
-<li><input type="checkbox"> <code>/etc/sysconfig/localhost</code></li>
+<ol>
+<li><input type="checkbox"> /etc/inittab</li>
+<li><input type="checkbox"> /etc/hosts</li>
+<li><input type="checkbox"> /etc/resolv.conf</li>
+<li><input type="checkbox"> /etc/sysconfig/localhost</li>
 <li><input type="checkbox"> None of the above</li>
-</ul>
-<h2>Question 2</h2>
+</ol>
+<h3>Question 2</h3>
 <p>Assume the following DNS records are stored in a TLD DNS server:</p>
 <pre><code class="language-text">(www.google.com, ns1.google.com, ???, 3600)
 (ns1.google.com, ???, A, 60)
 </code></pre>
-<p>Assume the following records are stored in the <code>google.com</code> authoritative DNS server:</p>
+<p>Assume the following records are stored in the google.com authoritative DNS server:</p>
 <pre><code class="language-text">(www.google.com, us-east-1.google.com, ???, 3600)
 (us-east-1.google.com, 146.54.29.12, ???, 60)
 </code></pre>
 <p>Choose the possible input for the missing content (top-down)</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> NS, 192.168.229.2, CNAME, A</li>
 <li><input type="checkbox"> NS, 193.168.229.2, CNAME, A</li>
 <li><input type="checkbox"> NS, 146.44.119.13, CNAME, AAAA</li>
 <li><input type="checkbox"> A, 127.0.0.1, CNAME, A</li>
-</ul>
-<h2>Question 3</h2>
+</ol>
+<h3>Question 3</h3>
 <p>Given a user who is trying to resolve <code>gov.org.il</code>. Assuming the local DNS server doesn't have the IP or the hostname of the DNS server responsible for the <code>.il</code> TLD.</p>
 <p>Where does the local DNS server go?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> DNS Local</li>
 <li><input type="checkbox"> DNS Root</li>
 <li><input type="checkbox"> DNS TLD</li>
 <li><input type="checkbox"> DNS Authoritative</li>
-</ul>
-<h2>Question 4</h2>
-<p>Given the following description of each DNS server in the hierarchy:</p>
-<ol>
+</ol>
+<h3>Question 4</h3>
+<p>Given the following description of each DNS server in the hierarchy, match the DNS server type according to the following order:</p>
+<ul style="list-style-type: none;">
 <li>Highest level of the DNS hierarchy, knows how to reach servers responsible for a given domain (e.g., <em>.com, </em>.edu).</li>
 <li>Replies to DNS query requested by a local user. Requesting all other DNS servers to answer the query on behalf of the user.</li>
 <li>Responsible for a domain (e.g., <em>.com, </em>.edu); knows how to contact authoritative name servers.</li>
-<li>Provides hostname to IP mappings for organization's domain.</li>
-</ol>
-<p>Match the DNS server type according to the following order:</p>
-<ul style="list-style-type: none;">
-<li><input type="checkbox"> Root-level, local DNS, TLD DNS, authoritative DNS</li>
+<li>
+<p>Provides hostname to IP mappings for organization’s domain.</p>
+</li>
+<li>
+<p><input type="checkbox"> Root-level, local DNS, TLD DNS, authoritative DNS</p>
+</li>
 <li><input type="checkbox"> TLD DNS, Root-level, local DNS, authoritative DNS</li>
 <li><input type="checkbox"> Root-level, local DNS, authoritative DNS, TLD DNS</li>
 <li><input type="checkbox"> local DNS, Root-level TLD DNS, authoritative DNS</li>
 </ul>
-<h2>Question 5</h2>
+<h3>Question 5</h3>
 <p>What are the benefits of caching in the local DNS server?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> Less load on root-level, TLD and authoritative servers</li>
 <li><input type="checkbox"> Provides prioritized access to the root servers</li>
 <li><input type="checkbox"> Faster replies (if there is a cache hit)</li>
 <li><input type="checkbox"> Helps organizations to shut down their authoritative servers as the data is cached locally</li>
-</ul>
+</ol>
 <p>Suppose that the local DNS server caches all information coming in from all root, TLD, and authoritative DNS servers for 20 seconds.  Assume also that the local cache is initially empty, that DNS query latency is 2 seconds (1 second for each side - request and response).</p>
 <p>Consider the following DNS requests, made by some clients at the following order:</p>
 <ol>
@@ -105,52 +103,52 @@
 <li><code>google.com</code></li>
 </ol>
 <p>Answer the below 3 questions</p>
-<h2>Question 6</h2>
+<h3>Question 6</h3>
 <p>Which of the requests require 8 seconds to be resolved?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> 1</li>
 <li><input type="checkbox"> 2</li>
 <li><input type="checkbox"> 3</li>
 <li><input type="checkbox"> 4</li>
 <li><input type="checkbox"> 5</li>
 <li><input type="checkbox"> 6</li>
-</ul>
-<h2>Question 7</h2>
+</ol>
+<h3>Question 7</h3>
 <p>Which of the requests require 6 time units to be resolved?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> 1</li>
 <li><input type="checkbox"> 2</li>
 <li><input type="checkbox"> 3</li>
 <li><input type="checkbox"> 4</li>
 <li><input type="checkbox"> 5</li>
 <li><input type="checkbox"> 6</li>
-</ul>
-<h2>Question 8</h2>
+</ol>
+<h3>Question 8</h3>
 <p>Which of the requests require 2 time units to be resolved?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> 1</li>
 <li><input type="checkbox"> 2</li>
 <li><input type="checkbox"> 3</li>
 <li><input type="checkbox"> 4</li>
 <li><input type="checkbox"> 5</li>
 <li><input type="checkbox"> 6</li>
-</ul>
-<h2>Question 9</h2>
+</ol>
+<h3>Question 9</h3>
 <p>Choose the correct sentences regarding local DNS server:</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> Records for a remote host are sometimes different from that of the authoritative server for that host.</li>
 <li><input type="checkbox"> Can decrease the resolution time</li>
 <li><input type="checkbox"> Holds only A records, but not NS records.</li>
 <li><input type="checkbox"> Is only contacted by a client if that client is unable to resolve a name via recursive queries into the DNS hierarchy.</li>
-</ul>
-<h2>Question 10</h2>
+</ol>
+<h3>Question 10</h3>
 <p>What is the role of an authoritative name server in the DNS?</p>
-<ul style="list-style-type: none;">
+<ol>
 <li><input type="checkbox"> Is the source of truth in respect to the correct IP address of a hostname.</li>
 <li><input type="checkbox"> Provides a list of TLD servers that can be queried to find the IP address of the hostname.</li>
 <li><input type="checkbox"> It is a local server that caches data.</li>
 <li><input type="checkbox"> It provides the IP address of the DNS server that can provide the hostname A record.</li>
-</ul> 
+</ol> 
     
         <script>
     

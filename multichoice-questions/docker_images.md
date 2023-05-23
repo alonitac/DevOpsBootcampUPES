@@ -71,7 +71,7 @@ What is wrong in the bellow Dockerfile:
 ```dockerfile
 FROM python:3.10.15
 WORKDIR /test
-COPY ../../tutorials .
+COPY ../tutorials .
 RUN pip install -r requirements.txt
 
 CMD ["python3", "app.py"]

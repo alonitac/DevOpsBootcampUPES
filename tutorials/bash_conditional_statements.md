@@ -8,9 +8,9 @@ The most common syntax of the if command is:
 ```text
 if TEST-COMMAND
 then
-POSITIVE-CONSEQUENT-COMMANDS
+    POSITIVE-CONSEQUENT-COMMANDS
 else
-NEGATIVE-CONSEQUENT-COMMANDS
+    NEGATIVE-CONSEQUENT-COMMANDS
 fi
 ```
 
@@ -26,10 +26,12 @@ The first example checks for the existence of a file:
 ```bash
 echo "This script checks the existence of the messages file."
 echo "Checking..."
+
 if [ -f /var/log/messages ]
 then
-echo "/var/log/messages exists."
+  echo "/var/log/messages exists."
 fi
+
 echo
 echo "...done."
 ```
@@ -37,14 +39,15 @@ echo "...done."
 ### Testing exit status
 
 Recall that the `$?` variable holds the exit status of the previously executed command. The following example utilize this variable to take a decision according to the success or failure of the previous command:
-curl google.com &> /dev/null
 
 ```bash
+curl google.com &> /dev/null
+
 if [ $? -eq 0 ]
 then
-echo "Request succeeded"
+  echo "Request succeeded"
 else
-echo "Request failed, trying again..."
+  echo "Request failed, trying again..."
 fi
 ```
 
@@ -57,7 +60,7 @@ num=$(wc -l /etc/passwd)
 echo $num
 
 if [ "$num" -gt "20" ]; then
-echo "Too many users in the system."
+  echo "Too many users in the system."
 fi
 ```
 
@@ -65,8 +68,8 @@ fi
 
 ```bash
 if [[ "$(whoami)" != 'root' ]]; then
-echo "You have no permission to run $0 as non-root user."
-exit 1;
+  echo "You have no permission to run $0 as non-root user."
+  exit 1;
 fi
 ```
 
@@ -77,7 +80,7 @@ echo "Bash is ok" > file
 
 if grep -q Bash file
 then
-echo "File contains at least one occurrence of Bash."
+  echo "File contains at least one occurrence of Bash."
 fi
 ```
 
@@ -90,13 +93,62 @@ letter_sequence=inu
 if echo "$word" | grep -q "$letter_sequence"
 # The "-q" option to grep suppresses output.
 then
-echo "$letter_sequence found in $word"
+  echo "$letter_sequence found in $word"
 else
-echo "$letter_sequence not found in $word"
+  echo "$letter_sequence not found in $word"
 fi
 ```
 
 ### `[...]` vs `[[...]]`
 
 With version 2.02, Bash introduced the `[[ ... ]]` extended test command, which performs comparisons in a manner more familiar to programmers from other languages. The `[[...]]` construct is the more versatile Bash version of `[...]`. Using the `[[...]]` test construct, rather than `[...]` can prevent many logic errors in scripts.
+
+# Self-check questions
+
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/bash_conditional_statements.html)
+
+
+# Exercises
+
+### :pencil2: Geo-location info
+
+Write a bash script `geo_by_ip.sh` that given an ip address, prints geo-location details, as follows:
+
+1. The script first checks if `jq` cli is installed, if not, it prints a message to the user with a link to download the tool: https://stedolan.github.io/jq/download/
+2. The script checks that **exactly one argument** was sent to it, which represents the ip address to check. Otherwise, an informative message is being printed to stdout.
+3. The script checks that the given IP argument is not equal to `127.0.0.1`
+4. The script performs an HTTP GET request to `http://ip-api.com/json/<ip>` while `<ip>` is the IP argument. The results should be stored in a variable.
+5. Using the `jq` tool and the variable containing the HTTP response, check that the request has been succeeded by checking that the `status` key has a value of success. The command `jq -r '.<key>'` can extract a key from the json (e.g. `echo $RESPONSE | jq -r '.status'`)
+6. If the request succeed, print the following information to the user:
+   - country
+   - city
+   - regionName
+
+### :pencil2: Extended availability test
+
+Extending the above script to be more modular. Assume `availability_test.sh` is:
+
+```bash
+curl google.com &> /dev/null
+
+if [ $? -eq 0 ]
+then
+    echo "Request succeeded"
+else
+    echo "Request failed, trying again..."
+fi
+```
+
+Change the script such that can be working for any URL input from the user, in the following form:
+
+```console
+myuser@hostname:~$ ./availability_test.sh google.com
+...
+myuser@hostname:~$ ./availability_test.sh cnn.com
+...
+myuser@hostname:~$ ./availability_test.sh abcdefg
+...
+myuser@hostname:~$ ./availability_test.sh
+A valid URL is required
+```
 

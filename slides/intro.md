@@ -3,4 +3,4 @@
 - we will meet for QnA
 - you are expected to work after the official session hour
 - self-check yourself after every session
-- 
+- the missing semeester

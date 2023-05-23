@@ -150,11 +150,12 @@ myuser@hostname:~$ whois google.com
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_dns.html)
+
 
 # Exercises
 
-## Exercise 1 - playing more with the `dig` command
+### :pencil2: playing more with the `dig` command
 
 Use `dig` to answer the below questions:
 
@@ -165,7 +166,7 @@ Use `dig` to answer the below questions:
 5. How many authoritative servers does `stanford.edu` have?
 6. Does the above answer come from the cache of some server rather than from an authoritative Stanford DNS server?
 
-## Exercise - `systemd-resolve`
+## :pencil2: `systemd-resolve`
 
 `systemd-resolve` is a system-level service provided by the `systemd` init system on Linux systems, responsible for providing name resolution services to applications running on the system. Ubuntu, like many other modern Linux distributions, uses systemd to manage system services, including the `systemd-resolved` service, which provides the name resolution functionality.
 

@@ -14,38 +14,74 @@ Subnets are in turn linked to other subnets by machines acting as **routers**.
 
 ![](../.img/subnets.png)
 
-The above network consists of 3 subnets. Taking a closer look, we notice that computers under the same subnet have the same ip prefix.
-For example, all computers under the leftmost subnet (and all computer that will join this subnet) have an IP address starting by `223.1.1.xxx`.
-Thus, they share the same IP prefix, more precisely, the same first 24 bits in their IP address.
+The above network consists of 3 subnets. Taking a closer look, we notice that computers under the same subnet have the same ip prefix. For example, all computers under the leftmost subnet (and all computers that will join this subnet) have an IP address starting by `10.1.1.xxx`. Thus, they share the same IP prefix, more precisely, the same first **24 bits** in their IP address.
 
 We will denote the IP boundaries of the leftmost subnet by:
 
 ```text
-223.1.1.0/24
+10.1.1.0/24
 ```
 
-This method is known as **Classless Interdomain Routing (CIDR)**. Use [this nice tool](https://cidr.xyz/) to familiarize yourself with CIDR notation.
+This method is known as **Classless Interdomain Routing (CIDR)**.
+
+The CIDR `10.1.1.0/24` represents a network address in IPv4 format with the network prefix length of 24 bits. This means that the first 24 bits of the IP address, i.e., the first three octets, specify the **network portion**, and the remaining 8 bits, i.e., the fourth octet, represent the **host portion**. 
+In this case, the network address is `10.1.1.0`, and there are 256 possible host addresses (2^8 = 256) within this network, ranging from `10.1.1.1` to `10.1.1.254` (the first and last IP addresses are reserved).
+
+Another method to denote network subnet in **subnet mask**.
+This format specifies the number of fixed octates of the IP as 255, and the free octates as 0. The equivalent subnet mask for `10.1.1.0/24` is `255.255.255.0`,  which means the first 3 octets are the network portion (fixed) and 4th octet is the hosts portion (change per machine in the subnet).
+
+Use [this nice tool](https://cidr.xyz/) to familiarize yourself with CIDR notation.
 
 The `ping` command can be used to confirm IP connectivity between two hosts:
 
 ```console
-myuser@223.1.1.1:~$ ping 223.1.2.2
-PING 223.1.2.2 56(84) bytes of data.
-64 bytes from 223.1.2.2: icmp_seq=1 ttl=51 time=3.29 ms
-64 bytes from 223.1.2.2: icmp_seq=2 ttl=51 time=3.27 ms
-64 bytes from 223.1.2.2: icmp_seq=3 ttl=51 time=3.28 ms
+myuser@10.1.1.1:~$ ping 10.1.2.2
+PING 10.1.2.2 56(84) bytes of data.
+64 bytes from 10.1.2.2: icmp_seq=1 ttl=51 time=3.29 ms
+64 bytes from 10.1.2.2: icmp_seq=2 ttl=51 time=3.27 ms
+64 bytes from 10.1.2.2: icmp_seq=3 ttl=51 time=3.28 ms
 ...
 ```
 
-In the above example, the computer identified by the IP `223.1.1.1` sends ping frames to `223.1.2.2`. 
+In the above example, the computer identified by the IP `10.1.1.1` sends ping frames to `10.1.2.2`.
 
-In order to communicate with a host on another subnet, the data must be passed to a router, which (with the help of other routers) routes the information to the appropriate subnet, and from there to the appropriate host.
-Before examine that mechanism, let's introduce 3 important concepts: **Network interfaces**, **Default gateway**, **Route table**.
+In order to communicate with a host on another subnet, the data must be passed to a router, which routes the information to the appropriate subnet, and from there to the appropriate host. Before examining that mechanism, let's introduce 3 important concepts: **Route table**, **Default gateway**, **Network interfaces**.
+
+
+## Route Table and Default gateway
+
+In order to communicate with machines outside of your local subnet, your machine must know the identity of a nearby router. The router used to route packets outside of your local subnet is commonly called as a **default gateway**.
+
+In the above network figure, `10.1.1.4` is the default gateway IP of the leftmost subnet, while `10.1.2.31` is the default gateway IP of the rightmost subnet.
+
+The Linux kernel maintains an internal table which defines which machines should be considered local, and what gateway should be used to help communicate with those machines which are not. This table is called the **routing table**.
+
+The `route` command can be used to display the system's routing table (`ip route` is a more modern command).
+
+```console
+myuser@10.1.1.1:~$ route -n
+Kernel IP routing table
+Destination    Gateway        Genmask         Flags Metric Ref    Use Iface
+0.0.0.0        10.1.1.4       0.0.0.0         UG    100    0        0 eth0
+10.1.1.0       0.0.0.0        255.255.255.0   U     100    0        0 eth0
+```
+
+We will start with the second route. The second route specifies that traffic destined for the `10.1.1.0/24` network should remain in the subnet, there is no need to route the traffic to any nearby router, since sent traffic is destined for a machine in the same subnet. The `0.0. 0.0` appears in the Gateway column indicates that the gateway to reach the corresponding destination subnet is unspecified.
+
+The first route specifies that traffic destined for the `0.0.0.0/0` be routed to `10.1.1.4`, which is the IP address of the default gateway in this subnet (take a look at the above diagram). Note that a destination of `0.0.0.0/0` means “all the internet”, since any IP address will match this CIDR.  
+
+Is there any issue here? Isn’t the IP range defined by the two destinations overlap?  For example, the ip `10.1.1.5` matches both the first and the second routes.
+
+In order to overcome the problem of routing ambiguity, where a single destination can be reached through multiple gateways, the route table uses the longest prefix match method to match IP traffic to the correct destination. This method compares the **longest matching prefix** of an IP address in the routing table with the destination IP address of the incoming packet, allowing the router to determine the most specific route to the destination.
+
+Given the above route table of host `10.1.1.1`, where will the traffic `10.1.2.2` be routed?
+
+Let’s recall our original motivation, `10.1.1.1` is trying to talk with `10.1.2.2`. And now after we’ve seen the IP table of `10.1.1.1`, we know that the traffic will be routed to the default gateway (`10.1.1.4`).
+
 
 ## Network interfaces
 
-In the OSI model, we've seen that every bit of data being sent over the network, must pass through the lower layer - the Network Interface layer, which provides the physical and electrical interface between the networking hardware and the data being transmitted.
-Linux represents every networking device attached to a machine (such as an Ethernet card, wireless card, etc...) as a **network interface**.
+In the OSI model, we've seen that every bit of data being sent over the network must pass through the lower layer - the Network Interface layer, which provides the physical and electrical interface between the networking hardware and the data being transmitted. Linux represents every networking device attached to a machine (such as an Ethernet card, wireless card, etc...) as a **network interface**.
 
 In linux, the `ip` command can show/manipulate network interfaces, and more...
 
@@ -65,16 +101,18 @@ myuser@hostname:~$ ip address
        valid_lft forever preferred_lft forever
 ```
 
-The above output shows 2 available network interfaces in the machine. 
 
-- `lo` (loopback) is being used to facilitate communication between processes running on the same host (internal communication). 
+The above output shows 2 available network interfaces in the machine.
+
+- `lo` (loopback) is being used to facilitate communication between processes running on the same host (internal communication).
 - `eth0` is being used for connecting a computer to a wired Ethernet network.
 
-Before an interface can be used to send or receive traffic, it must be configured with an IP address which serves as the interface's identity.
-In the above output, the interface `eth0` is assigned an IP address `223.1.1.1`, which is the IP address of the "machine" (in reality, a "machine" does not have an IP address, a machine's network interfaces do).
+Before an interface can be used to send or receive traffic, it must be configured with an IP address which serves as the interface's identity. In the above output, the interface `eth0` is assigned an IP address `10.1.1.1`, which is the IP address of the "machine" (in reality, a "machine" does not have an IP address, a machine's network interfaces do).
 
-Linux names interfaces according to the type of device it represents. 
-The following table lists some of the more commonly encountered interface names used in Linux.
+Linux names interfaces according to the type of device it represents. The following table lists some of the more commonly encountered interface names used in Linux.
+
+
+## Network interfaces
 
 | Interface      | Device |
 | ----------- | ----------- |
@@ -82,38 +120,11 @@ The following table lists some of the more commonly encountered interface names 
 | `lo`      | Loopback Device      |
 | `wlp`n      | Wireless Device      |
 | `virbr`n      | Virtual bridge      |
+| `enp0s`n | VirtualBox VM running Ubuntu | 
 
-How does the kernel know the correct network interface for which to route packets?
+How does the kernel know the correct network interface for which to route packets? Take a closer look at the above route table…
 
-### Default gateway and route table
-
-In order to communicate with machines outside of your local subnet, your machine must know the identity of a nearby router.
-A router has multiple network interfaces, usually each participating in a distinct subnet (as shown in above figure).
-The router used to route packets outside of your local subnet is commonly called as a **default gateway**.
-
-In the above network figure, `223.1.1.4` is the default gateway IP of the leftmost subnet, while `223.1.2.9` is the default gateway IP of the rightmost subnet. 
-
-The Linux kernel maintains an internal table which defines which machines should be considered local, and what gateway should be used to help communicate with those machines which are not.
-This table is called the **routing table**.
-
-The `route` command can be used to display the system's routing table (`ip route` is more modern command).
-
-```console 
-myuser@223.1.1.1:~$ route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         223.1.1.4       0.0.0.0         UG    100    0        0 eth0
-223.1.1.0       0.0.0.0         255.255.255.0   U     100    0        0 eth0
-223.1.0.2       223.1.1.4       255.255.255.255 UGH   100    0        0 eth0
-223.1.1.4       0.0.0.0         255.255.255.255 UH    100    0        0 eth0
-```
-
-We will focus on the first two routes:
-
-- The first route specifies a default gateway of `223.1.1.4`, which is used for all traffic that does not match any other route.
-- The second route specifies that traffic destined for the `223.1.1.0/24` network should be sent directly to the `eth0` interface without going through a gateway.
-
-## `traceroute`
+## The `traceroute` command
 
 When connecting to a machine outside of your subnet, your packet is passed from router to router as it
 traverses various subnets, until finally the packet is delivered to the subnet which contains the destination
@@ -159,9 +170,22 @@ The below diagram examines the process by which a new client receiving an IP add
 
 ![](../.img/dhcp2.png)
 
+### The Discover, Offer, Request, Acknowledge (DORA) process
+
+DORA process refers to the four steps that are involved in DHCP client-server interaction. These four steps are:
+
+- **Discover**: The client broadcasts a DHCP discover message on the local network, requesting an IP address lease from any available DHCP server.
+- **Offer**: DHCP servers on the local network respond to the broadcast with a DHCP offer message, which includes an available IP address, lease duration, and other configuration parameters.
+- **Request**: The client selects one of the offered IP addresses and sends a DHCP request message to the DHCP server, requesting the lease.
+- **Acknowledge**: If the DHCP server approves the client's request, it sends a DHCP acknowledge message to the client, confirming the IP address lease and providing any other configuration parameters.
+
+The DORA process allows a DHCP client to obtain an IP address and other configuration information from a DHCP server. It is an important part of network configuration, as it enables automatic IP address assignment and ensures consistency in network settings across multiple devices.
+
+
 ## IP Address for private subnets
 
 There are three ranges of private IP addresses defined in [RFC 1918](https://www.rfc-editor.org/rfc/rfc1918):
+
 - 10.0.0.0/8
 - 172.16.0.0/12
 - 192.168.0.0/16
@@ -170,40 +194,23 @@ These addresses can be used for internal networks within an organization, but th
 
 Public IP addresses, on the other hand, are assigned by Internet authorities and are used to identify devices that are directly accessible from the Internet.
 
-## (Optional) IP packet structure 
-
-![](../.img/ippacket.png)
-
-- **Version** - IPv4 or IPv6
-- **Header** - Because an IPv4 datagram can contain a variable number of options, this field determines where in the IP datagram the data actually begins
-- **Type of service** - the type of the data that is being transferred - low delay, high throughput, non-real-time, etc…
-- **Datagram length** - the total length of the IP datagram (header plus data, in bytes)
-- **Identifier, flags, fragmentation offset** - these fields have to do with IP fragmentation. Not all link-layer protocols can carry network-layer packets of the same size, the solution is to fragment the data in the IP datagram into two or more smaller IP datagrams
-- **Time-to-live** - the TTL ensures that datagrams do not circulate forever (due to, for example, a long-lived routing loop) in the network
-- **Protocol** - indicates the specific transport-layer protocol to which the data should be passed
-- **Header checksum** - aids a router in detecting bit errors in a received datagram. The header checksum is computed by treating each 2 bytes in the header as a number and summing these numbers
-- **Options** - allow an IP header to be extended
-- **Data (payload)** - In most circumstances, the data field of the IP datagram contains the transport-layer segment (TCP or UDP) to be delivered to the destination. However, the data field can carry other types of data, such as ICMP messages
-
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_computer_nets.html)
+
 
 # Exercises
 
+### :pencil2: Network design
 
-## Exercise 1
+Design a network of four different subnets with 250 machines, 12 machines, 112 machines and 53 machines respectively.
+Your network administrator gave you `10.88.132.0/22` CIDR for these subnets.
+What are the four subnets address you would like to assign to those three subnets? You must provide CIDR in the form of `/24`.
 
-Use the `ip neighbor` command to find the MAC address of your default gateway interface.
-
-## Exercise 2 - network design
-
-Design a network of four different subnets with 250 machines, 12 machines, 112 machines and 53 machines respectively. Your network administrator gave you 10.88.132.0/22 CIDR for these subnets. What are the four subnets address you would like to assign to those three subnets? You must provide CIDR in the form of /24.
-
-## Exercise 3 - virtual internet gateways
+### :pencil2: virtual internet gateways
 
 In this exercise, we will create a pair of virtual network interfaces on your local machine.
-A virtual network interface is a software-based interface that emulates a physical network interface, allowing us to create multiple logical networks on a single physical machine. 
+A virtual network interface is a software-based interface that emulates a physical network interface, allowing us to create multiple logical networks on a single physical machine.
 We will then perform a network performance test using `iperf` to see the impact of the bandwidth and latency restrictions on network performance. The goal of this exercise is to demonstrate the use of virtual network interfaces and traffic control in a practical network scenario.
 
 1. In our shared Git repo, under the `virtual_nic` directory in our shared repo, execute the `init.sh` script to start the exercise. Note that the script should be run as `root`. At the end of the execution, you’ve effectively created a network consists of 2 “subnets” (under the hood, these are not real subnets, but only two isolated [network namespaces](https://man7.org/linux/man-pages/man7/network_namespaces.7.html)) with two different network interfaces that can send traffic to each other:
@@ -264,7 +271,7 @@ tc qdisc add dev eth0 root handle 1: tbf rate 1mbit burst 32kbit latency 400ms
 tc qdisc add dev eth0 parent 1:1 handle 10: netem loss 5%
 ```
 
-7. Perform the above test again, what are the results? How was the network bandwidth damaged?  
+7. Perform the above test again, what are the results? How was the network bandwidth damaged?
 8. Stop the server in `ns1` and now run it as a UDP server:
 
 ```bash
@@ -277,5 +284,23 @@ $ iperf -s -u
 $ iperf -c <ns10-interface-ip>-u -b 1M -l 100
 ```
 
-What is the packet loss percentage? 
+What is the packet loss percentage?
+
+## Optional practice
+
+### :pencil2: Non-standard CIDR
+
+Observe the `172.16.0.0/12` CIDR. This is an unconventional CIDR since it doesn't fix the whole octet, but only the first 4 bits of the second octet. Use https://cidr.xyz/ to answer the below questions:
+
+1. How many bits can vary?
+2. How many available addresses in this CIDR (host addresses)?
+3. What does the 2nd octet bit representation look like?
+4. What is the next decimal number in the 2nd octet (after 16?)
+5. Is 10.32.0.0 part of the CIDR?
+
+
+### :pencil2: Your default gateway MAC address
+
+Use the `ip neighbor` command to find the MAC address of your default gateway interface.
+
 

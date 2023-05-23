@@ -156,22 +156,22 @@ https://learning.postman.com/docs/getting-started/overview/
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_http.html)
 
 # Exercises
 
-## Exercise 1 - Accept header
+### :pencil2: Accept header
 
 Use curl to perform an HTTP GET request to `http://httpbin.org/image`. Add an Accept header to your requests to indicate to the server that you anticipate a png  image. Read carefully the Warning message written by curl at the end of the server response, follow the instructions to save the image on the file system. Execute another curl to save the image in the file system. Which animal appears in the served image?
 
 
-## Exercise 2 - Status code
+### :pencil2: Status code
 
 1. Perform an HTTP GET request to google.com
 2. What does the server response status code mean? Follow the response headers and body to get the real Google's home page.
 3. Which HTTP version does the server use in the above response?
 
-## Exercise 3 - Connection close
+### :pencil2: Connection close
 
 The server of `http://httpbin.org` uses `keep-alive` connection by default, indicating that the server would like to keep the TCP connection open, so further requests to the server will use the same underlying TCP socket.
 
@@ -179,7 +179,7 @@ Perform an HTTP POST request to the `/anything` endpoint and tell the server tha
 
 Make sure the server's response contains the `Connection: close` header which means that the TCP connection used to serve the request was closed.
 
-## Exercise - Sending data to the server
+### :pencil2: Sending data to the server
 
 
 Perform an HTTP POST request to http://httpbin.org/anything. You should send the following json to the server
@@ -192,7 +192,7 @@ Upon success request, the response body will be a json format with a "json" key 
 
 ```json
 "json": {
-"test": "me"
+  "test": "me"
 }
 ```
 
@@ -202,7 +202,9 @@ Bad requests would be responded by:
 "json": null
 ```
 
-## Exercise 4 - set cookie
+## Optional practice
+
+### Set cookie
 
 Using `curl`, perform an HTTP GET request to `http://httpbin.org/cookies/set`, while adding the following query parameters to the URL:
 
@@ -220,7 +222,7 @@ http://127.0.0.1:8000/some/endpoint?k1=value1&k2=value2
 
 The `/cookies/set` is a designated endpoint that will add `Set-Cookie` headers according to the specified URL query parameters. Use the `--cookie-jar my-cookies.txt` option in order to save the cookies in the file `my-cookies.txt`.
 
-## Exercise 5 - Send a cookie
+### Send a cookie
 
 By default, your browser will send cookies to the corresponding servers. We will use `curl` with the option `--cookie my-cookies.txt` to send cookies to the server. Perform an HTTP GET request to `http://httpbin.org/cookies`. Use the `-v` option to see how the `Cookie` header was set in the request. Upon success, the server response body-entity should be:
 ```json
@@ -235,7 +237,7 @@ By default, your browser will send cookies to the corresponding servers. We will
 
 **Note:** It is uncommon for a server to attach the user cookies in the response body. Keep in mind that `httpbin.org` is a toy server that helps you learn the HTTP protocol. The /cookies endpoint was designed specifically to respond with your cookies for debugging purposes.
 
-## Exercise 6 - Experimenting with APIs
+### Experimenting with APIs
 
 Use Postman to retrieve data from some interesting free API:   
 https://github.com/public-apis/public-apis

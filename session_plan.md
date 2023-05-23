@@ -26,8 +26,8 @@
 |---|---|---|
 | 1 | 	1\6 | 
 | 2 | 	2\6 | :clapper: Linux intro, :mortar_board: Linux intro, :mortar_board: File management, :mortar_board: IO redirection, :clapper: Linux processes, :mortar_board: processes, :mortar_board: package management, :mortar_board: env var <br><br>In processes tutorial, you can demonstrate the [Graceful Termination]() section in class and discuss graceful termination (this is how it's done in k8s) <br> :heavy_check_mark: Compile `strace_ex` and upload to public bucket in AWS. Replace `<group-repo-link>` with the object public link. |
-| 3 | 	5\6 | 
-| 4 | 	6\6 | :mortar_board: Review [Network Security](tutorials/networking_security.md) together with the students, demonstrate different encryption on your machine (symmetric/public/digital signature)  |
+| 3 | 	5\6 | :mortar_board: Bash and other shells (no self-check and ex here), :mortar_board: Bash conditional statements, :clapper: The OSI Model, :mortar_board: The OSI model, :mag_right: Sockets <br><br> In [Bash and other shells - motivation](https://github.com/alonitac/DevOpsBootcampUPES/blob/main/tutorials/bash_and_other_shells.md#motivation) stress the fact that they don't need to understand every piece of code. <br> In the demo sockets, you can run the server in an EC2 instance and send the instance's public IP to the students in the chat
+| 4 | 	6\6 | :mortar_board: Networks and Subnets, :mortar_board: DNS, :mortar_board: HTTP, :mag_right: Network Security, :mortar_board: SSH <br><br>  :mortar_board: Review [Network Security](tutorials/networking_security.md) together with the students, demonstrate different encryption on your machine (symmetric/public/digital signature)  |
 | 5 | 	7\6 |  
 | 6 | 	8\6 |
 | 7 | 	9\6 |

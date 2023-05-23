@@ -19,27 +19,6 @@ The four layers of the TCP/IP model, in order from top to bottom, are:
 | Network Layer     | IP, ICMP       |
 | Network Interface Layer     | Ethernet       |
 
-
-### Human analogy - the airline system
-
-In reality, network systems and protocols are much more complicated than discussed here. Let's see some analogy: 
-
-![](../.img/osi-analogy.png)
-
-The airline system can be used as an analogy to the OSI model to help understand how the different layers of a network work together to transmit data.
-
-- Application Layer: This layer corresponds to the various applications and services offered by the airline, such as ticket sales and flight status updates. 
-- Transport Layer: This layer corresponds to the services provided to passengers, such as ticketing, baggage handling. 
-- Network Layer: This layer corresponds to the routing and addressing of planes within the airline system, such as flight paths and destinations. 
-- Network Interface layer: This layer corresponds to the physical infrastructure of the airline system, such as the planes, runways, and airports. 
-
-And the analogy:
-
-- Application Layer: Just as the application layer in the airline system provides end-to-end services directly to passengers and customers. The application layer in the OSI model provides services directly to users or applications.
-- Transport Layer: Just as the transport layer in the airline system provides end-to-end services to passengers during their journey, the transport layer in the OSI model provides **end-to-end** communication services between applications.
-- Network Layer: Just as the network layer in the airline system determines how planes are routed to their destinations, the network layer in the OSI model determines how data is routed through a network.
-- Network Interface layer: Just as the physical layer in the airline system deals with the physical transportation of passengers and cargo, the physical layer in the OSI model deals with the physical transmission of data over a network.
-
 ### Visiting google.com in the browser - it's really much more complicated
 
 What happen when you open your web browser and type http://www.google.com? We will try to examine it in terms of the OSI model.
@@ -99,18 +78,19 @@ In this layer, every physical (or virtual) network device has a media access con
 MAC address is the unique identifier assigned to a network interface. 
 MAC addresses are assigned at the time that a network adapter is manufactured or, if it’s a virtualized, the time that it is created.
 
-
 # Self-check questions
 
 [Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_OSI.html)
 
 # Exercises
 
-## Inspecting OSI Layers via WireShark
+### :pencil2: Inspecting OSI Layers via WireShark
 
 Wireshark is a popular network protocol analyzer that allows users to capture and inspect network traffic in real time, making it a valuable tool for network troubleshooting and analysis.
-Install it on Ubuntu:
+
+Install it on Ubuntu:   
 https://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallUnixInstallBins.html#_installing_from_debs_under_debian_ubuntu_and_other_debian_derivatives
+
 Run it by:
 
 ```console

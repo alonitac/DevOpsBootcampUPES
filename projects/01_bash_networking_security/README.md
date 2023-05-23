@@ -124,7 +124,7 @@ Your created subnet has this attribute set to false. We would like to enable thi
 Amazon EC2 (Elastic Compute Cloud) is a web service that provides resizable compute capacity in the cloud. 
 It allows users to create and manage virtual machines, commonly referred to as "instances", which can be launched in a matter of minutes and configured with custom hardware, network settings, and operating systems.
 
-![](../.img/stop.gif)
+![](../../.img/stop.gif)
 
 1. Open the Amazon EC2 console at [https://console\.aws\.amazon\.com/ec2/](https://console.aws.amazon.com/ec2/).
 
@@ -190,7 +190,7 @@ ssh -i "</path/key-pair-name.pem>" ubuntu@<instance-public-dns-name-or-ip>
 
 Extend your VPC according to the below architecture: 
 
-![](../.img/vpc1.png)
+![](../../.img/vpc1.png)
 
 **Note:** No need to create **NAT gateway** in any way you choose to build the above VPC architecture.   
 
@@ -307,7 +307,7 @@ https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html
 
 ## TLS Handshake 
 
-![Alice-Bob-Eve](../.img/alice-bob-eve.png)
+![Alice-Bob-Eve](../../.img/alice-bob-eve2.png)
 
 As you may know, the communication in HTTP protocol is insecure, and since Eve is listening on the channel between you (Alice) and the web server (Bob), you are required to create a secure channel.
 This is what HTTP does, using TLS protocol. The process of establishing a secure TLS connection involves several steps, known as TLS Handshake.

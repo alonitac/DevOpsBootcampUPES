@@ -7,8 +7,7 @@ This README contains information on the schedule, materials, exercises and proje
 ## Useful links
 
 - [Course onboarding](onboarding.md).
-- **Tutorials** can be found in [tutorials](tutorials) directory.
-- **Slides** can be found in [slides](slides) directory.
+- All **tutorials** can be found in [tutorials](tutorials) directory.
 - **Staff only** content (session plan, teaching guidelines, etc.) in [staff_only](staff_only).
 
 ## Course Staff

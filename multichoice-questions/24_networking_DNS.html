@@ -1,0 +1,213 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Networking DNS - self-check questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "c2df35004019b16591cc9c7ef6147b589d1eabd2dbd98232859c3cf9acd74a37", "5": "463e853128edcfec191b6b8225ec56c9d342588bcce35b5fa18ff0053743bfa7", "6": "49c597a905cb49769d8cb6e38be30901b025ad046059af92d1b588ecfb147925", "7": "6136d096ea2ee07ba7d521bccdab83cc761bb1a328dbcd8670bfcec7cd899aa9", "8": "077f9d85c10d682d9ef62e59b8e340e0ae64ea03fc554783129fab027a129c96", "9": "fb364de751a1a67c8c04fc87055f7b610823d5373f9703f37868494b4cccb048", "10": "4c1d77cf5e1123c03e8cbe8e01dcdeb6d4b146ca1d6c157fdf312d42713c3ea6"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">
+    
+        <a href="index.html">Main self-check questions page</a>
+    
+    
+    <h1>Networking DNS - self-check questions</h1>
+<h2>Question 1</h2>
+<p>Which file is used when resolving the hostname localhost?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/etc/inittab</code></li>
+<li><input type="checkbox"> <code>/etc/hosts</code></li>
+<li><input type="checkbox"> <code>/etc/resolv.conf</code></li>
+<li><input type="checkbox"> <code>/etc/sysconfig/localhost</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 2</h2>
+<p>Assume the following DNS records are stored in a TLD DNS server:</p>
+<pre><code class="language-text">(www.google.com, ns1.google.com, ???, 3600)
+(ns1.google.com, ???, A, 60)
+</code></pre>
+<p>Assume the following records are stored in the <code>google.com</code> authoritative DNS server:</p>
+<pre><code class="language-text">(www.google.com, us-east-1.google.com, ???, 3600)
+(us-east-1.google.com, 146.54.29.12, ???, 60)
+</code></pre>
+<p>Choose the possible input for the missing content (top-down)</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> NS, 192.168.229.2, CNAME, A</li>
+<li><input type="checkbox"> NS, 193.168.229.2, CNAME, A</li>
+<li><input type="checkbox"> NS, 146.44.119.13, CNAME, AAAA</li>
+<li><input type="checkbox"> A, 127.0.0.1, CNAME, A</li>
+</ul>
+<h2>Question 3</h2>
+<p>Given a user who is trying to resolve <code>gov.org.il</code>. Assuming the local DNS server doesn't have the IP or the hostname of the DNS server responsible for the <code>.il</code> TLD.</p>
+<p>Where does the local DNS server go?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> DNS Local</li>
+<li><input type="checkbox"> DNS Root</li>
+<li><input type="checkbox"> DNS TLD</li>
+<li><input type="checkbox"> DNS Authoritative</li>
+</ul>
+<h2>Question 4</h2>
+<p>Given the following description of each DNS server in the hierarchy:</p>
+<ol>
+<li>Highest level of the DNS hierarchy, knows how to reach servers responsible for a given domain (e.g., <em>.com, </em>.edu).</li>
+<li>Replies to DNS query requested by a local user. Requesting all other DNS servers to answer the query on behalf of the user.</li>
+<li>Responsible for a domain (e.g., <em>.com, </em>.edu); knows how to contact authoritative name servers.</li>
+<li>Provides hostname to IP mappings for organization's domain.</li>
+</ol>
+<p>Match the DNS server type according to the following order:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Root-level, local DNS, TLD DNS, authoritative DNS</li>
+<li><input type="checkbox"> TLD DNS, Root-level, local DNS, authoritative DNS</li>
+<li><input type="checkbox"> Root-level, local DNS, authoritative DNS, TLD DNS</li>
+<li><input type="checkbox"> local DNS, Root-level TLD DNS, authoritative DNS</li>
+</ul>
+<h2>Question 5</h2>
+<p>What are the benefits of caching in the local DNS server?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Less load on root-level, TLD and authoritative servers</li>
+<li><input type="checkbox"> Provides prioritized access to the root servers</li>
+<li><input type="checkbox"> Faster replies (if there is a cache hit)</li>
+<li><input type="checkbox"> Helps organizations to shut down their authoritative servers as the data is cached locally</li>
+</ul>
+<p>Suppose that the local DNS server caches all information coming in from all root, TLD, and authoritative DNS servers for 20 seconds.  Assume also that the local cache is initially empty, that DNS query latency is 2 seconds (1 second for each side - request and response).</p>
+<p>Consider the following DNS requests, made by some clients at the following order:</p>
+<ol>
+<li><code>google.com</code></li>
+<li><code>icann.org</code></li>
+<li><code>amazon.com</code></li>
+<li><code>google.com</code></li>
+<li><code>cnn.com</code></li>
+<li><code>google.com</code></li>
+</ol>
+<p>Answer the below 3 questions</p>
+<h2>Question 6</h2>
+<p>Which of the requests require 8 seconds to be resolved?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> 4</li>
+<li><input type="checkbox"> 5</li>
+<li><input type="checkbox"> 6</li>
+</ul>
+<h2>Question 7</h2>
+<p>Which of the requests require 6 time units to be resolved?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> 4</li>
+<li><input type="checkbox"> 5</li>
+<li><input type="checkbox"> 6</li>
+</ul>
+<h2>Question 8</h2>
+<p>Which of the requests require 2 time units to be resolved?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> 4</li>
+<li><input type="checkbox"> 5</li>
+<li><input type="checkbox"> 6</li>
+</ul>
+<h2>Question 9</h2>
+<p>Choose the correct sentences regarding local DNS server:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Records for a remote host are sometimes different from that of the authoritative server for that host.</li>
+<li><input type="checkbox"> Can decrease the resolution time</li>
+<li><input type="checkbox"> Holds only A records, but not NS records.</li>
+<li><input type="checkbox"> Is only contacted by a client if that client is unable to resolve a name via recursive queries into the DNS hierarchy.</li>
+</ul>
+<h2>Question 10</h2>
+<p>What is the role of an authoritative name server in the DNS?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Is the source of truth in respect to the correct IP address of a hostname.</li>
+<li><input type="checkbox"> Provides a list of TLD servers that can be queried to find the IP address of the hostname.</li>
+<li><input type="checkbox"> It is a local server that caches data.</li>
+<li><input type="checkbox"> It provides the IP address of the DNS server that can provide the hostname A record.</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

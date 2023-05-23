@@ -102,7 +102,7 @@ MAC addresses are assigned at the time that a network adapter is manufactured or
 
 # Self-check questions
 
-TBD
+https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/20_networking_OSI.html
 
 # Exercises
 

@@ -1,0 +1,251 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Networking Sockets self-check question
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "9bdb2af6799204a299c603994b8e400e4b1fd625efdb74066cc869fee42c9df3", "2": "8443a531d20632008b554d7dddc50170dcce96a26251651e44b7b6d8856c5ba1", "3": "718e63b74c9642e18a4ddf68a5b25344aafc357e18d0e31c22365d5547ac33f5", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "c9df3029c64e26aee3c3da7a34a1270de9557c091467c5b36aa7a28d48041118", "6": "188e0299e3548502133a2f6c9583a34094cc4c17ecd5f772c5fc20bc703f30cb", "7": "617d73f7daa20be81d5318b14f24db980b0f1d4e5cd897355aa57c4bcaf2c6d3", "8": "c86fa2e2a9877cafa7327cdd1bbb001a3d115219690da11550b11b832f41a008", "9": "1ee4fed2e36fb0954efe2c8275b386379892a3e423e270d57044b49a5f8c155d", "10": "a9c77f1c964d34365e0f5bcb4bdbf8ee95cb562d7e7d3c658568a5f1b07739cc", "11": "310269c25d4b412c66227af076ad9fc5e92191de11456de40e62bbc6c558d4cd", "12": "b5086f3f3c0f0e59a051d527f27eadc907d6cd22a3be4cf91a52a5671784b1b9", "13": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4", "14": "b40e1350f4b874a48c3be66f35e3b76974593802a3ab8c8010178170bf77695d"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">
+    
+        <a href="index.html">Main self-check questions page</a>
+    
+    
+    <h1>Networking Sockets self-check question</h1>
+<h2>Question 1</h2>
+<p>For a communication session between a pair of programs, which program is the client and which is the server?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The program that initializes the TCP connection is the client</li>
+<li><input type="checkbox"> The program that initializes the TCP connection is the server</li>
+</ul>
+<h2>Question 2</h2>
+<p>In TCP/IP networking, what parameter is used to specify a particular process on a machine?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> IP address</li>
+<li><input type="checkbox"> window size</li>
+<li><input type="checkbox"> port number</li>
+<li><input type="checkbox"> protocol</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 3</h2>
+<p>What file contains a catalog of well known services?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/etc/services</code></li>
+<li><input type="checkbox"> <code>/etc/protocols</code></li>
+<li><input type="checkbox"> <code>/usr/share/net/services</code></li>
+<li><input type="checkbox"> <code>/usr/share/net/protocols</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 4</h2>
+<p>Which port number serves as a boundary between privileged and non-privileged ports?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 25</li>
+<li><input type="checkbox"> 991</li>
+<li><input type="checkbox"> 1024</li>
+<li><input type="checkbox"> 6000</li>
+<li><input type="checkbox"> 65535</li>
+</ul>
+<h2>Question 5</h2>
+<p>If on one machine, elvis was using both the Firefox and Chrome web browsers to access the same
+website, what parameter would differ for the two involved sockets?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The client IP Address</li>
+<li><input type="checkbox"> The server port number</li>
+<li><input type="checkbox"> The client port number</li>
+<li><input type="checkbox"> The server IP Address</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 6</h2>
+<p>When a socket is opened by a server and awaiting client connections, what state is the socket said
+to be in?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Waiting</li>
+<li><input type="checkbox"> Listening</li>
+<li><input type="checkbox"> Established</li>
+<li><input type="checkbox"> Initialized</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<p>Use the following transcript to answer the next 4 questions.</p>
+<pre><code class="language-console">[elvis@station elvis]$ netstat -tuna
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address       Foreign Address         State
+tcp   0     0   127.0.0.1:32768     0.0.0.0:*               LISTEN
+tcp   0     0   0.0.0.0:111         0.0.0.0:*               LISTEN
+tcp   0     0   0.0.0.0:6000        0.0.0.0:*               LISTEN
+tcp   0     0   0.0.0.0:22          0.0.0.0:*               LISTEN
+tcp   0     0   69.57.79.162:53     0.0.0.0:*               LISTEN
+tcp   0     0   192.168.0.254:53    0.0.0.0:*               LISTEN
+tcp   0     0   127.0.0.1:53        0.0.0.0:*               LISTEN
+tcp   0     0   0.0.0.0:631         0.0.0.0:*               LISTEN
+tcp   0     0   127.0.0.1:25        0.0.0.0:*               LISTEN
+tcp   0     0   127.0.0.1:953       0.0.0.0:*               LISTEN
+tcp   0     0   127.0.0.1:6010      0.0.0.0:*               LISTEN
+tcp   0     0   127.0.0.1:631       127.0.0.1:32773         ESTABLISHED
+tcp   0     48  69.57.79.162:22     66.187.233.200:35954    ESTABLISHED
+
+[elvis@station elvis]$ grep 53 /etc/services
+domain      53/tcp          # name-domain server
+domain      53/udp           
+gdomap      538/tcp         # GNUstep distributed objects
+gdomap      538/udp         # GNUstep distributed objects
+cfengine    5308/tcp        # CFengine
+cfengine    5308/udp        # CFengine
+knetd       2053/tcp        # Kerberos de-multiplexor
+rndc        953/tcp         # rndc control sockets (BIND 9)
+rndc        953/udp         # rndc control sockets (BIND 9)
+</code></pre>
+<h2>Question 7</h2>
+<p>Choose the correct sentence.</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>69.57.79.162</code> is connected to elvis station over SSH protocol</li>
+<li><input type="checkbox"> <code>66.187.233.200</code> is connected to elvis station over SSH protocol</li>
+<li><input type="checkbox"> <code>69.57.79.162</code> is connected to elvis station using port 35954</li>
+<li><input type="checkbox"> <code>66.187.233.200</code> is connected to elvis station using port 35954</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 8</h2>
+<p>How many TCP/IP clients are currently connected to services on elvis machine?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 0</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 11</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 9</h2>
+<p>Of these, how many are on remote machines?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 0</li>
+<li><input type="checkbox"> 11</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 10</h2>
+<p>The three sockets bound to port 53 most likely belong to what service?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> SSH (Secure Shell)</li>
+<li><input type="checkbox"> HTTP (Hypertext Transfer Protocol)</li>
+<li><input type="checkbox"> FTP (File Transfer Protocol)</li>
+<li><input type="checkbox"> DNS (Domain Name Service)</li>
+<li><input type="checkbox"> TELNET (Telnet Service)</li>
+</ul>
+<h2>Question 11</h2>
+<p>Which of the below characteristics are typically associated with a TCP socket?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The syscall <code>socket(AF_INET, SOCK_DGRAM, 0)</code> creates the socket of type TCP.</li>
+<li><input type="checkbox"> TCP sockets provide reliable, in-order byte-stream transfer between client and server.</li>
+<li><input type="checkbox"> The function call <code>socket(AF_INET, SOCK_STREAM, 0)</code> creates a socket of type TCP.</li>
+<li><input type="checkbox"> The server uses <code>accept()</code> function for incoming client connections.</li>
+<li><input type="checkbox"> Data from multiple clients can be received on the same socket.</li>
+<li><input type="checkbox"> When a server is contacted by a client, it creates a new server-side socket to communicate with that client.</li>
+</ul>
+<h2>Question 12</h2>
+<p>In TCP, how does the server know the client IP address and the port number to reply to in response to a received message?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Using the DNS protocol</li>
+<li><input type="checkbox"> Every message sent by the client contains the IP number and port.</li>
+<li><input type="checkbox"> The accept() syscall creates a new socket that is bound to the specific client, which is established using the IP and port number of the client.</li>
+<li><input type="checkbox"> The server looks for the correct port number in the <code>/etc/services</code> file.</li>
+</ul>
+<h2>Question 13</h2>
+<p>In UDP, how does the server know the client IP address and the port number to reply to in response to a received message?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Using the DNS protocol</li>
+<li><input type="checkbox"> Every message sent by the client contains the IP number and port.</li>
+<li><input type="checkbox"> The accept() syscall creates a new socket that is bound to the specific client, which is established using the IP and port number of the client.</li>
+<li><input type="checkbox"> The server looks for the correct port number in the <code>/etc/services</code> file.</li>
+</ul>
+<h2>Question 14</h2>
+<p>A given server has 5 established connections bound to port 80, how many socket files the server holds?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 5</li>
+<li><input type="checkbox"> 6</li>
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> None of the above</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

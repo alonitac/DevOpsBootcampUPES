@@ -1,0 +1,304 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Networking subnets - self-check questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "90c057678bcaee0767b2d39294da097a6d1ac3cf2b3c1e64d496fa5d229b1c2d", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "01828ab6e38e6ad1e7b67be7a1cba3363096cef6ad36a68878222c3760440318", "6": "ce22f67039918cbb320b478decd852178fe502660851517fad3c8f2b6333bb6d", "7": "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "9de3888231a1021acddcaa006b2f2a1ead5e245ae44a6b50e997afa9371e081e", "10": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "11": "5ce712e12851d31a4f316c59608f98e284c0a9ba07fcd6b6f0087a68540c4c9c", "12": "1e3c1e691374cd044003ae4058b5c0859abcdaf1288835327102d0cb138e79a0", "13": "6fa81431ad0cd95d8772bbdb8e1755f1e165f0414cd667ce009e41d30aea2c4b", "14": "b40e1350f4b874a48c3be66f35e3b76974593802a3ab8c8010178170bf77695d", "15": "a5382d7eb3af0babdae8c46fd5d13072011521a7b347ab49a8922f63191f4d08", "16": "eaaa13b0c1bfce6e53d58cadae09e37845e4990c934473fd53f69a2a011fba29", "17": "6336f6c7cde3673dde8c6ca171312300703d0d53144b524ecb343d5817172700"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">
+    
+        <a href="index.html">Main self-check questions page</a>
+    
+    
+    <h1>Networking subnets - self-check questions</h1>
+<h2>Question 1</h2>
+<p>How much different hosts can be connected to the subnet denoted by <code>10.0.1.0/24</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 254</li>
+<li><input type="checkbox"> 24</li>
+<li><input type="checkbox"> 1024</li>
+<li><input type="checkbox"> 255</li>
+</ul>
+<h2>Question 2</h2>
+<p>Which of the following subnets is most specifically describes the following list of hosts IP:</p>
+<p><code>172.31.8.17</code>
+<code>172.31.37.152</code>
+<code>172.31.33.152</code>
+<code>172.31.42.73</code>
+<code>172.31.8.46</code></p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>172.31.0.0/16</code></li>
+<li><input type="checkbox"> <code>172.31.0.0/24</code></li>
+<li><input type="checkbox"> <code>172.31.8.0/24</code></li>
+<li><input type="checkbox"> <code>172.0.0.0/16</code></li>
+</ul>
+<p>Use the following transcript to answer the next 4 questions.</p>
+<pre><code class="language-console">[madonna@station madonna]$ ip address
+eth0        Link encap:Ethernet HWaddr 00:00:86:4D:F0:0C
+inet addr:118.45.92.51 Bcast:118.45.92.255 Mask:255.255.255.0
+UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1
+RX packets:242939 errors:0 dropped:0 overruns:0 frame:0
+TX packets:302515 errors:0 dropped:0 overruns:1 carrier:1
+collisions:0 txqueuelen:100
+RX bytes:24308852 (23.1 Mb) TX bytes:166603272 (158.8 Mb)
+Interrupt:11 Base address:0xd400
+
+lo          Link encap:Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+UP LOOPBACK RUNNING MTU:16436 Metric:1
+RX packets:29291 errors:0 dropped:0 overruns:0 frame:0
+TX packets:29291 errors:0 dropped:0 overruns:0 carrier:0
+collisions:0 txqueuelen:0
+RX bytes:2661822 (2.5 Mb) TX bytes:2661822 (2.5 Mb)
+
+[madonna@station madonna]$ route -n
+Kernel IP routing table
+Destination     Gateway     Genmask         Flags Metric Ref Use Iface
+118.45.92.0     0.0.0.0     255.255.255.0   U   0   0 0 eth0
+</code></pre>
+<h2>Question 3</h2>
+<p>What is the IP address of madonna's machine?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>118.45.92.0</code></li>
+<li><input type="checkbox"> <code>127.0.0.1</code></li>
+<li><input type="checkbox"> <code>118.45.92.51</code></li>
+<li><input type="checkbox"> <code>66.23.35.53</code></li>
+<li><input type="checkbox"> Not enough information is provided.</li>
+</ul>
+<h2>Question 4</h2>
+<p>Which file is used when resolving the hostname localhost?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/etc/inittab</code></li>
+<li><input type="checkbox"> <code>/etc/hosts</code></li>
+<li><input type="checkbox"> <code>/etc/resolv.conf</code></li>
+<li><input type="checkbox"> <code>/etc/sysconfig/localhost</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 5</h2>
+<p>Which of the following error messages most likely appear when madonna sends traffic to 16.74.114.3</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Host is not resolvable</li>
+<li><input type="checkbox"> 404 page not found</li>
+<li><input type="checkbox"> Internal server error</li>
+<li><input type="checkbox"> No route to host</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 6</h2>
+<p>To which network interface will the traffic be routed for the IP address <code>127.1.1.1</code>?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 7</h2>
+<p>Suppose you have the following IP address: <code>192.168.1.128</code>
+Using the longest prefix match algorithm to determine the route, which of the following networks will this IP address be routed to?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>192.168.1.0/32</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/24</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/16</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/0</code></li>
+</ul>
+<h2>Question 8</h2>
+<p>Given an IP address of <code>10101010 11110000 00111111 00001111</code>, which of the below routes would be taken when using the longest prefix match algorithm?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>10000000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>11000000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>10100000 00000000 00000000 00000000/3</code></li>
+<li><input type="checkbox"> <code>10000000 00000000 00000000 00000000/3</code></li>
+</ul>
+<h2>Question 9</h2>
+<p>Given the below output of the <code>ip address</code> command:</p>
+<pre><code class="language-text">1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+inet 127.0.0.1/8 scope host lo
+valid_lft forever preferred_lft forever
+
+2: eth0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state UP group default qlen 1000
+inet 192.168.0.2/24 brd 192.168.0.255 scope global eth0
+valid_lft forever preferred_lft forever
+
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default qlen 1000
+inet 192.168.1.2/24 brd 192.168.1.255 scope global wlan0
+valid_lft forever preferred_lft forever
+</code></pre>
+<p>Assuming that a request is made to the IP address <code>192.168.2.0</code>, which network interface will be used to route this request?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<p>Consider the below network, described by <code>156.1.0.0/16</code>.</p>
+<pre><code class="language-text">                    +--------------+
+                    |  Subnet A    |
+                    | 127 hosts    |
+                    | 156.1.1.0/24 |
+                    +--------------+
+                           |
+                           |
+                           |
+          +-----------------------------+
+          |                             |
++-----------------+                   +----------------+
+|    Subnet B     |                   |    Subnet C    |
+|    58 hosts     |                   |    29 hosts    |
+|   156.1.45.0/24 |                   | 156.1.5.0/24   |
++-----------------+                   +----------------+
+</code></pre>
+<p>Answer the below 4 question:</p>
+<h2>Question 10</h2>
+<p>Is the address space public or private?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Public</li>
+<li><input type="checkbox"> Private</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 11</h2>
+<p>Excluding the network address, and broadcast address of each subnet, how many hosts can potentially be in the whole network?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 256 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 512 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 65536 - 6 (network and broadcast addresses)</li>
+<li><input type="checkbox"> 214 - 6 (network and broadcast addresses)</li>
+</ul>
+<h2>Question 12</h2>
+<p>What is the first address of subnet A (excluding the network and broadcast addresses)?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>156.1.1.0</code></li>
+<li><input type="checkbox"> <code>156.1.1.1</code></li>
+<li><input type="checkbox"> <code>156.1.1.255</code></li>
+<li><input type="checkbox"> <code>156.1.0.0</code></li>
+</ul>
+<h2>Question 13</h2>
+<p>What is the broadcast address of subnet A?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>156.1.1.0</code></li>
+<li><input type="checkbox"> <code>156.1.1.1</code></li>
+<li><input type="checkbox"> <code>156.1.1.255</code></li>
+<li><input type="checkbox"> <code>156.1.0.0</code></li>
+</ul>
+<p>Suppose the following route table of host Y:</p>
+<pre><code class="language-text">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         192.168.1.1     0.0.0.0         UG    100    0        0 eth0
+10.0.0.0        10.0.0.1        255.255.255.0   UG    0      0        0 eth1
+192.168.1.0     0.0.0.0         255.255.255.0   U     100    0        0 eth0
+</code></pre>
+<p>Answer the below 4 questions.</p>
+<h2>Question 14</h2>
+<p>What is the default gateway address of Y?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>192.168.1.0</code></li>
+<li><input type="checkbox"> <code>192.168.1.1</code></li>
+<li><input type="checkbox"> <code>10.0.0.1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 15</h2>
+<p>What is most likely the CIDR of the subnet host Y belongs to?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>192.168.1.0/16</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/24</code></li>
+<li><input type="checkbox"> <code>10.0.0.1/24</code></li>
+<li><input type="checkbox"> <code>192.168.1.0/32</code></li>
+</ul>
+<h2>Question 16</h2>
+<p>To which network interface will the traffic to <code>10.0.0.234</code> be routed?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>eth1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 17</h2>
+<p>To which network interface will the traffic to <code>10.0.1.234</code> be routed?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> <code>eth0</code></li>
+<li><input type="checkbox"> <code>eth1</code></li>
+<li><input type="checkbox"> None of the above</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

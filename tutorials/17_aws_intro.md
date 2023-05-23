@@ -4,8 +4,7 @@ Cloud computing is a technology that allows businesses and individuals to access
 
 ### Course resources: 
 
-AWS officila docs
-
+TBD
 
 ## Region and Zones
 

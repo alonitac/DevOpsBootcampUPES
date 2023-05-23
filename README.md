@@ -26,16 +26,14 @@ Daily sessions are from 11am to 3pm IDT.
 
 TBD Zoom Link
 
-[gh-pages-url]: https://alonitac.github.io/DevOpsBootcampUPES/slides
 
-
-| #  |  Date |  Reading materials | Slides | Project  |
+| #  |  Date |  Reading materials | Slides | Projects  |
 |---|---|---|---|---|
 | 1 🤝 | 	1\6 | Waterfall model, Agile and DevOps<br>The CI/CD pipeline<br>Microservices | TBD | - |
-| 2 🤝 | 	2\6 | [Linux recap](tutorials/01_linux_the_very_beginning.md), [file system](tutorials/02_linux_file_system.md) and [management](tutorials/03_linux_file_management.md), [IO redirection](tutorials/04_linux_io_redirection.md), [processes](tutorials/05_linux_processes.md), [package management](tutorials/06_linux_package_management.md), [env var](tutorials/07_linux_environment_variables.md) | [Linux intro]([gh-pages-url]/linux_intro.html), [Linux file system](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_file_system.html), [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html) | 
-| 3 | 	5\6 | [Bash and other shells](tutorials/08_bash_and_other_shells.md), [Bash conditional statements](tutorials/09_bash_conditional_statements.md), [The OSI model](tutorials/10_networking_OSI_model.md) | 
-| 4 | 	6\6 | 
-| 5 | 	7\6 | 
+| 2 🤝 | 	2\6 | [Linux recap](tutorials/01_linux_the_very_beginning.md), [file system](tutorials/02_linux_file_system.md) and [management](tutorials/03_linux_file_management.md), [IO redirection](tutorials/04_linux_io_redirection.md), [processes](tutorials/05_linux_processes.md), [package management](tutorials/06_linux_package_management.md), [env var](tutorials/07_linux_environment_variables.md) | [Linux intro](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_intro.html), [Linux file system](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_file_system.html), [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html) | 
+| 3 | 	5\6 | [Bash and other shells](tutorials/08_bash_and_other_shells.md), [Bash conditional statements](tutorials/09_bash_conditional_statements.md), [The OSI model](tutorials/10_networking_OSI_model.md), [Sockets](tutorials/11_networking_linux_sockets.md) | [The OSI Model](https://alonitac.github.io/DevOpsBootcampUPES/slides/networking_OSI_model.html) |
+| 4 | 	6\6 | [Networks and Subnets](tutorials/12_networking_computer_nets.md), [DNS](tutorials/13_networking_dns.md), [HTTP](tutorials/14_networking_http.md),  [Network Security](tutorials/15_networking_security.md), [SSH](tutorials/16_networking_ssh.md) |  | [Bash, Networking and Security](projects/01_bash_networking_security) <br> **Due date: 2023-06-12** | 
+| 5 | 	7\6 | [Intro to cloud computing](tutorials/17_aws_intro.md), [EC2 and EBS](tutorials/18_aws_ec2_ebs.md), [S3](tutorials/19_aws_s3.md), [IAM](tutorials/20_aws_iam.md) | |  | 
 | 6 | 	8\6 | 
 | 7 | 	9\6 | 
 | 8 | 	12\6 | 

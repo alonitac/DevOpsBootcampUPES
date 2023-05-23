@@ -26,13 +26,15 @@ Daily sessions are from 11am to 3pm IDT.
 
 TBD Zoom Link
 
+[gh-pages-url]: https://alonitac.github.io/DevOpsBootcampUPES/slides
+
 
 | #  |  Date |  Reading materials | Slides | Project  |
 |---|---|---|---|---|
-| 1 🤝 | 	1\6 | Waterfall model, Agile and DevOps<br>The CI/CD pipeline<br>Microservices | - | - | - | TBD | - |
-| 2 🤝 | 	2\6 | [Linux recap](tutorials/01_linux_the_very_beginning.md), [file system](tutorials/02_linux_file_system.md) and [management](tutorials/03_linux_file_management.md), [IO redirection](tutorials/04_linux_io_redirection.md), [processes](tutorials/05_linux_processes.md), [package management](tutorials/06_linux_package_management.md), [env var](tutorials/07_linux_environment_variables.md) | [Linux intro](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_intro.html), [Linux file system](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_file_system.html), [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html) | 
-| 3 :computer: | 	5\6 | 
-| 4 :computer: | 	6\6 | 
+| 1 🤝 | 	1\6 | Waterfall model, Agile and DevOps<br>The CI/CD pipeline<br>Microservices | TBD | - |
+| 2 🤝 | 	2\6 | [Linux recap](tutorials/01_linux_the_very_beginning.md), [file system](tutorials/02_linux_file_system.md) and [management](tutorials/03_linux_file_management.md), [IO redirection](tutorials/04_linux_io_redirection.md), [processes](tutorials/05_linux_processes.md), [package management](tutorials/06_linux_package_management.md), [env var](tutorials/07_linux_environment_variables.md) | [Linux intro]([gh-pages-url]/linux_intro.html), [Linux file system](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_file_system.html), [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html) | 
+| 3 | 	5\6 | [Bash and other shells](tutorials/08_bash_and_other_shells.md), [Bash conditional statements](tutorials/09_bash_conditional_statements.md), [The OSI model](tutorials/10_networking_OSI_model.md) | 
+| 4 | 	6\6 | 
 | 5 | 	7\6 | 
 | 6 | 	8\6 | 
 | 7 | 	9\6 | 
@@ -50,16 +52,16 @@ TBD Zoom Link
 | 19 | 	27\6 | 
 | 20 | 	28\6 | 
 | 21 | 	29\6 | 
-| 22 | 	3\7 | 
-| 23 | 	4\7 | 
-| 24 | 	5\7 | 
-| 25 | 	6\7 | 
-| 26 | 	7\7 | 
-| 27 | 	10\7 | 
-| 28 | 	11\7 | 
-| 29 | 	12\7 | 
-| 30 | 	13\7 | 
-| 31 | 	14\7 | 
+| 22 🤝 | 	3\7 | 
+| 23 🤝 | 	4\7 | 
+| 24 🤝 | 	5\7 | 
+| 25 🤝 | 	6\7 | 
+| 26 🤝 | 	7\7 | 
+| 27 🤝 | 	10\7 | 
+| 28 🤝 | 	11\7 | 
+| 29 🤝 | 	12\7 | 
+| 30 🤝 | 	13\7 | 
+| 31 🤝 | 	14\7 | 
 
 
 

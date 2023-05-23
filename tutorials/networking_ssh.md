@@ -102,7 +102,7 @@ ifdown-ipv6     100% |*****************************| 4076   00:00
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_ssh.html)
 
 # Exercises
 
@@ -128,26 +128,28 @@ docker inspect ssh-server | jq -r '.[0].NetworkSettings.IPAddress'
 
 Solve the below exercises while the container is running. The IP address you just extracted is the “remote” machine IP that should be used to connect to the machine, the port is 2222, the user is `elvis`.
 
-## Exercise 1 - Simple connection
+### :pencil2: Simple connection
 
 Use the `ssh` command to  connect to your machine.
 
-## Exercise 2 - Change fingerprint
-
-Stop the docker container process (you can do it by CTRL+c), and start again, try to connect again to the remote machine using the ssh command from the previous exercise. What happened, why? How can you fix it?
-
-## Exercise 3 - port forward
+### :pencil2: port forward
 
 SSH port forwarding allows you to securely tunnel traffic between a local and a remote machine over an encrypted SSH connection, enabling access to remote services as if they were running on the local machine.
 
 Connect to the remote server while forwarding port 8087 from the remote into port 8085 in the local machine.
 
-
-## Exercise 4 - add new keys
+### :pencil2: add new keys
 
 Generate another RSA key-pair. Allow ssh connection using this new key-pair. The `authorized_keys` file is located in the remote machine under `/config/.ssh/` .
 
-## Exercise 5 - password auth
+## Optional practice
+
+### Change fingerprint
+
+Stop the docker container process (you can do it by CTRL+c), and start again, try to connect again to the remote machine using the ssh command from the previous exercise. What happened, why? How can you fix it?
+
+
+### password auth
 
 Password authentication in SSH is the ability to authenticate with a username and password pair. It is not recommended to use password authentication because it is vulnerable to brute-force attacks, where an attacker can repeatedly guess passwords until they gain access to the system. It is safer to use key-based authentication, which is more secure and allows for automated access without exposing passwords.
 
@@ -164,7 +166,7 @@ for i in $(seq 1000 3000); do
 done
 ```
 
-## Exercise 5 - change the ssh daemon
+### change the ssh daemon
 
 To change the SSH daemon configuration, you can modify the `sshd_config` file on the server. This file typically resides in the `/etc/ssh/` directory. 
 You can edit this file with `nano` to change various settings such as the port number, authentication methods, and allowed users/groups. 

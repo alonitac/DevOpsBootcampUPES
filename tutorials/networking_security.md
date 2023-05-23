@@ -237,18 +237,32 @@ If they match, the user is granted access.
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/networking_security.html)
+
 
 # Exercises
 
-## Exercise 1 - Playing with symmetric encryption
+### :pencil2: Authenticity verification
+
+Under `signature_verification` in our shared repo, you are given 5 signatures and the corresponding messages. Determine which of the signatures are authentic.
+
+
+### :pencil2: Playing with symmetric encryption
 
 1. Encrypt some file using `openssl`
 2. Try to decrypt the encrypted file using a different secret you've used to encrypt. What happened?
 3. Add some text to the encrypted file, then try to decrypt it. What happened? [Read here](https://security.stackexchange.com/questions/9437/does-symmetric-encryption-provide-data-integrity) about how openssl provides data integrity in symmetric encryption.
 4. Encrypt the same file, but using a different key. Make sure different encryption is generated for different keys.
 
-## Exercise 2 - Self-signed Certificate
+### :pencil2: Verify the integrity of apt-get packages
+
+Debian package verification works by checking the cryptographic hash of the package against the expected value in the package metadata. The package metadata includes the SHA-256 hash of the package contents and is signed by the package maintainer's GPG key.
+
+In our shared repo, under `package_integrity_verification/Packages`, you are given the metadata of 2 Debian packages, visit the docker binaries server: https://download.docker.com/linux/ubuntu/, download the binaries (the .deb file) to your machine according to the path specified in `Filename:`, and verify the package integrity using the `SHA512` value.
+
+## Optional practice
+
+### Self-signed Certificate
 
 In this exercise you will generate an SSL certificate. In real life, a trusted authority (like Amazon, DigiCert) should sign on your certificates, which gives them validity. But just for the learning, you will generate a certificate and sign it yourself (a.k.a. self-signed certificate). In the public Internet, there is no value for self-signed certificates, but organizations do sign their own certificates for internal usage. We will be using, right guess, `openssl`:
 
@@ -259,14 +273,4 @@ openssl req -x509 -newkey rsa:1024 -keyout key.pem -out cert.pem -sha256 -days 3
 The program will ask you some identifiable information: who are you? What is the organization you belong to? your country, your mail etc... All these details, including a public key, will be encoded into a file called `cert.pem`. Note that this certificate has an expiration time of 365 days.
 
 `cat cert.pem` to see how a certificate may look like. In the simplified TLS handshake model you’ve learned, the server's certificate is the first thing that was sent to the client.
-
-## Exercise 3 - Authenticity verification
-
-Under `signature_verification` in our shared repo, you are given 5 signatures and the corresponding messages. Determine which of the signatures are authentic.
-
-## Exercise 4 - Verify the integrity of apt-get packages
-
-Debian package verification works by checking the cryptographic hash of the package against the expected value in the package metadata. The package metadata includes the SHA-256 hash of the package contents and is signed by the package maintainer's GPG key.
-
-In our shared repo, under `package_integrity_verification/Packages`, you are given the metadata of 2 Debian packages, visit the docker binaries server: https://download.docker.com/linux/ubuntu/, download the binaries (the .deb file) to your machine according to the path specified in `Filename:`, and verify the package integrity using the `SHA512` value.
 

@@ -1,6 +1,6 @@
 # Welcome to the CS DevOps Bootcamp at UPES University of India
 
-https://creativecommons.org/licenses/by-nc-sa/4.0/[image:https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg[License:CC BY-NC-SA 4.0]]
+![License:CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 
 This README contains information on the schedule, materials, exercises and projects for the DevOps bootcamp at UPES University of India, summer 2023.
 

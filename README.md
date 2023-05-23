@@ -8,7 +8,6 @@ This README contains information on the schedule, materials, exercises and proje
 
 - [Course onboarding](onboarding.md).
 - All **tutorials** can be found in [tutorials](tutorials) directory.
-- **Staff only** content (session plan, teaching guidelines, etc.) in [staff_only](staff_only).
 
 ## Course Staff
 
@@ -22,8 +21,6 @@ TBD
 ## Course schedule
 
 Daily sessions are from 11am to 3pm IDT.
-
-TBD Zoom Link
 
 
 | #  |  Date |  Reading materials | Slides | Projects  |

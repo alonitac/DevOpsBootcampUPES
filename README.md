@@ -49,14 +49,14 @@ Daily sessions are from 11am to 3pm IDT.
 | 21 | 	29\6 | 
 | 22 🤝 | 	3\7 | 
 | 23 🤝 | 	4\7 | 
-| 24 🤝 | 	5\7 | 
-| 25 🤝 | 	6\7 | 
-| 26 🤝 | 	7\7 | 
-| 27 🤝 | 	10\7 | 
-| 28 🤝 | 	11\7 | 
-| 29 🤝 | 	12\7 | 
-| 30 🤝 | 	13\7 | 
-| 31 🤝 | 	14\7 | 
+| 24 🤝 | 	5\7 | Stabilize your projects & tools bazzar
+| 25 🤝 | 	6\7 | Projects proposals
+| 26 🤝 | 	7\7 | Final project
+| 27 🤝 | 	10\7 | Final project
+| 28 🤝 | 	11\7 | Final project
+| 29 🤝 | 	12\7 | Students presentations
+| 30 🤝 | 	13\7 | Students presentations
+| 31 🤝 | 	14\7 | Summary, further learning paths
 
 
 

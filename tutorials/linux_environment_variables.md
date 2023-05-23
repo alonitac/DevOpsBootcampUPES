@@ -49,7 +49,7 @@ PATH=$PATH:/home/myuser/mytools
 
 # Exercises
 
-## Create your own Linux "command"
+### :pencil2: Create your own Linux "command"
 
 Let's create a shell program and add it to your `$PATH` env var. Execute the following commands line by line:
 
@@ -69,15 +69,16 @@ echo my script is running...
 8. Try to use the `myscript` command in another new terminal session. Does it work? Why?
 
 
-## Manipulate env vars
+### :pencil2: Manipulate env vars
 
 In your current terminal session, type `printenv` to list your environment variables. 
 Find specific env var to manipulate, such that the command `cd ~` will actually change to the `/tmp` directory, instead to your regular home directory.
 
 This hack should work for any child process spawned from your current terminal session.
 
+## Optional practice
 
-## Elvis custom `ls` command
+### Elvis custom `ls` command
 
 The PATH variable on `elvis`’ machine looks like:
 

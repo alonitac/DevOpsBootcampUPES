@@ -29,11 +29,11 @@ When you run the above command, the package manager (in this case, `apt-get`) wi
 
 # Exercises
 
-## Install Docker 
+### :pencil2: Install Docker 
 
 Follow [Docker official installation](https://docs.docker.com/engine/install/ubuntu/) docs on Ubuntu. Install Docker step by step while trying to understand the reason behind every apt-get command. What are the official GPG keys used for?
 
-## Experimenting with `apt-get`
+### :pencil2: Experimenting with `apt-get`
 
 1. Why do we need `sudo` to `apt-get update` and `install`?
 2. Perform `apt-cache show apache2` to see the local list of the `apache2` package on your system.

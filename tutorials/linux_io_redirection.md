@@ -136,7 +136,7 @@ In this example we are filtering lines containing the text `stdin` or `stdout`, 
 
 # Exercises
 
-## IO redirection basics
+### :pencil2: IO redirection basics
 
 1. Create a file called `fruits.txt` with the contents "apple banana cherry"
 2. Use `>` to write the contents of `fruits.txt` to a new file called `output.txt`.
@@ -145,33 +145,36 @@ In this example we are filtering lines containing the text `stdin` or `stdout`, 
 5. Use `grep` to search for APPLE (upper cases) in `output.txt`. Did the search succeed?
 6. Use `grep` to display all lines in `output.txt` that don't contain banana.
 
-## Grep on file
+### :pencil2: Grep on file
 
 Create the file `~/bashusers.txt`, which contains lines from the `/etc/passwd` file which contain the text “/bin/bash”.
 
-## Grep on file II
+### :pencil2: Grep on file II
 
 Create the file `~/rules.txt`, which contains every line from the `/etc/rsyslog.conf` file which contains the text “file”, using a case insensitive search.
 (In other words, file, File, and files would all count as matches).
 
-## Grep with regex
 
-Find the number of words in `/usr/share/dict/words` that contain at least three “a”s. E.g. traumata, takeaways, salaam
-
-
-## Regex
-
-Create a file containing some lines that you think would match the regular expression: `(^[0-9]{1,5}[a-zA-Z ]+$)|none` and some lines that you think would not match. 
-Use `grep` to see if your intuition is correct.
-
-## Regex II
-
-Using `grep` command and regular expressions, list all files in your home directory that others can read or write to.
-
-
-## grep with line number and pipe
+### :pencil2: grep with line number and pipe
 
 Use the `grep` command and pipes only!
 
 Create the file `~/mayhemnum.txt`, which contains only the line number of the word “mayhem” from the file `/usr/share/dict/words`.
+
+
+## Optional practice
+
+
+### Grep with regex
+
+Find the number of words in `/usr/share/dict/words` that contain at least three “a”s. E.g. traumata, takeaways, salaam
+
+### Regex
+
+Create a file containing some lines that you think would match the regular expression: `(^[0-9]{1,5}[a-zA-Z ]+$)|none` and some lines that you think would not match.
+Use `grep` to see if your intuition is correct.
+
+### Regex II
+
+Using `grep` command and regular expressions, list all files in your home directory that others can read or write to.
 

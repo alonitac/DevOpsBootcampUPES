@@ -190,30 +190,7 @@ In the above output, UNIT represents the unit name, LOAD indicates that the unit
 
 # Exercises
 
-## Services intro
-
-1. How many days is the `systemd-resolved` service running?
-2. Is `ufw` service active in your system? Is it running? If not, what is the exit code of the process that runs the service?
-3. What is the PID of the `systemd-timesyncd` service? Restart the service, what is the PID? What is this service responsible for?
-4. Check the status of service `ssh`. Send `SIGKILL` to the process ID of this service. What happened to the service? Check the status, what is the status, why?
-
-## Run processes in the background
-
-"Interactive processes" are processes that are initialized and controlled through a Linux terminal session. These processes can run in the foreground, occupying the terminal. Alternatively, they can run in the background. The terminal can accept new commands while the program is running.
-
-1. Open a nes terminal session and execute `sleep 600` which initiates a process that "sleeps" 10 minutes and ends.
-2. Stop the process and send into the background by `CTRL+Z`.
-3. Bring the process to the foreground by `fg`.
-4. Now run the same command while sending the process to the background by the `&` operator: `sleep 600 &`.
-5. Bring the process to the foreground.
-6. Kill the process by `CTRL+C`.
-
-## Run your own service
-
-Follow Pratham Patel's [great tutorial](https://linuxhandbook.com/create-systemd-services/)
-
-
-## Resource Lock and Process State
+### :pencil2: Resource Lock and Process State
 
 **Resource locking** is a technique used in computer systems to prevent multiple processes (or users) from simultaneously accessing a shared resource such as a file, database, or piece of memory.
 The general idea behind resource locking is to ensure that only one person can access the resource at any given time, to prevent **race conditions** and other synchronization issues that could lead to data corruption or inconsistencies.
@@ -264,5 +241,30 @@ In the `ps` [man page](https://man7.org/linux/man-pages/man1/ps.1.html#PROCESS_S
 
 3. In terminal 3, run the `ps -aux` multiple times until you'll see indications that some processes are waiting (sleeping due to IO operation), and some others are running.
    While you'll find many processes in a waiting state (`D`), it may be hard to catch a process in a running state (`R`)... Use the `grep` command to filter only relevant lines.
+
+### :pencil2: Services intro
+
+1. How many days is the `systemd-resolved` service running?
+2. Is `ufw` service active in your system? Is it running? If not, what is the exit code of the process that runs the service?
+3. What is the PID of the `systemd-timesyncd` service? Restart the service, what is the PID? What is this service responsible for?
+4. Check the status of service `ssh`. Send `SIGKILL` to the process ID of this service. What happened to the service? Check the status, what is the status, why?
+
+## Optional practice
+
+### Run your own service (highly recommended!!!)
+
+Follow Pratham Patel's [great tutorial](https://linuxhandbook.com/create-systemd-services/)
+
+
+### Run processes in the background
+
+"Interactive processes" are processes that are initialized and controlled through a Linux terminal session. These processes can run in the foreground, occupying the terminal. Alternatively, they can run in the background. The terminal can accept new commands while the program is running.
+
+1. Open a nes terminal session and execute `sleep 600` which initiates a process that "sleeps" 10 minutes and ends.
+2. Stop the process and send into the background by `CTRL+Z`.
+3. Bring the process to the foreground by `fg`.
+4. Now run the same command while sending the process to the background by the `&` operator: `sleep 600 &`.
+5. Bring the process to the foreground.
+6. Kill the process by `CTRL+C`.
 
 

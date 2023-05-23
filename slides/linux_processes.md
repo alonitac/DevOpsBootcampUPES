@@ -40,7 +40,7 @@ Processes are an instance of an executing program.
 
 [comment]: # (!!!)
 
-## Linux processes
+## Processes examples
 
 - If you are viewing this text in a web browser, your browser is running as a process.
 

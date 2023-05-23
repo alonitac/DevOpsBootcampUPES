@@ -213,43 +213,7 @@ myuser@hostname:~$ ln -s myfile.txt my-soft-link
 
 # Exercises
 
-### Exercise - Wildcards
-
-A good directory to play with is `/etc` which is a directory containing config files for the system. As a normal user you may view the files but you can't make any changes so we can't do any harm.
-
-1. List files with only files that contain an extension.
-2. List files with only a 3 letter extension.
-3. List files whose name contains an uppercase letter.
-4. List all python files (files with .py extension).
-5. List files whose name is 4 characters long.
-
-
-## Your neighbors home directory
-
-By default, believe it or not, different linux users on the same OS can read each others’ home directory.
-
-Modify the permissions on your home directory to make it completely private. Create a new Linux user called **foreign** and login into it.
-Check that **foreign** can't access your directory.
-Put the permissions back to how they were.
-
-## Files archive
-
-Archive the contents of your home directory (including any subdirectories) using `tar`.
-Now extract the contents into a `backup` directory.
-
-## Links
-
-1. Create a file called test1.
-1. Create a hard link called test2 to test1.
-1. Are the two files sharing the same inode?
-1. Change test1 content by echo "hi" >> test1
-1. What does test2 look like?
-1. What happens when you copy test2 to another directory? What happens when you move test2 to another directory?
-1. Create a symlink for test1.
-1. Remove test1, what happened to the symlink you've just created?
-
-
-## Broken Symlink
+### :pencil2: Broken Symlink
 
 Uber has an automated daily backup system. Every day another backup file is being created in the file system according to the following format:
 `backup-YYYY-MM-DD.obj`. e.g. `backup-2023-03-01.obj`.
@@ -279,3 +243,42 @@ mv backup.obj backups/
 ```
 
 What's wrong here? provide a fix to Uber's code.
+
+
+### :pencil2: Your neighbors home directory
+
+By default, believe it or not, different linux users on the same OS can read each others’ home directory.
+
+Modify the permissions on your home directory to make it completely private. Create a new Linux user called **foreign** and login into it.
+Check that **foreign** can't access your directory.
+Put the permissions back to how they were.
+
+## Optional practice
+
+### Links
+
+1. Create a file called test1.
+1. Create a hard link called test2 to test1.
+1. Are the two files sharing the same inode?
+1. Change test1 content by echo "hi" >> test1
+1. What does test2 look like?
+1. What happens when you copy test2 to another directory? What happens when you move test2 to another directory?
+1. Create a symlink for test1.
+1. Remove test1, what happened to the symlink you've just created?
+
+
+### Wildcards
+
+A good directory to play with is `/etc` which is a directory containing config files for the system. As a normal user you may view the files but you can't make any changes so we can't do any harm.
+
+1. List files with only files that contain an extension.
+2. List files with only a 3 letter extension.
+3. List files whose name contains an uppercase letter.
+4. List all python files (files with .py extension).
+5. List files whose name is 4 characters long.
+
+### Files archive
+
+Archive the contents of your home directory (including any subdirectories) using `tar`.
+Now extract the contents into a `backup` directory.
+

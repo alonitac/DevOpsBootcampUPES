@@ -298,7 +298,7 @@ Do you see how **"On a Linux system, everything is a file"**. Keep in mind this 
 
 # Exercises
 
-## Know Your System
+### :pencil2: Know Your System
 
 Change directory to **/proc**.
 
@@ -317,7 +317,7 @@ Change to `/etc`.
 4. Which version of bash is installed on this system?
 5. Where is the time zone information kept?
 
-## Kernel System Calls
+### :pencil2: Kernel System Calls
 
 The Linux Kernel was presented in our first linux lecture - the main component of a Linux OS which functions as the core interface between a computer’s hardware and its applications.
 

@@ -23,7 +23,7 @@ When using SSH public key authentication, which file must exist on the remote ma
 ## Question 3
 
 ```console
-[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi' | grep h > /tmp/greet"
+[elvis@station]$ ssh ec2-user@69.57.97.126 "echo 'hi' | grep h > /tmp/greet"
 ```
 
 
@@ -38,7 +38,7 @@ Command?
 ## Question 4
 
 ```console
-[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi' | grep h > /tmp/greet"
+[elvis@station]$ ssh ec2-user@69.57.97.126 "echo 'hi' | grep h > /tmp/greet"
 ```
 
 On which machine was the file /tmp/greet created?

@@ -59,7 +59,7 @@ ansible -i /path/to/inventory-file --private-key /path/to/private-key-pem-file w
 
 If you need to execute a task with Ansible more than once, write a **playbook** and put it under source control.
 Ansible Playbooks offer a repeatable, re-usable and simple configuration management.
-Playbooks are expressed in YAML format, composed of one or more ‘plays' in an **ordered** list.
+Playbooks are expressed in YAML format, composed of one or more 'plays' in an **ordered** list.
 A playbook 'play' runs one or more tasks. Each task calls an Ansible module from top to bottom.
 
 In this demo, we will be practicing some security hardening for the webserver hosts.

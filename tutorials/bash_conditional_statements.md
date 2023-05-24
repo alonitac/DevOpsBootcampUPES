@@ -53,7 +53,7 @@ fi
 
 ### Numeric comparisons
 
-The below example demonstrates numeric comparison between a variable and 20. Don’t worry is it doesn’t work, you’ll fix it soon 🙂
+The below example demonstrates numeric comparison between a variable and 20. Don't worry is it doesn't work, you'll fix it soon 🙂
 
 ```bash
 num=$(wc -l /etc/passwd)

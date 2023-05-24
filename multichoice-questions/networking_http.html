@@ -46,94 +46,94 @@ Keep-Alive: 300
 Upgrade-Insecure-Requests: 1
 Sec-Fetch-Dest: document
 </code></pre>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>What is wrong in the request?</p>
-<ol>
-<li><input type="checkbox"> You can’t perform a GET request for an HTML pages</li>
-<li><input type="checkbox"> An HTML page is requested, but the client doesn’t accept HTML content type.</li>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> You can't perform a GET request for an HTML pages</li>
+<li><input type="checkbox"> An HTML page is requested, but the client doesn't accept HTML content type.</li>
 <li><input type="checkbox"> The Host header must start with http://</li>
 <li><input type="checkbox"> The specified resource must be an absolute path (starts with /)</li>
-</ol>
-<h3>Question 2</h3>
+</ul>
+<h2>Question 2</h2>
 <p>For how long the client persists the TCP connection over which requests and responses will be transferred?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Forever, as she uses keep-alive connection type</li>
 <li><input type="checkbox"> For 300 minutes, as specified in “Keep-Alive” header</li>
 <li><input type="checkbox"> For 300 seconds, as specified in “Keep-Alive” header</li>
 <li><input type="checkbox"> The connection is terminated immediately after a successful response from the server.</li>
-</ol>
-<h3>Question 3</h3>
+</ul>
+<h2>Question 3</h2>
 <p>The server uses HTTP/2. Choose the correct statement:</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The request will fail since the client uses HTTP/1.1</li>
 <li><input type="checkbox"> The client and server might use different versions of the HTTP protocol</li>
 <li><input type="checkbox"> The request will succeed if the client will emit the HTTP version from the first line</li>
 <li><input type="checkbox"> The client should send a <code>GETVERSION</code> request to get the server HTTP version</li>
-</ol>
-<h3>Question 4</h3>
+</ul>
+<h2>Question 4</h2>
 <p>Assume the above request was responded with an HTML page consisting of some text and three images.</p>
 <p>Consider the following statement:</p>
 <p><strong>For this page, the client will send one request message and receive four response messages.</strong></p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> True, this is the expected behavior in HTTP/1.1.</li>
 <li><input type="checkbox"> True, as she uses the Keep-Alive header.</li>
 <li><input type="checkbox"> False, the text including the three images will be sent on the same response of the original message.</li>
 <li><input type="checkbox"> False, the browser will perform other three HTTP requests per image</li>
-</ol>
-<h3>Question 5</h3>
+</ul>
+<h2>Question 5</h2>
 <p>Assume the server response status code is <code>408</code>. Choose the most likely root cause for this response.</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The client sent <code>HEAD</code> request</li>
 <li><input type="checkbox"> The server is overloaded</li>
 <li><input type="checkbox"> The request is down</li>
 <li><input type="checkbox"> The server already served this resource to this client</li>
-</ol>
-<h3>Question 6</h3>
+</ul>
+<h2>Question 6</h2>
 <p>Assume the server response status code is 500. How can you advise the client?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Perform the request with <code>Connection: close</code> header.</li>
 <li><input type="checkbox"> Nothing can help as this code indicates a server side error, the client can try again later.</li>
 <li><input type="checkbox"> Check the resource path.</li>
 <li><input type="checkbox"> Send the request over HTTPS.</li>
-</ol>
-<h3>Question 7</h3>
+</ul>
+<h2>Question 7</h2>
 <p>Assume the RES bash variable contains the response status of some request. Which condition will catch all possible failures (both client and server)?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> response_code != 200</li>
 <li><input type="checkbox"> response_code &gt; 200</li>
 <li><input type="checkbox"> response_code &lt; 500</li>
 <li><input type="checkbox"> response_code &gt;= 400</li>
-</ol>
-<h3>Question 8</h3>
+</ul>
+<h2>Question 8</h2>
 <p><strong>Load balancer</strong> is a piece of software that efficiently distributes incoming network traffic across multiple servers.</p>
 <p>By default, a load balancer redirects an incoming requests to a random server:</p>
 <p><img alt="" src="../.img/load-balancer.png"></p>
 <p>Sometimes, it is useful to redirect incoming requests to the same server with which a given user was originally redirected to. For example, if a given user was redirected to server B when initially accessed the website, from now on, the load balancer will redirect every request of this user to server B/</p>
 <p>This process is called a <strong>Sticky Session</strong>. The load balancer creates an affinity between a client and a specific server for the duration of a session.</p>
 <p>How could that be achieved using cookies?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The load balancer caches the information mapping users to the server by client IP.</li>
 <li><input type="checkbox"> The load balancer adds a cookie to the server response containing the server ID for which this client is redirected in further requests.</li>
 <li><input type="checkbox"> The client sends a cookie to the load balancer containing the server ID for which the client wants to communicate with.</li>
 <li><input type="checkbox"> The server uses the <code>Path</code> attribute to indicate which paths the client is allowed to access.</li>
-</ol>
-<h3>Question 9</h3>
+</ul>
+<h2>Question 9</h2>
 <p>Which of the following statements is a misconception of cookies?</p>
-<ol>
-<li><input type="checkbox"> Cookies can track users’ browsing activity to serve them relevant ads.</li>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Cookies can track users' browsing activity to serve them relevant ads.</li>
 <li><input type="checkbox"> Cookies can help to manage the browsing session of users, i.e. to keep users logged in even when refreshing the page or closing the website tab.</li>
 <li><input type="checkbox"> Cookies can personalize websites to improve user experience, such as selected language or accessibility preferences.</li>
 <li><input type="checkbox"> Cookies can contain code that may be executed locally on the client machine and cause potential damage.</li>
-</ol>
-<h3>Question 10</h3>
+</ul>
+<h2>Question 10</h2>
 <p>What is the purpose of a <code>cookie</code> header value in an HTTP <strong>GET request</strong>?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> This is a value that was returned by a web server to this client during an earlier interaction.</li>
 <li><input type="checkbox"> It encodes the format the client prefers to get the response.</li>
 <li><input type="checkbox"> It indicates server HTTP protocol version.</li>
 <li><input type="checkbox"> It encodes a default setting of the client's browser.</li>
-</ol>
-<h3>Question 11</h3>
+</ul>
+<h2>Question 11</h2>
 <p>A client sends 2 requests to the server. Here is the response for the first request:</p>
 <pre><code class="language-text">HTTP/1.0 200 OK
 Date: Wed, 09 Sep 2020 23:46:21 +0000
@@ -145,11 +145,11 @@ Connection: Close
 Content-type: image/html
 </code></pre>
 <p>Was the client used the same TCP socket for both requests?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Yes</li>
 <li><input type="checkbox"> No</li>
 <li><input type="checkbox"> We don't know</li>
-</ol> 
+</ul> 
     
         <script>
     

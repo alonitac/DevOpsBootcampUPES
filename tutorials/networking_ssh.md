@@ -106,11 +106,11 @@ ifdown-ipv6     100% |*****************************| 4076   00:00
 
 # Exercises
 
-Since the essence of SSH is communication between two machines, you will be running a Docker container on your local machine, and communicating with this container from your local machine. If you are not familiar with containers, don’t worry, they will be taught later on. For now, think about Docker containers as a small, lightweight OS running within your real OS  (we don’t believe we say that… Docker containers are **far away** from being small OS!).
+Since the essence of SSH is communication between two machines, you will be running a Docker container on your local machine, and communicating with this container from your local machine. If you are not familiar with containers, don't worry, they will be taught later on. For now, think about Docker containers as a small, lightweight OS running within your real OS  (we don't believe we say that… Docker containers are **far away** from being small OS!).
 
 Pre-requisites:
 
-1. Install Docker on your machine if you don’t have it yet.
+1. Install Docker on your machine if you don't have it yet.
 2. Generate RSA key pair using the `ssh-keygen` command. **Important:** usually the default directory to store keys is the `~/.ssh`. But in this exercise set, you must store the generated key outside the `~/.ssh` directory).
 3. Run the container by:
 
@@ -132,13 +132,13 @@ Solve the below exercises while the container is running. The IP address you jus
 
 Use the `ssh` command to  connect to your machine.
 
-### :pencil2: port forward
+### :pencil2: Port forward
 
 SSH port forwarding allows you to securely tunnel traffic between a local and a remote machine over an encrypted SSH connection, enabling access to remote services as if they were running on the local machine.
 
 Connect to the remote server while forwarding port 8087 from the remote into port 8085 in the local machine.
 
-### :pencil2: add new keys
+### :pencil2: Add new keys
 
 Generate another RSA key-pair. Allow ssh connection using this new key-pair. The `authorized_keys` file is located in the remote machine under `/config/.ssh/` .
 
@@ -149,14 +149,14 @@ Generate another RSA key-pair. Allow ssh connection using this new key-pair. The
 Stop the docker container process (you can do it by CTRL+c), and start again, try to connect again to the remote machine using the ssh command from the previous exercise. What happened, why? How can you fix it?
 
 
-### password auth
+### Password auth
 
 Password authentication in SSH is the ability to authenticate with a username and password pair. It is not recommended to use password authentication because it is vulnerable to brute-force attacks, where an attacker can repeatedly guess passwords until they gain access to the system. It is safer to use key-based authentication, which is more secure and allows for automated access without exposing passwords.
 
-You know that the password for elvis username is a 4 digit number. Simpliy trying all possible passwords (1000-9999) is the sure way to discover elvis’ password. It will take no more than 10 minutes.
+You know that the password for elvis username is a 4 digit number. Simpliy trying all possible passwords (1000-9999) is the sure way to discover elvis' password. It will take no more than 10 minutes.
 
 1. Try to authenticate without your key-pair. You should see the Password prompt, asking you to insert the password. Try your luck...
-2. Install `sshpass` if you don’t have one.
+2. Install `sshpass` if you don't have one.
 3. Execute the below bash script until you find the correct password.
 
 ```bash
@@ -166,12 +166,12 @@ for i in $(seq 1000 3000); do
 done
 ```
 
-### change the ssh daemon
+### Change the ssh daemon
 
 To change the SSH daemon configuration, you can modify the `sshd_config` file on the server. This file typically resides in the `/etc/ssh/` directory. 
 You can edit this file with `nano` to change various settings such as the port number, authentication methods, and allowed users/groups. 
 After making changes to the `sshd_config` file, you'll need to restart the SSH daemon for the changes to take effect. 
-Usually it’s done by `systemctl restart sshd`, but since you are working on a Docker container, it’s done by running the following command **from within the machine**:
+Usually it's done by `systemctl restart sshd`, but since you are working on a Docker container, it's done by running the following command **from within the machine**:
 
 ```bash
 kill -HUP $(cat /config/sshd.pid)

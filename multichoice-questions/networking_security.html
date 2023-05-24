@@ -34,7 +34,7 @@
     <article class="markdown-body">  
     
     <h1>Networking - security - multichoice questions</h1>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>Consider the following handshake process:</p>
 <ol>
 <li>Server sends a certificate to the client.</li>
@@ -43,37 +43,37 @@
 <li>Client sends the encrypted master-key to the server.</li>
 </ol>
 <p>What is wrong with the described handshake?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The sent data is not encrypted</li>
 <li><input type="checkbox"> Server can not decrypt the encrypted master-key</li>
 <li><input type="checkbox"> The client should use an HTTPS to send the data to the server</li>
 <li><input type="checkbox"> Client should verify the server certificate</li>
 <li><input type="checkbox"> Data integrity was broken</li>
-</ol>
-<h3>Question 2</h3>
+</ul>
+<h2>Question 2</h2>
 <p>Self-signed certificate are useful for:</p>
-<ol>
-<li><input type="checkbox"> Issue certificates for organization’s local domain (e.g. testing.testenv.cooperation)</li>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Issue certificates for organization's local domain (e.g. testing.testenv.cooperation)</li>
 <li><input type="checkbox"> Using for the unsecured HTTP protocol</li>
 <li><input type="checkbox"> Using when the server asks for a certificate from the client</li>
 <li><input type="checkbox"> Creating a CSR for Certificate Authority</li>
-</ol>
-<h3>Question 3</h3>
+</ul>
+<h2>Question 3</h2>
 <p>Choose the correct sentences:</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> In public key encryption, the same key is used for encrypt and decrypt</li>
 <li><input type="checkbox"> In public key encryption, the message is encrypted using sender private key</li>
 <li><input type="checkbox"> In public key encryption, the message is encrypted using sender public key</li>
-<li><input type="checkbox"> In public key encryption, the message is encrypted using the recipient’s public key</li>
-<li><input type="checkbox"> In public key encryption, the message is encrypted using the recipient’s private key</li>
-<li><input type="checkbox"> In public key encryption, the message is decrypted using the recipient’s private key</li>
-<li><input type="checkbox"> In public key encryption, the message is decrypted using the recipient’s public key</li>
+<li><input type="checkbox"> In public key encryption, the message is encrypted using the recipient's public key</li>
+<li><input type="checkbox"> In public key encryption, the message is encrypted using the recipient's private key</li>
+<li><input type="checkbox"> In public key encryption, the message is decrypted using the recipient's private key</li>
+<li><input type="checkbox"> In public key encryption, the message is decrypted using the recipient's public key</li>
 <li><input type="checkbox"> In public key encryption, the message is decrypted using sender private key</li>
 <li><input type="checkbox"> In public key encryption, the message is decrypted using sender public key</li>
 <li><input type="checkbox"> It is impossible to encrypt using the public key and decrypt using the private key</li>
 <li><input type="checkbox"> It is impossible to encrypt using the private key and decrypt using the public key</li>
-</ol>
-<h3>Question 4</h3>
+</ul>
+<h2>Question 4</h2>
 <p>Which of the following properties of hash function is violated for the below hash function?</p>
 <pre><code class="language-text">f(x) = x + 5
 
@@ -81,78 +81,78 @@ E.g.
 f(4) = 9
 f(7) = 12
 </code></pre>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Deterministic</li>
 <li><input type="checkbox"> One-way function</li>
 <li><input type="checkbox"> Uniform distribution</li>
 <li><input type="checkbox"> Small input changes, significant hash changes</li>
-</ol>
-<h3>Question 5</h3>
+</ul>
+<h2>Question 5</h2>
 <p>When data is encrypted using a private key:</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Everyone can decrypt  it</li>
 <li><input type="checkbox"> No one can decrypt it</li>
 <li><input type="checkbox"> Only the public key owner can decrypt it</li>
 <li><input type="checkbox"> Only certificate authority can decrypt it</li>
-</ol>
-<h3>Question 6</h3>
+</ul>
+<h2>Question 6</h2>
 <p>In typical client-server communication (choose all the correct sentences):</p>
-<ol>
-<li><input type="checkbox"> CA signs on the client’s public-key</li>
-<li><input type="checkbox"> CA signs on the server’s public-key</li>
-<li><input type="checkbox"> The public key of CA should reside in the client’s machine</li>
-<li><input type="checkbox"> The private key of CA should reside in the client’s machine</li>
-</ol>
-<h3>Question 7</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> CA signs on the client's public-key</li>
+<li><input type="checkbox"> CA signs on the server's public-key</li>
+<li><input type="checkbox"> The public key of CA should reside in the client's machine</li>
+<li><input type="checkbox"> The private key of CA should reside in the client's machine</li>
+</ul>
+<h2>Question 7</h2>
 <p>Consider the below encryption scheme, which make Certificate authority redundant:</p>
 <ol>
 <li>Alice encrypts her public key using her own private key</li>
 <li>Alice sends the encrypted content to Bob</li>
-<li>Bob decrypt Alice’s message using her public key</li>
-<li>Bob generates a random symmetric key, decrypt it using Alice’s public key, and sends to Alice</li>
+<li>Bob decrypt Alice's message using her public key</li>
+<li>Bob generates a random symmetric key, decrypt it using Alice's public key, and sends to Alice</li>
 </ol>
 <p>What is the first step that can be intruded by Eve:</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> 1</li>
 <li><input type="checkbox"> 2</li>
 <li><input type="checkbox"> 3</li>
 <li><input type="checkbox"> 4</li>
 <li><input type="checkbox"> None of the above, the scheme is ok!</li>
-</ol>
-<h3>Question 8</h3>
+</ul>
+<h2>Question 8</h2>
 <p>In order to verify the authenticity of messages from Alice, Bob basically needs:</p>
-<ol>
-<li><input type="checkbox"> Alice’s private key</li>
-<li><input type="checkbox"> Alice’s public key</li>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Alice's private key</li>
+<li><input type="checkbox"> Alice's public key</li>
 <li><input type="checkbox"> Both public and private keys of Alice</li>
-<li><input type="checkbox"> Bob’s own public key</li>
-</ol>
-<h3>Question 9</h3>
+<li><input type="checkbox"> Bob's own public key</li>
+</ul>
+<h2>Question 9</h2>
 <p>Consider the below <strong>authenticity</strong> scheme:</p>
 <ol>
 <li>Alice creates a plaintext file</li>
 <li>Alice signs the plaintext file using her own public key</li>
 <li>Alice sends the signature along with the original plaintext</li>
-<li>Bob verify the message sent by Alice using Alice’s public key</li>
+<li>Bob verify the message sent by Alice using Alice's public key</li>
 </ol>
 <p>What is wrong in the above scheme?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> Alice should send only the signature, not the original plaintext</li>
-<li><input type="checkbox"> Bob needs Alice’s public key in order to decrypt the signature, which should be kept privately in Alice’s machine.</li>
+<li><input type="checkbox"> Bob needs Alice's public key in order to decrypt the signature, which should be kept privately in Alice's machine.</li>
 <li><input type="checkbox"> Alice should sign using her own private key</li>
-<li><input type="checkbox"> Alice should sign using Bob’s public key</li>
-</ol>
-<h3>Question 10</h3>
-<p>Assume message.txt is a file containing plaintext message from Alice, and signature.txt is a valid signature of messages.txt, signed by Alice’s private key.</p>
-<p>What is wrong in the below command, ran in Bob’s machine:</p>
+<li><input type="checkbox"> Alice should sign using Bob's public key</li>
+</ul>
+<h2>Question 10</h2>
+<p>Assume message.txt is a file containing plaintext message from Alice, and signature.txt is a valid signature of messages.txt, signed by Alice's private key.</p>
+<p>What is wrong in the below command, ran in Bob's machine:</p>
 <pre><code class="language-bash">openssl dgst -sha256 -verify private.key -signature signature.txt message.txt
 </code></pre>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The sha256 cannot be used to verify message authenticity</li>
-<li><input type="checkbox"> The verification should be done using Alice’s public key</li>
+<li><input type="checkbox"> The verification should be done using Alice's public key</li>
 <li><input type="checkbox"> The command encrypts the message in message.txt</li>
-<li><input type="checkbox"> Bob doesn’t have Alice’s private  key on her own machine. Thus Alice should send it to him using an encrypted channel. </li>
-</ol> 
+<li><input type="checkbox"> Bob doesn't have Alice's private  key on her own machine. Thus Alice should send it to him using an encrypted channel. </li>
+</ul> 
     
         <script>
     

@@ -70,13 +70,13 @@ We will start with the second route. The second route specifies that traffic des
 
 The first route specifies that traffic destined for the `0.0.0.0/0` be routed to `10.1.1.4`, which is the IP address of the default gateway in this subnet (take a look at the above diagram). Note that a destination of `0.0.0.0/0` means “all the internet”, since any IP address will match this CIDR.  
 
-Is there any issue here? Isn’t the IP range defined by the two destinations overlap?  For example, the ip `10.1.1.5` matches both the first and the second routes.
+Is there any issue here? Isn't the IP range defined by the two destinations overlap?  For example, the ip `10.1.1.5` matches both the first and the second routes.
 
 In order to overcome the problem of routing ambiguity, where a single destination can be reached through multiple gateways, the route table uses the longest prefix match method to match IP traffic to the correct destination. This method compares the **longest matching prefix** of an IP address in the routing table with the destination IP address of the incoming packet, allowing the router to determine the most specific route to the destination.
 
 Given the above route table of host `10.1.1.1`, where will the traffic `10.1.2.2` be routed?
 
-Let’s recall our original motivation, `10.1.1.1` is trying to talk with `10.1.2.2`. And now after we’ve seen the IP table of `10.1.1.1`, we know that the traffic will be routed to the default gateway (`10.1.1.4`).
+Let's recall our original motivation, `10.1.1.1` is trying to talk with `10.1.2.2`. And now after we've seen the IP table of `10.1.1.1`, we know that the traffic will be routed to the default gateway (`10.1.1.4`).
 
 
 ## Network interfaces
@@ -213,7 +213,7 @@ In this exercise, we will create a pair of virtual network interfaces on your lo
 A virtual network interface is a software-based interface that emulates a physical network interface, allowing us to create multiple logical networks on a single physical machine.
 We will then perform a network performance test using `iperf` to see the impact of the bandwidth and latency restrictions on network performance. The goal of this exercise is to demonstrate the use of virtual network interfaces and traffic control in a practical network scenario.
 
-1. In our shared Git repo, under the `virtual_nic` directory in our shared repo, execute the `init.sh` script to start the exercise. Note that the script should be run as `root`. At the end of the execution, you’ve effectively created a network consists of 2 “subnets” (under the hood, these are not real subnets, but only two isolated [network namespaces](https://man7.org/linux/man-pages/man7/network_namespaces.7.html)) with two different network interfaces that can send traffic to each other:
+1. In our shared Git repo, under the `virtual_nic` directory in our shared repo, execute the `init.sh` script to start the exercise. Note that the script should be run as `root`. At the end of the execution, you've effectively created a network consists of 2 “subnets” (under the hood, these are not real subnets, but only two isolated [network namespaces](https://man7.org/linux/man-pages/man7/network_namespaces.7.html)) with two different network interfaces that can send traffic to each other:
 
 ```bash
 $ sudo bash -e init.sh

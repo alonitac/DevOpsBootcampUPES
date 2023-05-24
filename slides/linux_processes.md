@@ -20,12 +20,12 @@ DevOps Bootcamp - UPES University
 
 [comment]: # (!!!)
 
-### Today’s agenda
+### Today's agenda
 
 - Linux processes introduced
 - Process state
 - Scheduling algorithms
-- `/proc` directory - you’ll find there everything about your running processes!
+- `/proc` directory - you'll find there everything about your running processes!
 
 
 [comment]: # (!!!)

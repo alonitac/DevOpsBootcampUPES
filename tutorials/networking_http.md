@@ -123,16 +123,16 @@ As shown in the figure above, a cookie has four components:
 
 1. `Set-Cookie` header line in the HTTP **response** message, usually in the form of `key=value`.
 2. `Cookie` header line in the HTTP **request** message.
-3. A cookie file kept on the user’s end system and managed by the user’s browser.
+3. A cookie file kept on the user's end system and managed by the user's browser.
 4. A back-end database at the website.
 
-Suppose Berta contacts Amazon.com for the first time. When the request comes into the Amazon server, the server creates a unique id and creates an entry in its back-end database that is indexed by the id. Amazon  server then responds to Berta’s browser, including in the HTTP response a `Set-cookie` header, which contains the id value. For example, the header line might be:
+Suppose Berta contacts Amazon.com for the first time. When the request comes into the Amazon server, the server creates a unique id and creates an entry in its back-end database that is indexed by the id. Amazon  server then responds to Berta's browser, including in the HTTP response a `Set-cookie` header, which contains the id value. For example, the header line might be:
 
 ```text
 Set-cookie: ITEM=12345
 ```
 
-When Berta’s browser receives the HTTP response message, it sees the `Set-cookie` header, and appends a line to the special cookie file that it manages locally.
+When Berta's browser receives the HTTP response message, it sees the `Set-cookie` header, and appends a line to the special cookie file that it manages locally.
 
 As Berta continues to browse the Amazon site, each time she requests a web page, her browser consults her cookie file, extracts her id value for this site, and puts a cookie header line that includes the id value in the HTTP request. Specifically, each of her HTTP requests to the Amazon server includes the header line:
 
@@ -140,7 +140,7 @@ As Berta continues to browse the Amazon site, each time she requests a web page,
 Cookie: ITEM=12345
 ```
 
-In this manner, Amazon server is able to track Berta’s activity, it knows exactly which pages she visited, in which order, and at what times!
+In this manner, Amazon server is able to track Berta's activity, it knows exactly which pages she visited, in which order, and at what times!
 
 ### The Dark Side of Cookies
 

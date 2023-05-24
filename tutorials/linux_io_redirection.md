@@ -45,7 +45,7 @@ Both `>`, `>>`, and `|` are called IO redirection operators. There are [more ope
 
 Regular expressions (Regex) allow us to create and match a pattern in a given string. Regex are used to replace text in a string, validate string format, extract a substring from a string based on a pattern match, and much more!
 
-Regex is out of this course’ scope, but you are highly encouraged to learn regex yourself. There are so many systems and configurations that you’ll be required for regex skills!
+Regex is out of this course' scope, but you are highly encouraged to learn regex yourself. There are so many systems and configurations that you'll be required for regex skills!
 
 Learn Regex: https://regexone.com/
 

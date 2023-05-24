@@ -34,84 +34,84 @@
     <article class="markdown-body">  
     
     <h1>Networking - SSH - multichoice questions</h1>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>In which file does SSH store a user's private RSA key, by default?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>~/.key.private</code></li>
 <li><input type="checkbox"> <code>~/.ssh/rsa</code></li>
 <li><input type="checkbox"> <code>~/.ssh/id_rsa</code></li>
 <li><input type="checkbox"> <code>~/.sshrc</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ol>
-<h3>Question 2</h3>
+</ul>
+<h2>Question 2</h2>
 <p>When using SSH public key authentication, which file must exist on the remote machine?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>~/.ssh/id_dsa.pub</code></li>
 <li><input type="checkbox"> <code>~/.ssh/known_hosts</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_keys</code></li>
 <li><input type="checkbox"> A and C</li>
 <li><input type="checkbox"> All of the above</li>
-</ol>
-<h3>Question 3</h3>
-<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi’ | grep h &gt; /tmp/greet&quot;
+</ul>
+<h2>Question 3</h2>
+<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi' | grep h &gt; /tmp/greet&quot;
 </code></pre>
 <p>On the remote machine, which of the following processes was not executed as a result of this
 Command?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>echo</code></li>
 <li><input type="checkbox"> <code>ssh</code></li>
 <li><input type="checkbox"> <code>grep</code></li>
 <li><input type="checkbox"> All of the above processes are executed on the remote machine.</li>
-</ol>
-<h3>Question 4</h3>
-<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi’ | grep h &gt; /tmp/greet&quot;
+</ul>
+<h2>Question 4</h2>
+<pre><code class="language-console">[elvis@station]$ ssh ec2-user@69.57.97.126 &quot;echo ‘hi' | grep h &gt; /tmp/greet&quot;
 </code></pre>
 <p>On which machine was the file /tmp/greet created?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The local machine</li>
 <li><input type="checkbox"> The remote machine</li>
 <li><input type="checkbox"> Not enough information is provided.</li>
-</ol>
-<h3>Question 5</h3>
+</ul>
+<h2>Question 5</h2>
 <pre><code class="language-console">[elvis@statio]$ ssh ec2-user@69.57.97.126 mkdir tmp
 [elvis@statio]$ scp .bashrc jules@69.57.97.126:tmp .bashrc
 100% |*****************************|    124  00:00
 </code></pre>
 <p>Which file on the remote machine contains a copy of the local file ~/.bashrc?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>~/.bashrc</code></li>
 <li><input type="checkbox"> <code>~/tmp/.bashrc</code></li>
 <li><input type="checkbox"> <code>/tmp/.bashrc</code></li>
 <li><input type="checkbox"> <code>~/tmp</code></li>
 <li><input type="checkbox"> Not enough information is provided.</li>
-</ol>
-<h3>Question 6</h3>
+</ul>
+<h2>Question 6</h2>
 <p>Which file is automatically updated whenever the first connection to a new host is accepted?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>~/.ssh/id_dsa.pub</code></li>
 <li><input type="checkbox"> <code>~/.ssh/known_hosts</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_keys</code></li>
 <li><input type="checkbox"> <code>~/.ssh/authorized_hosts</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ol>
-<h3>Question 7</h3>
+</ul>
+<h2>Question 7</h2>
 <p>Which of the following command lines could be used to recursively copy the <code>~/backups</code>
 directory to a remote machine's <code>/tmp</code> directory?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>scp backups ec2-user@69.57.97.126:tmp</code></li>
 <li><input type="checkbox"> <code>scp -r backups ec2-user@69.57.97.126:/tmp</code></li>
 <li><input type="checkbox"> <code>scp -R /tmp/backups ec2-user@69.57.97.126:</code></li>
 <li><input type="checkbox"> <code>scp backups ec2-user@69.57.97.126:</code></li>
 <li><input type="checkbox"> None of the above</li>
-</ol>
-<h3>Question 8</h3>
+</ul>
+<h2>Question 8</h2>
 <p>In order to connect to a remote machine, which of the following information must exist in the remote machine?</p>
-<ol>
+<ul style="list-style-type: none;">
 <li><input type="checkbox"> The client OS version</li>
 <li><input type="checkbox"> The client public key</li>
 <li><input type="checkbox"> The client private key</li>
 <li><input type="checkbox"> The client home directory path</li>
-</ol> 
+</ul> 
     
         <script>
     

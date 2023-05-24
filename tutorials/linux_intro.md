@@ -39,7 +39,7 @@ file1 file2 file3 somedirectory
 
 **Important!** Whenever you see a code snippet, as in the above block, you are expected to execute the command in your terminal and experiment with the results.
 
-Usually, in order to work on a Linux system directly, you will need to login to the system by providing a username and password (don’t forget them!). Upon successful login, a standard prompt displays the user's login name, the hostname, and the current working directory.
+Usually, in order to work on a Linux system directly, you will need to login to the system by providing a username and password (don't forget them!). Upon successful login, a standard prompt displays the user's login name, the hostname, and the current working directory.
 In the above example, `myuser` will be your login name, `hostname` is the name of the machine you are working on, and `~` (tilde) is an indication of your current location in the file system.
 
 ### Shortcuts
@@ -197,7 +197,7 @@ A few notes regarding paths:
 - `.` (dot) - is a reference to your current working directory. e.g. in the example above we could also refer to Documents by `./Documents`.
 - `..` (dotdot)- is a reference to the parent directory.
 
-Let’s see it in action:
+Let's see it in action:
 
 ```console
 myuser@hostname:~$ pwd
@@ -239,7 +239,7 @@ here is a short list of important files and directories in Linux that users shou
 
 ## Block devices and standards streams
 
-Let’s take a closer look on the `/dev` directory:
+Let's take a closer look on the `/dev` directory:
 
 ```console
 myuser@hostname:~$ ls -l /dev
@@ -289,7 +289,7 @@ Here's what each stream does:
 
 By default, these streams are connected to the terminal, but they can be redirected to files or other streams as well. This is a powerful feature of the Unix shell that allows programs to be combined and orchestrated in powerful ways.
 
-Do you see how **"On a Linux system, everything is a file"**. Keep in mind this statement, it’ll help you to understand linux’s behavior.
+Do you see how **"On a Linux system, everything is a file"**. Keep in mind this statement, it'll help you to understand linux's behavior.
 
 
 # Self check questions
@@ -319,7 +319,7 @@ Change to `/etc`.
 
 ### :pencil2: Kernel System Calls
 
-The Linux Kernel was presented in our first linux lecture - the main component of a Linux OS which functions as the core interface between a computer’s hardware and its applications.
+The Linux Kernel was presented in our first linux lecture - the main component of a Linux OS which functions as the core interface between a computer's hardware and its applications.
 
 ![](../.img/linuxkernel.png)
 

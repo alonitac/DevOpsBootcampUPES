@@ -89,7 +89,7 @@ What happens when you run a Docker image that was packed with a Linux kernel dif
 
 1. System calls will fail frequently.
 2. The docker daemon will not let you run the image.
-3. Images don’t contain a kernel — all containers running on a host machine share access to the host’s kernel.
+3. Images don't contain a kernel — all containers running on a host machine share access to the host's kernel.
 4. The image will run smoothly as the docker daemon deals with kernels compatibility. 
 
 ### Question 

@@ -21,7 +21,7 @@ DevOps Bootcamp - UPES University
 
 [comment]: # (!!!)
 
-### Today’s agenda
+### Today's agenda
 
 - Networking protocols
 - The OSI simplifies 4-layered model

@@ -122,7 +122,7 @@ Test the above script with /bin/sh as the sha-bang shell. Add an echo command to
 
 Having written a bash script, you can invoke it in two ways:
 
-- `./myscript.sh` - This is the method we’ve seen so far. It runs the script as an executable file, using the interpreter specified in the shebang line. If the script is not marked as executable, you will get a "Permission denied" error.
+- `./myscript.sh` - This is the method we've seen so far. It runs the script as an executable file, using the interpreter specified in the shebang line. If the script is not marked as executable, you will get a "Permission denied" error.
 - `bash myscript.sh` - explicitly runs the script using the bash shell, regardless of the shebang line (#!/bin/bash) at the beginning of the script. This means that even if the script is not marked as executable (chmod +x myscript.sh), you can still run it.
 
 ## Exit status and `$?`

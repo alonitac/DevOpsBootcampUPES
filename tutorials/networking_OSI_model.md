@@ -25,7 +25,7 @@ What happen when you open your web browser and type http://www.google.com? We wi
 
 #### Application Layer
 
-The browser uses HTTP protocol to form an HTTP request to Google’s servers, to serve Google's home page. The HTTP request is merely a text in a well-defined form, it may look like:
+The browser uses HTTP protocol to form an HTTP request to Google's servers, to serve Google's home page. The HTTP request is merely a text in a well-defined form, it may look like:
 
 ```text
 GET / HTTP/1.1
@@ -33,7 +33,7 @@ Host: google.com
 User-Agent: Mozilla/5.0
 ```
 
-Note that we literally want to transfer this text to Google’s servers, as is. In the server side, there is an application (called "webserver", obviously) that knows how to response to this kind of texts.
+Note that we literally want to transfer this text to Google's servers, as is. In the server side, there is an application (called "webserver", obviously) that knows how to response to this kind of texts.
 Since web browser and web servers are applications that use the network, it resides in the application-layer.
 
 The application layer is where network applications and their application-layer protocols reside. Network applications may be Web browsers, webserver, mails, and every application that send or receive data over the Internet, in any kind and form.
@@ -76,7 +76,7 @@ It handles the transmission and reception of data **frames** over the network, a
 
 In this layer, every physical (or virtual) network device has a media access control (**MAC**) address. 
 MAC address is the unique identifier assigned to a network interface. 
-MAC addresses are assigned at the time that a network adapter is manufactured or, if it’s a virtualized, the time that it is created.
+MAC addresses are assigned at the time that a network adapter is manufactured or, if it's a virtualized, the time that it is created.
 
 # Self-check questions
 
@@ -116,7 +116,7 @@ Explore the **packet details pane**.
 
 This pane displays the contents of the selected packet (packet here is referred to as “any piece of data that traverses down the model layers”). You can expand or collapse each layer to view the details of the corresponding layer, such as the source and destination addresses, protocol flags, data payloads, and other relevant information.
 
-Answer the below questions. Don’t butter yourself if you are not familiar with every small detail.  Some of the concepts here will be taught soon. Based on our discussion on the OSI model, and your previous knowledge in computer networking, try to look for the relevant information.
+Answer the below questions. Don't butter yourself if you are not familiar with every small detail.  Some of the concepts here will be taught soon. Based on our discussion on the OSI model, and your previous knowledge in computer networking, try to look for the relevant information.
 
 
 1. How many layers does the packet cross?
@@ -129,6 +129,6 @@ Answer the below questions. Don’t butter yourself if you are not familiar with
 8. Which version of IP protocol did you use in the Internet layer?
 9. In the Internet layer, what is the destination IP of the packets?
 10. What is the MAC address of your device?
-11. How many bits have been transmitted over the wire to google’s servers?
+11. How many bits have been transmitted over the wire to google's servers?
 12. What is the protocol sequence that the frame (the lower level piece of data) have been composed of?  
 

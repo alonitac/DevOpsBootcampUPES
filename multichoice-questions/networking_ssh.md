@@ -1,6 +1,6 @@
 # Networking - SSH - multichoice questions
 
-### Question 1
+## Question 1
 
 In which file does SSH store a user's private RSA key, by default?
 
@@ -10,7 +10,7 @@ In which file does SSH store a user's private RSA key, by default?
 - [ ] `~/.sshrc`
 - [ ] None of the above
 
-### Question 2
+## Question 2
 
 When using SSH public key authentication, which file must exist on the remote machine?
 
@@ -20,10 +20,10 @@ When using SSH public key authentication, which file must exist on the remote ma
 - [ ] A and C
 - [ ] All of the above
 
-### Question 3
+## Question 3
 
 ```console
-[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi’ | grep h > /tmp/greet"
+[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi' | grep h > /tmp/greet"
 ```
 
 
@@ -35,10 +35,10 @@ Command?
 - [ ] `grep`
 - [ ] All of the above processes are executed on the remote machine.
 
-### Question 4
+## Question 4
 
 ```console
-[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi’ | grep h > /tmp/greet"
+[elvis@station]$ ssh ec2-user@69.57.97.126 "echo ‘hi' | grep h > /tmp/greet"
 ```
 
 On which machine was the file /tmp/greet created?
@@ -47,7 +47,7 @@ On which machine was the file /tmp/greet created?
 - [ ] The remote machine
 - [ ] Not enough information is provided.
 
-### Question 5
+## Question 5
 
 ```console
 [elvis@statio]$ ssh ec2-user@69.57.97.126 mkdir tmp
@@ -63,7 +63,7 @@ Which file on the remote machine contains a copy of the local file ~/.bashrc?
 - [ ] `~/tmp`
 - [ ] Not enough information is provided.
 
-### Question 6
+## Question 6
 
 Which file is automatically updated whenever the first connection to a new host is accepted?
 
@@ -73,7 +73,7 @@ Which file is automatically updated whenever the first connection to a new host 
 - [ ] `~/.ssh/authorized_hosts`
 - [ ] None of the above
 
-### Question 7
+## Question 7
 
 Which of the following command lines could be used to recursively copy the `~/backups`
 directory to a remote machine's `/tmp` directory?
@@ -84,7 +84,7 @@ directory to a remote machine's `/tmp` directory?
 - [ ] `scp backups ec2-user@69.57.97.126:`
 - [ ] None of the above
 
-### Question 8
+## Question 8
 
 In order to connect to a remote machine, which of the following information must exist in the remote machine?
 

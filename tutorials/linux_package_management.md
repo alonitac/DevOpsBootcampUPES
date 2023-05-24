@@ -23,7 +23,7 @@ To install a package, just type:
 sudo apt-get install <package-name>
 ```
 
-When you run the above command, the package manager (in this case, `apt-get`) will search for the package in its local package lists (the ones stored under `/var/lib/apt/lists/`). These package lists are the catalog of available packages that can be installed on your system, in case the packages don't exist in the catalog, you won’t be able to install it. Thus, it is important to perform `sudo apt-get update` before every installation, this in order to update the local lists with all available packages in their latest version.
+When you run the above command, the package manager (in this case, `apt-get`) will search for the package in its local package lists (the ones stored under `/var/lib/apt/lists/`). These package lists are the catalog of available packages that can be installed on your system, in case the packages don't exist in the catalog, you won't be able to install it. Thus, it is important to perform `sudo apt-get update` before every installation, this in order to update the local lists with all available packages in their latest version.
 
 `apt-get` checks the **digital signature** of the files to ensure that it is valid and has not been tampered with. The signature is used to verify the authenticity and integrity of the repository and its contents. The concepts of digital signatures, data integrity and authenticity will be discussed later on in this course.
 

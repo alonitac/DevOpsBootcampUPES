@@ -136,7 +136,7 @@ How can you fix the error?
 
 ### Question 7
 
-An IAM user is trying to perform an action on an object belonging to some other account’s S3 bucket.
+An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.
 
 Which of the bellow permission(s) would result a successful action?
 

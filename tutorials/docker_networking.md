@@ -73,7 +73,7 @@ Each network also has a **default subnet** mask and **gateway**.
 As you've seen in the tutorials, when a container starts, it can only attach to a single network, using the `--network` flag.
 You can connect a running container to multiple networks using the `docker network connect` command.
 
-In the same way, a container’s hostname defaults to be the container’s ID in Docker. 
+In the same way, a container's hostname defaults to be the container's ID in Docker. 
 You can override the hostname using `--hostname`.
 
 ### Spot check 
@@ -87,10 +87,10 @@ You can override the hostname using `--hostname`.
 ## DNS services
 
 Containers that are connected to the default bridge network inherit the DNS settings of the host, as defined in the `/etc/resolv.conf` configuration file in the host machine (they receive a copy of this file). 
-Containers that attach to a custom network use Docker’s embedded DNS server. 
+Containers that attach to a custom network use Docker's embedded DNS server. 
 The embedded DNS server forwards external DNS lookups to the DNS servers configured on the host machine.
 
-Custom hosts, defined in `/etc/hosts` on the host machine, aren’t inherited by containers. 
+Custom hosts, defined in `/etc/hosts` on the host machine, aren't inherited by containers. 
 To pass additional hosts into container, refer to [add entries to container hosts file](https://docs.docker.com/engine/reference/commandline/run/#add-host) in the `docker run` reference documentation.
 
 

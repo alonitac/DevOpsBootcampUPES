@@ -118,7 +118,7 @@ You decide to double the size of your data volume. To do this, first you create 
 
 1. Select the check box for your **Volume ID**, choose **Actions**, and then **Modify volume**\.
 
-1. The **Modify volume** screen displays the volume ID and the volume’s current configuration, including type, size, input/output operations per second \(IOPS\), and throughput\. In this tutorial you double the size of the data volume\.
+1. The **Modify volume** screen displays the volume ID and the volume's current configuration, including type, size, input/output operations per second \(IOPS\), and throughput\. In this tutorial you double the size of the data volume\.
 
    1. For **Volume type**, do not change value\.
 
@@ -271,7 +271,7 @@ Make sure the appropriate ports are opened.
 
 1. In KMS, [create encryption key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk). Make sure your IAM user can administer this key and delete it.
 2. [Create a volume snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html#ebs-create-snapshot) of the EBS you provisioned and mounted in the previous section.
-3. Create an **encrypted EBS from the EBS snapshot**. Use the encrypted keys you’ve just created in KMS.
+3. Create an **encrypted EBS from the EBS snapshot**. Use the encrypted keys you've just created in KMS.
 4. Attach and mount the encrypted volume to your instance, as follows:
    1. Generate new UUID for the encrypted disk by:
       ```shell

@@ -21,7 +21,7 @@ DevOps Bootcamp - UPES University
 
 [comment]: # (!!!)
 
-### Today’s agenda
+### Today's agenda
 
 - The concept of an operating system
 - The history of UNIX and Linux

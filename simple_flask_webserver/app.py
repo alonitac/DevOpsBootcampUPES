@@ -24,7 +24,7 @@ def upload_file():
     return render_template('result.html', filename=f'data/{filename}', detections=detections)
 
 
-# Try by:  curl -X POST -F ‘file=@<local-path-to-image-file>’ localhost:8080/api/upload
+# Try by:  curl -X POST -F ‘file=@<local-path-to-image-file>' localhost:8080/api/upload
 @app.route('/api/upload', methods=['POST'])
 def api_upload():
     file = request.files['file']

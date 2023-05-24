@@ -3,7 +3,7 @@
 ## Docker data persistence
 
 By default, all files created inside a container are stored on a writable container layer.
-This means that the data doesn’t persist when that container no longer exists.
+This means that the data doesn't persist when that container no longer exists.
 
 Docker has two options for containers to store files on the host machine, so that the files are persisted even after the container stops: **volumes**, and **bind mounts**.
 
@@ -166,9 +166,9 @@ touch: cannot touch '/usr/share/nginx/html/test': Read-only file system
 Volumes and bind mounts let you share files between the host machine and container so that you can persist data even after the container is stopped.
 
 As opposed to volumes and bind mounts, a **tmpfs mount** is temporary file system, and only persisted in the host memory (RAM). 
-When the container **stops**, the tmpfs mount is removed, and files written there won’t be persisted.
+When the container **stops**, the tmpfs mount is removed, and files written there won't be persisted.
 
-This is useful to temporarily store sensitive files that you don’t want to persist in either the host or the container writable layer.
+This is useful to temporarily store sensitive files that you don't want to persist in either the host or the container writable layer.
 
 To use a tmpfs mount in a container, use the `--tmpfs` flag.
 There is no source for tmpfs mounts. The following example creates a tmpfs mount at `/ap`p in a Nginx container. 
@@ -184,7 +184,7 @@ docker run -d \
 ## Summary 
 
 No matter which type of mount you choose to use, the data looks the same **from within the container**. 
-It is exposed as either a directory or an individual file in the container’s filesystem.
+It is exposed as either a directory or an individual file in the container's filesystem.
 
 An easy way to visualize the difference among volumes, bind mounts, and tmpfs mounts is to think about where the data lives on the host machine.
 

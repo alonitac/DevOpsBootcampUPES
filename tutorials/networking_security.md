@@ -172,9 +172,9 @@ This secure connection allows clients to safely exchange sensitive data with a s
 Consider the above mentioned banking scenario: Bob sends to its Bank website (represented by Alice) an HTTP request which essentially says "I'm Bob, want to transfer 500$ to John using the following credit card number....".
 If no security measures are taken, Bob could be surprised in a few ways, as detailed below:
 
-- If no **encryption** is used, an intruder (man-in-the-middle) could intercept Bob’s request and use Bob's credit card details.
-- If no **data integrity** is used, an intruder could modify Bob’s transaction (e.g. change "John" to "Eve").
-- Finally, if no **server authentication** is used, Bob may believe that that server he is talking with, is the original Bank website, while actually he talks with a faked website maintained by Eve, who is impersonating as the bank website. After receiving Bob’s transaction, Eve could take and use Bob’s information.
+- If no **encryption** is used, an intruder (man-in-the-middle) could intercept Bob's request and use Bob's credit card details.
+- If no **data integrity** is used, an intruder could modify Bob's transaction (e.g. change "John" to "Eve").
+- Finally, if no **server authentication** is used, Bob may believe that that server he is talking with, is the original Bank website, while actually he talks with a faked website maintained by Eve, who is impersonating as the bank website. After receiving Bob's transaction, Eve could take and use Bob's information.
 
 We now want to build security mechanism that provide: Privacy (encryption), Data Integrity, and Authenticity.
 
@@ -272,5 +272,5 @@ openssl req -x509 -newkey rsa:1024 -keyout key.pem -out cert.pem -sha256 -days 3
 
 The program will ask you some identifiable information: who are you? What is the organization you belong to? your country, your mail etc... All these details, including a public key, will be encoded into a file called `cert.pem`. Note that this certificate has an expiration time of 365 days.
 
-`cat cert.pem` to see how a certificate may look like. In the simplified TLS handshake model you’ve learned, the server's certificate is the first thing that was sent to the client.
+`cat cert.pem` to see how a certificate may look like. In the simplified TLS handshake model you've learned, the server's certificate is the first thing that was sent to the client.
 

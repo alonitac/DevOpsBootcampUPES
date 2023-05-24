@@ -132,14 +132,7 @@ def generate(file):
 
 
 if __name__ == '__main__':
-    toc = OrderedDict()
     for file in sorted(glob.glob("*.md")):
         unit = file.split('_')[0]
         title = generate(file)
 
-        if not toc.get(unit):
-            toc[unit] = ''
-
-        toc[unit] += f'''
-        <li><a href="{file.replace('.md', '.html')}" target="_blank">{title}</a></li>
-        '''

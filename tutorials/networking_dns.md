@@ -113,7 +113,7 @@ For example: for domain `networkutopia.com`, the registrar would insert the foll
 (dns1.networkutopia.com, 212.212.212.1, A)
 ```
 
-You’ll also have to make sure that the Type A record for your web server `www.networkutopia.com` is entered into your authoritative DNS servers:
+You'll also have to make sure that the Type A record for your web server `www.networkutopia.com` is entered into your authoritative DNS servers:
 ```text
 (networkutopia.com, 69.6.1.47, A)
 ```

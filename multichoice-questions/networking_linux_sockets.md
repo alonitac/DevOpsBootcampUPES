@@ -1,13 +1,13 @@
 # Networking - TCP sockets - multichoice questions
 
-### Question 1
+## Question 1
 
 For a communication session between a pair of programs, which program is the client and which is the server?
 
 - [ ] The program that initializes the TCP connection is the client
 - [ ] The program that initializes the TCP connection is the server
 
-### Question 2
+## Question 2
 
 In TCP/IP networking, what parameter is used to specify a particular process on a machine?
 
@@ -17,7 +17,7 @@ In TCP/IP networking, what parameter is used to specify a particular process on 
 - [ ] protocol
 - [ ] None of the above
 
-### Question 3
+## Question 3
 
 What file contains a catalog of well known services?
 
@@ -27,7 +27,7 @@ What file contains a catalog of well known services?
 - [ ] `/usr/share/net/protocols`
 - [ ] None of the above
 
-### Question 4
+## Question 4
 
 Which port number serves as a boundary between privileged and non-privileged ports?
 
@@ -38,7 +38,7 @@ Which port number serves as a boundary between privileged and non-privileged por
 - [ ] `65535`
 
 
-### Question 5
+## Question 5
 
 If on one machine, elvis was using both the Firefox and Chrome web browsers to access the same
 website, what parameter would differ for the two involved sockets?
@@ -49,7 +49,7 @@ website, what parameter would differ for the two involved sockets?
 - [ ] The server IP Address
 - [ ] None of the above
 
-### Question 6
+## Question 6
 
 When a socket is opened by a server and awaiting client connections, what state is the socket said
 to be in?
@@ -92,7 +92,7 @@ rndc    	953/tcp      	# rndc control sockets (BIND 9)
 rndc    	953/udp      	# rndc control sockets (BIND 9)
 ```
 
-### Question 6
+## Question 6
 
 Choose the correct sentence.
 
@@ -102,7 +102,7 @@ Choose the correct sentence.
 - [ ] `66.187.233.200` is connected to elvis station using port 35954
 - [ ] None of the above
 
-### Question 7
+## Question 7
 
 How many TCP/IP clients are currently connected to services on elvis machine?
 
@@ -112,7 +112,7 @@ How many TCP/IP clients are currently connected to services on elvis machine?
 - [ ] 11
 - [ ] None of the above
 
-### Question 8
+## Question 8
 
 Of these, how many are on remote machines?
 
@@ -123,7 +123,7 @@ Of these, how many are on remote machines?
 - [ ] None of the above
 
 
-### Question 9
+## Question 9
 
 The three sockets bound to port 53 most likely belong to what service?
 
@@ -134,7 +134,7 @@ The three sockets bound to port 53 most likely belong to what service?
 - [ ] TELNET (Telnet Service)
 
 
-### Question 10
+## Question 10
 
 Which of the below characteristics are typically associated with a TCP socket?
 
@@ -145,15 +145,16 @@ Which of the below characteristics are typically associated with a TCP socket?
 - [ ] Data from multiple clients can be received on the same socket.
 - [ ] When a server is contacted by a client, it creates a new server-side socket to communicate with that client.
 
-### Question 11
+## Question 11
 
 In TCP, how does the server know the client IP address and the port number to reply to in response to a received message?
-Using the DNS protocol
-Every message sent by the client contains the IP number and port.
-The accept() syscall creates a new socket that is bound to the specific client, which is established using the IP and port number of the client.
-The server looks for the correct port number in the /etc/services file.
 
-### Question 12
+- [ ] Using the DNS protocol
+- [ ] Every message sent by the client contains the IP number and port.
+- [ ] The `accept()` syscall creates a new socket that is bound to the specific client, which is established using the IP and port number of the client.
+- [ ] The server looks for the correct port number in the `/etc/services` file.
+
+## Question 12
 
 In UDP, how does the server know the client IP address and the port number to reply to in response to a received message?
 
@@ -162,7 +163,7 @@ In UDP, how does the server know the client IP address and the port number to re
 - [ ] The `accept()` syscall creates a new socket that is bound to the specific client, which is established using the IP and port number of the client.
 - [ ] The server looks for the correct port number in the `/etc/services` file.
 
-### Question 13
+## Question 13
 
 A given server has 5 established connections bound to port 80, how many socket files the server holds?
 

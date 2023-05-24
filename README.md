@@ -8,7 +8,6 @@ This README contains information on the schedule, materials, exercises and proje
 
 - [Course onboarding](onboarding.md).
 - All **tutorials** can be found in [tutorials](tutorials) directory.
-- multi choice question index link
 
 ## Course Staff
 
@@ -30,7 +29,7 @@ Daily sessions are from 11am to 3pm IDT.
 | 2 🤝 | 	2\6 | [Linux intro](tutorials/linux_intro.md), [File management](tutorials/linux_file_management.md), [IO redirection](tutorials/linux_io_redirection.md), [processes](tutorials/linux_processes.md), [package management](tutorials/linux_package_management.md), [env var](tutorials/linux_environment_variables.md) | [Linux intro](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_intro.html), [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html) | 
 | 3 | 	5\6 | [Bash and other shells](tutorials/bash_and_other_shells.md), [Bash conditional statements](tutorials/bash_conditional_statements.md), [The OSI model](tutorials/networking_OSI_model.md), [Sockets](tutorials/networking_linux_sockets.md) | [The OSI Model](https://alonitac.github.io/DevOpsBootcampUPES/slides/networking_OSI_model.html) |
 | 4 | 	6\6 | [Networks and Subnets](tutorials/networking_computer_nets.md), [DNS](tutorials/networking_dns.md), [HTTP](tutorials/networking_http.md),  [Network Security](tutorials/networking_security.md), [SSH](tutorials/networking_ssh.md) |  | [Bash, Networking and Security](projects/bash_networking_security) <br> **Due date: 2023-06-12** | 
-| 5 | 	7\6 | [Intro to cloud computing](tutorials/aws_intro.md), [EC2 and EBS](tutorials/aws_ec2_ebs.md), [S3](tutorials/aws_s3.md), [IAM](tutorials/aws_iam.md) |  |  | 
+| 5 | 	7\6 |  
 | 6 | 	8\6 | 
 | 7 | 	9\6 | 
 | 8 | 	12\6 | 

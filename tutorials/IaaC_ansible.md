@@ -48,7 +48,7 @@ web1 ansible_host=<host-ip-1> ansible_user=<host-ssh-user>
 web2 ansible_host=<host-ip-2> ansible_user=<host-ssh-user>
 ```
 
-There are two more default groups: `all` and `ungrouped`. The all group contains every host. The ungrouped group contains all hosts that don’t have another group aside from `all`.
+There are two more default groups: `all` and `ungrouped`. The all group contains every host. The ungrouped group contains all hosts that don't have another group aside from `all`.
 
 5. Let's check the uptime of all server in `webserver` group:
 ```shell
@@ -59,7 +59,7 @@ ansible -i /path/to/inventory-file --private-key /path/to/private-key-pem-file w
 
 If you need to execute a task with Ansible more than once, write a **playbook** and put it under source control.
 Ansible Playbooks offer a repeatable, re-usable and simple configuration management.
-Playbooks are expressed in YAML format, composed of one or more ‘plays’ in an **ordered** list.
+Playbooks are expressed in YAML format, composed of one or more ‘plays' in an **ordered** list.
 A playbook 'play' runs one or more tasks. Each task calls an Ansible module from top to bottom.
 
 In this demo, we will be practicing some security hardening for the webserver hosts.

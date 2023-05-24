@@ -23,7 +23,7 @@ DevOps Bootcamp - UPES University
 
 [comment]: # (!!!)
 
-### Today’s agenda
+### Today's agenda
 
 - Bare metal systems
 - Virtual machines

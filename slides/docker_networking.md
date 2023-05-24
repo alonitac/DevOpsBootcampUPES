@@ -24,7 +24,7 @@ Figures by: https://github.com/docker/labs
 
 [comment]: # (!!!)
 
-### Today’s agenda
+### Today's agenda
 
 - Container networking background
 - Libnetwork and the CNM model
@@ -62,9 +62,9 @@ Networking is integral part of applications, but how can isolated container envi
 
 [comment]: # (!!! data-auto-animate)
 
-## Libnetwork - the Docker’s native implementation of the CNM
+## Libnetwork - the Docker's native implementation of the CNM
 
-[Libnetwork](https://github.com/moby/libnetwork) is a library written by Docker’s team, that implements the CNM model.
+[Libnetwork](https://github.com/moby/libnetwork) is a library written by Docker's team, that implements the CNM model.
 
 - It contains everything needed to create and manage container networks
 - Pluggable model
@@ -76,7 +76,7 @@ Networking is integral part of applications, but how can isolated container envi
 
 [comment]: # (!!! data-auto-animate)
 
-## Libnetwork - the Docker’s native implementation of the CNM
+## Libnetwork - the Docker's native implementation of the CNM
 
 ```bash [1|10|12]
 $ docker info
@@ -110,7 +110,7 @@ Docker **bridge** networking enables containers on a single host to communicate 
 
 ## The bridge driver
 
-- Docker is shipped with a default bridge network. If you don’t specify container network, your container is connected to this bridge.
+- Docker is shipped with a default bridge network. If you don't specify container network, your container is connected to this bridge.
 - The bridge network interface is called **docker0**
 
 ![](media/dockerbridge2.png)
@@ -120,7 +120,7 @@ Docker **bridge** networking enables containers on a single host to communicate 
 
 You can create your own bridge network
 
-Let’s see it in action...
+Let's see it in action...
 
 [comment]: # (!!!)
 

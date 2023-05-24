@@ -45,7 +45,7 @@ drwx------   3 myuser myuser       4096 Oct 23 11:21  .adobe
 
 The above example uses the `ls` command with the `-a` flag to include hidden files in the list.
 Note the directory `.adobe`, which is hidden. 
-By default, `ls` doesn’t print hidden files.
+By default, `ls` doesn't print hidden files.
 
 **Tip!** You can combine multiple options on the same flag: `ls -l -a` is equivalent to `ls -la`.
 
@@ -104,7 +104,7 @@ For every file we define 3 sets of people for whom we may specify permissions.
 - group (`g`) - every file belongs to a single group.
 - others (`o`) - everyone else who is not in the group or the owner.
 
-Use the `chmod` command to change file’s permissions:
+Use the `chmod` command to change file's permissions:
 
 ```console
 myuser@hostname:~$ ls -l
@@ -156,7 +156,7 @@ myuser@hostname:~$ cat phone
 cat: phone: Permission denied
 ```
 
-In the above example, your personal user is `myuser` (according to the name in the prompt), but the file `phone` is owned by the user `john`. Not only it is owned by `john`, according to the file’s permissions, only john (or users under the group `johnsfriends`) can read/write to the file.
+In the above example, your personal user is `myuser` (according to the name in the prompt), but the file `phone` is owned by the user `john`. Not only it is owned by `john`, according to the file's permissions, only john (or users under the group `johnsfriends`) can read/write to the file.
 
 The `sudo` command is short for “**switch user and do**”. In a single command, you can switch to a specific user, perform a command on behalf of that user, and “return” to your user. Here is an example:
 
@@ -167,7 +167,7 @@ myuser@hostname:~$ sudo -u john cat phone
 
 In the above example, we under the hood switched to the user `john`, executed `cat phone` on his behalf, then back to our user, `myuser`. In a single command, quite useful.
 
-According to `sudo`’s help page, if you don’t specify a user (using the `-u` flag), the default user that you are switching to is `root`.
+According to `sudo`'s help page, if you don't specify a user (using the `-u` flag), the default user that you are switching to is `root`.
 
 ### The root user
 
@@ -180,7 +180,7 @@ Every user that is a member of a special group called `sudo` (to be confused wit
 It's important to exercise caution when using the root user account, as any command or operation executed with root privileges has the potential to cause significant damage to the system if performed incorrectly. It's recommended to use the root user account only when necessary and to carefully consider the potential consequences of each action before executing it.
 
 > ### :pencil2: Exercise - Playing with permissions
-> 1. Under `/etc/passwd` and `/etc/group` you’ll find a list of all your users and groups on your system, respectively. cat those files and review your users and group.
+> 1. Under `/etc/passwd` and `/etc/group` you'll find a list of all your users and groups on your system, respectively. cat those files and review your users and group.
 > 2. Make sure that your user is a member of the group sudo.
 > 3. Use the `ls -l` command to list the files in your home dir along with their permissions.
 > 4. Why are all your directories having an execute (x) permission? Use the chmod command to to revoke the x permission of some directory, what happened?
@@ -247,7 +247,7 @@ What's wrong here? provide a fix to Uber's code.
 
 ### :pencil2: Your neighbors home directory
 
-By default, believe it or not, different linux users on the same OS can read each others’ home directory.
+By default, believe it or not, different linux users on the same OS can read each others' home directory.
 
 Modify the permissions on your home directory to make it completely private. Create a new Linux user called **foreign** and login into it.
 Check that **foreign** can't access your directory.

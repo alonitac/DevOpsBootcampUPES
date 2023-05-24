@@ -1,0 +1,165 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    Bash - conditional variables - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+        </style>
+        <script>
+            const solutions = {"1": "e443169117a184f91186b401133b20be670c7c0896f9886075e5d9b81e9d076b", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "acb6af4c0a661cee72d9a0d1c1615f23d9b0f029acca7247b3eb89fed25b85c6", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "bc64c816373baf3e7347c407173ef99b24f90ad8253552d9fb0503bab1a35f31"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>Bash - conditional variables - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>What happens if you use the <code>set -e</code> in a Bash script?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> It will cause Bash to exit if a function or subshell returns a nonzero status code.</li>
+<li><input type="checkbox"> It will cause Bash to exit if a conditional returns a non-zero status code.</li>
+<li><input type="checkbox"> It will cause Bash to exit if local, declare, or typeset assignments return a nonzero status code.</li>
+<li><input type="checkbox"> It will cause Bash to exit if a command, list of commands, compound command, or potentially a pipeline returns a nonzero status code.</li>
+</ul>
+<h2>Question 2</h2>
+<p>What is the result of this script?</p>
+<pre><code class="language-bash">txt=Penguins
+[ &quot;${txt:2:4}&quot; = &quot;ngui&quot; ]; echo $?
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 0, representing 'true', because the substring of txt in the above indices is  "ngui"</li>
+<li><input type="checkbox"> 0, representing 'true', because everybody loves penguins!</li>
+<li><input type="checkbox"> 1, representing 'false', because the variable "txt" is not between 2 to 4 character length</li>
+<li><input type="checkbox"> 1, representing 'false', because the variable "txt" does not contain "ngui"</li>
+</ul>
+<h2>Question 3</h2>
+<p>What is the result of this script?</p>
+<pre><code class="language-bash">txt=Penguins
+[[ $txt =~ [a-z]{8} ]]; echo $?
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 0, representing 'true', because the variable "txt" contains eight letters</li>
+<li><input type="checkbox"> 0, representing 'true', because everybody loves penguins!</li>
+<li><input type="checkbox"> 1, representing 'false', because the variable "txt" is longer than eight characters</li>
+<li><input type="checkbox"> 1, representing 'false', because the variable "txt" does not contain eight lowercase letters between a and z</li>
+</ul>
+<h2>Question 4</h2>
+<p>What is wrong with this script?</p>
+<pre><code class="language-bash">#!/bin/bash
+if [ $PET = dog ] ;then
+  echo &quot;You have a dog&quot;
+fi
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> If the value of <code>PET</code> doesn't match dog, the script will return a nonzero status code.</li>
+<li><input type="checkbox"> There is nothing wrong with it. The condition checks the value of <code>PET</code> perfectly.</li>
+<li><input type="checkbox"> It will fail if the <code>PET</code> variable is empty or undefined.</li>
+<li><input type="checkbox"> The then statement needs to be on a separate line.</li>
+</ul>
+<h2>Question 5</h2>
+<p>Which command is being run in this script to check if file.txt exists?</p>
+<pre><code class="language-bash">if [ -f file.txt ]; then
+    echo &quot;file.txt exists&quot;
+fi
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/usr/bin/test</code></li>
+<li><input type="checkbox"> <code>/usr/bin/[</code></li>
+<li><input type="checkbox"> the built-in <code>[]</code> command</li>
+<li><input type="checkbox"> <code>/usr/bin/[[</code></li>
+</ul>
+<h2>Question 6</h2>
+<p>The code below seems to work and outputs "8 is greater than 5". However, what unexpected result will tell you it is not functioning properly?</p>
+<pre><code class="language-bash">#!/bin/bash
+var=&quot;8&quot;
+if [ $var &gt; 5 ]; then
+echo &quot;$var is greater than 5&quot;
+fi
+</code></pre>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> There will be no unexpected results. This script works as is and the output will be "8 is greater than 5".</li>
+<li><input type="checkbox"> The comparison will not be able to handle floating-point numbers, as Bash only handles integers. So this example will output an error message if the value of $var is changed to "8.8".</li>
+<li><input type="checkbox"> There will be a file in the current directory named 5.</li>
+<li><input type="checkbox"> The variable <code>$var</code> is not quoted, which will lead to word splitting. This script will fail with a "unary operator expected" message.</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

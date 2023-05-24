@@ -64,7 +64,7 @@ echo my script is running...
 3. Test your script by `bash myscript`
 4. Give it execute permissions
 5. Copy your script into `~/scripts`
-6. Add `~/scripts` to the PATH (don’t override the existing content of PATH, take a look at the above example).
+6. Add `~/scripts` to the PATH (don't override the existing content of PATH, take a look at the above example).
 7. Test your new "command" by just typing `myscript`.
 8. Try to use the `myscript` command in another new terminal session. Does it work? Why?
 
@@ -80,7 +80,7 @@ This hack should work for any child process spawned from your current terminal s
 
 ### Elvis custom `ls` command
 
-The PATH variable on `elvis`’ machine looks like:
+The PATH variable on `elvis`' machine looks like:
 
 ```console
 [elvis@station elvis]$ echo $PATH 
@@ -91,4 +91,4 @@ The PATH variable on `elvis`’ machine looks like:
 The program is located in `/home/elvis/custom` directory.
 
 1. What is the command that `elvis` should execute such that **his** version of `ls` would be executed in the current terminal session only?
-2. What is the command that `elvis` should execute such that **Ubuntu**’s version of `ls` would be executed in the current and child terminal sessions?
+2. What is the command that `elvis` should execute such that **Ubuntu**'s version of `ls` would be executed in the current and child terminal sessions?

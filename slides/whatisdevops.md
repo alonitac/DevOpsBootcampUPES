@@ -63,7 +63,7 @@ The developer
 
 <div style="font-size:20rem;width:100%;text-align:center;">👨‍💻 &nbsp &nbsp &nbsp &nbsp 👨‍💼 </div>
 
-⬅️ Product owner specify requirements
+⬅️ Product owner specify requirements to the developer
 
 [comment]: # (!!! data-auto-animate)
 
@@ -122,7 +122,7 @@ The developer **re-design**, develop and test again
 
 <div style="font-size:10rem;width:100%;text-align:center;">🕒</div>
 
-8 months later...
+4 months later...
 
 [comment]: # (!!! data-auto-animate)
 
@@ -140,7 +140,7 @@ Another version of the product is delivered ➡️
 #### Organizations soon came to realize
 
 - Product requirements cannot be understood at once
-- It's very expensive to make changes only after the product is delivered
+- It's very expensive to make changes only after the product was delivered
 - Not like traditional industries (e.g. cars), software development and delivery is an iterative process
 
 
@@ -174,13 +174,13 @@ It allows for continuous feedback from end users and stakeholders, enabling quic
 
 The developer **deploys** his work to production systems ➡️
 
-And immediately get feedbacks from the product owners and end-users
+And immediately gets feedbacks from the product owners and end-users
 
 [comment]: # (!!! data-auto-animate)
 
 ## The Agile model
 
-The entire process of software development is broken into small sprint, while each sprint (potentially) ends with **deliverables**
+The entire process of software development is broken into small **sprints**, while each sprint (potentially) ends with **deliverables**
 
 <img src="media/agile.png" width="70%">
 
@@ -212,7 +212,7 @@ Operations team is responsible to deploy the developer's code to production syst
 <img src="media/agile3.png" width="80%">
 
 - Small pieces of code are frequently deployed to production systems 
-- Operations team should release a new product version every week (even multiple times a day)
+- Operations team release a new product version every week, day, **hour**!
 - Challenges in coordinating and integrating deployments
 
 [comment]: # (!!! data-auto-animate)
@@ -228,7 +228,7 @@ it creates new challenges between **development** and **operations** teams
 
 ## DevOps introduced
 
-**DevOps** (development and operations) is a set of methodologies evolved from the Agile development models, aimed to address the gap between development and operations teams.   
+**DevOps** (development and operations) is a set of methodologies evolved from the Agile development model, aimed to address the gap between development and operations teams.   
 
 <img src="media/agile5.png" width="80%">
 

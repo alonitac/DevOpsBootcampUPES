@@ -1,0 +1,8 @@
+flask
+pyyaml
+loguru
+
+# testing
+
+pylint
+pytest

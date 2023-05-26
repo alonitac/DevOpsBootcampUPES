@@ -1,0 +1,65 @@
+{% extends "layout.html"%}
+{% block title %}
+Objects Detection Service
+{% endblock %}
+{% block content %}
+
+<div class="container py-5">
+
+    <header class="text-white text-center">
+        <h1 class="display-4">Objects Detection Service</h1>
+    </header>
+
+
+    <div class="row py-4">
+        <div class="col-lg-12 mx-auto">
+
+            <!-- Uploaded image area-->
+            <p class="font-italic text-white text-center">
+                The following objects have been detected:
+            </p>
+
+            <p class="font-italic text-white">
+                <b>Summary:</b> {{ summary }}
+            </p>
+
+            <table class="font-italic text-white">
+                <thead>
+                <tr class="font-italic text-white">
+                    <th>Class</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for d in detections %}
+                <tr class="font-italic text-white">
+                    <td> {{ d['class'] }} </td>
+                    <td> {{ d['cx'] }} {{ d['cy'] }} {{ d['width'] }} {{ d['height'] }} </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="image-area mt-4">
+                <img src="" align="middle" />
+
+                <img alt="" class="img-fluid rounded shadow-sm mx-auto d-block"
+                     id="imageResult" name="imageResult"
+                     src="{{filename}}"></div>
+
+
+
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <a class="btn btn-primary my-3" href="/">Return</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

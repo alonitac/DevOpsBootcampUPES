@@ -30,7 +30,7 @@ TAs: Mohammed Khalil, Nahshon Paz
 | 6 | 	8\6 | 
 | 7 | 	9\6 | 
 | 8 | 	12\6 | [Intro to virtualization and containers](tutorials/docker_intro.md), [Docker containers](tutorials/docker_containers.md), [Docker images](tutorials/docker_images.md) | 
-| 9 | 	13\6 | [Docker networking](tutorials/docker_networking.md), [Docker volumes](tutorials/docker_volumes.md), [Docker compose](tutorials/docker_compose.md) | 
+| 9 | 	13\6 | [Docker networking](tutorials/docker_networking.md), [Docker volumes](tutorials/docker_volumes.md), [Docker compose](tutorials/docker_compose.md) | [Docker networking](https://alonitac.github.io/DevOpsBootcampUPES/slides/docker_networking.html) |
 | 10 | 	14\6 | 
 | 11 | 	15\6 | 
 | 12 | 	16\6 | 

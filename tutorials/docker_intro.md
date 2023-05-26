@@ -213,7 +213,8 @@ It has a single `hello.c` file responsible for printing out the message you're s
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_intro.html)
+
 
 # Exercises
 

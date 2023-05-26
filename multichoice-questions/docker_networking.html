@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    Docker - networking - multichoice questions
+    Docker - Networking - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -26,131 +26,131 @@
             }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "e0de2c5060d8bbebffe1dadc159c60b9a39abb81c2cb28fb4f0fb28f1d2d8d34", "3": "56f794060abcbbc1a82f126e16236a53dc4553db61b690eeedb6e88a8a13eea1", "4": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "fbf23efcb4c015694c256068c3d196e9323f40a9993b3e9e4f29b118ad570feb", "7": "9e2a4926a630209d80e8eb19bd48cd2226adf743443dd63cd6c39cdc3335dcbc", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "0eefabf825930f9dac3c43f5072f45d3543eef01e9703a2e2766d9c8ff224f9b", "10": "97c489b6c1231ecd9fac99df40e60cec000a70a057d5971fb520c578da8e8841", "11": "6a7bd1b72911ab800d1f1806f3d0f2b0d44dbb87ed4411fc841c40b8e704687a"}
         </script>
     </head>
     <body>
     
     <article class="markdown-body">  
     
-    <h1>Docker - networking - multichoice questions</h1>
+    <h1>Docker - Networking - multichoice questions</h1>
 <p>Given the below executed commands: </p>
 <pre><code class="language-bash">docker network create mynet5
 docker run --name mynginx --network mynet5 nginx
 </code></pre>
 <p>Answer the below 3 questions. </p>
-<h3>Question</h3>
+<h2>Question 1</h2>
 <p>What is the networking driver used by the network <code>mynginx</code> is connected to?</p>
-<ol>
-<li>Overlay</li>
-<li>None </li>
-<li>Host</li>
-<li>Bridge</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Overlay</li>
+<li><input type="checkbox"> None </li>
+<li><input type="checkbox"> Host</li>
+<li><input type="checkbox"> Bridge</li>
+</ul>
+<h2>Question 2</h2>
 <p>You are told that the container's IP address is: <code>172.18.0.2</code>.
 Choose the correct sentence(s).</p>
 <p>The <code>mynginx</code> container:</p>
-<ol>
-<li>Is accessible form the host machine using <code>http://localhost:80</code>.</li>
-<li>Is accessible form the host machine using <code>http://172.18.0.2:80</code>.</li>
-<li>Is accessible form other containers attached to network <code>mynet5</code> using <code>http://172.18.0.2:80</code>.</li>
-<li>Is accessible form other containers attached to network <code>mynet5</code> using <code>http://mynginx:80</code>.</li>
-<li>The container is not accessible.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Is accessible form the host machine using <code>http://localhost:80</code>.</li>
+<li><input type="checkbox"> Is accessible form the host machine using <code>http://172.18.0.2:80</code>.</li>
+<li><input type="checkbox"> Is accessible form other containers attached to network <code>mynet5</code> using <code>http://172.18.0.2:80</code>.</li>
+<li><input type="checkbox"> Is accessible form other containers attached to network <code>mynet5</code> using <code>http://mynginx:80</code>.</li>
+<li><input type="checkbox"> The container is not accessible.</li>
+</ul>
+<h2>Question 3</h2>
 <p>The <code>mynginx</code> container was detached from <code>mynet5</code> network and attached to the default bridge network.
 Choose the correct sentence(s).</p>
 <p>The <code>mynginx</code> container:</p>
-<ol>
-<li>Is accessible form the host machine using <code>http://localhost:80</code>.</li>
-<li>Is accessible form the host machine using <code>http://172.18.0.2:80</code>.</li>
-<li>Is accessible form other containers attached to network <code>mynet5</code> using <code>http://172.18.0.2:80</code>.</li>
-<li>Is accessible form other containers attached to network <code>mynet5</code> using <code>http://mynginx:80</code>.</li>
-<li>The container is not accessible.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Is accessible form the host machine using <code>http://localhost:80</code>.</li>
+<li><input type="checkbox"> Is accessible form the host machine using <code>http://172.18.0.2:80</code>.</li>
+<li><input type="checkbox"> Is accessible form other containers attached to network <code>mynet5</code> using <code>http://172.18.0.2:80</code>.</li>
+<li><input type="checkbox"> Is accessible form other containers attached to network <code>mynet5</code> using <code>http://mynginx:80</code>.</li>
+<li><input type="checkbox"> The container is not accessible.</li>
+</ul>
+<h2>Question 4</h2>
 <p>What is the name of the network interface of the default bridge network which Docker is shipped with?  </p>
 <p><strong>Hint</strong>: <code>ip address</code></p>
-<ol>
-<li><code>lo</code></li>
-<li><code>docker0</code></li>
-<li><code>veth</code></li>
-<li><code>virbr0</code></li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>lo</code></li>
+<li><input type="checkbox"> <code>docker0</code></li>
+<li><input type="checkbox"> <code>veth</code></li>
+<li><input type="checkbox"> <code>virbr0</code></li>
+</ul>
+<h2>Question 5</h2>
 <p>Given the following running container:</p>
 <pre><code class="language-bash">docker run -it busybox /bin/sh
 </code></pre>
 <p>DNS queries requested from within this container: </p>
-<ol>
-<li>Uses Docker's embedded DNS server.</li>
-<li>Uses the DNS servers configured on the host machine.</li>
-<li>Uses the bridge custom DNS server.</li>
-<li>None of the above. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Uses Docker's embedded DNS server.</li>
+<li><input type="checkbox"> Uses the DNS servers configured on the host machine.</li>
+<li><input type="checkbox"> Uses the bridge custom DNS server.</li>
+<li><input type="checkbox"> None of the above. </li>
+</ul>
+<h2>Question 6</h2>
 <p>Containers can have multiple IP addresses:</p>
-<ol>
-<li>When connected to multiple networks</li>
-<li>Container can have only one IP address. </li>
-<li>When connected to an overlay networks .</li>
-<li>When running under the <code>host</code> network. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> When connected to multiple networks</li>
+<li><input type="checkbox"> Container can have only one IP address. </li>
+<li><input type="checkbox"> When connected to an overlay networks .</li>
+<li><input type="checkbox"> When running under the <code>host</code> network. </li>
+</ul>
+<h2>Question 7</h2>
 <p>In order to execute the following command successfully:</p>
 <pre><code>docker run -p 8080:80 my-app
 </code></pre>
-<ol>
-<li>The docker daemon service should be up and running.</li>
-<li>Port <code>8080</code> must not be bound to another process in the host machine.</li>
-<li>Port <code>80</code> must not be bound to another process in the host machine.</li>
-<li>Port <code>8080</code> must not be bound to another process other running containers launched from the <code>my-app</code> image.</li>
-<li>Port <code>80</code> must not be bound to another process other running containers launched from the <code>my-app</code> image.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The docker daemon service should be up and running.</li>
+<li><input type="checkbox"> Port <code>8080</code> must not be bound to another process in the host machine.</li>
+<li><input type="checkbox"> Port <code>80</code> must not be bound to another process in the host machine.</li>
+<li><input type="checkbox"> Port <code>8080</code> must not be bound to another process other running containers launched from the <code>my-app</code> image.</li>
+<li><input type="checkbox"> Port <code>80</code> must not be bound to another process other running containers launched from the <code>my-app</code> image.</li>
+</ul>
 <p>Given the following running container: </p>
 <pre><code class="language-bash">docker run --network host redis
 </code></pre>
 <p>Answer the below 4 questions</p>
-<h3>Question</h3>
+<h2>Question 8</h2>
 <p>Running the <code>ip address</code> command from within the container (you can install the command by <code>apt update &amp;&amp; apt install iproute2</code>): </p>
-<ol>
-<li>Lists the network interfaces of the host machine.</li>
-<li>Lists the network interfaces used by docker daemon.</li>
-<li>Lists the virtual bridge network interface of the container.</li>
-<li>None of the above</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Lists the network interfaces of the host machine.</li>
+<li><input type="checkbox"> Lists the network interfaces used by docker daemon.</li>
+<li><input type="checkbox"> Lists the virtual bridge network interface of the container.</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 9</h2>
 <p>Choose the correct sentence(s):</p>
-<ol>
-<li>The container can be connected to user-defined bridge network.</li>
-<li>The container cannot be connected to user-defined bridge network.</li>
-<li>The container can be connected to the default bridge network.</li>
-<li>The container cannot be connected to the default bridge network.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The container can be connected to user-defined bridge network.</li>
+<li><input type="checkbox"> The container cannot be connected to user-defined bridge network.</li>
+<li><input type="checkbox"> The container can be connected to the default bridge network.</li>
+<li><input type="checkbox"> The container cannot be connected to the default bridge network.</li>
+</ul>
+<h2>Question 10</h2>
 <p>The user tries to run another <code>redis</code> container as follows:</p>
 <pre><code class="language-bash">docker run --network host redis
 </code></pre>
 <p>Why is the command failed? </p>
-<ol>
-<li>The container must have a name other than <code>redis</code>.</li>
-<li>Only one container can be run on the <code>host</code> network for each docker image.</li>
-<li>The network <code>host</code> doesn't exist in the host machine.</li>
-<li>Port <code>6379</code> is already in use by the first running <code>redis</code>.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The container must have a name other than <code>redis</code>.</li>
+<li><input type="checkbox"> Only one container can be run on the <code>host</code> network for each docker image.</li>
+<li><input type="checkbox"> The network <code>host</code> doesn't exist in the host machine.</li>
+<li><input type="checkbox"> Port <code>6379</code> is already in use by the first running <code>redis</code>.</li>
+</ul>
+<h2>Question 11</h2>
 <p>Assume port <code>6378</code> is bound to another process in the host machine, 
 while port <code>6379</code> is free.
 What would happen if instead of running the original command, the user would have run:</p>
 <pre><code class="language-bash">docker run -p 6378:6379 --network host redis
 </code></pre>
-<ol>
-<li>The container will fail since port <code>6378</code>, which is published on the host machine, is already in use.</li>
-<li>The container will run since port <code>6379</code> is not bound to any process.</li>
-<li>The container will fail since port <code>6379</code>, which is published on the host machine, is already in use.</li>
-<li>The container will run since port <code>6378</code> is not bound to any process.</li>
-</ol> 
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The container will fail since port <code>6378</code>, which is published on the host machine, is already in use.</li>
+<li><input type="checkbox"> The container will run since port <code>6379</code> is not bound to any process.</li>
+<li><input type="checkbox"> The container will fail since port <code>6379</code>, which is published on the host machine, is already in use.</li>
+<li><input type="checkbox"> The container will run since port <code>6378</code> is not bound to any process.</li>
+</ul> 
     
         <script>
     

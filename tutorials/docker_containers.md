@@ -422,7 +422,8 @@ Under the `/var/lib/docker/containers` directory, you will find subdirectories c
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_containers.html)
+
 
 # Exercises
 

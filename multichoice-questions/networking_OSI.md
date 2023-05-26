@@ -27,8 +27,10 @@ Choose the **most suitable** underlying protocol for each component:
 
 Complete the missing words in the below paragraph:
 
-In the ______ layer, bits are passing from one node to another, for example using wires. The ______ layer handles the delivery of segments from the application layer, in a reliable or unreliable way. Then comes the ______ layer which is responsible for moving packets from the source host to the destination host.
-Lastly, the ______ layer handles messages from a variety of network applications such as Outlook mail.
+In the `...` layer, bits are passing from one node to another, for example using wires. 
+The `...` layer handles the delivery of segments from the application layer, in a reliable or unreliable way. 
+Then comes the `...` layer which is responsible for moving packets from the source host to the destination host.
+Lastly, the `...` layer handles messages from a variety of network applications such as Outlook mail.
 
 - [ ] Transport, application, network interface, network
 - [ ] Network Interface,  transport, network, application

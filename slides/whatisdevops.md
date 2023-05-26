@@ -170,6 +170,17 @@ It allows for continuous feedback from end users and stakeholders, enabling quic
 
 ## The Agile model
 
+<div style="font-size:10rem;width:100%;text-align:center;">🕒</div>
+
+The developer works on a small subset of requirements that can be delivered within a **rigid** timeframe called **sprint**, usually spans over 2-4 weeks.
+
+2-3 weeks later...
+
+[comment]: # (!!! data-auto-animate)
+
+
+## The Agile model
+
 <div style="font-size:20rem;width:100%;text-align:center;">👨‍💻 &nbsp &nbsp &nbsp &nbsp 👨‍💼 </div>
 
 The developer **deploys** his work to production systems ➡️

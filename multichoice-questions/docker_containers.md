@@ -1,7 +1,6 @@
-# Docker - containers - multichoice questions
+# Docker - Containers - multichoice questions
 
-
-### Question 
+## Question 1 
 
 You are trying to run a docker container based on the [Ubuntu image](https://hub.docker.com/_/ubuntu), with the `-it` flags, and get the below error:
 
@@ -16,24 +15,24 @@ ERRO[0005] error waiting for container: context canceled
 
 What is the root cause? 
 
-1. Docker daemon is not up and running. Execute `sudo systemctl start docker`.
-2. The machine cannot run containers.
-3. Docker recognizes the `-it` flags as the container command. Execute `docker run -it ubuntu` instead.
-4. The `ubuntu` docker image doesn't exist on the machine. Execute `docker pull ubuntu` before. 
+- [ ] Docker daemon is not up and running. Execute `sudo systemctl start docker`.
+- [ ] The machine cannot run containers.
+- [ ] Docker recognizes the `-it` flags as the container command. Execute `docker run -it ubuntu` instead.
+- [ ] The `ubuntu` docker image doesn't exist on the machine. Execute `docker pull ubuntu` before. 
 
-### Question 
+## Question 2
 
 From the perspective of the host machine, a running Docker container is essentially considered as just another process within the system. 
 However, inside the container itself, the running process operates within its own isolated environment, perceiving itself as the sole process within that system.
 
 Choose the correct sentence(s) regarding the process id:
 
-1. The PID of the container as it is seen from the host machine is the same as it seen within the container.
-2. The PID of the container as it is seen from the host machine is different from the PID as it is seen within the container.
-3. The PID of the container as it is seen within the container is 1.
-4. The PID of the container is the same as the docker daemon's PID (`dockerd`).
+- [ ] The PID of the container as it is seen from the host machine is the same as it seen within the container.
+- [ ] The PID of the container as it is seen from the host machine is different from the PID as it is seen within the container.
+- [ ] The PID of the container as it is seen within the container is 1.
+- [ ] The PID of the container is the same as the docker daemon's PID (`dockerd`).
 
-### Question 
+## Question 3
 
 After a while, what is the status of the container started by:
 
@@ -41,21 +40,21 @@ After a while, what is the status of the container started by:
 docker run ubuntu ps
 ```
 
-1. Running
-2. Stopped
-3. Existed
-4. Created
-5. None of the above.
+- [ ] Running
+- [ ] Stopped
+- [ ] Existed
+- [ ] Created
+- [ ] None of the above.
 
-### Question 
+## Question 4
 
 When running `docker run -e MYSQL_ROOT_PASSWORD=1234 mysql`, what is the main process name of the container as it's seen **from the host machine**?
 
-1. `mysqld`
-2. `dockerd`
-3. `containerd`
-4. `runc`
-5. None of the above
+- [ ] `mysqld`
+- [ ] `dockerd`
+- [ ] `containerd`
+- [ ] `runc`
+- [ ] None of the above
 
 
 Based on the below output of `docker inspect 303ce6e8af55` on some running container:
@@ -290,88 +289,89 @@ Based on the below output of `docker inspect 303ce6e8af55` on some running conta
 
 Answer the bellow 6 questions.
 
-### Question
+## Question 5
 
 What is the IP address of the container? 
 
-1. `172.17.0.1`.
-2. `172.17.0.3`.
-3. `127.0.0.1`.
-4. IP v6: `02:42:ac:11:00:03`.
+- [ ] `172.17.0.1`.
+- [ ] `172.17.0.3`.
+- [ ] `127.0.0.1`.
+- [ ] IP v6: `02:42:ac:11:00:03`.
 
-### Question 
+## Question 6
 
 How many ports are exposed by the container? 
 
-1. 0
-2. 1
-3. 2
-4. 3
-5. None of the above
+- [ ] 0
+- [ ] 1
+- [ ] 2
+- [ ] 3
+- [ ] None of the above
 
 
-### Question 
+## Question 7
 
 How many environment variables are given to the container process?
 
-1. 0
-2. 2
-3. 4
-4. 6
-5. 8
+- [ ] 0
+- [ ] 2
+- [ ] 4
+- [ ] 6
+- [ ] 8
 
-### Question 
+## Question 8
 
 Was the container run with the `-it` flags? 
 
-1. Yes
-2. No
-3. We couldn't know from the output.
+- [ ] Yes
+- [ ] No
+- [ ] We couldn't know from the output.
 
-### Question
+## Question 9
 
 The container status is:
 
-1. Exited
-2. Created
-3. Running 
-4. Restarting
-5. We couldn't know from the output.
+- [ ] Exited
+- [ ] Created
+- [ ] Running 
+- [ ] Restarting
+- [ ] We couldn't know from the output.
 
-### Question 
+## Question 10
 
 What is the PID of the container as it is seen from the host machine? 
 
-1. 1
-2. 294355
-3. 67108864
-4. We couldn't know from the output. 
+- [ ] 1
+- [ ] 294355
+- [ ] 67108864
+- [ ] We couldn't know from the output. 
 
 
-### Question 
+## Question 11
 
 The [official `mysql` image](https://hub.docker.com/_/mysql) is running by the following command: `docker run -e MYSQL_ROOT_PASSWORD=1234 mysql`. 
 
 Choose the correct answer: 
 
-1. The MySQL database is accessible from the host machine on port `3306`.
-2. The MySQL database is accessible from the host machine on port `8080`.
-3. The MySQL database is accessible from the host machine on port `80`.
-4. The database is not accessible from the host machine. 
+- [ ] The MySQL database is accessible from the host machine by `localhost:3306`.
+- [ ] The MySQL database is accessible from the host machine by `localhost:8080`.
+- [ ] The MySQL database is accessible from the host machine by `localhost:80`.
+- [ ] The database can never be accessed from the host machine.
+- [ ] None of the above 
 
-### Question 
+## Question 12
 
 The [official `mysql` image](https://hub.docker.com/_/mysql) is running by the following command: `docker run -e MYSQL_ROOT_PASSWORD=1234 mysql`.
 
 Which of the below docker commands can help with debugging the `/var/run/mysqld/mysqld.sock` file, which is located within the container? 
 
-1. `docker exec`
-2. `docker logs`
-3. `docker run`
-4. `docker top`
+- [ ] `docker exec`
+- [ ] `docker logs`
+- [ ] `docker run`
+- [ ] `docker ps`
 
 
-### Question 
+## Question 13
 
 When the docker service is restarted by (under default docker daemon configurations):
 
@@ -381,12 +381,12 @@ sudo systemctl restart docker
 
 What happens to the running containers? 
 
-1. Running containers are killed.
-2. Running containers are stopped.
-3. Nothing happens since Docker doesn't run the containers itself, but `runc` does.
-4. None of the above. 
+- [ ] Running containers are killed.
+- [ ] Running containers are stopped.
+- [ ] Nothing happens since Docker doesn't run the containers itself, but `runc` does.
+- [ ] None of the above. 
 
-### Question 
+## Question 14
 
 Which command(s) can help you to resolve the following error: 
 
@@ -394,13 +394,13 @@ Which command(s) can help you to resolve the following error:
 Error response from daemon: You cannot remove a running container 76004df79402d330992abe9f423715904fb590663f797fee3bca4e9e877f0ac0. Stop the container before attempting removal or force remove
 ```
 
-1. `docker run 76004df794`
-2. `docker kill --signal STOP 76004df794`
-3. `docker top 76004df794`
-4. `docker stop 76004df794`
-5. `docker pause 76004df794`
+- [ ] `docker run 76004df794`
+- [ ] `docker kill --signal STOP 76004df794`
+- [ ] `docker top 76004df794`
+- [ ] `docker stop 76004df794`
+- [ ] `docker pause 76004df794`
 
-### Question 
+## Question 15
 
 What is the docker image name with which the below container is running?
 
@@ -408,14 +408,14 @@ What is the docker image name with which the below container is running?
 docker run --name mybusy busybox wget localhost
 ```
 
-1. `mybusy`
-2. `busybox`
-3. `wget`
-4. `localhost`
-5. None of the above
+- [ ] `mybusy`
+- [ ] `busybox`
+- [ ] `wget`
+- [ ] `localhost`
+- [ ] None of the above
 
 
-### Question 
+## Question 16
 
 Consider the bellow two `docker run` commands:
 
@@ -427,13 +427,13 @@ docker run -p 8080:80 nginx
 Assume there are no other containers running on the host machine. 
 Choose the correct sentence:
 
-1. The commands create and run two different containers successfully.
-2. The second command does nothing since the first command runs the nginx container image successfully.
-3. The seconds command will fail since you are not able to run two different containers from the `nginx` image.
-4. None of the above.
+- [ ] The commands create and run two different containers successfully.
+- [ ] The second command does nothing since the first command runs the nginx container image successfully.
+- [ ] The seconds command will fail since you are not able to run two different containers from the `nginx` image.
+- [ ] The seconds command will fail since port 8080 is bound to the first container.
 
 
-### Question 
+## Question 17
 
 The following command has run successfully:
 
@@ -443,12 +443,12 @@ docker run -it ubuntu /bin/bash
 
 What can be id for sure regarding the container:
 
-1. The `ubuntu` image existed on the machine before the command was executed.
-2. The binary `/bin/bash` exists in the container's file system. 
-3. The `-it` flags allow you to run within the container every command that is available on the host machine.
-4. None of the above.
+- [ ] The `ubuntu` image existed on the machine before the command was executed.
+- [ ] The binary `/bin/bash` exists in the container's file system. 
+- [ ] The `-it` flags allow you to run within the container every command that is available on the host machine.
+- [ ] None of the above.
 
-### Question 
+## Question 18
 
 You are trying to run an `nginx` container using the following command: 
 
@@ -465,7 +465,7 @@ See 'docker run --help'
 
 Which command can help you resolve the problem? 
 
-1. `docker run --force --name some-nginx -e DEBUG=true nginx`
-2. `docker rm some-nginx`
-3. `docker kill some-nginx`
-4. `docker rename some-nginx some-ng`
+- [ ] `docker run --force --name some-nginx -e DEBUG=true nginx`
+- [ ] `docker rm some-nginx`
+- [ ] `docker kill some-nginx`
+- [ ] `docker rename some-nginx some-ng`

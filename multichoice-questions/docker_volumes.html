@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    Docker - volumes - multichoice questions
+    Docker - Volumes - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -26,65 +26,65 @@
             }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "6c771dead8bc0edfd9638b7cea924cac5d786b9f12cfdf254e2f83860b295781", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a"}
         </script>
     </head>
     <body>
     
     <article class="markdown-body">  
     
-    <h1>Docker - volumes - multichoice questions</h1>
-<h3>Question</h3>
+    <h1>Docker - Volumes - multichoice questions</h1>
+<h2>Question 1</h2>
 <p>What is wrong in the following command: </p>
 <pre><code class="language-bash">docker run -it -v ../../etc/resolv.conf:/etc/resolv.conf busybox /bin/sh
 </code></pre>
-<ol>
-<li>There is no such image <code>busybox</code>.</li>
-<li>The file <code>/etc/resolv.conf</code> doesn't exist in the container.</li>
-<li>Relative path is not allowed in the first part of <code>-v</code> value. </li>
-<li>The flag <code>--name</code> is missing. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> There is no such image <code>busybox</code>.</li>
+<li><input type="checkbox"> The file <code>/etc/resolv.conf</code> doesn't exist in the container.</li>
+<li><input type="checkbox"> Relative path is not allowed in the first part of <code>-v</code> value. </li>
+<li><input type="checkbox"> The flag <code>--name</code> is missing. </li>
+</ul>
+<h2>Question 2</h2>
 <p>If you use <code>-v</code> to bind-mount a file or directory that does not yet exist on the host machine. </p>
-<ol>
-<li><code>-v</code> creates the endpoint for you. It is always creates as a directory.</li>
-<li><code>-v</code> doesn't create the endpoint for you.</li>
-<li><code>-v</code> creates either the file or directory endpoint for you.</li>
-<li>The docker daemon exits with an Error: <code>Path not found</code>.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>-v</code> creates the endpoint for you. It is always creates as a directory.</li>
+<li><input type="checkbox"> <code>-v</code> doesn't create the endpoint for you.</li>
+<li><input type="checkbox"> <code>-v</code> creates either the file or directory endpoint for you.</li>
+<li><input type="checkbox"> The docker daemon exits with an Error: <code>Path not found</code>.</li>
+</ul>
+<h2>Question 3</h2>
 <p>Given the below container running command:</p>
 <pre><code class="language-bash">docker run -v /home/elvis/data:/data mysql
 </code></pre>
-<ol>
-<li><code>/home/elvis/data</code> is a path in the host machine.</li>
-<li><code>/home/elvis/data</code> is a path in the container.</li>
-<li><code>/data</code> is a path in the container.</li>
-<li><code>/data</code> is a path in the host machine.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>/home/elvis/data</code> is a path in the host machine.</li>
+<li><input type="checkbox"> <code>/home/elvis/data</code> is a path in the container.</li>
+<li><input type="checkbox"> <code>/data</code> is a path in the container.</li>
+<li><input type="checkbox"> <code>/data</code> is a path in the host machine.</li>
+</ul>
+<h2>Question 4</h2>
 <p>Given the below running container command executed by <code>elvis</code>:</p>
 <pre><code class="language-bash">[elvis@hostname]$ docker run -it -v /test_data:/test_data busybox /bin/sh
 </code></pre>
 <p>Assume the command <code>touch /test_data/hi</code> was successfully executed from within the container. 
 When running <code>ls -l /test_data</code> <strong>from the host machine</strong>, who are the user and group owners of the created <code>hi</code> file?</p>
-<ol>
-<li><code>elvis</code></li>
-<li><code>dockerd</code></li>
-<li><code>root</code></li>
-<li>Since this file was created from within a container in the host machine fs, there is no user and group owning the file. </li>
-<li>None of the above.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>elvis</code></li>
+<li><input type="checkbox"> <code>dockerd</code></li>
+<li><input type="checkbox"> <code>root</code></li>
+<li><input type="checkbox"> Since this file was created from within a container in the host machine fs, there is no user and group owning the file. </li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 5</h2>
 <p>You want to mount the path <code>/etc/resolv.conf</code> from your host machine into the container file system. 
 So the container will share the content of <code>/etc/resolv.conf</code> as it's defined in the host machine. </p>
 <p>Which method will work?</p>
-<ol>
-<li>Using bind-mount.</li>
-<li>Using volumes.</li>
-<li>Both volumes and bind-mount will work.</li>
-<li><code>tmpfs</code> mounts</li>
-</ol> 
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Using bind-mount.</li>
+<li><input type="checkbox"> Using volumes.</li>
+<li><input type="checkbox"> Both volumes and bind-mount will work.</li>
+<li><input type="checkbox"> <code>tmpfs</code> mounts</li>
+</ul> 
     
         <script>
     

@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    Docker - images - multichoice questions
+    Docker - Images - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -26,67 +26,67 @@
             }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "3b8e935e8c7cc58f6c90815e538f335716c67740657ff334dd4e2be96b4c20c5", "5": "e025a665d31c7b9a585720c4d8b49d4eb97fb6116ec6236bff76f665d47e7428", "6": "c0e034c184aedfcd6287d307419bace571213690d86c7adfd8d2922697e5ac45", "7": "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6", "8": "0341e46110b17a9831d9fe6e5261362797d1b46d4c8a2b4f91a60f603d8f88e3", "9": "1edc279d65bebdbc9f695ae34b61e1b29db969f42fd79da8e77c91d9eecd3860", "10": "040664aea1da4390e5ec1343070eb852ff8459cc7436a08332ea60d599c30828"}
         </script>
     </head>
     <body>
     
     <article class="markdown-body">  
     
-    <h1>Docker - images - multichoice questions</h1>
-<h3>Question</h3>
+    <h1>Docker - Images - multichoice questions</h1>
+<h2>Question 1</h2>
 <p>How many layers is the image <code>sonatype/nexus3:3.41.0</code> composed by?</p>
-<ol>
-<li>3</li>
-<li>4</li>
-<li>5</li>
-<li>6</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 3</li>
+<li><input type="checkbox"> 4</li>
+<li><input type="checkbox"> 5</li>
+<li><input type="checkbox"> 6</li>
+</ul>
+<h2>Question 2</h2>
 <p>Given the bellow directory structure for a Go app: </p>
 <pre><code class="language-text">.
-├── app.Dockerfile
-├── cmd
-│   ├── client
-│   │   ├── main.go
-│   │   ├── request.go
-│   │   └── ui.go
-│   └── server
-│       ├── main.go
-│       └── translate.go
-├── go.mod
-└── go.sum
+|-- app.Dockerfile
+|-- cmd
+|   |-- client
+|   |   |-- main.go
+|   |   |-- request.go
+|   |   |-- ui.go
+|   |-- server
+|       |-- main.go
+|       |-- translate.go
+|-- go.mod
+|-- go.sum
 </code></pre>
 <p>The app should be built with a Dockerfile named <code>app.Dockerfile</code> (instead the default name of <code>Dockerfile</code>). 
 Which command can build the app?</p>
-<ol>
-<li><code>docker build -t myapp .</code></li>
-<li><code>docker build -t myapp -f app.Dockerfile .</code></li>
-<li><code>docker build -f app.Dockerfile .</code></li>
-<li><code>docker build -t myapp -f app.Dockerfile ./server</code></li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>docker build -t myapp .</code></li>
+<li><input type="checkbox"> <code>docker build -t myapp -f app.Dockerfile .</code></li>
+<li><input type="checkbox"> <code>docker build -f app.Dockerfile .</code></li>
+<li><input type="checkbox"> <code>docker build -t myapp -f app.Dockerfile ./server</code></li>
+</ul>
+<h2>Question 3</h2>
 <p>Given a linux machine with OS architecture of <code>arm/v5</code>.
 What happens when running the following command: </p>
 <pre><code class="language-bash">docker run nginx:1.24.0
 </code></pre>
-<ol>
-<li>The command fails since this architecture is not supported by the <code>nginx:1.24.0</code> image.</li>
-<li>The running succeed since this architecture is supported by the <code>nginx:1.24.0</code> image and docker automatically selects the image that matches your OS and architecture.</li>
-<li>The running fails. Although this architecture is supported by the <code>nginx:1.24.0</code> image, you should tell docker this type of OS and architecture.</li>
-<li>The running succeed since your OS architecture is not matter. The container can be run everywhere. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The command fails since this architecture is not supported by the <code>nginx:1.24.0</code> image.</li>
+<li><input type="checkbox"> The running succeed since this architecture is supported by the <code>nginx:1.24.0</code> image and docker automatically selects the image that matches your OS and architecture.</li>
+<li><input type="checkbox"> The running fails. Although this architecture is supported by the <code>nginx:1.24.0</code> image, you should tell docker this type of OS and architecture.</li>
+<li><input type="checkbox"> The running succeed since your OS architecture is not matter. The container can be run everywhere. </li>
+</ul>
+<h2>Question 4</h2>
 <p>In the terminal, you are current working directory is <code>/home/user/app</code> and you want to build a Docker image for your application located in <code>/home/user/app/src</code> directory.
 The Dockerfile is also located in <code>/home/user/app/src</code>. </p>
 <p>Which of the following command(s) will build the app? </p>
-<ol>
-<li><code>docker build -t myapp .</code></li>
-<li><code>docker build -t myapp ../</code></li>
-<li><code>docker build -t myapp src/</code></li>
-<li><code>docker build -t myapp /home/user/app/src</code></li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>docker build -t myapp .</code></li>
+<li><input type="checkbox"> <code>docker build -t myapp ../</code></li>
+<li><input type="checkbox"> <code>docker build -t myapp src/</code></li>
+<li><input type="checkbox"> <code>docker build -t myapp /home/user/app/src</code></li>
+</ul>
+<h2>Question 5</h2>
 <p>What is wrong in the bellow Dockerfile:</p>
 <pre><code class="language-dockerfile">FROM python:3.10.15
 WORKDIR /test
@@ -95,53 +95,53 @@ RUN pip install -r requirements.txt
 
 CMD [&quot;python3&quot;, &quot;app.py&quot;]
 </code></pre>
-<ol>
-<li>The workdir should be <code>/app</code>.</li>
-<li>The base image <code>python:3.10.15</code> doesn't exist.</li>
-<li>Docker doesn't allow copying files from outside the build context (<code>../</code>)</li>
-<li>The <code>CMD</code> should be <code>CMD "python app.py"</code>.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The workdir should be <code>/app</code>.</li>
+<li><input type="checkbox"> The base image <code>python:3.10.15</code> doesn't exist.</li>
+<li><input type="checkbox"> Docker doesn't allow copying files from outside the build context (<code>../</code>)</li>
+<li><input type="checkbox"> The <code>CMD</code> should be <code>CMD "python app.py"</code>.</li>
+</ul>
+<h2>Question 6</h2>
 <p>What happens when you run a Docker image that was packed with a Linux kernel different from the kernel of the host machine (the machine the container is running on)?</p>
-<ol>
-<li>System calls will fail frequently.</li>
-<li>The docker daemon will not let you run the image.</li>
-<li>Images don't contain a kernel — all containers running on a host machine share access to the host's kernel.</li>
-<li>The image will run smoothly as the docker daemon deals with kernels compatibility. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> System calls will fail frequently.</li>
+<li><input type="checkbox"> The docker daemon will not let you run the image.</li>
+<li><input type="checkbox"> Images don't contain a kernel — all containers running on a host machine share access to the host's kernel.</li>
+<li><input type="checkbox"> The image will run smoothly as the docker daemon deals with kernels compatibility. </li>
+</ul>
+<h2>Question 7</h2>
 <p>You are told that the <code>python</code> docker image consists of 8 layers. 
 You build a new image according to the following dockerfile: </p>
 <pre><code class="language-dockerfile">FROM python
 WORKDIR /test
 </code></pre>
 <p>How many layers your image will consist by?</p>
-<ol>
-<li>8 layer since <code>WORKDIR /test</code> doesn't add new layer.</li>
-<li>9 layer since <code>WORKDIR /test</code> adds 1 new layer.</li>
-<li>10 layer since <code>WORKDIR /test</code> adds new 2 layers.</li>
-<li>You can't know the number of layers. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 8 layer since <code>WORKDIR /test</code> doesn't add new layer.</li>
+<li><input type="checkbox"> 9 layer since <code>WORKDIR /test</code> adds 1 new layer.</li>
+<li><input type="checkbox"> 10 layer since <code>WORKDIR /test</code> adds new 2 layers.</li>
+<li><input type="checkbox"> You can't know the number of layers. </li>
+</ul>
+<h2>Question 8</h2>
 <p>In a Dockerfile, suppose you have the following line: <code>COPY app/ /usr/src/app/</code>. 
 Assume the owner and group of <code>app</code> directory on your host machine is <code>elvis</code>, which its UID (user id) is 1000 and GID (group id) is 1000. </p>
 <p>What will be the UID and GID of the files in the <code>/usr/src/app</code> directory in the resulting Docker image?</p>
-<ol>
-<li><code>0</code>.</li>
-<li><code>1000</code>.</li>
-<li>Files in an imag"e doesn't have UID and GID.</li>
-<li>None of the above. </li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>0</code>.</li>
+<li><input type="checkbox"> <code>1000</code>.</li>
+<li><input type="checkbox"> Files in an imag"e doesn't have UID and GID.</li>
+<li><input type="checkbox"> None of the above. </li>
+</ul>
+<h2>Question 9</h2>
 <p>Your Flask app is expecting an environment variable called <code>FLASK_APP</code>. 
 How can you define this variable in the build time, within your Dockerfile? </p>
-<ol>
-<li>By the instruction <code>ENV FLASK_APP=app.py</code>.</li>
-<li>By the instruction <code>ENV FLASK_APP app.py</code>.</li>
-<li>By the instruction <code>ARG FLASK_APP=app.py</code>.</li>
-<li>By the instruction <code>RUN FLASK_APP=app.py</code>.</li>
-</ol>
-<h3>Question</h3>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> By the instruction <code>ENV FLASK_APP=app.py</code>.</li>
+<li><input type="checkbox"> By the instruction <code>ENV FLASK_APP app.py</code>.</li>
+<li><input type="checkbox"> By the instruction <code>ARG FLASK_APP=app.py</code>.</li>
+<li><input type="checkbox"> By the instruction <code>RUN FLASK_APP=app.py</code>.</li>
+</ul>
+<h2>Question 10</h2>
 <p>Given an image called <code>curl-tool</code> built using the below Dockerfile</p>
 <pre><code class="language-dockerfile">FROM ubuntu
 LABEL description=&quot;Containerized `curl` tool image&quot;
@@ -152,12 +152,12 @@ ENTRYPOINT [&quot;curl&quot;]
 CMD [&quot;google.com&quot;]
 </code></pre>
 <p>Which of the following <code>docker run</code> commands will be running successfully? </p>
-<ol>
-<li><code>docker run curl-tool</code></li>
-<li><code>docker run curl-tool github.com</code></li>
-<li><code>docker run -it curl-tool /bin/bash</code> </li>
-<li><code>docker run curl-tool ls</code></li>
-</ol> 
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>docker run curl-tool</code></li>
+<li><input type="checkbox"> <code>docker run curl-tool github.com</code></li>
+<li><input type="checkbox"> <code>docker run -it curl-tool /bin/bash</code> </li>
+<li><input type="checkbox"> <code>docker run curl-tool ls</code></li>
+</ul> 
     
         <script>
     

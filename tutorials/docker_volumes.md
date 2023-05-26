@@ -203,7 +203,7 @@ An easy way to visualize the difference among volumes, bind mounts, and tmpfs mo
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_volumes.html)
 
 # Exercises
 

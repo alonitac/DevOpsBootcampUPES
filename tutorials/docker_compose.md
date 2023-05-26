@@ -101,7 +101,8 @@ services:
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_compose.html)
+
 
 # Exercises
 

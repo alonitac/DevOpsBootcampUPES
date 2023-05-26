@@ -104,7 +104,8 @@ To actually publish the port when running the container, use the `-p` flag on do
 
 # Self-check questions
 
-TBD
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_networking.html)
+
 
 # Exercises
 

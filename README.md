@@ -16,7 +16,7 @@ TAs: Mohammed Khalil, Nahshon Paz
 
 ## Communication 
 
-TBD
+![](.img/slack.png)
 
 ## Course schedule
 

@@ -1,6 +1,6 @@
-# Docker 
+# Docker Intro
 
-## History of virtualization
+## Intro to virtualization
 
 ### Bare metal systems
 
@@ -218,7 +218,9 @@ It has a single `hello.c` file responsible for printing out the message you're s
 
 # Exercises
 
-## Exercise 1 - Remote docker daemon
+## Optional practice
+
+### Remote docker daemon
 
 As you may know, Docker is designed in client-server architecture, where both sides are not necessarily running on the same machine.
 Your goal is to run the docker daemon (the server) of a different machine, and communicate with it from your local machine.

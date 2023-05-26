@@ -15,45 +15,6 @@ It is a popular source for finding and sharing container images.
 However, Docker also allows you to work with **private registries**. Organizations often set up private registries to store proprietary or sensitive container images.
 Private registries offer control over image distribution, access control, and integration with other deployment pipelines or processes.
 
-### Spot check
-
-Go to DockerHub, search for the official image for `redis`.
-
-- How many pulls does the image have?
-- When was the last time the image was updated? 
-- How many critical vulnerabilities does the `latest` version of the image have? 
-- What are  the different architectures that the `latest` image can run on? 
-
-### Solution
-
-The official redis image is available in https://hub.docker.com/_/redis.
-
-As of May 2023, these are the image details:
-
-- The image has 1B+ pulls (which indicates vast popularity).
-- Going to the **Tags** tab, we can see that the latest version of the image was updated just a few days ago:
-
-```text 
-latest
-Last pushed 11 days ago by doijanky
-```
-
-- The image vulnerabilities status is: 1 critical, 25 high, 6 medium, 25 low.
-- The supported archs are: 
-- 
-```text
-linux/386
-linux/amd64
-linux/arm/v5
-linux/arm/v7
-linux/arm64/v8
-linux/mips64le
-linux/ppc64le
-linux/s390x
-```
-
-This means the image cannot be running on Windows servers :-(
-
 ## Image tags 
 
 In Docker, **image tags** are labels attached to container images that help identify specific versions, variations, or configurations of an image.
@@ -113,21 +74,16 @@ Take a look on the `python` image version: `3.9.16`. Each component has a specif
 2. Increment the `MINOR` version when you **add functionality** in a backward compatible manner.
 3. Increment the `PATCH` version when you make backward compatible **bug fixes**.
 
-### Spot check 
+> ### :pencil2: Test yourself
+> 
+> Assume you have an app exposing an API for your clients. For each of the following changes, decide the increment:
+> 
+> Given version `1.14.0`:
+> 
+> 1. What is the next version after a variable name refactor?
+> 2. What is the next version after adding a new endpoint to the api?
+> 3.  What is the next version after changing the api endpoint from `/uploading` to `/upload`.
 
-Assume you have an app exposing an API for your clients. For each of the following changes, decide the increment:
-
-Given version `1.14.0`:
-
-1. What is the next version after a variable name refactor?
-2. What is the next version after adding a new endpoint to the api?
-3.  What is the next version after changing the api endpoint from `/uploading` to `/upload`.
-
-### Solution 
-
-1. `1.14.1`
-2. `1.15.0`
-3. `2.0.0`
 
 ## Image manipulations 
 
@@ -172,16 +128,8 @@ The working directory from which the image is built is called the **Build contex
 In the above case, the `.` at the end of the command specifying to docker that the "current working directory", is the build context. 
 The docker daemon looks by default for a file called `Dockerfile` and builds the image according to the instructions specified in the Dockerfile. 
 
-### Sport check
-
 Run a container based on your built image, the image name is `my_flask_app:0.0.1`.
 The app listens to port `8080`, publish this port to the host machine, so you can visit the app from your web browser. 
-
-### Solution 
-
-```bash
-docker run -p 8080:8080 my_flask_app:0.0.1
-```
 
 ## The Dockerfile
 
@@ -218,23 +166,10 @@ The `COPY <src> <dst>` instruction copies new files or directories from the `<sr
 
 In our example, we copy the file under the `.` path, which is the current working directory **relative to the build context**, into the image's filesystem working directory, which is `/app` according to what specified in `WORKDIR`.
 
-### The .dockerignore 
+### The `.dockerignore` 
 
 The `.dockerignore` file is used to specify which files and directories should be excluded from the Docker build context when building an image.
 It works similarly to `.gitignore`, where you can list patterns to match files and directories that should be ignored.
-
-### Spot check
-
-According to the `.dockerignore` located under `simple_flask_webserver/.dockerignore`, which files wouldn't been copied?
-
-### Solution 
-
-```text
-.git
-.vscode
-Makefile
-README.md
-```
 
 ### Execute commands in the image - the `RUN` instruction
 
@@ -315,24 +250,8 @@ The current order of the Dockerfile instruction make it so that the builder must
 
 You can avoid this redundancy by reordering the instructions in the Dockerfile.
 
-### Spot 
-
 Try to redesign your Dockerfile to utilize Docker's caching system better. 
 Don't hesitate to add more `COPY` instructions as needed. 
-
-### Solution 
-
-```dockerfile
-FROM python:3.8.12-slim-buster
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD ["python3", "app.py"]
-```
 
 ## Image size is matter 
 
@@ -346,32 +265,6 @@ The bigger your images are, a larger your attack surface, because your image con
 The [official Alpine Linux](https://hub.docker.com/_/alpine/tags) Docker image is about 3.25MB in size and is an extreme example of how small Docker images can be.
 
 Built your images only with what you need to run the application. 
-
-### Spot check
-
-Try to reduce the size of out `my_flask_app:0.0.1` image.
-Re-built and check the resulted image size.
-
-### Solution 
-
-```dockerfile
-FROM python:3.8.12-slim-buster
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt \
-    && apt clean \
-    && rm -rf /var/lib/apt/lists/*
-
-COPY . .
-
-CMD ["python3", "app.py"]
-```
-
-- When `--no-cache-dir` is specified, `pip` don't cache the downloaded packages.
-- The `apt clean` command removes all the package files from the local cache l
-- The command `rm -rf /var/lib/apt/lists/*` is used to remove the package lists from the `apt` cache directory.
-
 
 ## More Dockerfile instructions 
 
@@ -447,11 +340,6 @@ snyk container test ubuntu --severity-threshold=high
 snyk container test my-image:latest --file=Dockerfile
 ```
 
-### Spot check
-
-Perform the above steps and make sure `snyk` scans images properly. You'll use it in the following exercises.
-
-
 ## Multi-stage builds 
 
 Docker multi-stage builds are used to create optimized Docker images by copying artifacts you build in other images into your main image.
@@ -479,11 +367,30 @@ Instead of working hard to clean and minimize our original image, we are startin
 At the end, Docker discards any intermediate build and keep only the final stage image.
 By using multi-stage builds, we can take advantage of the build stage to compile and build the application, and then copy only the necessary artifacts into the final stage, resulting in a smaller and more optimized Docker image.
 
-### Spot check
+# Self-check questions
+
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_images.html)
+
+# Exercises
+
+### :pencil2: Push to DockerHub
+
+[Create a free account](https://docs.docker.com/docker-id/) in DockerHub
+
+Push the built `my_flask_app:0.0.1` image to your registry.
+
+### :pencil2: Image build
+
+The "Build with Docker" is a great official tutorial that covers basic topics as image build, as well as advanced topic as multi-stage builds.
+
+Follow it and complete steps 1 (Introduction), 2 (Layers), 3 (Multi-stage):   
+https://docs.docker.com/build/guide/
+
+### :pencil2: Reduce image size using multi-stage builds
 
 In our shared repo, you'll find a simple "Hello World" under `hello_world_go`.
 
-Build an image while the build content is this directory.
+Build an image while the build context is this directory.
 
 Once without utilizing multistage builds:
 
@@ -495,72 +402,19 @@ RUN go build main.go
 ENTRYPOINT ["./main"]
 ```
 
-Then build the image as specified in the multi-stage example. 
-Compare the image size. 
+Then build the image as specified in the multi-stage example.
+Compare the image size.
 
-### Solution 
+### :pencil2: fix vulnerability scanning
 
-Save the below Dockerfile under `no_multistage.Dockefile`:
+Use the `snyk container test` command to perform vulnerabilities scan to your `my_flask_app` image.
 
-```dockerfile
-FROM golang:1.17
-WORKDIR /app
-COPY . .
-RUN go build main.go
-ENTRYPOINT ["./main"]
-```
+How many issues were found in total? How critical, high, medium, low?
+Follow the **Recommendations for base image upgrade:** section in Snyk's report to build another version of `my_flask_app` image with another base image to mitigate critical and high vulnerabilities.
 
-Build the image by:
+## Optional practice
 
-```bash
-docker build -t go_app:0.1 -f no_multistage.Dockefile .
-```
-
-Check the image size by `docker images o_app:0.1`. The size is ~900MB.
-
-Save the below Dockerfile under `multistage.Dockefile`:
-
-```dockerfile
-FROM golang:1.17 AS builder
-WORKDIR /app
-COPY . .
-RUN go build main.go
-
-FROM alpine:latest
-WORKDIR /app
-COPY --from=builder /app/main .
-ENTRYPOINT ["./main"]
-```
-
-Build the image by:
-
-```bash
-docker build -t go_app:0.2 -f multistage.Dockefile .
-```
-
-The image size is ~10MB. 
-
-# Self-check questions
-
-[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_images.html)
-
-
-# Exercises
-
-## Exercise
-
-[Create a free account](https://docs.docker.com/docker-id/) in DockerHub
-
-Push the built `my_flask_app:0.0.1` image to your registry.
-
-## Exercise
-
-The "Build with Docker" is a great official tutorial that covers basic topics as image build, as well as advanced topic as multi-stage builds.
-
-Follow it and complete steps 1 (Introduction), 2 (Layers), 3 (Multi-stage):   
-https://docs.docker.com/build/guide/
-
-## Exercise
+### Build the 2048 game
 
 The 2048 game source code is available in this git repo: https://github.com/gabrielecirulli/2048
 
@@ -571,7 +425,7 @@ Run a container from the newly built image, and make sure you can play the game:
 docker run -p 8080:80 my-2048-game
 ```
 
-## Exercise
+### Parametrized build
 
 The [ARG instruction](https://docs.docker.com/engine/reference/builder/#arg) in Dockerfile allows you to define variables that users can pass at build-time to customize the build process.
 These variables can be used during the build to define defaults, or pass values into the image at build-time.
@@ -593,9 +447,3 @@ docker build -t my_flask_app:0.0.1 --build-arg PY_VERSION=3.8.0-slim-buster .
 Will build the app image with a base Python image `python:3.8.0-slim-buster`.
 
 
-## Exercise - fix vulnerability scanning
-
-Use the `snyk container test` command to perform vulnerabilities scan to your `my_flask_app` image.
-
-How many issues were found in total? How critical, high, medium, low?
-Follow the **Recommendations for base image upgrade:** section in Snyk's report to build another version of `` image with another base image to mitigate critical and high vulnerabilities.

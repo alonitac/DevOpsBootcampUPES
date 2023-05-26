@@ -31,18 +31,13 @@ In that way, files you'll place in `/path/on/host` on your host machine, will be
 Bind mounts are commonly used for development workflows, where file changes on the host are immediately reflected in the container without the need to rebuild or restart the container. 
 They also allow for easy access to files on the host machine, making it convenient to provide configuration files, logs, or other resources to the container.
 
-### Spot check 
-
-1. In you host machine, create a directory and put some sample `index.html` file in it (search for sample file in the internet).
-2. Run an nginx container while mapping the path `/usr/share/nginx/html` within the container, to your created directory.
-3. Open up your browser and visit the nginx webserver: `http://localhost:8080`. Make sure the nginx serves your file.
-4. On your host machine, delete `index.hmtl`.
-5. Refresh the server and make sure the nginx is responding with `404` page not found error. 
-
-### Solution 
-
-This spot check is a simple follow-up.  
-
+> ### :pencil2: Persist nginx 
+> 
+> 1. In you host machine, create a directory and put some sample `index.html` file in it (search for sample file in the internet).
+> 2. Run an nginx container while mapping the path `/usr/share/nginx/html` within the container, to your created directory.
+> 3. Open up your browser and visit the nginx webserver: `http://localhost:8080`. Make sure the nginx serves your file.
+> 4. On your host machine, delete `index.hmtl`.
+> 5. Refresh the server and make sure the nginx is responding with `404` page not found error. 
 
 ## Volumes 
 
@@ -133,34 +128,6 @@ Other possible options are:
 
 Where multiple options are present, you can separate them using commas.
 
-### Spot check 
-
-Run the above container with the `ro` option: 
-
-```bash 
-docker run -d \
-  --name=nginxtest \
-  -v nginx-vol:/usr/share/nginx/html:ro \
-  nginx:latest
-```
-
-Then connect to the container using the `docker exec` command, try to write some data to the read only location. 
-What error are you facing? 
-
-### Solution
-
-```bash 
-docker run -d --name=nginxtest -v nginx-vol:/usr/share/nginx/html:ro nginx:latest
-docker exec -it nginxtest /bin/bash
-```
-
-From within the container, exec:
-
-```console
-root@be4e62c6c9ba:/# touch /usr/share/nginx/html/test
-touch: cannot touch '/usr/share/nginx/html/test': Read-only file system
-```
-
 ## `tmpfs` mounts
 
 Volumes and bind mounts let you share files between the host machine and container so that you can persist data even after the container is stopped.
@@ -207,7 +174,7 @@ An easy way to visualize the difference among volumes, bind mounts, and tmpfs mo
 
 # Exercises
 
-## Exercise 1 - Understanding user file ownership in docker
+### :pencil2: Understanding user file ownership in docker
 
 When running a container, the default user inside the container is often set to the `root` user, and this user has full control of the container's processes.
 Since containers are isolated process in general, we don't really care that `root` is the user operating within the container.
@@ -232,7 +199,7 @@ docker run -it -v ~/test_docker:/test ubuntu /bin/bash
 8. Repeat the above scenario, but instead of using `-v`, use docker volumes. Starts by creating a new volume by: `docker create volume testvol`. Describe how using docker managed volume can reduce the potential risk.
 
 
-## Exercise 2 - persist MongoDB database
+## :pencil2: Persist MongoDB database
 
 Your goal is to run MongoDB container persistently.
 Running a Mongodb container persistently means that data stored in the container will be preserved even if the container is stopped or restarted.
@@ -257,7 +224,9 @@ Here is general guidelines:
   3. Verify that the data was successfully survived container kill, by: `db.myCollection.find()`.
   4. You should see the inserted data.
 
-## Exercise 3 - investigate volume mounting
+## Optional practice
+
+### Investigate volume mounting
 
 Use the `ubuntu` container to experiment with volume mounting and answer the following questions:
 

@@ -31,8 +31,8 @@
 | 5 | 	7\6 |  
 | 6 | 	8\6 |
 | 7 | 	9\6 |
-| 8 | 	12\6 |
-| 9 | 	13\6 |
+| 8 | 	12\6 | :mag_right: Intro to virtualization and containers, :mag_right: Demonstrate in class how to create containers from scratch: https://ericchiang.github.io/post/containers-from-scratch/ (directly using linux kernel features), :mortar_board: Docker containers, :mortar_board: Docker images | 
+| 9 | 	13\6 | :clapper: Docker networking, :mortar_board: Docker volumes, :mortar_board: Docker compose |
 | 10 | 	14\6 |
 | 11 | 	15\6 |
 | 12 | 	16\6 |

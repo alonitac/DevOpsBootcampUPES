@@ -76,14 +76,6 @@ You can connect a running container to multiple networks using the `docker netwo
 In the same way, a container's hostname defaults to be the container's ID in Docker. 
 You can override the hostname using `--hostname`.
 
-### Spot check 
-
-1. Create a custom bridge network.
-2. Run the 
-
-### Solution 
-
-
 ## DNS services
 
 Containers that are connected to the default bridge network inherit the DNS settings of the host, as defined in the `/etc/resolv.conf` configuration file in the host machine (they receive a copy of this file). 
@@ -109,7 +101,7 @@ To actually publish the port when running the container, use the `-p` flag on do
 
 # Exercises
 
-## Exercise 1 - Inspecting container networking
+### :pencil2: Inspecting container networking
 
 Run the `busybox` image by:
 
@@ -129,7 +121,7 @@ docker run -it busybox /bin/sh
 10. From the host machine, try to `ping` the container using both its IP addresses.
 11. After you've connected the container to a custom bridge network, what are the IP address of the DNS server the container used to resolve hostnames? What does it mean?
 
-## Exercise 2 -  Flask, Nginx, MongoDB
+### :pencil2: Flask, Nginx, MongoDB
 
 Your goal is to build the following architecture:
 

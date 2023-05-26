@@ -86,26 +86,16 @@ This allows you to directly interact with the Ubuntu environment, run commands, 
 
 Feel free to go wild, you are within a container :-)
 
-### Spot check
-
-In your open Ubuntu container terminal session:
-
-1. What is the current user?
-2. What is the hostname? 
-3. Is the container connected to the internet? Can you ping `google.com`? Oh, don't have the `ping` command? Install it inside the container!
-4. What is the user's home directory? 
-5. How many processes are running in the container? What could that indicate? 
-6. Do you have `docker` installed in the container? 
-
-### Solution 
-
-1. `root` as can be seen in the terminal prompt, or via `whoami`.
-2. The hostname is the first 12 characters of the full container id. E.g. `7c0aaf2b641f`.
-3. Install the ping command by `apt-get install iputils-ping`. 
-4. `echo $HOME` discovers that the home directory is `/root`.
-5. `ps -aux` discovers only one running process (and another temporary process for the `ps` command itself). This indicates that we don't really run a full Ubuntu OS, including all background processes, but only a single poor terminal process. 
-6. Docker is not installed: type `docker` and get `bash: docker: command not found`.
-
+> ### :pencil2: Playing with the running container
+> 
+> In your open Ubuntu container terminal session:
+> 
+> 1. What is the current user?
+> 2. What is the hostname? 
+> 3. Is the container connected to the internet? Can you ping `google.com`? Oh, don't have the `ping` command? Install it inside the container!
+> 4. What is the user's home directory? 
+> 5. How many processes are running in the container? What could that indicate? 
+> 6. Do you have `docker` installed in the container? 
 
 
 ### Interacting with containers
@@ -148,34 +138,21 @@ And you're in... You can execute any command you want within the running `my-ngi
 docker exec -it 89cf04f27c04 /bin/bash
 ```
 
-### Spot check
-
-How many running processes does the container run? Hint:  you can use the `docker top` command.
-The first process is the nginx master process, and the rest are workers that should serve incoming requests to the webserver. 
-
-You are told that the nginx configuration file is located under `/etc/nginx/nginx.conf`.
-
-Install `nano` in the container, and edit the `nginx.conf` as follows:
-
-```text
-- worker_processes  auto;
-+ worker_processes  1;
-```
-
-Save the file. Stop and start the container again, waa the number of workers changed?
-
-### Solution 
-
-To check the number of running processes you can perform: `docker top my-nginx`.
-
-After editing the `/etc/nginx/nginx.conf` file, stop and start the container by: 
-
-```bash 
-docker stop my-nginx
-docker start my-nginx
-```
-
-After restarting the container, you can once again use the `docker top` command to check the number of running processes. It should now show only one worker process.
+> ### :pencil2: Playing with the Nginx container
+> 
+> How many running processes does the container run? Hint:  you can use the `docker top` command.
+> The first process is the nginx master process, and the rest are workers that should serve incoming requests to the webserver. 
+> 
+> You are told that the nginx configuration file is located under `/etc/nginx/nginx.conf`.
+> 
+> Install `nano` in the container, and edit the `nginx.conf` as follows:
+> 
+> ```text
+> - worker_processes  auto;
+> + worker_processes  1;
+> ```
+> 
+> Save the file. Stop and start the container again, waa the number of workers changed?
 
 
 ### Inspecting a container 
@@ -197,34 +174,6 @@ Inspect your running container by:
 $ docker inspect my-nginx
 ....
 ```
-
-### Spot check
-
-In the JSON output:
-
-1. What is the command and arguments the `my-nginx` container has run with? 
-2. What is the PID (process ID) of the container in the host machine?
-3. What are the environment variables that the container has? 
-4. Which ports the container exposes? 
-5. What is the container IP address? 
-6. What is the container default gateway to access the internet? 
-
-### Solution
-
-1. The full command is `/docker-entrypoint.sh nginx -g daemon off;`
-2. The `Id` key.
-3. Under `Config.Env` keys:
-
-```text
-"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-"NGINX_VERSION=1.23.1",
-"NJS_VERSION=0.7.6",
-"PKG_RELEASE=1~bullseye"
-```
-
-4. Under `Config.ExposedPorts`, the exposed ports are `80/tcp`. 
-5. Under `NetworkSettings.IPAddress`. 
-6. Under `NetworkSettings.Gateway`.
 
 
 ### Running containers in the background 
@@ -309,22 +258,6 @@ docker pull busybox
 docker run --rm busybox wget google.com
 ```
 
-### Sport check 
-
-Docker stored container resources on the host machine under: 
-
-```text
-/var/lib/docker/containers/
-```
-
-Run some container and take a look on the `/var/lib/docker/containers/<container-id>` directory.
-Stop the container, does the directory still exist? remove the container, what happened?  
-
-### Solution 
-
-Only when the container is removed, the directory `/var/lib/docker/containers/<container-id>` is removed.   
-
-
 ### Start containers automatically
 
 In Docker, the container restart policy determines the actions to be taken by the Docker daemon when a container exits or encounters an error. 
@@ -373,21 +306,9 @@ You can then access the nginx web server by opening a web browser and navigating
 
 More docker networking topics will be covered in next chapters. 
 
-### Spot check 
-
 Explore the running nginx container logs, can you see a log indicating your request you've just performed from the web browser? 
-
 Try to run the container without the `-p` flag and check that the nginx container is not accessible.  
 
-### Solution 
-
-Here are some logs sample for the user's request: 
-
-```text
-172.17.0.1 - - [14/May/2023:08:17:21 +0000] "GET / HTTP/1.1" 200 615 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" "-"
-2023/05/14 08:17:21 [error] 31#31: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.17.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
-172.17.0.1 - - [14/May/2023:08:17:21 +0000] "GET /favicon.ico HTTP/1.1" 404 153 "http://localhost:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/112.0" "-"
-```
 
 ### Set environment variables for containers
 
@@ -396,16 +317,6 @@ For example:
 
 ```bash
 docker run -d -e MY_VAR=my_value --name nginx4 nginx
-```
-
-### Spot check 
-
-Run the above command and make sure the `MY_VAR` environment variable is accessible.
-
-### Solution
-
-```bash
-docker exec -it nginx4 /bin/bash -c 'echo $MY_VAR'
 ```
 
 ### Container configuration files 
@@ -427,7 +338,7 @@ Under the `/var/lib/docker/containers` directory, you will find subdirectories c
 
 # Exercises
 
-## Exercise 1 - Communication between containers and the internet
+### :pencil2: Communication between containers and the internet
 
 Run two [`ubuntu`](https://hub.docker.com/_/ubuntu) containers named `ubuntu1` and `ubuntu2`.
 Use the `-it` flags to make an interactive interaction with the running containers using a tty terminal.
@@ -436,7 +347,7 @@ Your goal is to be able to successfully `ping` the `ubuntu1` container from `ubu
 Install ping if needed, `inspect` the containers to discover their IP addresses.
 
 
-## Exercise 2 - Availability test service
+### :pencil2: Availability test service
 
 In this exercise, you will run a bash script which continuously monitor the availability of a pre-determined set of servers using the `ping` command.
 It sends the ping results to an [InfluxDB database](https://www.influxdata.com/) and displays results in [Grafana dashboard](https://grafana.com/grafana/dashboards/).
@@ -488,6 +399,4 @@ The running script should start to monitor the hosts specified in the `hosts` fi
 6. Let's visualize the results in Grafana:
 7. In the grafana server, click the **Explore** button. In the exploration panel, build a graph of the test results over time. Your graph should look similar to the bellow screenshot.   
    ![availabilityMonitor](../.img/grafana-ts.png)
-
-
 

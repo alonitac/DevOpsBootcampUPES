@@ -74,31 +74,6 @@ The official Docker Compose website provides good getting started tutorial with 
 Complete the tutorial:      
 https://docs.docker.com/compose/gettingstarted/
 
-### Spot check 
-
-The startup order of different services in docker compose is sometimes critical.
-In the above tutorial, it's clear that the `web` service depends on the `redis` service.
-Add the `depends_on` directive to your `docker-compose.yml` file to specify explicit startup order. 
-
-### Solution 
-
-```yaml
-version: "3.9"
-services:
-  web:
-    build: .
-    ports:
-      - "8000:5000"
-    volumes:
-      - .:/code
-    environment:
-      FLASK_DEBUG: "true"
-    depends_on:
-      - redis
-  redis:
-    image: "redis:alpine"
-```
-
 # Self-check questions
 
 [Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/docker_compose.html)
@@ -106,8 +81,7 @@ services:
 
 # Exercises
 
-
-## Exercise 1 - Flask, Nginx, MongoDB
+### :pencil2: Flask, Nginx, MongoDB
 
 Create `docker-compose.yaml` file for the following containers architecture:
 

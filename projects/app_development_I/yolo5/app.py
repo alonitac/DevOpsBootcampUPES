@@ -53,7 +53,11 @@ def upload_file_api():
         )
 
         logger.info(f'prediction done {prediction_id}/{p}')
+        pred_result_img = Path(f'static/data/{prediction_id}/{filename}')
         pred_result_path = Path(f'static/data/{prediction_id}/labels/{filename.split(".")[0]}.txt')
+
+        # TODO upload client original img (p) and predicted img (pred_result_img) to S3 using boto3
+        #  reference: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-uploading-files.html
 
         labels = []
         if pred_result_path.exists():

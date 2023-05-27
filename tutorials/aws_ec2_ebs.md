@@ -70,7 +70,7 @@ After one minute, AWS charge only for the **seconds** you use.
 For example, if you run an instance for 20 seconds and then stop it, AWS charges for a full one minute.
 If you run an instance for 3 minutes and 40 seconds, you are charged for exactly 3 minutes and 40 seconds of usage.
 
-If you decide that you no longer need an instance, you can **terminate** it. 
+If you decide that you no longer need an instance, you can **terminate** it.
 
 ### Stop your instance
 
@@ -94,31 +94,29 @@ EBS volumes are highly available and reliable, and provide features such as snap
 
 ### Increase size of EBS
 
-Suppose after six months of using your EC2 instance, you run out of storage space on your data volume. 
+Suppose after six months of using your EC2 instance, you run out of storage space on your data volume.
 You decide to double the size of your data volume. To do this, first you create a snapshot (this is a good practice!), and then you increase the size of the data volume.
 
 
-1. Return to the Amazon EC2 console by closing the browser window of EC2 Instance Connect\.
-
 1. Create a snapshot of the data volume, in case you need to roll back your changes\.
 
-   1. In the Amazon EC2 console, in the navigation pane, choose **Instances**, and select `tutorial-volumes`\.
+   1. In the Amazon EC2 console, in the navigation pane, choose **Instances**, and select your instance.
 
    1. On the **Storage** tab, under **Block devices** select the **Volume ID** of the data volume\.
 
    1. On the **Volumes** detail page, choose **Actions**, and **Create snapshot**\.
 
-   1. Under **Description**, enter `tutorial-volumes-backup`\.
+   1. Under **Description**, enter a meaningful description.
 
    1. Choose **Create snapshot**\.
 
-1. To increase the data volume size, in the navigation pane, choose **Instances**, and select `tutorial-volumes`\.
+1. To increase the data volume size, in the navigation pane, choose **Instances**, and select your instance.
 
 1. Under the **Storage** tab, select the **Volume ID** of your data volume\.
 
 1. Select the check box for your **Volume ID**, choose **Actions**, and then **Modify volume**\.
 
-1. The **Modify volume** screen displays the volume ID and the volume's current configuration, including type, size, input/output operations per second \(IOPS\), and throughput\. In this tutorial you double the size of the data volume\.
+1. The **Modify volume** screen displays the volume ID and the volume’s current configuration, including type, size, input/output operations per second \(IOPS\), and throughput\. In this tutorial you double the size of the data volume\.
 
    1. For **Volume type**, do not change value\.
 
@@ -128,8 +126,8 @@ You decide to double the size of your data volume. To do this, first you create 
 
    1. For **Throughput**, do not change value\.
 
-1. Choose **Modify**, and when prompted for confirmation choose **Modify** again\. You are charged for the new volume configuration after volume modification starts\. For pricing information, see [Amazon EBS Pricing](http://aws.amazon.com/ebs/pricing/?nc1=h_ls)\.
-   **Note**  
+1. Choose **Modify**, and when prompted for confirmation choose **Modify** again\. You are charged for the new volume configuration after volume modification starts\. For pricing information, see [Amazon EBS Pricing](http://aws.amazon.com/ebs/pricing/?nc1=h_ls)\.     
+   **Note**      
    You must wait at least six hours and ensure the volume is in the `in-use` or `available` state before you can modify the volume again\.
 
 
@@ -139,11 +137,8 @@ For more information about extending the file system, see [Extend a Linux file s
 
 **To extend the file system**
 
-1. In the Amazon EC2 console, on the EC2 Dashboard, choose **Instances**, and select `tutorial-volumes`\.
-
-1. To connect to your instance, choose **Connect**, ensure **EC2 Instance Connect** is selected, and then choose **Connect**\.
-
-1.  In the terminal window, use the following command to get the size of the file system\.
+1. Connect to your instance.
+1. In the terminal window, use the following command to get the size of the file system\.
 
 ```
 [ec2-user ~]$ df -hT
@@ -168,21 +163,19 @@ The following example output shows that the file system size of the data volume 
    ![\[Display of file systems showing data volume file system size has been increased.\]](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/images/file-system-extended-disk-space.png)
 
 
-Calculate how much does it cost for month? 
-
 ## Create and mount EBS volume to your EC2 instance
 
 1. In EC2 the navigation pane, choose **Volumes**\.
 2. Choose **Create volume**\.
-3. For **Volume type**, choose the type of volume to create, SSD gp3\. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html).
-4. For **Size**, enter the size of the volume, 5GiB\. For more information, see [Constraints on the size and configuration of an EBS volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_constraints.html).
+3. For **Volume type**, choose the type of volume to create, `SSD gp3`\. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html).
+4. For **Size**, enter the size of the volume, 5GiB\.
 5. For **Availability Zone**, choose the Availability Zone in which to create the volume\. A volume can be attached only to an instance that is in the same Availability Zone\.
 6. For **Snapshot ID**, keep the default value \(**Don't create volume from a snapshot**\)\.
 7. Assign custom tags to the volume, in the **Tags** section, choose **Add tag**, and then enter a tag key and value pair\.
 8. Choose **Create volume**\.
    **Note**  
    The volume is ready for use when the **Volume state** is **available**\.
-9. To use the volume, attach it to an instance\. For more information, see [Attach an Amazon EBS volume to an instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html).
+9. To use the volume, attach it to an instance\.
 10. Connect to your instance over SSH.
 11. [Format and mount the attached volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
 12. and write some data to the mounter EBS.
@@ -195,9 +188,13 @@ Calculate how much does it cost for month?
 3. Define the appropriate rules in the instance's security group.
 4. Visit the app.
 
+# Self-check questions
+
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/aws_ec2_ebs.html)
+
 # Exercises
 
-## Exercise 1 - EC2 pricing
+### :pencil2: EC2 pricing
 
 Explore the [pricing page](https://aws.amazon.com/ec2/pricing/on-demand/) of on-demand instances.
 
@@ -213,7 +210,7 @@ Compute the monthly cost of the below instance characteristics:-
 8. `1TB` of data transferred from the instance to instance in another region.
 
 
-## Exercise 1 - Control EC2 from AWS cli
+## :pencil2: - Control EC2 from AWS cli
 
 Perform the below operations using AWS cli directly on your instance.
 
@@ -222,13 +219,24 @@ Perform the below operations using AWS cli directly on your instance.
 3. Add the tag `ENV=test` to your instance.
 4. Get the Network Interface id attached to the instance.
 
-## Exercise 2 - Change instance properties
+### :pencil2: - Change instance properties
 
 1. Change your instance type from `*.micro` to `*.nano`.
 2. Change the availability zone of your instance.
-3. Add tag
+3. Add a tag
 
-## Exercise - Network test between two instances
+### :pencil2: `boto3`
+
+`boto3` is the AWS SDK for Python, which allows Python developers to write software that makes use of AWS services.
+
+1. Install it by `pip install boto3` (it's recommended to install it using PyCharm's terminal in an existed Python venv).
+2. Write to python code that:
+   1. Stops your EC2 instance.
+   2. Creates an AMI from the instance.
+
+## Optional practice
+
+### Network test between two instances
 
 Work with a friend on the same region.
 Use the `iperf` tool to measure network performance between two EC2 instances.
@@ -256,18 +264,7 @@ iperf3 -c <SERVER_IP>
 Make sure the appropriate ports are opened.
 
 
-## Exercise - boto3
-
-`boto3` is the AWS SDK for Python, which allows Python developers to write software that makes use of AWS services.
-
-1. Install it by `pip install boto3` (it's recommended to install it using PyCharm's terminal in an existed Python venv).
-2. Write to python code that:
-   1. Stops your EC2 instance.
-   2. Creates an AMI from the instance.
-
-## Exercise - Encrypt EBS volumes
-
-## Create an encrypted EBS and migrate disks
+### Encrypt EBS volumes
 
 1. In KMS, [create encryption key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk). Make sure your IAM user can administer this key and delete it.
 2. [Create a volume snapshot](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-snapshot.html#ebs-create-snapshot) of the EBS you provisioned and mounted in the previous section.
@@ -287,8 +284,7 @@ Make sure the appropriate ports are opened.
 5. In KMS page, disable your encryption key. What happened to the data in your instance?
 6. Stop the machine and start it again, [what happened](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to the data in your instance?
 
-
-## Exercise - EC2 instance metadata
+###  EC2 instance metadata
 
 EC2 instance metadata is a service provided by AWS that allows an EC2 instance to retrieve information about itself (**from within itself**),
 such as its instance ID, hostname, and IP address, without the need for authentication.

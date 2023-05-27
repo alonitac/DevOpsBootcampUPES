@@ -57,13 +57,16 @@ You are not provided with a `Dockerfile` for this service, create one.
 
 ### The `yolo5` service
 
-[Yolo5](https://github.com/ultralytics/yolov5) is a state-of-the-art object detection model that stands for "You Only Look Once".
+[Yolo5](https://github.com/ultralytics/yolov5) is a state-of-the-art object detection model.
 It is known for its high accuracy and real-time performance, allowing for efficient detection of objects in images and videos.
 You'll work with a lightweight model that can detect 80 objects while it's running on your poor machines (on CPU instead GPU). 
 
 This service files are under the `yolo5` directory. Take a look at the provided `Dockerfile`, it's already implemented for you, no need to touch. 
 The built image is based on the [yolo5](https://hub.docker.com/r/ultralytics/yolov5) image, which contains most of what you need. 
 The only thing we add is some Python wrapper which allows sending images for prediction over HTTP (based on Flask, again...).
+
+The app should store client images (both original and predicted) in Amazon S3. 
+In order to do so, you should implement the `TODO` specified in `app.py` file. 
 
 Build and run this image, while publishing port `8081`. 
 Once the image was built successfully, and the container is running, you can communicate with the microservice directly by:
@@ -125,7 +128,7 @@ Here is an example image, and the corresponding result:
 ]
 ```
 
-The model detected 3 cars, 2 persons and 1 umbrella. Try it yourself with different images. 
+The model detected 3 cars, 2 persons and 1 umbrella. Try it yourself with different images.
 
 ### The `mongo` service
 
@@ -200,7 +203,7 @@ Use Snyk to scan the images.
 
 Push the `frontend`, `yolo5` and `polybot` to your account in Dockerhub.
 
-Deploy your app in an EC2 instance in your public subnet.
+Deploy your app in a single EC2 instance in a public subnet.
 Make sure the service is working as expected by communicating with it via the instance's public IP. 
 
 ## Good luck

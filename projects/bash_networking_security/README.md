@@ -2,7 +2,9 @@
 
 ## Preliminaries 
 
-Make sure you have an up-to-date version of branch `main` of out shared repo.
+Fork our shared GitHub repo (if you haven't done it before)
+Make sure you are synced with branch `main` of the original repo.
+
 Implement your exercise solution in branch `networking_ex/<your-alias>`. e.g. `networking_ex/alonit`.
 
 ## Build VPC in AWS (Amazon Web Services)
@@ -202,7 +204,7 @@ Once you're in the private instance, try to access the internet and make sure yo
 
 ## SSH bastion host
 
-Before you answer the below two questions, please read [the tutorials about the SSH protocol](../tutorials/20_networking_ssh.md). 
+Before you answer the below two questions, please read [the tutorials about the SSH protocol](../../tutorials/networking_ssh.md). 
 
 SSH jump host (also known as SSH **bastion** host or SSH gateway) is a special type of server that allows users to access other servers in a private network through it. 
 It acts as an intermediary host between the client and the target server. 
@@ -484,7 +486,7 @@ echo <encryptedSampleMessage-variable> | base64 -d > encSampleMsgReady.txt
 # file encSampleMsgReady.txt is ready now to be used in "openssl enc...." command 
 ```
 
-Recall the symmetric encryption demo the [networking and security](../tutorials/19_networking_security.md) tutorial, see how to decrypt a message.
+Recall the symmetric encryption demo the [networking and security](../../tutorials/networking_security.md) tutorial, see how to decrypt a message.
 
 You should `exit` the program upon an invalid decryption with exit code `6`, and print informational message, e.g.:
 ```text
@@ -500,12 +502,12 @@ Well Done! you've manually implemented a secure communication over HTTP! Thanks 
 
 ## Submission 
 
-**Note**: your EC2 instances should be running while the automated test is performed. **Don't forget to turn off the machines when you're done**.
+Before submitting your solution, it's highly recommended to test your solution locally:
 
 ### Run tests locally (recommended)
 
 You are highly encouraged to test your solution locally before pushing it to GitHub.
-To run tests, `cd` to `03_networking_ex/test` and execute the relevant test file:
+To run tests, `cd` to `networking_ex/test` and execute the relevant test file:
 
 #### Test bastion
 
@@ -544,6 +546,14 @@ This way we can connect to your instance and perform the automatic test.
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC32uHSDe2GZAGSczIiRGpBo92Se61o6I2D2cVh5rwk7xikQXL8/ODhRgk2sB7xcLEWFbK/80SSFWaZDc+6YRv5zI0JFHpU4lxXYo83u268w12o74pjxBRQoKloJJd0cJWvFgfkbsdZp/G/qeF3hv6yzIfGjRMw+1TxEXX6Lo7JP7q2u1L7W/FoGkX+P3P7kdI9F2F+35YGmzDvZSdvqa6BzDiQxXkiCDppt2LpjV91hmn6alPhwetDIuuAg0w2lkJqkQmzo9As16i//+7hUANGKqAiUXkicDaj1qRNp1NcWFd3G+oEcv+18MncEf5hCJo5DIYau86qC7sg+ceAtl6OAKiQg7T3Md9QVvlY/7tprz0bew/Pof447YMHsCiNlJvlEQ2cFOb3BSp3N6ub72w+xK4i7E/3jB9YCi6ocqzvl5+7wcUtr8pJ5Yr/APck/crTUxK+C+RvG5maPHuvY3vhj77r0I2fAexbDPYywE6gavDSbuFPM8RRyW4792sKuZM= alon@alon-ThinkPad-E450
 ```
 
-Commit and push, watch automatic tests in GitHub Actions. 
+Commit and push 
+
+Commit and push the solution to your forked repo.
+In your forked repo, create a Pull Request from branch `networking_ex/<alias>` into `...`.
+
+Your solution will be tested by an automated test suite.
+
+**Note**: your EC2 instances should be running while the automated test is performed. **Don't forget to turn off the machines when you're done**.
+
 
 ## Good luck

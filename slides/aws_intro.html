@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Introduction to Cloud Computing</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
+[comment]: # (mdslides presentation.md --include media)
+
+[comment]: # (The list of themes is at https://revealjs.com/themes/)
+[comment]: # (The list of code themes is at https://highlightjs.org/)
+
+[comment]: # (markdown: { smartypants: true })
+
+DevOps Bootcamp - UPES University
+
+# Introduction to Cloud Computing
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Today's agenda
+
+- On-premise vs Cloud environments
+- Amazon Web Services introduction
+- Regions and Availability zones
+- AWS shared responsibility model
+- Compliance
+- Different service models - IaaS, PaaS, SaaS
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### About this course
+
+- In-depth knowledge about the core services: AZs, Amazon Virtual Private Cloud (VPC), Amazon EC2 servers, ELB, AWS Auto Scaling, storage, networking, databases, AWS IAM, and security.
+- For the other services: what that service does, what the common use cases are for that service.
+
+![](media/aws.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### The bad old days
+
+- Purchase your own infrastructure (weeks to months to be global)
+- Army of IT employees
+- Dealing with cooling, hardware failure, disaster recovery
+- Dealing with physical security
+- Dealing with real estate
+- Hidden costs (how much servers should I purchase?)
+
+![](media/server1.png)
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+### Overview of Cloud Computing
+
+- [Amazon Web Services (AWS) provides a highly reliable, scalable, and low-cost infrastructure platform](https://docs.aws.amazon.com/whitepapers/latest/aws-overview/aws-overview.pdf?did=wp_card&trk=wp_card)
+- Pay-as-you-go pricing model
+- No need to make large up-front investments in hardware and spend a lot of time managing that hardware
+- More than 200 services
+
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
+
+### Overview of Cloud Computing
+
+While each organization experiences a unique journey to the cloud with numerous benefits, six advantages become apparent time and time again
+
+![](media/cloudbenefits.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Global Infrastructure
+
+- AWS provides a highly available technology infrastructure platform with multiple locations worldwide.
+- These locations are composed of **Regions** and **Availability Zones**.
+- Each region has multiple, isolated locations known as Availability Zones.
+- Each AZ is also isolated, but the AZs in a region are:
+  - Physically separated within a typical metropolitan region
+  - Located in lower-risk flood plains
+  - Connected through low-latency links
+  - On-site backup generators
+  - Fed via different grids from independent utilities (when available)
+- By placing resources in separate AZ, your service is protected from a disruption impacting a single location
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### AWS the Shared Responsibility Model
+
+- Cloud security at AWS is the number one priority.
+- Built-in security architecture for visibility, auditability, controllability, and agility.
+- AWS are responsible for the security **of** the cloud, while allow to secure anything you deploy **in** the cloud. This called the [Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/).
+
+<img src="media/aws_shared.png" width="80%">
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Compliance
+
+- Organizations retain complete control and ownership over the region in which their data is physically located, allowing them to meet regional compliance and data residency requirements.
+- https://aws.amazon.com/compliance/programs/
+
+![](media/complience.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Service Models
+
+- Infrastructure as a Service (IaaS)
+- Platform as a Service (PaaS)
+- Software as a Service (SaaS)
+
+<img src="media/service_models.png" width="80%">
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Deployment Models
+
+- Cloud-based application
+- On-premises applications
+- A hybrid deployment is a way to connect infrastructure and applications between cloud-based resources and existing resources that are not located in the cloud.
+
+![](media/cloudonprem.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+### Accessing the Platform
+
+- [AWS Management Console](https://signin.aws.amazon.com/signin) - a simple and intuitive user interface.
+- [AWS Command Line Interface (CLI)](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) - a uniﬁed tool to manage your AWS services from the terminal.
+- [Software Development Kits (SDKs)](https://aws.amazon.com/sdk-for-python/) - using AWS services in your applications tailored to your programming language or platform.
+
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
+
+# Thanks
+
+</textarea></section>
+<section data-markdown ><textarea data-template>
+
+
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

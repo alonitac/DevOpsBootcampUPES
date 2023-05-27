@@ -37,22 +37,22 @@
 <h3>Question 1</h3>
 <p>Your app is deployed in eu-north-1 requires 4 instances to be considered healthy.
 Which of the following deployments is fault tolerant in case of AZ outage?</p>
-<ol>
-<li>2 instances in eu-north-1a, 2 instances in eu-north-1b</li>
-<li>4 instances in eu-north-1a, 4 instances in eu-north-1b</li>
-<li>4 instances in eu-north-1a, 4 spot instances in eu-north-1b </li>
-<li>4 instances in eu-north-1a, 4 instances in eu-north-1b, 2 instances in eu-north-1c</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 2 instances in eu-north-1a, 2 instances in eu-north-1b</li>
+<li><input type="checkbox"> 4 instances in eu-north-1a, 4 instances in eu-north-1b</li>
+<li><input type="checkbox"> 4 instances in eu-north-1a, 4 spot instances in eu-north-1b </li>
+<li><input type="checkbox"> 4 instances in eu-north-1a, 4 instances in eu-north-1b, 2 instances in eu-north-1c</li>
+</ul>
 <h3>Question 2</h3>
 <p>Your naive cloud architect suggests that they should automate the backup of your EBS volumes to the same availability zone (AZ) in which EC2 instances were running.
 The idea is that this would ensure that you always have a backup copy of your data in case of an outage or failure.</p>
 <p>What would you tell him?</p>
-<ol>
-<li>EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone, you only need to enable the "auto replicate" toggle.</li>
-<li>EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone as part of the normal operations of the EBS service at no additional charge.</li>
-<li>EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.</li>
-<li>EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone, you only need to enable the "auto replicate" toggle.</li>
+<li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone as part of the normal operations of the EBS service at no additional charge.</li>
+<li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.</li>
+<li><input type="checkbox"> EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.</li>
+</ul>
 <h3>Question 3</h3>
 <p>You private and public DNS of a running ec2 instance are:</p>
 <ul style="list-style-type: none;">
@@ -61,121 +61,112 @@ The idea is that this would ensure that you always have a backup copy of your da
 <p><code>ec2-13-49-241-109.eu-north-1.compute.amazonaws.com</code></p>
 </li>
 <li>
-<p>The private DNS can be resolved from your local machine.</p>
+<p><input type="checkbox"> The private DNS can be resolved from your local machine.</p>
 </li>
-<li>The private DNS can be resolved from within the instance.</li>
-<li>The public DNS can be resolved from your local machine.</li>
-<li>The public DNS can be resolved from within the instance.</li>
+<li><input type="checkbox"> The private DNS can be resolved from within the instance.</li>
+<li><input type="checkbox"> The public DNS can be resolved from your local machine.</li>
+<li><input type="checkbox"> The public DNS can be resolved from within the instance.</li>
 </ul>
 <h3>Question 4</h3>
 <p>You are trying to connect to your instances over SSH but failed with "Timeout Error". What most likely is the root cause? </p>
-<ol>
-<li>The instance is not running.</li>
-<li>You are using the private IP from your local machine.</li>
-<li>You are blocked by the security group rule. </li>
-<li>You don't have IAM permission to connect to the instance. </li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The instance is not running.</li>
+<li><input type="checkbox"> You are using the private IP from your local machine.</li>
+<li><input type="checkbox"> You are blocked by the security group rule. </li>
+<li><input type="checkbox"> You don't have IAM permission to connect to the instance. </li>
+</ul>
 <h3>Question 5</h3>
 <p>An EC2 instance applies 4 different security groups. 
 Naive cloud architect wanted port 8080 to be opened in the machine, 
 so he went to one of the security groups and added a rule that allows inbound traffic on port 8080. </p>
 <p>What are the potential risks associated with the architect action?</p>
-<ol>
-<li>Other instances that belong to the same security groups will also be exposed to port 8080, potentially creating a security vulnerability.</li>
-<li>The rule may not have been added to the intended security group, leading to unintended access to port 8080.</li>
-<li>If the security group is used across multiple regions or accounts, the port may be exposed to machines outside of the intended region.</li>
-<li>None of the above </li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Other instances that belong to the same security groups will also be exposed to port 8080, potentially creating a security vulnerability.</li>
+<li><input type="checkbox"> The rule may not have been added to the intended security group, leading to unintended access to port 8080.</li>
+<li><input type="checkbox"> If the security group is used across multiple regions or accounts, the port may be exposed to machines outside of the intended region.</li>
+<li><input type="checkbox"> None of the above </li>
+</ul>
 <h3>Question 6</h3>
 <p>A financial company was expanding its trading platform and required a low-latency, high-bandwidth network for their AWS infrastructure to support high-frequency trading.
 They found that their current network configuration was causing delays in processing transactions, leading to lost revenue.</p>
 <p>To resolve the issue, they can: </p>
-<ol>
-<li>Use placement group of instances to process transactions.</li>
-<li>Use IOPS optimized instances.</li>
-<li>Use larger instance type.</li>
-<li>Use load balancer to balance the load evenly.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Use placement group of instances to process transactions.</li>
+<li><input type="checkbox"> Use IOPS optimized instances.</li>
+<li><input type="checkbox"> Use larger instance type.</li>
+<li><input type="checkbox"> Use load balancer to balance the load evenly.</li>
+</ul>
 <h3>Question 7</h3>
 <p>How can an instance be copied to another region?</p>
-<ol>
-<li>By creating an AMI and copy it to another region.</li>
-<li>Using the <code>aws ec2 cp</code> command.</li>
-<li>There is no way to copy an instance to another region.</li>
-<li>By detaching the EBS volume, migrate it to another region, and attach it to the new instance.</li>
-<li>None of the above. </li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> By creating an AMI and copy it to another region.</li>
+<li><input type="checkbox"> Using the <code>aws ec2 cp</code> command.</li>
+<li><input type="checkbox"> There is no way to copy an instance to another region.</li>
+<li><input type="checkbox"> By detaching the EBS volume, migrate it to another region, and attach it to the new instance.</li>
+<li><input type="checkbox"> None of the above. </li>
+</ul>
 <h3>Question 8</h3>
 <p>As a system administrator for a large company, you were tasked with choosing the most cost-effective pricing option for a production server that required 12 CPUs for the next one year.
 After considering the options, you decided to purchase:</p>
-<ol>
-<li>Spot instance</li>
-<li>On-demand instance</li>
-<li>Reserved instance</li>
-<li>Marketplace instance</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Spot instance</li>
+<li><input type="checkbox"> On-demand instance</li>
+<li><input type="checkbox"> Reserved instance</li>
+<li><input type="checkbox"> Marketplace instance</li>
+</ul>
 <h3>Question 9</h3>
 <p>You are tasked with setting up a new web application on AWS.
 The application is expected to receive a high volume of traffic and needs to have low latency.
 You know that the application requires fast storage that can handle a high number of read and write operations.</p>
 <p>What EBS option would you choose to ensure optimal performance for the application?</p>
-<ol>
-<li>EBS volume with magnetic hard drive</li>
-<li>Store all the data files in the ephemeral storage of the server</li>
-<li>EBS volume with provisioned IOPS</li>
-<li>EBS volume with general-purpose SSD</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> EBS volume with magnetic hard drive</li>
+<li><input type="checkbox"> Store all the data files in the ephemeral storage of the server</li>
+<li><input type="checkbox"> EBS volume with provisioned IOPS</li>
+<li><input type="checkbox"> EBS volume with general-purpose SSD</li>
+</ul>
 <h3>Question 10</h3>
 <p>You need to ensure that your company's data is stored on physical hardware that is not shared with any other company due to a compliance requirement.
 What option should you choose?</p>
-<ol>
-<li>Put the hardware inside a private VPC</li>
-<li>Use a dedicated instance</li>
-<li>Use a reserved instance</li>
-<li>Use a dedicated instance</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Put the hardware inside a private VPC</li>
+<li><input type="checkbox"> Use a dedicated instance</li>
+<li><input type="checkbox"> Use a reserved instance</li>
+<li><input type="checkbox"> Use a dedicated instance</li>
+</ul>
 <h3>Question 11</h3>
 <p>How long does EBS remain unavailable while taking a snapshot of it?</p>
-<ol>
-<li>The volume will be available immediately.</li>
-<li>EBS magnetic drive will take more time than SSD volumes.</li>
-<li>Depends on the volume size.</li>
-<li>Depends on the actual data stored in the EBS volume.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The volume will be available immediately.</li>
+<li><input type="checkbox"> EBS magnetic drive will take more time than SSD volumes.</li>
+<li><input type="checkbox"> Depends on the volume size.</li>
+<li><input type="checkbox"> Depends on the actual data stored in the EBS volume.</li>
+</ul>
 <h3>Question 12</h3>
 <p>You need to run a compute-intensive job over the weekend. Since the job can be restarted if it fails, you are wondering what would be the preferred way to launch the instances to reduce the cost while ensuring the job completes within the required timeframe.</p>
-<ol>
-<li>Use the spot instances</li>
-<li>Use the on-demand</li>
-<li>Use IO optimized on-demand instance</li>
-<li>Use compute optimized dedicated instances</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Use the spot instances</li>
+<li><input type="checkbox"> Use the on-demand</li>
+<li><input type="checkbox"> Use IO optimized on-demand instance</li>
+<li><input type="checkbox"> Use compute optimized dedicated instances</li>
+</ul>
 <h3>Question 13</h3>
 <p>Given a default security group which allow outbound traffic for all ports and protocols, and blocks any inbound traffic.</p>
 <p>If an outgoing request is allowed, but the inbound traffic on that port is not allowed, how can the response to the outgoing request be returned?</p>
-<ol>
-<li>The response will be allowed to return to the instance even if the inbound traffic on that port is not explicitly allowed.</li>
-<li>The response will not be allowed to return to the instance.</li>
-<li>It depends on the instance virtualization type.</li>
-<li>None of the above is relevant</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The response will be allowed to return to the instance even if the inbound traffic on that port is not explicitly allowed.</li>
+<li><input type="checkbox"> The response will not be allowed to return to the instance.</li>
+<li><input type="checkbox"> It depends on the instance virtualization type.</li>
+<li><input type="checkbox"> None of the above is relevant</li>
+</ul>
 <h3>Question 14</h3>
-<p>security group to other security group </p>
-<h3>Question 15</h3>
-<p>you want to run high cpu load instance, which instance to use? </p>
-<p>What is the best EC2 instance class for a server that continuously has a heavy CPU load?</p>
-<pre><code>C5
-T2
-R5
-H1
-</code></pre>
-<h3>Question 16</h3>
-<p>How do you connect via SSH to a Linux EC2 instance with an EBS volume if you lost your key pair?</p>
-<pre><code>Stop the instance and create an AMI image. Launch the image using a new key pair.
-Contact AWS support. A support specialist can remotely restore access to your instance and send you a new key pair.
-You can not connect to this EC2 instance. The key pair is displayed only one time. If you lose it, you have lost all access to this instance. Connect the EBS volume to another instance to recover your files.
-Attach the EBS volume to a temporary instance launched with a new key pair, and overwrite ~/.ssh/authorized_keys using the same file from the new instance.
-</code></pre> 
+<p>You want to run high cpu load instance, which instance family would you use? </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> <code>t2</code></li>
+<li><input type="checkbox"> <code>x1</code></li>
+<li><input type="checkbox"> <code>c5</code></li>
+<li><input type="checkbox"> <code>p4</code></li>
+</ul> 
     
         <script>
     

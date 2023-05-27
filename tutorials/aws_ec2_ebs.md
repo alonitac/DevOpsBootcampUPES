@@ -177,8 +177,7 @@ The following example output shows that the file system size of the data volume 
    The volume is ready for use when the **Volume state** is **available**\.
 9. To use the volume, attach it to an instance\.
 10. Connect to your instance over SSH.
-11. [Format and mount the attached volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html)
-12. and write some data to the mounter EBS.
+11. [Format and mount the attached volume](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html) and write some data to the mounted EBS.
 
 
 ## Run application, open security group
@@ -210,7 +209,7 @@ Compute the monthly cost of the below instance characteristics:-
 8. `1TB` of data transferred from the instance to instance in another region.
 
 
-## :pencil2: - Control EC2 from AWS cli
+## :pencil2: Control EC2 from AWS cli
 
 Perform the below operations using AWS cli directly on your instance.
 
@@ -219,7 +218,7 @@ Perform the below operations using AWS cli directly on your instance.
 3. Add the tag `ENV=test` to your instance.
 4. Get the Network Interface id attached to the instance.
 
-### :pencil2: - Change instance properties
+### :pencil2: Change instance properties
 
 1. Change your instance type from `*.micro` to `*.nano`.
 2. Change the availability zone of your instance.

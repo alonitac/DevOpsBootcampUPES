@@ -76,13 +76,6 @@ IAM role will be taught soon. But for now, just follow the instructions below.
 
 1. Choose your created IAM role, click **Save**.
 
-### Spot check
-
-- Object override
-- No folders
--
-
-
 ## Enable versioning on your bucket
 
 So far we've created an S3 bucket and communicat with it from within EC2 instance.
@@ -104,14 +97,6 @@ The risk of data loss can be mitigated by implementing versioning in S3. When ve
 5. Choose **Enable**, and then choose **Save changes**\.
 
 6. Upload multiple object with the same key, make sure versioning is working.
-
-### Spot check
-
-- upload data
-- deleted?
-- see in UI
-- delete old version manually
--
 
 ## Create lifecycle rule to manage non-current versions
 

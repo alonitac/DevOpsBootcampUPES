@@ -36,30 +36,30 @@
     <h1>AWS - IAM - multichoice questions</h1>
 <h3>Question 1</h3>
 <p>Which of the below actions can be controlled with IAM policies?</p>
-<ol>
-<li>Creating an Amazon S3 bucket.</li>
-<li>Control who can SSH into an EC2 instance.</li>
-<li>Control the name of an EC2 instance.</li>
-<li>Control the time in which IAM user can login to the web console. </li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Creating an Amazon S3 bucket.</li>
+<li><input type="checkbox"> Control who can SSH into an EC2 instance.</li>
+<li><input type="checkbox"> Control the name of an EC2 instance.</li>
+<li><input type="checkbox"> Control the time in which IAM user can login to the web console. </li>
+</ul>
 <h3>Question 2</h3>
-<p>Which of the following statements best describes how a request to AWS in authorized?</p>
-<ol>
-<li>The request is default denied, but this can be overridden by an allow. In contrast, if a policy explicitly denies a request, it can be overridden but only by certain requests.</li>
-<li>The request is default denied, but this can be overridden by an allow. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
-<li>The request can either be allowed or denied depending on the request and each can be overwritten by the other. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
-<li>The request is default allowed, but this can be overridden by a deny. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
-</ol>
+<p>Which of the following statements best describe how a request to AWS is authorized?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. If a policy explicitly denies a request, it can be overridden by another policy.</li>
+<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+<li><input type="checkbox"> The request can either be allowed or denied depending on the request and each can be overwritten by the other. </li>
+<li><input type="checkbox"> The request is default allowed, but this can be overridden by a deny policy.</li>
+</ul>
 <h3>Question 3</h3>
 <p>Your AWS account has 350 IAM users.
 Your product manager asks you to allow to 50 users full access on S3. 
 How can you implement this <strong>effectively</strong>?</p>
-<ol>
-<li>Create an IAM group, add the 50 users, and apply the policy to group.</li>
-<li>Create a policy and apply it to multiple users using a Bash script.</li>
-<li>Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
-<li>Create a new role and add each user to the IAM role.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Create an IAM group, add the 50 users, and apply the policy to group.</li>
+<li><input type="checkbox"> Create a policy and apply it to multiple users using a Bash script.</li>
+<li><input type="checkbox"> Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
+<li><input type="checkbox"> Create a new role and add each user to the IAM role.</li>
+</ul>
 <h3>Question 4</h3>
 <p>What does the following policy for Amazon EC2 do?</p>
 <pre><code class="language-json">{
@@ -80,12 +80,12 @@ How can you implement this <strong>effectively</strong>?</p>
   }
 }
 </code></pre>
-<ol>
-<li>Allow users with the above source IP to access resources.</li>
-<li>Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.</li>
-<li>Denies access to AWS based on the source IP.</li>
-<li>Denies access from EC2 instance to the above IP ranges.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Allow users with the above source IP to access resources.</li>
+<li><input type="checkbox"> Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.</li>
+<li><input type="checkbox"> Denies access to AWS based on the source IP.</li>
+<li><input type="checkbox"> Denies access from EC2 instance to the above IP ranges.</li>
+</ul>
 <h3>Question 5</h3>
 <p>What does the below policy do?</p>
 <pre><code class="language-json">{
@@ -119,12 +119,12 @@ How can you implement this <strong>effectively</strong>?</p>
   ]
 }
 </code></pre>
-<ol>
-<li>Allows starting or stopping an EC2 instance and creating a security group.</li>
-<li>Allows starting or stopping an EC2 instance and modifying a security group.</li>
-<li>Allows starting or stopping an EC2 instance and deleting a security group.</li>
-<li>Allows creating an EC2 instance and modifying a security group.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Allows starting or stopping an EC2 instance and creating a security group.</li>
+<li><input type="checkbox"> Allows starting or stopping an EC2 instance and modifying a security group.</li>
+<li><input type="checkbox"> Allows starting or stopping an EC2 instance and deleting a security group.</li>
+<li><input type="checkbox"> Allows creating an EC2 instance and modifying a security group.</li>
+</ul>
 <h3>Question 6</h3>
 <p>You EC2 instance should read objects from <code>mybucket</code> S3 bucket.
 Your instance assumes a role with the following policy: </p>
@@ -146,21 +146,21 @@ Your instance assumes a role with the following policy: </p>
 <pre><code class="language-text">Action does not apply to any resource(s) in statement.
 </code></pre>
 <p>How can you fix the error?</p>
-<ol>
-<li>Change the IAM permissions by applying <code>PutBucketPolicy</code> permissions.</li>
-<li>Verify that the policy has the same name as the EC2 instance.</li>
-<li>Add <code>arn:aws:s3:::mybucket/*</code> to the <code>Resource</code> section.</li>
-<li>Add an action <code>s3:ListBucket</code>.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Change the IAM permissions by applying <code>PutBucketPolicy</code> permissions.</li>
+<li><input type="checkbox"> Verify that the policy has the same name as the EC2 instance.</li>
+<li><input type="checkbox"> Add <code>arn:aws:s3:::mybucket/*</code> to the <code>Resource</code> section.</li>
+<li><input type="checkbox"> Add an action <code>s3:ListBucket</code>.</li>
+</ul>
 <h3>Question 7</h3>
 <p>An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.</p>
 <p>Which of the bellow permission(s) would result a successful action?</p>
-<ol>
-<li>Identity based policy which allow the users to perform operation on S3 buckets.</li>
-<li>Only the root user account can perform this kind of operation. </li>
-<li>Allow the user to access the other account's bucket using permission boundaries. </li>
-<li>Resource based policy on the bucket which grant permission on the user's account.</li>
-</ol> 
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Identity based policy which allow the users to perform operation on S3 buckets.</li>
+<li><input type="checkbox"> Only the root user account can perform this kind of operation. </li>
+<li><input type="checkbox"> Allow the user to access the other account's bucket using permission boundaries. </li>
+<li><input type="checkbox"> Resource based policy on the bucket which grant permission on the user's account.</li>
+</ul> 
     
         <script>
     

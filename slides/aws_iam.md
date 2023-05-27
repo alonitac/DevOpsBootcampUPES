@@ -32,6 +32,8 @@ DevOps Bootcamp - UPES University
 
 # Identity and Access Management (IAM)
 
+![](media/iamlogo.png)
+
 [comment]: # (!!!)
 
 ### Today's agenda
@@ -120,26 +122,251 @@ You grant permissions to a identities by creating a **policy**, which is a docum
 
 ### Policy document - JSON structure
 
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
 
-- A JSON policy document includes these elements:
-  - Optional policy-wide information at the top of the document
-  - One or more individual statements
+Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical **OR** across the statements when evaluating them.
 
-- Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical **OR** across the statements when evaluating them.
-  - Version – Specify the version of the policy language that you use.
-  - Sid (Optional) – Include an optional statement ID to differentiate between your statements.
-  - Effect – Allow or Deny.
-  - Principal – Used to specify the identity in resource-based policy.
-  - Action – List of actions that the policy allows or denies.
-  - Resource – List of resources to which the actions apply.
-  - Condition (Optional) – Specify the circumstances under which the policy grants permission.
-  
-
-[comment]: # (!!!)
+[comment]: # (|||)
 
 ### Policy document - JSON structure
 
-![](media/iam2.png)
+```json [2]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Version – Specify the version of the policy language that you use.
+
+[comment]: # (|||)
+
+### Policy document - JSON structure
+
+```json [5]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Sid (Optional) – Include an optional statement ID to differentiate between your statements.
+
+[comment]: # (|||)
+
+### Policy document - JSON structure
+
+```json [10]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Effect – Allow or Deny.
+
+[comment]: # (|||)
+
+### Policy document - JSON structure
+
+```json [11-13]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Principal – Used to specify the identity in resource-based policy.
+
+[comment]: # (|||)
+
+
+### Policy document - JSON structure
+
+```json [6-9]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Action – List of actions that the policy allows or denies.
+
+[comment]: # (|||)
+
+### Policy document - JSON structure
+
+```json [14]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+       "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Resource – List of resources to which the actions apply.
+
+[comment]: # (|||)
+
+
+### Policy document - JSON structure
+
+```json [15-19]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadBucket",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/exampleuser"
+      },
+      "Resource": "arn:aws:s3:::mybucket/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:UserAgent": "CustomUserAgent"
+        }
+      }
+    }
+  ]
+}
+```
+
+Condition (Optional) – Specify the circumstances under which the policy grants permission.
 
 [comment]: # (!!!)
 
@@ -225,18 +452,39 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 - The resource that you want to share must [support](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html#compute_svcs) resource-based policies.
 - Resource-based policies are widely used to **grant cross-account access** to resources, which has an advantage over role-based access. The principal continues to have access to resources in the trusted account at the same time as he has access to the resource in the other account.
 
-![](media/rb-policy.png)
 
 [comment]: # (!!!)
 
 ### Resource-based policies
 
+![](media/rb-policy.png)
+
 1. AccountA gives AccountB full access to BucketA by naming AccountB as a principal in the resource-based policy. As a result, AccountB is authorized to perform any action on BucketA, and the AccountB administrator can delegate access to its users in AccountB.
-2. The AccountB root user has all of the permissions that are granted to the account. Therefore, the root user has full access to BucketA.
-3. The AccountB administrator does not give access to User1. By default, users do not have any permissions except those that are explicitly granted. Therefore, User1 does not have access to BucketA.
-4. The AccountB administrator grants User2 read-only access to BucketA. User2 can view the objects in the bucket. The maximum level of access that AccountB can delegate is the access level that is granted to the account. In this case, the resource-based policy granted full access to AccountB, but User2 is granted only read-only access.
+
+[comment]: # (|||)
+
+### Resource-based policies
 
 ![](media/rb-policy.png)
+
+2. The AccountB root user has all of the permissions that are granted to the account. Therefore, the root user has full access to BucketA.
+
+[comment]: # (|||)
+
+### Resource-based policies
+
+![](media/rb-policy.png)
+
+
+3. The AccountB administrator does not give access to User1. By default, users do not have any permissions except those that are explicitly granted. Therefore, User1 does not have access to BucketA.
+
+[comment]: # (|||)
+
+### Resource-based policies
+
+![](media/rb-policy.png)
+
+4. The AccountB administrator grants User2 read-only access to BucketA. User2 can view the objects in the bucket. The maximum level of access that AccountB can delegate is the access level that is granted to the account. In this case, the resource-based policy granted full access to AccountB, but User2 is granted only read-only access.
 
 [comment]: # (!!!)
 
@@ -277,38 +525,60 @@ If you already manage user identities outside of AWS, you can use IAM identity p
 
 ### How IAM works
 
-<img src="media/iamworks.png" width="60%">
+<img src="media/iamworks.png" width="70%">
 
-- First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) must be authenticated (signed in to AWS) using their credentials to send a request to AWS.
+[comment]: # (|||)
+
+### How IAM works
+
+<img src="media/iamworks.png" width="50%">
+
+
+First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) must be authenticated (signed in to AWS) using their credentials to send a request to AWS.
 
 
 [comment]: # (|||)
 
 ### How IAM works
 
-<img src="media/iamworks.png" width="60%">
+<img src="media/iamworks.png" width="50%">
 
-- Principal uses AWS by sending an HTTP request. The request includes the following information (a.k.a request context): Actions or operations, Resources, Principal information - policies that are associated with that principal, etc..., Environment data (ip, timezone, etc…), Resource data - Data related to the resource that is being requested
-
-[comment]: # (|||)
-
-### How IAM works
-
-<img src="media/iamworks.png" width="60%">
-
-- First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) must be authenticated (signed in to AWS) using their credentials to send a request to AWS.
-
+Principal uses AWS by sending an HTTP request. The request includes the following information (a.k.a request context): Actions or operations, Resources, Principal information - policies that are associated with that principal, etc..., Environment data (ip, timezone, etc…), Resource data - Data related to the resource that is being requested
 
 [comment]: # (|||)
 
 ### How IAM works
 
+<img src="media/iamworks.png" width="50%">
 
-- The principal must also be authorized (allowed) to complete the request.
-- IAM evaluates a principal's permissions at the time the principal makes a request.
-- After your request has been authenticated and authorized, AWS approves the actions or operations in your request.
-- After AWS approves the operations in your request, they can be performed on the related resources.
+The principal must also be authorized (allowed) to complete the request.
 
+
+[comment]: # (|||)
+
+### How IAM works
+
+<img src="media/iamworks.png" width="50%">
+
+
+IAM evaluates a principal's permissions at the time the principal makes a request.
+
+[comment]: # (|||)
+
+### How IAM works
+
+<img src="media/iamworks.png" width="50%">
+
+
+After your request has been authenticated and authorized, AWS approves the actions or operations in your request.
+
+[comment]: # (|||)
+
+### How IAM works
+
+<img src="media/iamworks.png" width="50%">
+
+After AWS approves the operations in your request, they can be performed on the related resources.
 
 [comment]: # (!!!)
 

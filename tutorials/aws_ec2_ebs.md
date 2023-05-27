@@ -209,7 +209,7 @@ Compute the monthly cost of the below instance characteristics:-
 8. `1TB` of data transferred from the instance to instance in another region.
 
 
-## :pencil2: Control EC2 from AWS cli
+### :pencil2: Control EC2 from AWS cli
 
 Perform the below operations using AWS cli directly on your instance.
 

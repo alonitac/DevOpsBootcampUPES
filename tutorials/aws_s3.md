@@ -1,7 +1,7 @@
 # Simple Storage Service (S3)
 
 Amazon Simple Storage Service (Amazon S3) is an **object storage** service that offers scalability, data availability, security, and performance.
-Customers of all sizes and industries can use Amazon S3 to store and protect **any amount of data** for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics. 
+Customers of all sizes and industries can use Amazon S3 to store and protect **any amount of data** for a range of use cases, such as data lakes, websites, mobile applications, backup and restore, archive, enterprise applications, IoT devices, and big data analytics.
 
 Amazon S3 provides management features so that you can optimize, organize, and configure access to your data to meet your specific business, organizational, and compliance requirements.
 
@@ -20,51 +20,40 @@ To store your data in Amazon S3, you first create a **bucket** and specify a buc
 4. In **Bucket name**, enter a DNS-compliant name for your bucket.
 
    The bucket name must:
-    + Be unique across all of Amazon S3.
-    + Be between 3 and 63 characters long.
-    + Not contain uppercase characters.
-    + Start with a lowercase letter or number.
+   + Be unique across all of Amazon S3.
+   + Be between 3 and 63 characters long.
+   + Not contain uppercase characters.
+   + Start with a lowercase letter or number.
 
 5. In **Region**, choose the AWS Region where you want the bucket to reside.
 
    Choose the Region where you provisioned your EC2 instance.
 
-6. Under **Object Ownership**, leave ACLs disabled.
+6. Under **Object Ownership**, leave ACLs disabled. By default, ACLs are disabled\. A majority of modern use cases in Amazon S3 no longer require the use of ACLs\. We recommend that you keep ACLs disabled, except in unusual circumstances where you must control access for each object individually\.
 
-
-   **ACLs disabled**
-   +  **Bucket owner enforced \(default\)** – ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket\. ACLs no longer affect access permissions to data in the S3 bucket\. The bucket uses policies exclusively to define access control\.
-   
-        By default, ACLs are disabled\. A majority of modern use cases in Amazon S3 no longer require the use of ACLs\. We recommend that you keep ACLs disabled, except in unusual circumstances where you must control access for each object individually\. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md)\.
-   
-   **ACLs enabled**
-   + **Bucket owner preferred** – The bucket owner owns and has full control over new objects that other accounts write to the bucket with the `bucket-owner-full-control` canned ACL\.
-   
 8. Enable Default encryption with `SSE-S3` encryption type.
 
 9. Choose **Create bucket**.
 
-You've created a bucket in Amazon S3.
-
 ## Upload objects to S3 bucket from an EC2 instance
 
-In modern cloud-based applications, S3 is often used as a central data store, while EC2 instances are used to run the application logic. When end-users interact with the application, the application processes the user input and reads or writes data to S3 on their behalf. 
+In modern cloud-based applications, S3 is often used as a central data store, while EC2 instances are used to run the application logic. When end-users interact with the application, the application processes the user input and reads or writes data to S3 on their behalf.
 
 For instance, in a photo-sharing application like Instagram, users upload their photos via the web application. The application backend then manages the storage and retrieval of the photos from S3, allowing for efficient storage and delivery of the content.
 
 ![](../.img/ec2-s3.png)
 
-By this means, uploading object to S3 using the web console is useless. We are interested in communicating with S3 from within EC2 instance, either via the `aws` cli, or Python code.  
+By this means, uploading object to S3 using the web console is useless. We are interested in communicating with S3 from within EC2 instance, either via the `aws` cli, or Python code.
 
 **Disclaimer:** This is not going to work. Your EC2 instance has to have permissions to operate in S3.
 
-1. Connect to your instance over SSH.
-2. Read the [examples](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html#examples) in AWS code and write a command to upload (`put-object`) in your S3 bucket.
+1. Connect to your EC2 instance over SSH.
+2. Read the [examples](https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object.html#examples) in AWS code and write a command to upload (`put-object`) in your S3 bucket (you may need to install the `aws` cli on your machine).
 3. Got `Unable to locate credentials.` or `Access Denied`? follow the next section...
 
 ### Attach IAM role to your EC2 Instance with permissions over S3
 
-To access an S3 bucket from an EC2 instance, you need to create an IAM role with the appropriate permissions and attach it to the EC2 instance. 
+To access an S3 bucket from an EC2 instance, you need to create an IAM role with the appropriate permissions and attach it to the EC2 instance.
 The role should have policies that grant the necessary permissions to read from and write to the S3 bucket, and the EC2 instance needs to be launched with this IAM role.
 IAM role will be taught soon. But for now, just follow the instructions below.
 
@@ -91,12 +80,12 @@ IAM role will be taught soon. But for now, just follow the instructions below.
 
 - Object override
 - No folders
-- 
+-
 
 
 ## Enable versioning on your bucket
 
-So far we've created an S3 bucket and communicat with it from within EC2 instance. 
+So far we've created an S3 bucket and communicat with it from within EC2 instance.
 
 You've probably noticed that in S3, objects can be easily lost by object override because the default behavior when uploading an object with the same key as an existing object is to replace the old object with the new one. If this happens unintentionally or due to a bug in the application code, it can result in the permanent loss of data.
 
@@ -119,10 +108,10 @@ The risk of data loss can be mitigated by implementing versioning in S3. When ve
 ### Spot check
 
 - upload data
-- deleted? 
+- deleted?
 - see in UI
-- delete old version manually 
-- 
+- delete old version manually
+-
 
 ## Create lifecycle rule to manage non-current versions
 
@@ -130,7 +119,7 @@ When versioning is enabled in S3, every time an object is overwritten or deleted
 
 By creating lifecycle rules, you can define actions to automatically transition non-current versions of objects to a lower-cost storage class or delete them altogether. This can help you reduce storage costs and improve the efficiency of your S3 usage, while also ensuring that you are in compliance with data retention policies and regulations.
 
-For example, you might create a lifecycle rule to transition all non-current versions of objects to Glacier storage after 30 days, and then delete them after 365 days. This would allow you to retain current versions of objects in S3 for fast access, while still meeting your data retention requirements and reducing storage costs for non-current versions.
+For example, you might create a lifecycle rule to transition all non-current versions of objects to `Standard-IA` storage after 30 days, and then delete them after 365 days. This would allow you to retain current versions of objects in S3 for fast access, while still meeting your data retention requirements and reducing storage costs for non-current versions.
 
 
 1. Choose the **Management** tab, and choose **Create lifecycle rule**\.
@@ -140,14 +129,14 @@ For example, you might create a lifecycle rule to transition all non-current ver
 1. Choose the scope of the lifecycle rule (in this demo we will apply this lifecycle rule to all objects in the bucket).
 
 1. Under **Lifecycle rule actions**, choose the actions that you want your lifecycle rule to perform:
-    + Transition *noncurrent* versions of objects between storage classes
-    + Permanently delete *noncurrent* versions of objects
+   + Transition *noncurrent* versions of objects between storage classes
+   + Permanently delete *noncurrent* versions of objects
 
 1. Under **Transition non\-current versions of objects between storage classes**:
 
-    1. In **Storage class transitions**, choose **Standard\-IA**.
+   1. In **Storage class transitions**, choose **Standard\-IA**.
 
-    1. In **Days after object becomes non\-current**, enter 30.
+   1. In **Days after object becomes non\-current**, enter 30.
 
 1. Under **Permanently delete previous versions of objects**, in **Number of days after objects become previous versions**, enter 90 days.
 
@@ -155,40 +144,28 @@ For example, you might create a lifecycle rule to transition all non-current ver
 
    If the rule does not contain any errors, Amazon S3 enables it, and you can see it on the **Management** tab under **Lifecycle rules**\.
 
+# Self-check questions
 
-
-### Spot check
-
-Explore the [pricing page](https://aws.amazon.com/ec2/pricing/on-demand/) of on-demand instances.
-
-Compute the monthly cost of the below instance characteristics:-
-
-1. Instance run in `us-east-1`.
-2. A 24/7 running `*.micro` instance.
-3. `8GGB` of SSD gp3 EBS.
-4. `50GB` of data transferred into the instance.
-5. `600GB` of data transferred from the instance to S3.
-6. `230GB` of data transfer out of the instance to customers around the world.
-7. `8TB` of data transferred from the instance to other instances in the same AZ.
-8. `1TB` of data transferred from the instance to instance in another region.
-
-### Solution
-
-As of May 2023, the calculated price is:
-
-1. The price for an `t3.micro` instance is $0.0104 per hour, or approximately $7.51 per month for 24/7 running.
-2. The price for `8GB` of gp3 EBS storage is $0.080 per month.
-3. Data transferred into an EC2 instance is free.
-4. The price of data transfer from EC2 to S3 is free.
-5. The price for `230GB` of data transfer out of EC2 to customers around the world is $0.09 per GB, $20.70 per month.
-6. Data transfer between EC2 instances in the same AZ is free.
-7. The price for `1TB` of data transfer between EC2 instances in different regions is $0.02 per GB, $20 per month.
-
-Total of 48.29$.
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/aws_s3.html)
 
 # Exercises
 
-## Exercise 1 - Objects deletion in bucket versioning enabled
+### :pencil2: S3 pricing
+
+Explore the [S3 pricing page](https://aws.amazon.com/s3/pricing/).
+
+Compute the monthly cost of the below bucket characteristics:
+
+1. us-east-1
+2. S3 Standard
+3. 4TB stored data
+4. 40 million PUT requests.
+5. 10 million GET requests.
+6. 5TB inbound traffic
+7. 10TB outbound traffic
+
+
+### :pencil2: Objects deletion in bucket versioning enabled
 
 In this exercise we will explore the versioning enables bucket you've created.
 
@@ -222,7 +199,7 @@ We will examine through AWS CLI what happened.
 8. Can you see the object in the bucket's object list in the AWS Web Console? Can you confirm that the object was "deleted softly"?
 9. How can you **permanently** delete an object (and its non-current versions) from a version-enabled bucket?
 
-## Exercise 2 - Simple UPPERCASE ETL
+#### :pencil2: Simple UPPERCASE ETL
 
 ETL stands for Extract, Transform, and Load, which is a process used to extract data from various sources, transform it into a more useful format, and then load it into a destination system.
 Amazon S3 is often used as the source and destination for transformed data in ETL pipelines due to its durability, scalability, and cost-effectiveness.
@@ -232,28 +209,30 @@ The script lists objects under `data/` "directory" in the bucket, processes them
 
 Test your script against real bucket and objects.
 
-## Exercise 3 - Host static website
+### :pencil2: Host static website
 
 Follow:  
 https://docs.aws.amazon.com/AmazonS3/latest/userguide/HostingWebsiteOnS3Setup.html
 
-## Exercise 4 - Create pre-signed URL
+## Optional practice
+
+### Create pre-signed URL
 
 Follow (You should do it **Using the S3 console**):   
 https://docs.aws.amazon.com/AmazonS3/latest/userguide/ShareObjectPreSignedURL.html
 
-## Exercise 5 - Verify object integrity using checksum
+### Verify object integrity using checksum
 
 Follow:   
 https://aws.amazon.com/getting-started/hands-on/amazon-s3-with-additional-checksums/?ref=docs_gateway/amazons3/checking-object-integrity.html
 
-## Exercise 6 - Using customer SSE
+### Using customer SSE
 
 Inspired by the [following example](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#uploading-downloading-files-using-sse-customer-keys) from `boto3` official docs, write Python code that generates 32 bytes key and upload objects to S3 using SSE-C server-side encryption.
 
 Try to download the object from both the web console, and your Python script.
 
-## (Bonus) Exercise 7 - implement point in time restore in Python
+### implement point in time restore in Python
 
 Write Python script to perform a point-in-time restore for an object stored in a version-enabled S3 bucket.
 

@@ -13,6 +13,21 @@
 [comment]: # (width: 1500)
 [comment]: # (height: 1000)
 
+---
+
+<style type="text/css">
+  .reveal { 
+    font-size: 2.2em;
+  }
+
+  .reveal .code-wrapper code {
+    white-space: pre;
+    font-size: 2em;
+    line-height: 1.2em;
+  }
+</style>
+---
+
 DevOps Bootcamp - UPES University
 
 # Simple Storage Service (S3)

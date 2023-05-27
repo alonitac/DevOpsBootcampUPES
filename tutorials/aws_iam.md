@@ -22,13 +22,6 @@ If you haven't created a role yet, here is a short recap.
 6. Attach the role to your EC2 instance. 
 7. Test your policy.
 
-### Spot check 
-
-take a look on the created permission JSON, identiry the componenets 
-
-### Solution 
-
-
 ## The least privilege principal 
 
 The least privilege principle is a security best practice that involves giving users and systems only the minimum permissions necessary to perform their tasks or functions, and no more. This helps to reduce the risk of accidental or intentional damage or data loss, and limit the potential impact of security breaches or vulnerabilities.
@@ -96,9 +89,14 @@ For example, you can use tags to label resources based on their project and envi
 2. According to the policy described in [Controlling access during AWS requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-requests), add a statement to the above inline policy, that enforces the tagging policy for EC2 instances belonging to different projects. 
 3. Switch to your role and test your policy. 
 
+# Self-check questions
+
+[Enter the interactive self-check page](https://alonitac.github.io/DevOpsBootcampUPES/multichoice-questions/aws_iam.html)
+
+
 # Exercises
 
-## Exercise 1 - practice policies
+### :pencil2: practice policies
 
 Create the below policies following the Principle of the [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
@@ -110,7 +108,7 @@ Create the below policies following the Principle of the [least privilege](https
 6. IAM policy with permissions to attach EBS to EC2 from all US and EU regions.
 7. IAM policy which denying users to assign policies to and identity, which means, users under this policy cannot assign IAM policies to other users, groups, roles.
 
-## Exercise 2 - S3 encrypt data at transit
+### :pencil2: S3 encrypt data at transit
 
 As you may know, Amazon S3 offers encryption in **transit** and encryption **at rest**. Encryption in transit refers to HTTPS and encryption at rest refers to client-side or server-side encryption.
 
@@ -119,8 +117,9 @@ We would like to create a resource-based policy that will we associated with an 
 
 Use [this resource as a reference](https://repost.aws/knowledge-center/s3-bucket-policy-for-config-rule) to define the policy and attach it to your bucket.
 
+## Optional practice
 
-## Exercise 3 - ABAC
+### ABAC
 
 Attribute-based access control (ABAC) is an authorization strategy that defines permissions based on attributes.
 In AWS, these attributes are called **tags**.

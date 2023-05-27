@@ -26,7 +26,7 @@
             }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "9c497e6fa2061dd92e6a51e3a4911c07042a591a49a4c90c4110692d7aac2832", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "fbf23efcb4c015694c256068c3d196e9323f40a9993b3e9e4f29b118ad570feb", "7": "0b51c1aad5ddd842e874d9d3da2cd4336e9660a1d289cfaa7a271fe2dc2f6194", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "1031fd130f899c43c4761c52de1e597b7f01fea3063cb3988592c9fcc5057bb7", "10": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871", "11": "91a80f17981c411f0aa8e5d214e459a5aa34bd096173d171845422aced2506c8", "12": "809067b641b0943ae44476949bfe440db5121e7f4bcc2fbf10ae8c95415256f5", "13": "5df94eb75cee55b04fd0a1f3f1776c42dfab6cc77ff09b4f5eff3ff06f72d4cc", "14": "b4821f207fcf7b2acce3052ecfb80058953c870fb820d1923544caebcb88a600"}
         </script>
     </head>
     <body>
@@ -35,13 +35,13 @@
     
     <h1>AWS - EC2 and EBS - multichoice questions</h1>
 <h3>Question 1</h3>
-<p>Your app is deployed in eu-north-1 requires 4 instances to be considered healthy.
-Which of the following deployments is fault tolerant in case of AZ outage?</p>
+<p>Your app is deployed in <code>eu-north-1</code> requires 4 instances to be considered healthy.
+Which of the following deployments is the cheapest and fault tolerant in case of AZ outage?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> 2 instances in eu-north-1a, 2 instances in eu-north-1b</li>
-<li><input type="checkbox"> 4 instances in eu-north-1a, 4 instances in eu-north-1b</li>
-<li><input type="checkbox"> 4 instances in eu-north-1a, 4 spot instances in eu-north-1b </li>
-<li><input type="checkbox"> 4 instances in eu-north-1a, 4 instances in eu-north-1b, 2 instances in eu-north-1c</li>
+<li><input type="checkbox"> 2 instances in <code>eu-north-1a</code>, 2 instances in <code>eu-north-1b</code></li>
+<li><input type="checkbox"> 4 instances in <code>eu-north-1a</code>, 4 instances in <code>eu-north-1b</code></li>
+<li><input type="checkbox"> 4 instances in <code>eu-north-1a</code>, 4 spot instances in <code>eu-north-1b</code> </li>
+<li><input type="checkbox"> 4 instances in <code>eu-north-1a</code>, 4 instances in <code>eu-north-1b</code>, 2 instances in eu-north-1c</li>
 </ul>
 <h3>Question 2</h3>
 <p>Your naive cloud architect suggests that they should automate the backup of your EBS volumes to the same availability zone (AZ) in which EC2 instances were running.
@@ -54,15 +54,11 @@ The idea is that this would ensure that you always have a backup copy of your da
 <li><input type="checkbox"> EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.</li>
 </ul>
 <h3>Question 3</h3>
-<p>You private and public DNS of a running ec2 instance are:</p>
+<p>Your private and public DNS of a running ec2 instance are:</p>
+<p><code>ip-172-31-46-24.eu-north-1.compute.internal</code>  <br>
+<code>ec2-13-49-241-109.eu-north-1.compute.amazonaws.com</code></p>
 <ul style="list-style-type: none;">
-<li><code>ip-172-31-46-24.eu-north-1.compute.internal</code>.</li>
-<li>
-<p><code>ec2-13-49-241-109.eu-north-1.compute.amazonaws.com</code></p>
-</li>
-<li>
-<p><input type="checkbox"> The private DNS can be resolved from your local machine.</p>
-</li>
+<li><input type="checkbox"> The private DNS can be resolved from your local machine.</li>
 <li><input type="checkbox"> The private DNS can be resolved from within the instance.</li>
 <li><input type="checkbox"> The public DNS can be resolved from your local machine.</li>
 <li><input type="checkbox"> The public DNS can be resolved from within the instance.</li>
@@ -82,7 +78,7 @@ so he went to one of the security groups and added a rule that allows inbound tr
 <p>What are the potential risks associated with the architect action?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Other instances that belong to the same security groups will also be exposed to port 8080, potentially creating a security vulnerability.</li>
-<li><input type="checkbox"> The rule may not have been added to the intended security group, leading to unintended access to port 8080.</li>
+<li><input type="checkbox"> The rule may not have been applied correctly.</li>
 <li><input type="checkbox"> If the security group is used across multiple regions or accounts, the port may be exposed to machines outside of the intended region.</li>
 <li><input type="checkbox"> None of the above </li>
 </ul>
@@ -112,7 +108,7 @@ After considering the options, you decided to purchase:</p>
 <li><input type="checkbox"> Spot instance</li>
 <li><input type="checkbox"> On-demand instance</li>
 <li><input type="checkbox"> Reserved instance</li>
-<li><input type="checkbox"> Marketplace instance</li>
+<li><input type="checkbox"> Dedicated instance</li>
 </ul>
 <h3>Question 9</h3>
 <p>You are tasked with setting up a new web application on AWS.
@@ -132,18 +128,18 @@ What option should you choose?</p>
 <li><input type="checkbox"> Put the hardware inside a private VPC</li>
 <li><input type="checkbox"> Use a dedicated instance</li>
 <li><input type="checkbox"> Use a reserved instance</li>
-<li><input type="checkbox"> Use a dedicated instance</li>
+<li><input type="checkbox"> Use a marketplace instance</li>
 </ul>
 <h3>Question 11</h3>
 <p>How long does EBS remain unavailable while taking a snapshot of it?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The volume will be available immediately.</li>
-<li><input type="checkbox"> EBS magnetic drive will take more time than SSD volumes.</li>
 <li><input type="checkbox"> Depends on the volume size.</li>
 <li><input type="checkbox"> Depends on the actual data stored in the EBS volume.</li>
+<li><input type="checkbox"> Depending on the instance type the volume is attached to.</li>
 </ul>
 <h3>Question 12</h3>
-<p>You need to run a compute-intensive job over the weekend. Since the job can be restarted if it fails, you are wondering what would be the preferred way to launch the instances to reduce the cost while ensuring the job completes within the required timeframe.</p>
+<p>You need to run a compute-intensive job that should last 3 hours during the weekend. Since the job can be restarted if it fails, you are wondering what would be the preferred way to launch the instances to reduce the cost while ensuring the job completes within the required timeframe.</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Use the spot instances</li>
 <li><input type="checkbox"> Use the on-demand</li>
@@ -151,7 +147,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> Use compute optimized dedicated instances</li>
 </ul>
 <h3>Question 13</h3>
-<p>Given a default security group which allow outbound traffic for all ports and protocols, and blocks any inbound traffic.</p>
+<p>Given a default security group which allows outbound traffic for all ports and protocols, and blocks any inbound traffic.</p>
 <p>If an outgoing request is allowed, but the inbound traffic on that port is not allowed, how can the response to the outgoing request be returned?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The response will be allowed to return to the instance even if the inbound traffic on that port is not explicitly allowed.</li>

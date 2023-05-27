@@ -26,7 +26,7 @@
             }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "8443a531d20632008b554d7dddc50170dcce96a26251651e44b7b6d8856c5ba1", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "7b0d98ba3f8ae23c2528e416af35b59a1dfd9fa66a0e8fceb978058795151075", "7": "d5dfd53a061cdc0f680ac9fe3cd460d307075aab0b4b72f32ccdb090cefec205"}
         </script>
     </head>
     <body>
@@ -37,99 +37,67 @@
 <h3>Question 1</h3>
 <p>Your app is running in an EC2 instance, needs to read and write data to S3. 
 Which of the below methods is the most recommended to use? </p>
-<ol>
-<li>Store the credentials in KMS, read them when in instance launches.</li>
-<li>Use IAM role for the EC2 with an appropriate permissions in S3.</li>
-<li>Execute <code>aws configure</code> form within the instance and provide Access Key id and Access Secret Key.</li>
-<li>Define the credentials in the instance's user data. </li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Store the credentials in KMS, read them when in instance launches.</li>
+<li><input type="checkbox"> Use IAM role for the EC2 with an appropriate permissions in S3.</li>
+<li><input type="checkbox"> Execute <code>aws configure</code> form within the instance and provide Access Key id and Access Secret Key.</li>
+<li><input type="checkbox"> Define the credentials in the instance's user data. </li>
+</ul>
 <h3>Question 2</h3>
 <p>Which of the below features of S3 can protect from accidental data deletion or overridden?  </p>
-<ol>
-<li>Deny object deletion using an IAM bucket policy.</li>
-<li>Check data integrity before every upload operation.</li>
-<li>Access objects using pre-signed URLs.</li>
-<li>Enable bucket versioning.</li>
-<li>Enable cross-region replication.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Deny object deletion using an IAM bucket policy.</li>
+<li><input type="checkbox"> Check data integrity before every upload operation.</li>
+<li><input type="checkbox"> Access objects using pre-signed URLs.</li>
+<li><input type="checkbox"> Enable bucket versioning.</li>
+<li><input type="checkbox"> Enable cross-region replication.</li>
+</ul>
 <h3>Question 3</h3>
 <p>Review <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/optimizing-performance.html">S3 performance</a> summary.</p>
-<p>You consider using S3 bucket to store thousands of millions of objects for a new service in your company. </p>
+<p>You consider using S3 bucket to store thousands of millions of text objects for a new service in your company. </p>
 <p>Which of the below information should be taken into account before choosing S3 as your solution?</p>
-<ol>
-<li>The size of individual objects being written to S3, in order to properly design the key names.</li>
-<li>The total number of requests per second at peak usage.</li>
-<li>The number of customers that will use the service. </li>
-<li>The total amount of storage needs for each S3 bucket.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The size of individual object being written to S3</li>
+<li><input type="checkbox"> The total number of requests per second at peak usage</li>
+<li><input type="checkbox"> The number of customers that will use the service</li>
+<li><input type="checkbox"> The total amount of storage needs for each S3 bucket</li>
+</ul>
 <h3>Question 4</h3>
 <p>How can you ensure that the data has been saved properly in S3?</p>
-<ol>
-<li>The bucket is strongly consistent so there is no need to check data integrity.</li>
-<li>Check in the bucket logs.</li>
-<li>If the request status code in 200, the object has stored successfully.</li>
-<li>Using Content-MD5, eTag or checksums.</li>
-</ol>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The bucket is strongly consistent so there is no need to check data integrity.</li>
+<li><input type="checkbox"> Check in the bucket logs.</li>
+<li><input type="checkbox"> If the request status code in 200, the object has stored successfully.</li>
+<li><input type="checkbox"> Using Content-MD5, eTag or checksums.</li>
+</ul>
 <h3>Question 5</h3>
-<p>question about ACL </p>
-<p>How do you secure company critical data on S3 ? (choose 4 correct answers)</p>
-<ol>
-<li>You can use the Server Side Encryption (SSE)</li>
-<li>You can serve it through Cloudfront</li>
-<li>You can use IAM Policies</li>
-<li>You can use Bucket policies</li>
-<li>You can use Access Control Lists (ACLs)</li>
-</ol>
-<h3>Question 6</h3>
-<p>Which feature(s) can be used to restrict access to data in S3?</p>
-<ol>
-<li>Using an S3 bucket IAM policy.</li>
-<li>Create an event notification for the bucket for every compromised object.</li>
-<li>Using S3 ACL on the bucket or the object.</li>
-<li>Block the bucket from being public, which is allowed by default.</li>
-</ol>
-<h3>Question 7</h3>
-<p>You have an S3 bucket with thousands of objects. Which of the below approaches are possible solutions for searching a certain object in the bucket? </p>
-<ol>
-<li>Use the S3 query.</li>
-<li>Tag the objects with the metadata to search on that.</li>
-<li>Make your own DB system which stores the S3 metadata for the search functionality.</li>
-<li>Search by object prefix. </li>
-</ol>
-<h3>Question 8</h3>
 <p>S3 service is:</p>
-<ol>
-<li>SaaS</li>
-<li>PaaS</li>
-<li>IaaS</li>
-<li>IaaC</li>
-</ol>
-<h3>Question 9</h3>
-<p>Your healthcare company stores sensitive patience health history information on S3. 
-The legal department requires to:</p>
 <ul style="list-style-type: none;">
-<li>Encrypt data in transit.</li>
-<li>Encrypt data at rest.</li>
-<li>Don't allow public access to the bucket. </li>
-<li>In case of data leakage, the hacker cannot personalize the data (the data is not <a href="https://www.dol.gov/general/ppii">PII</a>.</li>
+<li><input type="checkbox"> SaaS</li>
+<li><input type="checkbox"> PaaS</li>
+<li><input type="checkbox"> IaaS</li>
+<li><input type="checkbox"> IaaC</li>
 </ul>
-<p>How would you configure the bucket? </p>
+<h3>Question 6</h3>
+<p>There can be 2 objects in AWS with the same Etag.</p>
 <ul style="list-style-type: none;">
-<li>Enable AES-256 (SSE-S3) encryption on the S3 bucket.</li>
-<li>Enable default encryption with AWS KMS-managed keys (SSE-KMS) on the S3 bucket.</li>
-<li>Add a bucket policy that includes a deny if PutObject request does not include aws:SecureTransport.</li>
-<li>Add a bucket policy with aws:SourceIp to only allow uploads and downloads from the corporate address.</li>
-<li>Enable CloudTrail to monitor and act on changes to the data lake's S3 bucket.</li>
+<li><input type="checkbox"> True</li>
+<li><input type="checkbox"> False</li>
+<li><input type="checkbox"> Only objects in different accounts</li>
+<li><input type="checkbox"> Only objects in different bucket</li>
+<li><input type="checkbox"> None of the above</li>
 </ul>
-<h3>Question 10</h3>
-<p>When you ask your usage report from GitHub, they generate the report on a background process, upload the report to S3 and email you with a download link.  </p>
-<p>How would you recommend them to store the data in S3? </p>
-<ol>
-<li>In a public S3 bucket. Generate a pre-signed URL to the report object, valid for 12 hours.</li>
-<li>In a public S3 bucket. Use a hash of the user's email address and the date and time the report was requested to generate a unique object name. Email this link to the user and have a scheduled task run within your application to remove objects that are older than seven days.</li>
-<li>In a private S3 bucket. The link in the email should take the user to your application, where you can verify the active user session or force the user to log in. After verifying the user has rights to access this file, have the application retrieve the object from S3 and return it in the HTTP response. Delete the file from the S3 bucket after the request is completed.</li>
-<li>In a private S3 bucket. The link in the email should take the user to your application, where you can verify the active user session or force the user to log in. Set the report object in S3 to public. Show the user a "Download" button in the browser that links to the public object.</li>
-</ol> 
+<h3>Question 7</h3>
+<p>In which storage class would you prefer to store your data based on the given scenario?</p>
+<p>Monthly data stored size: 100 GB   <br>
+Average monthly GET requests: 10,000   <br>
+Average monthly PUT requests: 1,000     </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Standard Storage Class</li>
+<li><input type="checkbox"> Infrequent Access Storage Class</li>
+<li><input type="checkbox"> Glacier Storage Class</li>
+<li><input type="checkbox"> Deep Archive Storage Class</li>
+</ul> 
     
         <script>
     

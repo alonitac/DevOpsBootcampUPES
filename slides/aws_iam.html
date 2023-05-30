@@ -139,7 +139,7 @@ You grant permissions to a identities by creating a **policy**, which is a docum
 
 </textarea></section>
 <section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -171,7 +171,7 @@ You grant permissions to a identities by creating a **policy**, which is a docum
 Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical **OR** across the statements when evaluating them.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -203,7 +203,7 @@ Each statement includes information about a single permission. If a policy inclu
 Version – Specify the version of the policy language that you use.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -235,7 +235,7 @@ Version – Specify the version of the policy language that you use.
 Sid (Optional) – Include an optional statement ID to differentiate between your statements.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -267,7 +267,7 @@ Sid (Optional) – Include an optional statement ID to differentiate between you
 Effect – Allow or Deny.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -299,7 +299,7 @@ Effect – Allow or Deny.
 Principal – Used to specify the identity in resource-based policy.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 
 ### Policy document - JSON structure
@@ -332,7 +332,7 @@ Principal – Used to specify the identity in resource-based policy.
 Action – List of actions that the policy allows or denies.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Policy document - JSON structure
 
@@ -364,7 +364,7 @@ Action – List of actions that the policy allows or denies.
 Resource – List of resources to which the actions apply.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 
 ### Policy document - JSON structure
@@ -399,7 +399,7 @@ Condition (Optional) – Specify the circumstances under which the policy grants
 </textarea></section>
 </section>
 <section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -414,7 +414,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 ```
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -427,7 +427,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 **partition** - is a group of AWS Regions (aws, aws-cn, aws-us-gov...)
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -440,7 +440,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 **service** - is the namespace that identifies the AWS product (S3, ec2, [etc...](https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html))
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -453,7 +453,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 **region** - is the Region code (us-east-2, [etc...](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints))
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -466,7 +466,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 **account-id** - is the ID of the AWS account that owns the resource without the hyphens
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Amazon Resource Name (ARN)
 
@@ -480,7 +480,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 </textarea></section>
 </section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Resource-based policies
 
@@ -493,7 +493,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 
 </textarea></section>
 <section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Resource-based policies
 
@@ -502,7 +502,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 1. AccountA gives AccountB full access to BucketA by naming AccountB as a principal in the resource-based policy. As a result, AccountB is authorized to perform any action on BucketA, and the AccountB administrator can delegate access to its users in AccountB.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Resource-based policies
 
@@ -511,7 +511,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 2. The AccountB root user has all of the permissions that are granted to the account. Therefore, the root user has full access to BucketA.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Resource-based policies
 
@@ -521,7 +521,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 3. The AccountB administrator does not give access to User1. By default, users do not have any permissions except those that are explicitly granted. Therefore, User1 does not have access to BucketA.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Resource-based policies
 
@@ -561,7 +561,7 @@ If you already manage user identities outside of AWS, you can use IAM identity p
 
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Identity providers and federation
 
@@ -570,14 +570,14 @@ If you already manage user identities outside of AWS, you can use IAM identity p
 
 </textarea></section>
 <section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
 <img src="media/iamworks.png" width="70%">
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
@@ -588,7 +588,7 @@ First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-stru
 
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
@@ -597,7 +597,7 @@ First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-stru
 Principal uses AWS by sending an HTTP request. The request includes the following information (a.k.a request context): Actions or operations, Resources, Principal information - policies that are associated with that principal, etc..., Environment data (ip, timezone, etc…), Resource data - Data related to the resource that is being requested
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
@@ -607,7 +607,7 @@ The principal must also be authorized (allowed) to complete the request.
 
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
@@ -617,7 +617,7 @@ The principal must also be authorized (allowed) to complete the request.
 IAM evaluates a principal's permissions at the time the principal makes a request.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 
@@ -627,7 +627,7 @@ IAM evaluates a principal's permissions at the time the principal makes a reques
 After your request has been authenticated and authorized, AWS approves the actions or operations in your request.
 
 </textarea></section>
-<section data-markdown  ><textarea data-template>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### How IAM works
 

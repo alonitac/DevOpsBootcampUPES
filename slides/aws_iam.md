@@ -149,7 +149,7 @@ You grant permissions to a identities by creating a **policy**, which is a docum
 
 Each statement includes information about a single permission. If a policy includes multiple statements, AWS applies a logical **OR** across the statements when evaluating them.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Policy document - JSON structure
 
@@ -180,7 +180,7 @@ Each statement includes information about a single permission. If a policy inclu
 
 Version – Specify the version of the policy language that you use.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Policy document - JSON structure
 
@@ -211,7 +211,7 @@ Version – Specify the version of the policy language that you use.
 
 Sid (Optional) – Include an optional statement ID to differentiate between your statements.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Policy document - JSON structure
 
@@ -242,7 +242,7 @@ Sid (Optional) – Include an optional statement ID to differentiate between you
 
 Effect – Allow or Deny.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Policy document - JSON structure
 
@@ -273,7 +273,7 @@ Effect – Allow or Deny.
 
 Principal – Used to specify the identity in resource-based policy.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 
 ### Policy document - JSON structure
@@ -305,7 +305,7 @@ Principal – Used to specify the identity in resource-based policy.
 
 Action – List of actions that the policy allows or denies.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Policy document - JSON structure
 
@@ -336,7 +336,7 @@ Action – List of actions that the policy allows or denies.
 
 Resource – List of resources to which the actions apply.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 
 ### Policy document - JSON structure
@@ -368,7 +368,7 @@ Resource – List of resources to which the actions apply.
 
 Condition (Optional) – Specify the circumstances under which the policy grants permission.
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -382,7 +382,7 @@ arn:partition:service:region:account-id:resource-type/resource-id
 arn:partition:service:region:account-id:resource-type:resource-id
 ```
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -394,7 +394,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 **partition** - is a group of AWS Regions (aws, aws-cn, aws-us-gov...)
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -406,7 +406,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 **service** - is the namespace that identifies the AWS product (S3, ec2, [etc...](https://docs.aws.amazon.com/service-authorization/latest/reference/reference.html))
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -418,7 +418,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 **region** - is the Region code (us-east-2, [etc...](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints))
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -430,7 +430,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 **account-id** - is the ID of the AWS account that owns the resource without the hyphens
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Amazon Resource Name (ARN)
 
@@ -442,7 +442,7 @@ arn:partition:service:region:account-id:resource-type:resource-id
 
 **resource-id** - is the resource identifier or optionally [resource path](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arns-paths)
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### Resource-based policies
 
@@ -453,7 +453,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 - Resource-based policies are widely used to **grant cross-account access** to resources, which has an advantage over role-based access. The principal continues to have access to resources in the trusted account at the same time as he has access to the resource in the other account.
 
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### Resource-based policies
 
@@ -461,7 +461,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 
 1. AccountA gives AccountB full access to BucketA by naming AccountB as a principal in the resource-based policy. As a result, AccountB is authorized to perform any action on BucketA, and the AccountB administrator can delegate access to its users in AccountB.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Resource-based policies
 
@@ -469,7 +469,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 
 2. The AccountB root user has all of the permissions that are granted to the account. Therefore, the root user has full access to BucketA.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Resource-based policies
 
@@ -478,7 +478,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 
 3. The AccountB administrator does not give access to User1. By default, users do not have any permissions except those that are explicitly granted. Therefore, User1 does not have access to BucketA.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### Resource-based policies
 
@@ -486,7 +486,7 @@ So far we’ve seen identity-based policies. Sometimes, it is useful to attach a
 
 4. The AccountB administrator grants User2 read-only access to BucketA. User2 can view the objects in the bucket. The maximum level of access that AccountB can delegate is the access level that is granted to the account. In this case, the resource-based policy granted full access to AccountB, but User2 is granted only read-only access.
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### Permission Boundaries
 
@@ -521,13 +521,13 @@ If you already manage user identities outside of AWS, you can use IAM identity p
 ![](media/idp.png)
 
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### How IAM works
 
 <img src="media/iamworks.png" width="70%">
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -537,7 +537,7 @@ If you already manage user identities outside of AWS, you can use IAM identity p
 First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal) must be authenticated (signed in to AWS) using their credentials to send a request to AWS.
 
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -545,7 +545,7 @@ First, a [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-stru
 
 Principal uses AWS by sending an HTTP request. The request includes the following information (a.k.a request context): Actions or operations, Resources, Principal information - policies that are associated with that principal, etc..., Environment data (ip, timezone, etc…), Resource data - Data related to the resource that is being requested
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -554,7 +554,7 @@ Principal uses AWS by sending an HTTP request. The request includes the followin
 The principal must also be authorized (allowed) to complete the request.
 
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -563,7 +563,7 @@ The principal must also be authorized (allowed) to complete the request.
 
 IAM evaluates a principal's permissions at the time the principal makes a request.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -572,7 +572,7 @@ IAM evaluates a principal's permissions at the time the principal makes a reques
 
 After your request has been authenticated and authorized, AWS approves the actions or operations in your request.
 
-[comment]: # (|||)
+[comment]: # (||| data-auto-animate)
 
 ### How IAM works
 
@@ -580,7 +580,7 @@ After your request has been authenticated and authorized, AWS approves the actio
 
 After AWS approves the operations in your request, they can be performed on the related resources.
 
-[comment]: # (!!!)
+[comment]: # (!!! data-auto-animate)
 
 ### Best Practice
 

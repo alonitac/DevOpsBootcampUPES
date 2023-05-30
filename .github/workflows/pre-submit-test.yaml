@@ -1,9 +1,17 @@
 name: Students Presubmit Tests
-on: [push]
+on:
+  pull_request:
+    types: [
+      - opened
+      - reopened
+      - edited
+      - synchronize
+    branches:
+      - 'networking_ex/'
 jobs:
   NetworkingExTestBastionRotation:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'refs/heads/networking_ex/')  }}
+    if: ${{ startsWith(github.head_ref, 'networking_ex/')  }}
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -13,21 +21,21 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
       - name: Networking Ex - VPC Check
         run: |
-          cd 03_networking_ex/test
+          cd projects/bash_networking_security/test
           bash test_vpc.sh
       - name: Networking Ex - Basion Check
         run: |
           mkdir -p ~/.ssh
-          cp 03_networking_ex/test/ssh_config ~/.ssh/config
-          cd 03_networking_ex/test
+          cp projects/bash_networking_security/test/ssh_config ~/.ssh/config
+          cd projects/bash_networking_security/test
           bash test_bastion.sh
       - name: Networking Ex - Keys Rotation Check
         run: |
-          cd 03_networking_ex/test
+          cd projects/bash_networking_security/test
           bash test_rotation.sh
   NetworkingExTestTLSHandshake:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'refs/heads/networking_ex/')  }}
+    if: ${{ startsWith(github.head_ref, 'networking_ex/')  }}
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -41,16 +49,16 @@ jobs:
           packages: |
             aiohttp
       - run: |
-          cd 03_networking_ex/tls_webserver
+          cd projects/bash_networking_security/tls_webserver
       - name: Networking Ex - TLS Hnadshake - Getting Eve certificate
         run: |
-          cd 03_networking_ex
+          cd projects/bash_networking_security
           bash test/test_tls.sh eve
       - name: Networking Ex - TLS Hnadshake - Bad client test message encryption
         run: |
-          cd 03_networking_ex
+          cd projects/bash_networking_security
           bash test/test_tls.sh bad-msg
       - name: Networking Ex - TLS Hnadshake - Full handshake process
         run: |
-          cd 03_networking_ex
+          cd projects/bash_networking_security
           bash test/test_tls.sh

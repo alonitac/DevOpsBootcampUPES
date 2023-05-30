@@ -534,7 +534,7 @@ Well Done! you've manually implemented a secure communication over HTTP! Thanks 
 ## Run tests locally (recommended)
 
 You are highly encouraged to test your solution locally before pushing it to GitHub.
-To run tests, `cd` to `networking_ex/test` and execute the relevant test file:
+To run tests, `cd` to `projects/bash_networking_security/test` and execute the relevant test file:
 
 ### Test bastion
 

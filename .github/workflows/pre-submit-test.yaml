@@ -1,7 +1,7 @@
 name: Students Presubmit Tests
 on:
   pull_request:
-    types: [
+    types:
       - opened
       - reopened
       - edited

@@ -184,7 +184,7 @@ We will examine through AWS CLI what happened.
 8. Can you see the object in the bucket's object list in the AWS Web Console? Can you confirm that the object was "deleted softly"?
 9. How can you **permanently** delete an object (and its non-current versions) from a version-enabled bucket?
 
-#### :pencil2: Simple UPPERCASE ETL
+### :pencil2: Simple UPPERCASE ETL
 
 ETL stands for Extract, Transform, and Load, which is a process used to extract data from various sources, transform it into a more useful format, and then load it into a destination system.
 Amazon S3 is often used as the source and destination for transformed data in ETL pipelines due to its durability, scalability, and cost-effectiveness.

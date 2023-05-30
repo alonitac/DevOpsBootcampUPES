@@ -121,7 +121,13 @@ This course is your missing semester before start your career!
 
 ## Us
 
-Alon TBD
+### Alon Itach
+
+<img src="media/alon.jpg" width="40%">
+
+- ex-Software Engineer in Microsoft Healthcare group in R&D Israel
+- Senior DevOps engineer
+- Highly interested about student's training and high quality content development 
 
 [comment]: # (|||)
 
@@ -133,7 +139,13 @@ Tsadok TBD
 
 ## Us
 
-Osher TBD
+### Osher Atias
+
+<img src="media/osher.jpg" width="30%">
+
+Osher, with 16 years of experience in programming and software development, is an accomplished DevOps specialist. 
+
+He has a proven track record of implementing effective DevOps practices in large organizations and startups, driving improved collaboration and efficiency throughout the software development lifecycle.
 
 [comment]: # (|||)
 

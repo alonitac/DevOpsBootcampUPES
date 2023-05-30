@@ -1,6 +1,6 @@
 # Welcome to the CS DevOps Bootcamp at UPES University of India
 
-![License:CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
+[![License:CC BY-NC-ND 4.0](https://img.shields.io/badge/License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 This README contains information on the schedule, materials, exercises and projects for the DevOps bootcamp at UPES University of India, summer 2023.
 
@@ -41,11 +41,11 @@ TAs: Mohammed Khalil, Nahshon Paz
 | 17 | 	23\6 | CI/CD Jenkins
 | 18 | 	26\6 | CI/CD Jenkins
 | 19 | 	27\6 | CI/CD Jenkins | | The CI/CD pipeline |
-| 20 | 	28\6 | IaaC
-| 21 | 	29\6 | IaaC
-| 22 🤝 | 	3\7 | Monitoring and alerting
+| 20 | 	28\6 | IaaC - Terraform, Integrate into Jenkins
+| 21 | 	29\6 | IaaC - Ansible, Integrate into Jenkins
+| 22 🤝 | 	3\7 | Monitoring and alerting |
 | 23 🤝 | 	4\7 | Monitoring and alerting 
-| 24 🤝 | 	5\7 | Stabilize your projects & tools bazzar | | Final project | 
+| 24 🤝 | 	5\7 | Stabilize your projects & tools bazaar | tools bazaar | Final project | 
 | 25 🤝 | 	6\7 | Projects proposals
 | 26 🤝 | 	7\7 | Final project
 | 27 🤝 | 	10\7 | Final project

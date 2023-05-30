@@ -2,10 +2,19 @@
 
 ## Preliminaries 
 
-Fork our shared GitHub repo (if you haven't done it before)
+Fork our shared GitHub repo (if you haven't done it before).
 Make sure you are synced with branch `main` of the original repo.
 
 Implement your exercise solution in branch `networking_ex/<your-alias>`. e.g. `networking_ex/alonit`.
+
+## Submission
+
+Before submitting your solution, it's highly recommended to test your solution locally (see how at the end of this document).
+
+Commit and push the solution to your forked repo.
+In your forked repo, create a Pull Request from your solution branch `networking_ex/<alias>` into `...`.
+
+Your solution will be tested by an automated test suite.
 
 ## Build VPC in AWS (Amazon Web Services)
 
@@ -201,6 +210,25 @@ Can you connect it from your local machine? no... it has no public IP, and it is
 
 Use the public instance to connect to the private instance.
 Once you're in the private instance, try to access the internet and make sure you don't have access.
+
+Fill in the variables in `projects/bash_networking_security/vpc.sh`, e.g.:
+
+```bash
+REGION="eu-north-1"
+VPC_ID="vpc-0b0a99ab119eb0cf7"
+PUBLIC_INSTANCE_ID="i-0a3348dc225308c83"
+PRIVATE_INSTANCE_ID="i-0b0cf0d94e141be6b"
+``` 
+
+Add the course staff public key to your `~/.ssh/authorized_keys` file of your **public instance**.
+This way we can connect to your instance and perform the automatic test.
+
+```text
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC32uHSDe2GZAGSczIiRGpBo92Se61o6I2D2cVh5rwk7xikQXL8/ODhRgk2sB7xcLEWFbK/80SSFWaZDc+6YRv5zI0JFHpU4lxXYo83u268w12o74pjxBRQoKloJJd0cJWvFgfkbsdZp/G/qeF3hv6yzIfGjRMw+1TxEXX6Lo7JP7q2u1L7W/FoGkX+P3P7kdI9F2F+35YGmzDvZSdvqa6BzDiQxXkiCDppt2LpjV91hmn6alPhwetDIuuAg0w2lkJqkQmzo9As16i//+7hUANGKqAiUXkicDaj1qRNp1NcWFd3G+oEcv+18MncEf5hCJo5DIYau86qC7sg+ceAtl6OAKiQg7T3Md9QVvlY/7tprz0bew/Pof447YMHsCiNlJvlEQ2cFOb3BSp3N6ub72w+xK4i7E/3jB9YCi6ocqzvl5+7wcUtr8pJ5Yr/APck/crTUxK+C+RvG5maPHuvY3vhj77r0I2fAexbDPYywE6gavDSbuFPM8RRyW4792sKuZM= alon@alon-ThinkPad-E450
+```
+
+**Note**: your EC2 instances should be running while the automated test is performed. **Don't forget to turn off the machines when you're done**.
+
 
 ## SSH bastion host
 
@@ -500,16 +528,12 @@ Client-Server TLS handshake has been completed successfully
 
 Well Done! you've manually implemented a secure communication over HTTP! Thanks god we have TLS in real life :-)
 
-## Submission 
-
-Before submitting your solution, it's highly recommended to test your solution locally:
-
-### Run tests locally (recommended)
+## Run tests locally (recommended)
 
 You are highly encouraged to test your solution locally before pushing it to GitHub.
 To run tests, `cd` to `networking_ex/test` and execute the relevant test file:
 
-#### Test bastion
+### Test bastion
 
 ```bash
 export PUBLIC_EC2_IP=<fill me>
@@ -519,7 +543,7 @@ export KEY_PATH=<fill me>
 bash test_bastion_locally.sh
 ```
 
-#### Test keys rotation
+### Test keys rotation
 
 ```bash
 export PUBLIC_EC2_IP=<fill me>
@@ -528,32 +552,5 @@ export KEY_PATH=<fill me>
 
 bash test_rotation_locally.sh
 ```
-
-### Push your solution
-
-Fill in the variables in `vpc.sh`, e.g.:
-```bash
-REGION="eu-north-1"
-VPC_ID="vpc-0b0a99ab119eb0cf7"
-PUBLIC_INSTANCE_ID="i-0a3348dc225308c83"
-PRIVATE_INSTANCE_ID="i-0b0cf0d94e141be6b"
-``` 
-
-Add the course staff public key to your `~/.ssh/authorized_keys` file of your **public instance**.
-This way we can connect to your instance and perform the automatic test. 
-
-```text
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC32uHSDe2GZAGSczIiRGpBo92Se61o6I2D2cVh5rwk7xikQXL8/ODhRgk2sB7xcLEWFbK/80SSFWaZDc+6YRv5zI0JFHpU4lxXYo83u268w12o74pjxBRQoKloJJd0cJWvFgfkbsdZp/G/qeF3hv6yzIfGjRMw+1TxEXX6Lo7JP7q2u1L7W/FoGkX+P3P7kdI9F2F+35YGmzDvZSdvqa6BzDiQxXkiCDppt2LpjV91hmn6alPhwetDIuuAg0w2lkJqkQmzo9As16i//+7hUANGKqAiUXkicDaj1qRNp1NcWFd3G+oEcv+18MncEf5hCJo5DIYau86qC7sg+ceAtl6OAKiQg7T3Md9QVvlY/7tprz0bew/Pof447YMHsCiNlJvlEQ2cFOb3BSp3N6ub72w+xK4i7E/3jB9YCi6ocqzvl5+7wcUtr8pJ5Yr/APck/crTUxK+C+RvG5maPHuvY3vhj77r0I2fAexbDPYywE6gavDSbuFPM8RRyW4792sKuZM= alon@alon-ThinkPad-E450
-```
-
-Commit and push 
-
-Commit and push the solution to your forked repo.
-In your forked repo, create a Pull Request from branch `networking_ex/<alias>` into `...`.
-
-Your solution will be tested by an automated test suite.
-
-**Note**: your EC2 instances should be running while the automated test is performed. **Don't forget to turn off the machines when you're done**.
-
 
 ## Good luck

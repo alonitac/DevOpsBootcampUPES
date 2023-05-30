@@ -12,9 +12,12 @@ Implement your exercise solution in branch `networking_ex/<your-alias>`. e.g. `n
 Before submitting your solution, it's highly recommended to test your solution locally (see how at the end of this document).
 
 Commit and push the solution to your forked repo.
-In your forked repo, create a Pull Request from your solution branch `networking_ex/<alias>` into `...`.
+In your forked repo, [create a Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) from your solution branch `<your-github-username>:networking_ex/<alias>` into our shared repo `alonitac:main`.
 
-Your solution will be tested by an automated test suite.
+**Note**: You need to create the Pull request (PR) **only once**. If you update your solution, no need to open another PR, just push your fixes and the PR will be updated automatically. 
+
+Make sure your PR is passing the automated tests.
+
 
 ## Build VPC in AWS (Amazon Web Services)
 

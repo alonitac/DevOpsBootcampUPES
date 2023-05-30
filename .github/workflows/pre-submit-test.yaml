@@ -6,8 +6,6 @@ on:
       - reopened
       - edited
       - synchronize
-    branches:
-      - 'networking_ex/'
 jobs:
   NetworkingExTestBastionRotation:
     runs-on: ubuntu-latest

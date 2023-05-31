@@ -338,7 +338,7 @@ In this assignment, you should follow the `strace` output of a program in order 
 To run the program, open a linux terminal in an empty directory and perform:
 
 ```bash
-wget <group-repo-link>/whatIdo
+wget https://github.com/alonitac/DevOpsBootcampUPES/raw/main/strace_ex/whatIdo
 ```
 
 The `wget` command is able to retrieve data from the internet.

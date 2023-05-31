@@ -28,7 +28,10 @@
 </style>
 ---
 
-DevOps Bootcamp - UPES University
+![](media/upes.png)   <img src="media/int.png" width="8%">
+
+
+DevOps Bootcamp - INT College & UPES University
 
 # Identity and Access Management (IAM)
 

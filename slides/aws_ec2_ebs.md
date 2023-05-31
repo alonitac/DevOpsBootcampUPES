@@ -13,7 +13,9 @@
 [comment]: # (width: 1500)
 [comment]: # (height: 1000)
 
-DevOps Bootcamp - UPES University
+![](media/upes.png)   <img src="media/int.png" width="8%">
+
+DevOps Bootcamp - INT College & UPES University 
 
 # Elastic Cloud Compute (EC2)
 

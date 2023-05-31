@@ -13,7 +13,10 @@
 [comment]: # (width: 1500)
 [comment]: # (height: 1000)
 
-DevOps bootcamp - UPES University
+![](media/upes.png)   <img src="media/int.png" width="8%">
+
+
+DevOps bootcamp - INT College & UPES University
 
 # What is DevOps?
 

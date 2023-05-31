@@ -13,8 +13,10 @@
 [comment]: # (width: 1500)
 [comment]: # (height: 1000)
 
+![](media/upes.png)   <img src="media/int.png" width="8%">
 
-DevOps Bootcamp - UPES University
+
+DevOps Bootcamp - INT College & UPES University
 
 # The OSI Model
 

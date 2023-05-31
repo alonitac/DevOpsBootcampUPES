@@ -13,14 +13,13 @@
 [comment]: # (width: 1500)
 [comment]: # (height: 1000)
 
-![](media/upes.png)    ![](media/int.png)
 
-UPES University & iNT College
-
-# Welcome to the DevOps Bootcamp 
-
-
-[comment]: # (!!!)
+[comment]: # (!!! data-background-image="media/int/1.PNG" )
+[comment]: # (!!! data-background-image="media/int/2.PNG" )
+[comment]: # (!!! data-background-image="media/int/3.PNG" )
+[comment]: # (!!! data-background-image="media/int/4.PNG" )
+[comment]: # (!!! data-background-image="media/int/5.PNG" )
+[comment]: # (!!! data-background-image="media/int/6.PNG" )
 
 ### Today's agenda
 
@@ -67,7 +66,7 @@ All materials, exercises, slides and projects will be delivered via this shared 
 - **App deployment**: AWS resources
 - **Orchestration**: Kubernetes
 - **CI/CD pipelin**e: Jenkins
-- **IaaC**: Terraform and Ansible
+- **IaC**: Terraform and Ansible
 - **Observability**: Grafana, Prometheus, Elasticsearch
 
 [comment]: # (!!! data-auto-animate)
@@ -133,7 +132,7 @@ This course is your missing semester before start your career!
 
 ## Us
 
-Tsadok TBD
+### Tsadok Levi
 
 [comment]: # (|||)
 
@@ -149,21 +148,16 @@ He has a proven track record of implementing effective DevOps practices in large
 
 [comment]: # (|||)
 
+
 ## Us
 
-Arthur TBD
+Nash 
 
 [comment]: # (|||)
 
 ## Us
 
-Nash TBD
-
-[comment]: # (|||)
-
-## Us
-
-Mohammed TBD
+Mohammed 
 
 [comment]: # (!!!)
 

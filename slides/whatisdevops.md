@@ -20,7 +20,7 @@ DevOps bootcamp - INT College & UPES University
 
 # What is DevOps?
 
-![](media/devops1.png)
+<img src="media/devops1.png" width="50%">
 
 [comment]: # (!!!)
 

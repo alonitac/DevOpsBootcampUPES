@@ -41,7 +41,7 @@
     <article class="markdown-body">  
     
     <h1>AWS - EC2 and EBS - multichoice questions</h1>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>Your app is deployed in <code>eu-north-1</code> requires 4 instances to be considered healthy.
 Which of the following deployments is the cheapest and fault tolerant in case of AZ outage?</p>
 <ul style="list-style-type: none;">
@@ -50,7 +50,7 @@ Which of the following deployments is the cheapest and fault tolerant in case of
 <li><input type="checkbox"> 4 instances in <code>eu-north-1a</code>, 4 spot instances in <code>eu-north-1b</code> </li>
 <li><input type="checkbox"> 4 instances in <code>eu-north-1a</code>, 4 instances in <code>eu-north-1b</code>, 2 instances in eu-north-1c</li>
 </ul>
-<h3>Question 2</h3>
+<h2>Question 2</h2>
 <p>Your naive cloud architect suggests that they should automate the backup of your EBS volumes to the same availability zone (AZ) in which EC2 instances were running.
 The idea is that this would ensure that you always have a backup copy of your data in case of an outage or failure.</p>
 <p>What would you tell him?</p>
@@ -60,7 +60,7 @@ The idea is that this would ensure that you always have a backup copy of your da
 <li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.</li>
 <li><input type="checkbox"> EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.</li>
 </ul>
-<h3>Question 3</h3>
+<h2>Question 3</h2>
 <p>Your private and public DNS of a running ec2 instance are:</p>
 <p><code>ip-172-31-46-24.eu-north-1.compute.internal</code>  <br>
 <code>ec2-13-49-241-109.eu-north-1.compute.amazonaws.com</code></p>
@@ -70,7 +70,7 @@ The idea is that this would ensure that you always have a backup copy of your da
 <li><input type="checkbox"> The public DNS can be resolved from your local machine.</li>
 <li><input type="checkbox"> The public DNS can be resolved from within the instance.</li>
 </ul>
-<h3>Question 4</h3>
+<h2>Question 4</h2>
 <p>You are trying to connect to your instances over SSH but failed with "Timeout Error". What most likely is the root cause? </p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The instance is not running.</li>
@@ -78,7 +78,7 @@ The idea is that this would ensure that you always have a backup copy of your da
 <li><input type="checkbox"> You are blocked by the security group rule. </li>
 <li><input type="checkbox"> You don't have IAM permission to connect to the instance. </li>
 </ul>
-<h3>Question 5</h3>
+<h2>Question 5</h2>
 <p>An EC2 instance applies 4 different security groups. 
 Naive cloud architect wanted port 8080 to be opened in the machine, 
 so he went to one of the security groups and added a rule that allows inbound traffic on port 8080. </p>
@@ -89,7 +89,7 @@ so he went to one of the security groups and added a rule that allows inbound tr
 <li><input type="checkbox"> If the security group is used across multiple regions or accounts, the port may be exposed to machines outside of the intended region.</li>
 <li><input type="checkbox"> None of the above </li>
 </ul>
-<h3>Question 6</h3>
+<h2>Question 6</h2>
 <p>A financial company was expanding its trading platform and required a low-latency, high-bandwidth network for their AWS infrastructure to support high-frequency trading.
 They found that their current network configuration was causing delays in processing transactions, leading to lost revenue.</p>
 <p>To resolve the issue, they can: </p>
@@ -99,7 +99,7 @@ They found that their current network configuration was causing delays in proces
 <li><input type="checkbox"> Use larger instance type.</li>
 <li><input type="checkbox"> Use load balancer to balance the load evenly.</li>
 </ul>
-<h3>Question 7</h3>
+<h2>Question 7</h2>
 <p>How can an instance be copied to another region?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> By creating an AMI and copy it to another region.</li>
@@ -108,7 +108,7 @@ They found that their current network configuration was causing delays in proces
 <li><input type="checkbox"> By detaching the EBS volume, migrate it to another region, and attach it to the new instance.</li>
 <li><input type="checkbox"> None of the above. </li>
 </ul>
-<h3>Question 8</h3>
+<h2>Question 8</h2>
 <p>As a system administrator for a large company, you were tasked with choosing the most cost-effective pricing option for a production server that required 12 CPUs for the next one year.
 After considering the options, you decided to purchase:</p>
 <ul style="list-style-type: none;">
@@ -117,7 +117,7 @@ After considering the options, you decided to purchase:</p>
 <li><input type="checkbox"> Reserved instance</li>
 <li><input type="checkbox"> Dedicated instance</li>
 </ul>
-<h3>Question 9</h3>
+<h2>Question 9</h2>
 <p>You are tasked with setting up a new web application on AWS.
 The application is expected to receive a high volume of traffic and needs to have low latency.
 You know that the application requires fast storage that can handle a high number of read and write operations.</p>
@@ -128,7 +128,7 @@ You know that the application requires fast storage that can handle a high numbe
 <li><input type="checkbox"> EBS volume with provisioned IOPS</li>
 <li><input type="checkbox"> EBS volume with general-purpose SSD</li>
 </ul>
-<h3>Question 10</h3>
+<h2>Question 10</h2>
 <p>You need to ensure that your company's data is stored on physical hardware that is not shared with any other company due to a compliance requirement.
 What option should you choose?</p>
 <ul style="list-style-type: none;">
@@ -137,7 +137,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> Use a reserved instance</li>
 <li><input type="checkbox"> Use a marketplace instance</li>
 </ul>
-<h3>Question 11</h3>
+<h2>Question 11</h2>
 <p>How long does EBS remain unavailable while taking a snapshot of it?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The volume will be available immediately.</li>
@@ -145,7 +145,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> Depends on the actual data stored in the EBS volume.</li>
 <li><input type="checkbox"> Depending on the instance type the volume is attached to.</li>
 </ul>
-<h3>Question 12</h3>
+<h2>Question 12</h2>
 <p>You need to run a compute-intensive job that should last 3 hours during the weekend. Since the job can be restarted if it fails, you are wondering what would be the preferred way to launch the instances to reduce the cost while ensuring the job completes within the required timeframe.</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Use the spot instances</li>
@@ -153,7 +153,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> Use IO optimized on-demand instance</li>
 <li><input type="checkbox"> Use compute optimized dedicated instances</li>
 </ul>
-<h3>Question 13</h3>
+<h2>Question 13</h2>
 <p>Given a default security group which allows outbound traffic for all ports and protocols, and blocks any inbound traffic.</p>
 <p>If an outgoing request is allowed, but the inbound traffic on that port is not allowed, how can the response to the outgoing request be returned?</p>
 <ul style="list-style-type: none;">
@@ -162,7 +162,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> It depends on the instance virtualization type.</li>
 <li><input type="checkbox"> None of the above is relevant</li>
 </ul>
-<h3>Question 14</h3>
+<h2>Question 14</h2>
 <p>You want to run high cpu load instance, which instance family would you use? </p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>t2</code></li>

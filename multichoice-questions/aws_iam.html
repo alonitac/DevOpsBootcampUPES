@@ -41,7 +41,7 @@
     <article class="markdown-body">  
     
     <h1>AWS - IAM - multichoice questions</h1>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>Which of the below actions can be controlled with IAM policies?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Creating an Amazon S3 bucket.</li>
@@ -49,7 +49,7 @@
 <li><input type="checkbox"> Control the name of an EC2 instance.</li>
 <li><input type="checkbox"> Control the time in which IAM user can login to the web console. </li>
 </ul>
-<h3>Question 2</h3>
+<h2>Question 2</h2>
 <p>Which of the following statements best describe how a request to AWS is authorized?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. If a policy explicitly denies a request, it can be overridden by another policy.</li>
@@ -57,7 +57,7 @@
 <li><input type="checkbox"> The request can either be allowed or denied depending on the request and each can be overwritten by the other. </li>
 <li><input type="checkbox"> The request is default allowed, but this can be overridden by a deny policy.</li>
 </ul>
-<h3>Question 3</h3>
+<h2>Question 3</h2>
 <p>Your AWS account has 350 IAM users.
 Your product manager asks you to allow to 50 users full access on S3. 
 How can you implement this <strong>effectively</strong>?</p>
@@ -67,7 +67,7 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
 <li><input type="checkbox"> Create a new role and add each user to the IAM role.</li>
 </ul>
-<h3>Question 4</h3>
+<h2>Question 4</h2>
 <p>What does the following policy for Amazon EC2 do?</p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -93,7 +93,7 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Denies access to AWS based on the source IP.</li>
 <li><input type="checkbox"> Denies access from EC2 instance to the above IP ranges.</li>
 </ul>
-<h3>Question 5</h3>
+<h2>Question 5</h2>
 <p>What does the below policy do?</p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -132,7 +132,7 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Allows starting or stopping an EC2 instance and deleting a security group.</li>
 <li><input type="checkbox"> Allows creating an EC2 instance and modifying a security group.</li>
 </ul>
-<h3>Question 6</h3>
+<h2>Question 6</h2>
 <p>Your EC2 instance should read objects from <code>mybucket</code> S3 bucket.
 Your instance assumes a role with the following policy: </p>
 <pre><code class="language-json">{
@@ -159,7 +159,7 @@ Your instance assumes a role with the following policy: </p>
 <li><input type="checkbox"> Add <code>arn:aws:s3:::mybucket/*</code> to the <code>Resource</code> section.</li>
 <li><input type="checkbox"> Add an action <code>s3:ListBucket</code>.</li>
 </ul>
-<h3>Question 7</h3>
+<h2>Question 7</h2>
 <p>An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.</p>
 <p>Which of the bellow permission(s) would result a successful action?</p>
 <ul style="list-style-type: none;">

@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "e443169117a184f91186b401133b20be670c7c0896f9886075e5d9b81e9d076b", "2": "43974ed74066b207c30ffd0fed5146762e6c60745ac977004bc14507c7c42b50", "3": "c3ea99f86b2f8a74ef4145bb245155ff5f91cd856f287523481c15a1959d5fd1", "4": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542", "5": "2b0c3a2d2127bd6d66d364fe681e13f014139dcb4240d9270d3873e2544d7fcb", "6": "92f023e1d8591a8b227f5b154f005e1204e3a12098949edb3f227390e0476bae", "7": "c7b96267b11b239fb8c88c43ee8e85d562799a4f4b3efb196819da6122cadbfb", "8": "b2f7f8759dbf8d3530162a89dc6f1f4d9a1a9ac13d3a6a72409ffd96afa1a0a9", "9": "089bee9c3b8caace8c024042fcfc73b80cf857a77bbb82a680f218cba1726aaf", "10": "a9c77f1c964d34365e0f5bcb4bdbf8ee95cb562d7e7d3c658568a5f1b07739cc", "11": "6a7bd1b72911ab800d1f1806f3d0f2b0d44dbb87ed4411fc841c40b8e704687a", "12": "809067b641b0943ae44476949bfe440db5121e7f4bcc2fbf10ae8c95415256f5", "13": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4"}
@@ -214,7 +221,7 @@ epic   laced  lick   loin   obese  raged  recur  risks  row wet writ
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

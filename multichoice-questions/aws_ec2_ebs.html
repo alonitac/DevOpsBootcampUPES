@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "9c497e6fa2061dd92e6a51e3a4911c07042a591a49a4c90c4110692d7aac2832", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "fbf23efcb4c015694c256068c3d196e9323f40a9993b3e9e4f29b118ad570feb", "7": "0b51c1aad5ddd842e874d9d3da2cd4336e9660a1d289cfaa7a271fe2dc2f6194", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "1031fd130f899c43c4761c52de1e597b7f01fea3063cb3988592c9fcc5057bb7", "10": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871", "11": "91a80f17981c411f0aa8e5d214e459a5aa34bd096173d171845422aced2506c8", "12": "809067b641b0943ae44476949bfe440db5121e7f4bcc2fbf10ae8c95415256f5", "13": "5df94eb75cee55b04fd0a1f3f1776c42dfab6cc77ff09b4f5eff3ff06f72d4cc", "14": "b4821f207fcf7b2acce3052ecfb80058953c870fb820d1923544caebcb88a600"}
@@ -216,7 +223,7 @@ What option should you choose?</p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

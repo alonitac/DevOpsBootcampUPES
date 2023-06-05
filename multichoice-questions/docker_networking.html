@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "e0de2c5060d8bbebffe1dadc159c60b9a39abb81c2cb28fb4f0fb28f1d2d8d34", "3": "56f794060abcbbc1a82f126e16236a53dc4553db61b690eeedb6e88a8a13eea1", "4": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "fbf23efcb4c015694c256068c3d196e9323f40a9993b3e9e4f29b118ad570feb", "7": "9e2a4926a630209d80e8eb19bd48cd2226adf743443dd63cd6c39cdc3335dcbc", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "0eefabf825930f9dac3c43f5072f45d3543eef01e9703a2e2766d9c8ff224f9b", "10": "97c489b6c1231ecd9fac99df40e60cec000a70a057d5971fb520c578da8e8841", "11": "6a7bd1b72911ab800d1f1806f3d0f2b0d44dbb87ed4411fc841c40b8e704687a"}
@@ -204,7 +211,7 @@ What would happen if instead of running the original command, the user would hav
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

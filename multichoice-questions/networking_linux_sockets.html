@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "9bdb2af6799204a299c603994b8e400e4b1fd625efdb74066cc869fee42c9df3", "2": "8443a531d20632008b554d7dddc50170dcce96a26251651e44b7b6d8856c5ba1", "3": "718e63b74c9642e18a4ddf68a5b25344aafc357e18d0e31c22365d5547ac33f5", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "c9df3029c64e26aee3c3da7a34a1270de9557c091467c5b36aa7a28d48041118", "6": "188e0299e3548502133a2f6c9583a34094cc4c17ecd5f772c5fc20bc703f30cb", "7": "617d73f7daa20be81d5318b14f24db980b0f1d4e5cd897355aa57c4bcaf2c6d3", "8": "c86fa2e2a9877cafa7327cdd1bbb001a3d115219690da11550b11b832f41a008", "9": "1ee4fed2e36fb0954efe2c8275b386379892a3e423e270d57044b49a5f8c155d", "10": "a9c77f1c964d34365e0f5bcb4bdbf8ee95cb562d7e7d3c658568a5f1b07739cc", "11": "310269c25d4b412c66227af076ad9fc5e92191de11456de40e62bbc6c558d4cd", "12": "b5086f3f3c0f0e59a051d527f27eadc907d6cd22a3be4cf91a52a5671784b1b9", "13": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4", "14": "b40e1350f4b874a48c3be66f35e3b76974593802a3ab8c8010178170bf77695d"}
@@ -239,7 +246,7 @@ rndc        953/udp         # rndc control sockets (BIND 9)
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

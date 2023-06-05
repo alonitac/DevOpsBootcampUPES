@@ -24,9 +24,16 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "17214e2d30ebb0eafe4b8866d63e3431e7258a23bbbc214cd92ddc72e114ba42", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "4": "c2df35004019b16591cc9c7ef6147b589d1eabd2dbd98232859c3cf9acd74a37", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "c0e034c184aedfcd6287d307419bace571213690d86c7adfd8d2922697e5ac45", "7": "31eb3d2fc4ff2727d8f1017087cab6faa1fe6ef397acb649ad267afa6cbc1f03"}
         </script>
     </head>
     <body>
@@ -126,7 +133,7 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Allows creating an EC2 instance and modifying a security group.</li>
 </ul>
 <h3>Question 6</h3>
-<p>You EC2 instance should read objects from <code>mybucket</code> S3 bucket.
+<p>Your EC2 instance should read objects from <code>mybucket</code> S3 bucket.
 Your instance assumes a role with the following policy: </p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -214,7 +221,7 @@ Your instance assumes a role with the following policy: </p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

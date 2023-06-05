@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "2a057642222a878bc360f52f8e1f0dfd2af93196f123269397423155a4ec4884", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "b2599ca4506789ec1961dd4e54a6ed364d5afa65b426392c3f143390741745ea", "4": "c79bf6109f318c3073637eaa044658862de610f81f44c6a246b19696993d08e7", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "ef20d28ddffba8d5aeeb8a98608e24f327f8a6de844786cc7b32a53d24bd9e1a", "7": "617d73f7daa20be81d5318b14f24db980b0f1d4e5cd897355aa57c4bcaf2c6d3", "8": "be011a0b221d45c5dcf3162f0488e74c0024a2c48a5646b1b22cd44a2c0dead5", "9": "1031fd130f899c43c4761c52de1e597b7f01fea3063cb3988592c9fcc5057bb7", "10": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871"}
@@ -206,7 +213,7 @@ f(7) = 12
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "8443a531d20632008b554d7dddc50170dcce96a26251651e44b7b6d8856c5ba1", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "7b0d98ba3f8ae23c2528e416af35b59a1dfd9fa66a0e8fceb978058795151075", "7": "d5dfd53a061cdc0f680ac9fe3cd460d307075aab0b4b72f32ccdb090cefec205"}
@@ -151,7 +158,7 @@ Average monthly PUT requests: 1,000     </p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

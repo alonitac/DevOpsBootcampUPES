@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "6c771dead8bc0edfd9638b7cea924cac5d786b9f12cfdf254e2f83860b295781", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a"}
@@ -138,7 +145,7 @@ So the container will share the content of <code>/etc/resolv.conf</code> as it's
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "971e28bfa6d58f307ceb7acaa4a7720c1b96029fe5a86dbd962a85ed90f7e69d", "3": "7b877f650cb4fcb34cc421916b5138c382484e6ae5f9dcdb38817c87edd5f727"}
@@ -115,7 +122,7 @@ They were worried that other customers sharing the same hardware could potential
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

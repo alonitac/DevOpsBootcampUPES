@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "3b8e935e8c7cc58f6c90815e538f335716c67740657ff334dd4e2be96b4c20c5", "5": "e025a665d31c7b9a585720c4d8b49d4eb97fb6116ec6236bff76f665d47e7428", "6": "c0e034c184aedfcd6287d307419bace571213690d86c7adfd8d2922697e5ac45", "7": "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6", "8": "0341e46110b17a9831d9fe6e5261362797d1b46d4c8a2b4f91a60f603d8f88e3", "9": "1edc279d65bebdbc9f695ae34b61e1b29db969f42fd79da8e77c91d9eecd3860", "10": "040664aea1da4390e5ec1343070eb852ff8459cc7436a08332ea60d599c30828"}
@@ -211,7 +218,7 @@ CMD [&quot;google.com&quot;]
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

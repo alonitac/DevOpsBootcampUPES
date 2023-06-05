@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "e443169117a184f91186b401133b20be670c7c0896f9886075e5d9b81e9d076b", "2": "971e28bfa6d58f307ceb7acaa4a7720c1b96029fe5a86dbd962a85ed90f7e69d", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "b993c8014a9a736ee31cb4d3369778bed3c20b1e72bb27e5ebe4f9b68afd418b", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "f1ede85063de36b37686b6a5c9b998529aa2e850578229c284e68956c7d1ba8f", "7": "6a116b47a793ad258fe787f115bfa9374b2160981ff6345dfef4cd3acbe3f8b5", "8": "be011a0b221d45c5dcf3162f0488e74c0024a2c48a5646b1b22cd44a2c0dead5", "9": "9de3888231a1021acddcaa006b2f2a1ead5e245ae44a6b50e997afa9371e081e", "10": "4c1d77cf5e1123c03e8cbe8e01dcdeb6d4b146ca1d6c157fdf312d42713c3ea6", "11": "4c9bf88bc02a3ea8c292f151e5d7895abc5f963363613f5d52764350df2cb869"}
@@ -203,7 +210,7 @@ Content-type: image/html
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

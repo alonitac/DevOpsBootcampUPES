@@ -1,6 +1,6 @@
 # AWS - EC2 and EBS - multichoice questions
 
-### Question 1
+## Question 1
 
 Your app is deployed in `eu-north-1` requires 4 instances to be considered healthy.
 Which of the following deployments is the cheapest and fault tolerant in case of AZ outage?
@@ -10,7 +10,7 @@ Which of the following deployments is the cheapest and fault tolerant in case of
 - [ ] 4 instances in `eu-north-1a`, 4 spot instances in `eu-north-1b` 
 - [ ] 4 instances in `eu-north-1a`, 4 instances in `eu-north-1b`, 2 instances in eu-north-1c
 
-### Question 2 
+## Question 2 
 
 Your naive cloud architect suggests that they should automate the backup of your EBS volumes to the same availability zone (AZ) in which EC2 instances were running.
 The idea is that this would ensure that you always have a backup copy of your data in case of an outage or failure.
@@ -22,7 +22,7 @@ What would you tell him?
 - [ ] EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.
 - [ ] EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.
 
-### Question 3
+## Question 3
 
 Your private and public DNS of a running ec2 instance are:
 
@@ -35,7 +35,7 @@ Your private and public DNS of a running ec2 instance are:
 - [ ] The public DNS can be resolved from within the instance.
 
 
-### Question 4 
+## Question 4 
 
 You are trying to connect to your instances over SSH but failed with "Timeout Error". What most likely is the root cause? 
 
@@ -44,7 +44,7 @@ You are trying to connect to your instances over SSH but failed with "Timeout Er
 - [ ] You are blocked by the security group rule. 
 - [ ] You don't have IAM permission to connect to the instance. 
 
-### Question 5
+## Question 5
 
 An EC2 instance applies 4 different security groups. 
 Naive cloud architect wanted port 8080 to be opened in the machine, 
@@ -57,7 +57,7 @@ What are the potential risks associated with the architect action?
 - [ ] If the security group is used across multiple regions or accounts, the port may be exposed to machines outside of the intended region.
 - [ ] None of the above 
 
-### Question 6
+## Question 6
 
 A financial company was expanding its trading platform and required a low-latency, high-bandwidth network for their AWS infrastructure to support high-frequency trading.
 They found that their current network configuration was causing delays in processing transactions, leading to lost revenue.
@@ -70,7 +70,7 @@ To resolve the issue, they can:
 - [ ] Use load balancer to balance the load evenly.
 
 
-### Question 7 
+## Question 7 
 
 How can an instance be copied to another region?
 
@@ -80,7 +80,7 @@ How can an instance be copied to another region?
 - [ ] By detaching the EBS volume, migrate it to another region, and attach it to the new instance.
 - [ ] None of the above. 
 
-### Question 8
+## Question 8
 
 As a system administrator for a large company, you were tasked with choosing the most cost-effective pricing option for a production server that required 12 CPUs for the next one year.
 After considering the options, you decided to purchase:
@@ -90,7 +90,7 @@ After considering the options, you decided to purchase:
 - [ ] Reserved instance
 - [ ] Dedicated instance
 
-### Question 9 
+## Question 9 
 
 You are tasked with setting up a new web application on AWS.
 The application is expected to receive a high volume of traffic and needs to have low latency.
@@ -103,7 +103,7 @@ What EBS option would you choose to ensure optimal performance for the applicati
 - [ ] EBS volume with provisioned IOPS
 - [ ] EBS volume with general-purpose SSD
 
-### Question 10
+## Question 10
 
 You need to ensure that your company's data is stored on physical hardware that is not shared with any other company due to a compliance requirement.
 What option should you choose?
@@ -113,7 +113,7 @@ What option should you choose?
 - [ ] Use a reserved instance
 - [ ] Use a marketplace instance
 
-### Question 11
+## Question 11
 
 How long does EBS remain unavailable while taking a snapshot of it?
 
@@ -122,7 +122,7 @@ How long does EBS remain unavailable while taking a snapshot of it?
 - [ ] Depends on the actual data stored in the EBS volume.
 - [ ] Depending on the instance type the volume is attached to.
 
-### Question 12 
+## Question 12 
 
 You need to run a compute-intensive job that should last 3 hours during the weekend. Since the job can be restarted if it fails, you are wondering what would be the preferred way to launch the instances to reduce the cost while ensuring the job completes within the required timeframe.
 
@@ -131,7 +131,7 @@ You need to run a compute-intensive job that should last 3 hours during the week
 - [ ] Use IO optimized on-demand instance
 - [ ] Use compute optimized dedicated instances
 
-### Question 13
+## Question 13
 
 Given a default security group which allows outbound traffic for all ports and protocols, and blocks any inbound traffic.
 
@@ -142,7 +142,7 @@ If an outgoing request is allowed, but the inbound traffic on that port is not a
 - [ ] It depends on the instance virtualization type.
 - [ ] None of the above is relevant
 
-### Question 14 
+## Question 14 
 
 You want to run high cpu load instance, which instance family would you use? 
 

@@ -1,6 +1,6 @@
 # AWS - IAM - multichoice questions
 
-### Question 1 
+## Question 1 
 
 Which of the below actions can be controlled with IAM policies?
 
@@ -9,7 +9,7 @@ Which of the below actions can be controlled with IAM policies?
 - [ ] Control the name of an EC2 instance.
 - [ ] Control the time in which IAM user can login to the web console. 
 
-### Question 2
+## Question 2
 
 Which of the following statements best describe how a request to AWS is authorized?
 
@@ -18,7 +18,7 @@ Which of the following statements best describe how a request to AWS is authoriz
 - [ ] The request can either be allowed or denied depending on the request and each can be overwritten by the other. 
 - [ ] The request is default allowed, but this can be overridden by a deny policy.
 
-### Question 3
+## Question 3
 
 Your AWS account has 350 IAM users.
 Your product manager asks you to allow to 50 users full access on S3. 
@@ -29,7 +29,7 @@ How can you implement this **effectively**?
 - [ ] Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.
 - [ ] Create a new role and add each user to the IAM role.
 
-### Question 4
+## Question 4
 
 What does the following policy for Amazon EC2 do?
 
@@ -58,7 +58,7 @@ What does the following policy for Amazon EC2 do?
 - [ ] Denies access to AWS based on the source IP.
 - [ ] Denies access from EC2 instance to the above IP ranges.
 
-### Question 5 
+## Question 5 
 
 What does the below policy do?
 
@@ -100,7 +100,7 @@ What does the below policy do?
 - [ ] Allows starting or stopping an EC2 instance and deleting a security group.
 - [ ] Allows creating an EC2 instance and modifying a security group.
 
-### Question 6
+## Question 6
 
 Your EC2 instance should read objects from `mybucket` S3 bucket.
 Your instance assumes a role with the following policy: 
@@ -134,7 +134,7 @@ How can you fix the error?
 - [ ] Add ``arn:aws:s3:::mybucket/*`` to the `Resource` section.
 - [ ] Add an action `s3:ListBucket`.
 
-### Question 7
+## Question 7
 
 An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.
 

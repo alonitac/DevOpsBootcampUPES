@@ -26,8 +26,8 @@ TAs: Mohammed Khalil, Nahshon Paz
 | 2 🤝 | 	2\6  | [IO redirection](tutorials/linux_io_redirection.md), [processes](tutorials/linux_processes.md), [package management](tutorials/linux_package_management.md), [env var](tutorials/linux_environment_variables.md), [Bash and other shells](tutorials/bash_and_other_shells.md) | [Linux processes](https://alonitac.github.io/DevOpsBootcampUPES/slides/linux_processes.html)  | 
 | 3 | 5\6   | [Bash conditional statements](tutorials/bash_conditional_statements.md), [The OSI model](tutorials/networking_OSI_model.md), [Sockets](tutorials/networking_linux_sockets.md), [Networks and Subnets](tutorials/networking_computer_nets.md)   | [The OSI Model](https://alonitac.github.io/DevOpsBootcampUPES/slides/networking_OSI_model.html)   |
 | 4 | 6\6   | [DNS](tutorials/networking_dns.md), [HTTP](tutorials/networking_http.md),  [Network Security](tutorials/networking_security.md), [SSH](tutorials/networking_ssh.md) |   | [Bash, Networking and Security](projects/bash_networking_security) <br> **Due date: 2023-06-13** | 
-| 5 | 7\6   | Intro to cloud computing, EC2 and EBS | Intro to cloud computing, EC2 and EBS |
-| 6 | 8\6   | S3, IAM | S3, IAM |
+| 5 | 7\6   | [Intro to cloud computing](tutorials/aws_intro.md), [EC2 and EBS](tutorials/aws_ec2_ebs.md) | [Intro to cloud computing](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_intro.html), [EC2 and EBS](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_ec2_ebs.html) |
+| 6 | 8\6   | [S3](tutorials/aws_s3.md), [IAM](tutorials/aws_iam.md)| [S3](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_s3.html), [IAM](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_iam.html)  |
 | 7 | 9\6   | Flask webserver, DynamoDB | DynamoDB|
 | 8 | 12\6  | Intro to virtualization and containers, Docker containers, Docker images | 
 | 9 | 13\6  | Docker networking, Docker volumes, Docker compose | Docker networking | Containers, app development and simple deployment <br> **Due date: 2023-06-21**  |

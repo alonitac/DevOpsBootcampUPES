@@ -19,6 +19,14 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
+      - name: Check test integrity
+        run: | 
+          h=$(find projects/bash_networking_security/test/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum | awk '{print $1}')
+          if [ "$h" != "27c001c54ad7bd41bf4781f947914489" ]
+          then
+            echo "Make sure your PR has not changes the 'test' directory."
+            exit 1
+          fi
       - uses: hashicorp/setup-terraform@v2
       - name: Networking Ex - VPC Check
         run: |
@@ -42,7 +50,10 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       COURSE_STAFF_SSH_KEY: ${{ secrets.COURSE_STAFF_SSH_KEY }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - uses: hashicorp/setup-terraform@v2
       - uses: actions/setup-python@v1
       - uses: BSFishy/pip-action@v1

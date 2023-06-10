@@ -2,6 +2,7 @@ variable "vpc-name" {
   type = string
 }
 
+
 variable "gw-name" {
   type = string
 }

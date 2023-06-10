@@ -28,9 +28,9 @@ TAs: Mohammed Khalil, Nahshon Paz
 | 4 | 6\6   | [DNS](tutorials/networking_dns.md), [HTTP](tutorials/networking_http.md),  [Network Security](tutorials/networking_security.md), [SSH](tutorials/networking_ssh.md) |   | [Bash, Networking and Security](projects/bash_networking_security) <br> **Due date: 2023-06-13** | 
 | 5 | 7\6   | [Intro to cloud computing](tutorials/aws_intro.md), [EC2 and EBS](tutorials/aws_ec2_ebs.md) | [Intro to cloud computing](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_intro.html), [EC2 and EBS](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_ec2_ebs.html) |
 | 6 | 8\6   | [S3](tutorials/aws_s3.md), [IAM](tutorials/aws_iam.md)| [S3](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_s3.html), [IAM](https://alonitac.github.io/DevOpsBootcampUPES/slides/aws_iam.html)  |
-| 7 | 9\6   |  | |
-| 8 | 12\6  | Intro to virtualization and containers, Docker containers, Docker images | 
-| 9 | 13\6  | Docker networking, Docker volumes, Docker compose | Docker networking | Containers, app development and simple deployment <br> **Due date: 2023-06-21**  |
+| 7 | 9\6   | Flask webserver, DynamoDB | DynamoDB|
+| 8 | 12\6  | [Intro to virtualization and containers](tutorials/docker_intro.md), [Docker containers](tutorials/docker_containers.md), [Docker images](tutorials/docker_images.md) | 
+| 9 | 13\6  | [Docker networking](tutorials/docker_networking.md), [Docker volumes](tutorials/docker_volumes.md), [Docker compose](tutorials/docker_compose.md) | [Docker networking](https://alonitac.github.io/DevOpsBootcampUPES/slides/docker_networking.html)  | [Containers, app development and simple deployment](projects/app_development_I) <br> **Due date: 2023-06-21**  |
 | 10 | 14\6  | ELB, autoscaling  | Microservices, ELB, autoscaling   |
 | 11 | 15\6  | SQS and SNS, Lambda   | QS and SNS, Lambda|
 | 12 | 16\6  | K8S |

@@ -19,12 +19,15 @@ jobs:
         with:
           ref: ${{github.event.pull_request.head.ref}}
           repository: ${{github.event.pull_request.head.repo.full_name}}
-      - name: Check test integrity
+      - name: Check tests integrity
         run: | 
-          h=$(find projects/bash_networking_security/test/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum | awk '{print $1}')
-          if [ "$h" != "27c001c54ad7bd41bf4781f947914489" ]
+          H=$(find projects/bash_networking_security/test/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum | awk '{print $1}')
+          
+          echo "Your tests hash is $H" 
+          
+          if [ "$H" != "27c001c54ad7bd41bf4781f947914489" ]
           then
-            echo "Make sure your PR has not changes the 'test' directory."
+            echo "Test integrity failed. Make sure your PR has not changes the 'test' directory."
             exit 1
           fi
       - uses: hashicorp/setup-terraform@v2

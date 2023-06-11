@@ -159,6 +159,13 @@
     "2": "971e28bfa6d58f307ceb7acaa4a7720c1b96029fe5a86dbd962a85ed90f7e69d",
     "3": "7b877f650cb4fcb34cc421916b5138c382484e6ae5f9dcdb38817c87edd5f727"
   },
+  "aws_elb.md": {
+    "1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47",
+    "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95",
+    "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b",
+    "4": "c6ac862b68b6e8ef3076d27856875d837ef4aacc06ddcc14d633c5dd7e9814bc",
+    "5": "d066c2778ffdb1a902b8362cfed1a49ec8530ae9c2674b5cd2a18a0263032d95"
+  },
   "docker_compose.md": {
     "1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47",
     "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f"

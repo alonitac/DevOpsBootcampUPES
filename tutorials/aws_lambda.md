@@ -82,7 +82,7 @@ Let's get started.
 
 ### :pencil2: Process new items with DynamoDB Streams and Lambda
 
-### Enable Streams
+#### Enable Streams
 
 1. In the navigation pane on the left side of the console, choose **Tables**.
 2. Choose your table from the table list.
@@ -90,7 +90,7 @@ Let's get started.
 4. Under **DynamoDB stream details** choose **Enable**.
 5. Choose **New and old images** and click **Enable stream**.
 
-### Create Lambda execution IAM role
+#### Create Lambda execution IAM role
 
 1. Open the IAM console at [https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/).
 
@@ -150,7 +150,7 @@ The policy has four statements that allow your role to do the following:
 + Read data from the DynamoDB stream.
 + Publish messages to Amazon SNS\.
 
-### Create a Lambda Function
+#### Create a Lambda Function
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions) of the Lambda console\.
 

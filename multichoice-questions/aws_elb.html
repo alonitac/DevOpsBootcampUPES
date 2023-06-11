@@ -1,0 +1,152 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    AWS - Elastic Load Balancer - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
+        </style>
+        <script>
+            const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "0c5a34dcbbf1c6db658c12162bb23612446680ac217921bd85fe2b6ea31f9c95", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "c6ac862b68b6e8ef3076d27856875d837ef4aacc06ddcc14d633c5dd7e9814bc", "5": "d066c2778ffdb1a902b8362cfed1a49ec8530ae9c2674b5cd2a18a0263032d95"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>AWS - Elastic Load Balancer - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>You are designing the architecture for a web application that will be deployed on AWS.
+The application consists of multiple services running on Amazon EC2 instances. The services communicate over both HTTP and TCP protocols. </p>
+<p>Which type of Elastic Load Balancer (ELB) would be most suitable for this scenario?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Application Load Balancer (ALB)</li>
+<li><input type="checkbox"> Network Load Balancer (NLB)</li>
+<li><input type="checkbox"> Gateway Load Balancer (GWLB)</li>
+<li><input type="checkbox"> Classic Load Balancer (CLB)</li>
+</ul>
+<h2>Question 2</h2>
+<p>In the security group of an Application Load Balancer (ALB), port 80 is configured to be open for incoming traffic. 
+However, in the security group of the EC2 instances hosting the application, port 80 is not allowed. </p>
+<p>Given this configuration, would a request from a client to the application succeed?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Yes.</li>
+<li><input type="checkbox"> No.</li>
+<li><input type="checkbox"> Depends on the configuration of the network access control list (NACL) associated with the LB.</li>
+<li><input type="checkbox"> Depends on whether the ALB and the EC2 instances are launched within the same availability zone.</li>
+</ul>
+<h2>Question 3</h2>
+<p>After experiencing a DDoS attack during the night, you discovered that your instances are accessed directly using their public IP addresses, allowing bypass the Application Load Balancer (ALB) that routes traffic to the instance. </p>
+<p>How can you overcome this vulnerability? </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Place instances in a private VPC.</li>
+<li><input type="checkbox"> Configure the instances to accept traffic only from the ALB using security group rule.</li>
+<li><input type="checkbox"> Block any incoming requests during nights.</li>
+<li><input type="checkbox"> There is no mitigation to this vulnerability.</li>
+</ul>
+<h2>Question 4</h2>
+<p>You have set up an Application Load Balancer (ALB) to distribute incoming traffic across 2 instances.
+But when you tested how does the balance load, you've noticed that requests are always routed to the same EC2 instance.</p>
+<p>How could that behavior be explained? </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The ALB uses sticky sessions.</li>
+<li><input type="checkbox"> The ALB was created in a single AZ.</li>
+<li><input type="checkbox"> One of the instances has failed to pass the health checks.</li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 5</h2>
+<p>You are managing a web service that offer to two types of requests: short-lived requests that require quick response times and heavy, long-lived requests that involve significant processing and take a longer time to complete.
+The service runs on multiple instances behind an Application Load Balancer (ALB).</p>
+<p>Considering this scenario, which load balancing algorithm would be the preferred choice for distributing traffic to the instances?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Round-robin</li>
+<li><input type="checkbox"> Weighted Target Groups</li>
+<li><input type="checkbox"> Lease privilege principal</li>
+<li><input type="checkbox"> Least Outstanding Requests</li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" class="floating-button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

@@ -1,0 +1,261 @@
+
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+    AWS - Lambda - multichoice questions
+    </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="github-markdown-css.css">
+        <style>
+            .markdown-body {
+                box-sizing: border-box;
+                min-width: 200px;
+                max-width: 980px;
+                margin: 0 auto;
+                padding: 45px;
+            }
+    
+            @media (max-width: 767px) {
+                .markdown-body {
+                    padding: 15px;
+                }
+            }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
+        </style>
+        <script>
+            const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "acb6af4c0a661cee72d9a0d1c1615f23d9b0f029acca7247b3eb89fed25b85c6", "4": "0c45b42d0b5f32c1afb63cbceb970f39b11da5ba85d02e1f19c74917f50f1542", "5": "9c978dcb04837772fa07f07e3c1a8ccb8aa4b7bb175a9e96b8f1ccb0c71f474a", "6": "4df9b5c5019a1e94408016c16d2b71ccfc5cbb8fb7e7a8e3de776b75e574a145", "7": "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "089bee9c3b8caace8c024042fcfc73b80cf857a77bbb82a680f218cba1726aaf", "10": "4c1d77cf5e1123c03e8cbe8e01dcdeb6d4b146ca1d6c157fdf312d42713c3ea6", "11": "6a7bd1b72911ab800d1f1806f3d0f2b0d44dbb87ed4411fc841c40b8e704687a", "12": "809067b641b0943ae44476949bfe440db5121e7f4bcc2fbf10ae8c95415256f5", "13": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4"}
+        </script>
+    </head>
+    <body>
+    
+    <article class="markdown-body">  
+    
+    <h1>AWS - Lambda - multichoice questions</h1>
+<h2>Question 1</h2>
+<p>A video processing lambda function is being triggered upon new video uploading to S3.
+The function performs resizing and upload the processed video to another S3 bucket. </p>
+<p>What could be a potential limit?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> This architecture is not scalable - only one lambda function can be executed concurrently.</li>
+<li><input type="checkbox"> Lambda functions cannot have permission on S3 buckets.</li>
+<li><input type="checkbox"> Long video files can reach function execution timeout (900 seconds).</li>
+<li><input type="checkbox"> There will not be enough CPU to process the video. </li>
+</ul>
+<h2>Question 2</h2>
+<p>The Lambda function service is:</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> IaaS</li>
+<li><input type="checkbox"> PaaS</li>
+<li><input type="checkbox"> SaaS</li>
+<li><input type="checkbox"> GaaS</li>
+</ul>
+<h2>Question 3</h2>
+<p>How can you configure the OS your Lambda runs on?  </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> In Lambda page, under "Manage lambda infrastructure".</li>
+<li><input type="checkbox"> You can create a bash script and execute it one for all further lambda invocations. </li>
+<li><input type="checkbox"> Base your lambda on your own AMI.</li>
+<li><input type="checkbox"> None of the above since AWS manage infrastructure on your behalf.</li>
+</ul>
+<h2>Question 4</h2>
+<p>Consider the following lambda function </p>
+<pre><code class="language-python">import boto3
+
+dynamodb_client = boto3.client('dynamodb')
+
+COUNTER = 0
+
+def lambda_handler(event, context):
+    global COUNTER
+    COUNTER += 1
+
+    dynamodb_client.put_item(
+        TableName='fruitSalad',
+        Item={
+            'counter':{'S': str(COUNTER)}
+        }
+    )
+</code></pre>
+<p>Given two successful different invocation on the same execution environment, as described bellow:</p>
+<p><img alt="" src="../.img/lambda_invoke.png"></p>
+<p>What would be the value of <code>counter</code> in DynamoDB <code>fruitSalad</code> table? (assume there were no additional invocations except the above two)</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 1</li>
+<li><input type="checkbox"> 2</li>
+<li><input type="checkbox"> Either 1 or 2 as this is a race condition</li>
+<li><input type="checkbox"> None of the above</li>
+</ul>
+<h2>Question 5</h2>
+<p>Given the below Python lambda:</p>
+<pre><code class="language-python">def lambda_handler(event, context):
+    file_path = 'myfile.txt'
+    with open(file_path, 'w') as file:
+        file.write('This is a write operation.')
+</code></pre>
+<p>What could be a potential problem? </p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The file <code>myfile.txt</code> is created in a read-only path.</li>
+<li><input type="checkbox"> Other lambdas could access the created files.</li>
+<li><input type="checkbox"> There is no error handling in the code.</li>
+<li><input type="checkbox"> The function should be executed successfully.</li>
+</ul>
+<h2>Question 6</h2>
+<p>Given the below lambda function </p>
+<pre><code class="language-python">import boto3
+import pymysql
+
+def lambda_handler(event, context):
+    database_username = &quot;admin&quot;
+    database_password = &quot;secretpassword&quot;
+    connection = pymysql.connect(
+        host='...',
+        user=database_username,
+        password='database_password',
+        database='mydb'
+    )
+</code></pre>
+<p>The code above contains sensitive data, directly hardcoded in the code. </p>
+<p>How could that vulnerability be mitigated?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Store the credentials in AWS Secrets Manager and read it during runtime.</li>
+<li><input type="checkbox"> Define the credentials as environment variable and access them during runtime.</li>
+<li><input type="checkbox"> Encrypt the sensitive data.</li>
+<li><input type="checkbox"> Use lambda layers to hide the sensitive code.</li>
+</ul>
+<h2>Question 7</h2>
+<p>You are developing a serverless application that requires the use of a custom Python library across multiple AWS Lambda functions. 
+The library contains common utility functions and dependencies that need to be shared among the functions. </p>
+<p>What is the recommended AWS service or feature to streamline the deployment and maintenance of the library across the Lambda functions?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> AWS Lambda environment variables</li>
+<li><input type="checkbox"> AWS Lambda layers</li>
+<li><input type="checkbox"> AWS CloudFormation templates</li>
+<li><input type="checkbox"> AWS Step Functions</li>
+</ul>
+<h2>Question 8</h2>
+<p>You are optimizing the performance of your AWS Lambda functions. 
+You goal is to increase the CPU resources allocated to your lambda. </p>
+<p>What would you do?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> You cannot control the CPU as infrastructure is managed by AWS.</li>
+<li><input type="checkbox"> In your lambda page, increase the CPU resources.</li>
+<li><input type="checkbox"> In your lambda page, increase the RAM resources.</li>
+<li><input type="checkbox"> Choose higher version runtime. </li>
+</ul>
+<h2>Question 9</h2>
+<p>You need to estimate the required provisioning capacity for an AWS Lambda function that is expected to handle a sustained load of 500 requests per second.
+Each request takes approximately 15 milliseconds to process.</p>
+<p>Based on these requirements, which of the following calculations best match the minimum number of concurrent executions needed to handle the expected load?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> 5 concurrent executions</li>
+<li><input type="checkbox"> 10 concurrent executions</li>
+<li><input type="checkbox"> 50 concurrent executions</li>
+<li><input type="checkbox"> 100 concurrent executions </li>
+</ul>
+<h2>Question 10</h2>
+<p>You have developed an <strong>asynchronous</strong> AWS Lambda function that processes messages from an event source. 
+What happens in the case of a failure during the execution of the function?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The lambda execution will retry at least 3 times.</li>
+<li><input type="checkbox"> The lambda will respond with an exception after the first failure.</li>
+<li><input type="checkbox"> The event will be sent to a dead letter queue.</li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 11</h2>
+<p>You have developed an <strong>synchronous</strong> AWS Lambda function that processes messages from an event source. 
+What happens in the case of a failure during the execution of the function?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> The lambda execution will retry at least 3 times.</li>
+<li><input type="checkbox"> The lambda will respond with an exception.</li>
+<li><input type="checkbox"> The event will be sent to a dead letter queue.</li>
+<li><input type="checkbox"> None of the above.</li>
+</ul>
+<h2>Question 12</h2>
+<p>You are developing an AWS Lambda function that needs to access other AWS resources within your account, 
+such as an Amazon DynamoDB table and an Amazon S3 bucket. </p>
+<p>How can you enable the Lambda function to securely access these resources?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> Attach an IAM role to the Lambda function with the necessary permissions to access the DynamoDB table and S3 bucket.</li>
+<li><input type="checkbox"> Embed the AWS access key and secret access key directly in the Lambda function code to authenticate and access the DynamoDB table and S3 bucket.</li>
+<li><input type="checkbox"> Open the security group of the Lambda function to allow inbound access from the DynamoDB table and S3 bucket.</li>
+<li><input type="checkbox"> Enable AWS Trusted Advisor to automatically grant access to the Lambda function for the DynamoDB table and S3 bucket.</li>
+</ul>
+<h2>Question 13</h2>
+<p>You are developing an AWS Lambda function that should communicate with one of your EC2 instances located in a private VPC. </p>
+<p>How can you support this requirements?</p>
+<ul style="list-style-type: none;">
+<li><input type="checkbox"> This requirements cannot be fulfilled since the network infrastructure of the lambda is managed by AWS. </li>
+<li><input type="checkbox"> You can associate your lambda with some of your VPC.</li>
+<li><input type="checkbox"> You can allow access from the lambda using VPN.</li>
+<li><input type="checkbox"> You can allow access using VPC PrivateLink </li>
+</ul> 
+    
+        <script>
+    
+            function test(){
+                const studentSolution = {};
+    
+                $('ul').each(function (index) {
+                    if ($(this).find('input[type="checkbox"]').length > 0) {
+                      var ulElement = $(this);
+                      var qNum = ($('ul').index(ulElement) + 1) + '';
+
+                      var answerToken = '' + qNum;
+                      ulElement.find('li').each(function () {
+                        var isChecked = $(this).find('input').prop('checked');
+                        answerToken += isChecked ? '1' : '0';
+
+                      });
+                      console.log(answerToken);
+
+                      var hashPromise  = crypto.subtle.digest('SHA-256', new TextEncoder().encode(answerToken))
+                        .then((hashBuffer) => {
+                          var hashArray = Array.from(new Uint8Array(hashBuffer));
+                          var hashHex = hashArray.map(b => ('00' + b.toString(16)).slice(-2)).join('');
+                          return hashHex;
+                        });
+    
+                      studentSolution[qNum] = hashPromise;
+    
+                    }
+                });
+    
+                Promise.allSettled(Object.values(studentSolution))
+                  .then(function (results) {
+                    results.forEach(function (result, i) {
+                       studentSolution[(i + 1) + ''] = result.value;
+                    });
+                }).then(function () {
+
+                    console.log(studentSolution)
+
+                    for (const i in studentSolution) {
+                      console.log('student solution' + studentSolution[i]);
+                      if (solutions[i] === studentSolution[i]) {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'green');
+                      } else {
+                        $("h2:contains('Question " + i + "'):first").css('color', 'red');
+                      }
+                    }
+                });
+            }
+    
+        </script>
+    
+        <input type="button" class="floating-button" value="Test" onclick="test()">
+    
+    </article>
+    </body>
+    </html>
+    
+    

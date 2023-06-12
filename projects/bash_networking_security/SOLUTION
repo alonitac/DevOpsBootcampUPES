@@ -13,13 +13,7 @@ Default gateway IP
 DHCP IP allocation sys-logs
 -------------------
 
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: Internet Systems Consortium DHCP Client 4.4.1
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: For info, please visit https://www.isc.org/software/dhcp/
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xe55ee15e)
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: DHCPOFFER of 10.0.0.5 from 10.0.0.1
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: DHCPREQUEST for 10.0.0.5 on eth0 to 255.255.255.255 port 67 (xid=0x5ee15ee5)
-Jun  7 11:35:56 ip-10-0-0-5 dhclient[341]: DHCPACK of 10.0.0.5 from 10.0.0.1 (xid=0xe55ee15e)
-Jun  7 11:35:56 ip-10-0-0-5 systemd-networkd[380]: eth0: DHCPv4 address 10.0.0.5/24 via 10.0.0.1
-Jun  7 11:35:56 ip-10-0-0-5 kernel: [    5.903185] audit: type=1400 audit(1686137749.964:5): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=313 comm="apparmor_parser"
-Jun  7 11:35:56 ip-10-0-0-5 kernel: [    5.904256] audit: type=1400 audit(1686137749.968:6): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=313 comm="apparmor_parser"
-
+Jun 12 10:34:39 ip-10-0-0-124 dhclient[340]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x5fbf3560)
+Jun 12 10:34:39 ip-10-0-0-124 dhclient[340]: DHCPOFFER of 10.0.0.124 from 10.0.0.1
+Jun 12 10:34:39 ip-10-0-0-124 dhclient[340]: DHCPREQUEST for 10.0.0.124 on eth0 to 255.255.255.255 port 67 (xid=0x6035bf5f)
+Jun 12 10:34:39 ip-10-0-0-124 dhclient[340]: DHCPACK of 10.0.0.124 from 10.0.0.1 (xid=0x5fbf3560)

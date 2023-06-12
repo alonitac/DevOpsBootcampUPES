@@ -21,6 +21,6 @@ if [ -n "$2" ]; then
 
 # Otherwise, connect to the public instance
 else
-  ssh -i "$KEY_PATH" ubuntu@"$1" "${@:2}"
+  ssh -i "$KEY_PATH" ubuntu@"$1" 
 fi
 

@@ -2,55 +2,48 @@ Local DNS Server IP
 -------------------
 <ip-here>
 
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-    0.0.0.0         10.0.0.1        0.0.0.0         UG    100    0        0 eth0
-    10.0.0.0        0.0.0.0         255.255.255.0   U     100    0        0 eth0
-    10.0.0.1        0.0.0.0         255.255.255.255 UH    100    0        0 eth0
-    10.0.0.2        0.0.0.0         255.255.255.255 UH    100    0        0 eth0
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+0.0.0.0         10.0.0.1        0.0.0.0         UG    100    0        0 eth0
+10.0.0.0        0.0.0.0         255.255.255.0   U     100    0        0 eth0
+10.0.0.1        0.0.0.0         255.255.255.255 UH    100    0        0 eth0
+10.0.0.2        0.0.0.0         255.255.255.255 UH    100    0        0 eth0
 
 Default gateway IP
 -------------------
 <ip-here>
 
-    # This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).
-    # Do not edit.
-    #
-    # This file might be symlinked as /etc/resolv.conf. If you're looking at
-    # /etc/resolv.conf and seeing this text, you have followed the symlink.
-    #
-    # This is a dynamic resolv.conf file for connecting local clients to the
-    # internal DNS stub resolver of systemd-resolved. This file lists all
-    # configured search domains.
-    #
-    # Run "resolvectl status" to see details about the uplink DNS servers
-    # currently in use.
-    #
-    # Third party programs should typically not access this file directly, but only
-    # through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a
-    # different way, replace this symlink by a static file or a different symlink.
-    #
-    # See man:systemd-resolved.service(8) for details about the supported modes of
-    # operation for /etc/resolv.conf.
+# This is /run/systemd/resolve/stub-resolv.conf managed by man:systemd-resolved(8).
+# Do not edit.
+#
+# This file might be symlinked as /etc/resolv.conf. If you're looking at
+# /etc/resolv.conf and seeing this text, you have followed the symlink.
+#
+# This is a dynamic resolv.conf file for connecting local clients to the
+# internal DNS stub resolver of systemd-resolved. This file lists all
+# configured search domains.
+#
+# Run "resolvectl status" to see details about the uplink DNS servers
+# currently in use.
+#
+# Third party programs should typically not access this file directly, but only
+# through the symlink at /etc/resolv.conf. To manage man:resolv.conf(5) in a
+# different way, replace this symlink by a static file or a different symlink.
+#
+# See man:systemd-resolved.service(8) for details about the supported modes of
+# operation for /etc/resolv.conf.
 
-    nameserver 127.0.0.53
-    options edns0 trust-ad
-    search ec2.internal
-
+nameserver 127.0.0.53
+options edns0 trust-ad
+search ec2.internal
 
 DHCP IP allocation sys-logs
 -------------------
 <logs-here>
-    
-    Jun  6 16:48:37 ip-10-0-0-219 dhclient[348]: Internet Systems Consortium DHCP Client 4.4.1
-    Jun  6 16:48:37 ip-10-0-0-219 dhclient[348]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x5d196c4a)
-    Jun  6 16:48:37 ip-10-0-0-219 dhclient[348]: DHCPOFFER of 10.0.0.219 from 10.0.0.1
-    Jun  6 16:48:37 ip-10-0-0-219 dhclient[348]: DHCPREQUEST for 10.0.0.219 on eth0 to 255.255.255.255 port 67 (xid=0x4a6c195d)
-    Jun  6 16:48:37 ip-10-0-0-219 dhclient[348]: DHCPACK of 10.0.0.219 from 10.0.0.1 (xid=0x5d196c4a)
-    Jun  6 16:48:37 ip-10-0-0-219 systemd-networkd[383]: eth0: DHCPv4 address 10.0.0.219/24 via 10.0.0.1
-    Jun  7 18:36:06 ip-10-0-0-219 dhclient[355]: Internet Systems Consortium DHCP Client 4.4.1
-    Jun  7 18:36:06 ip-10-0-0-219 dhclient[355]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x6ac49640)
-    Jun  7 18:36:06 ip-10-0-0-219 dhclient[355]: DHCPOFFER of 10.0.0.219 from 10.0.0.1
-    Jun  7 18:36:06 ip-10-0-0-219 dhclient[355]: DHCPREQUEST for 10.0.0.219 on eth0 to 255.255.255.255 port 67 (xid=0x4096c46a)
-    Jun  7 18:36:06 ip-10-0-0-219 dhclient[355]: DHCPACK of 10.0.0.219 from 10.0.0.1 (xid=0x6ac49640)
-    Jun  7 18:36:06 ip-10-0-0-219 systemd-networkd[374]: eth0: DHCPv4 address 10.0.0.219/24 via 10.0.0.1
+
+Jun 12 17:02:29 ip-10-0-0-139 dhclient[356]: Internet Systems Consortium DHCP Client 4.4.1
+Jun 12 17:02:29 ip-10-0-0-139 dhclient[356]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x2c95c724)
+Jun 12 17:02:29 ip-10-0-0-139 dhclient[356]: DHCPOFFER of 10.0.0.139 from 10.0.0.1
+Jun 12 17:02:29 ip-10-0-0-139 dhclient[356]: DHCPREQUEST for 10.0.0.139 on eth0 to 255.255.255.255 port 67 (xid=0x24c7952c)
+Jun 12 17:02:29 ip-10-0-0-139 dhclient[356]: DHCPACK of 10.0.0.139 from 10.0.0.1 (xid=0x2c95c724)
+Jun 12 17:02:29 ip-10-0-0-139 systemd-networkd[390]: eth0: DHCPv4 address 10.0.0.139/24 via 10.0.0.1

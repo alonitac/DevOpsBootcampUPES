@@ -47,22 +47,22 @@
 <li><input type="checkbox"> Creating an Amazon S3 bucket.</li>
 <li><input type="checkbox"> Control who can SSH into an EC2 instance.</li>
 <li><input type="checkbox"> Control the name of an EC2 instance.</li>
-<li><input type="checkbox"> Control the time in which IAM user can login to the web console. </li>
+<li><input type="checkbox"> Control the time in which IAM users can login to the web console. </li>
 </ul>
 <h2>Question 2</h2>
 <p>Which of the following statements best describe how a request to AWS is authorized?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. If a policy explicitly denies a request, it can be overridden by another policy.</li>
-<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that denial can't be overridden.</li>
 <li><input type="checkbox"> The request can either be allowed or denied depending on the request and each can be overwritten by the other. </li>
 <li><input type="checkbox"> The request is default allowed, but this can be overridden by a deny policy.</li>
 </ul>
 <h2>Question 3</h2>
 <p>Your AWS account has 350 IAM users.
-Your product manager asks you to allow to 50 users full access on S3. 
+Your product manager asks you to allow 50 users full access on S3. 
 How can you implement this <strong>effectively</strong>?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Create an IAM group, add the 50 users, and apply the policy to group.</li>
+<li><input type="checkbox"> Create an IAM group, add the 50 users, and apply the policy to the group.</li>
 <li><input type="checkbox"> Create a policy and apply it to multiple users using a Bash script.</li>
 <li><input type="checkbox"> Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
 <li><input type="checkbox"> Create a new role and add each user to the IAM role.</li>
@@ -91,7 +91,7 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Allow users with the above source IP to access resources.</li>
 <li><input type="checkbox"> Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.</li>
 <li><input type="checkbox"> Denies access to AWS based on the source IP.</li>
-<li><input type="checkbox"> Denies access from EC2 instance to the above IP ranges.</li>
+<li><input type="checkbox"> Denies access from EC2 instances to the above IP ranges.</li>
 </ul>
 <h2>Question 5</h2>
 <p>What does the below policy do?</p>
@@ -150,7 +150,7 @@ Your instance assumes a role with the following policy: </p>
 }
 </code></pre>
 <p>However, when the app running in the EC2 tries to read object, you receive the error: </p>
-<pre><code class="language-text">Action does not apply to any resource(s) in statement.
+<pre><code class="language-text">Action does not apply to any resource(s) in the statement.
 </code></pre>
 <p>How can you fix the error?</p>
 <ul style="list-style-type: none;">
@@ -161,12 +161,12 @@ Your instance assumes a role with the following policy: </p>
 </ul>
 <h2>Question 7</h2>
 <p>An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.</p>
-<p>Which of the bellow permission(s) would result a successful action?</p>
+<p>Which of the below permission(s) would result in a successful action?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Identity based policy which allow the users to perform operation on S3 buckets.</li>
+<li><input type="checkbox"> Identity based policy which allows the users to perform operations on S3 buckets.</li>
 <li><input type="checkbox"> Only the root user account can perform this kind of operation. </li>
 <li><input type="checkbox"> Allow the user to access the other account's bucket using permission boundaries. </li>
-<li><input type="checkbox"> Resource based policy on the bucket which grant permission on the user's account.</li>
+<li><input type="checkbox"> Resource based policy on the bucket which grants permission on the user's account.</li>
 </ul> 
     
         <script>

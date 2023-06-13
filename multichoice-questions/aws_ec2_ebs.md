@@ -2,7 +2,7 @@
 
 ## Question 1
 
-Your app is deployed in `eu-north-1` requires 4 instances to be considered healthy.
+Your app is deployed in `eu-north-1` and requires 4 instances to be considered healthy.
 Which of the following deployments is the cheapest and fault tolerant in case of AZ outage?
 
 - [ ] 2 instances in `eu-north-1a`, 2 instances in `eu-north-1b`
@@ -19,7 +19,7 @@ What would you tell him?
 
 - [ ] EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone, you only need to enable the "auto replicate" toggle.
 - [ ] EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone as part of the normal operations of the EBS service at no additional charge.
-- [ ] EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.
+- [ ] EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zones as part of the normal operations of the EBS service.
 - [ ] EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.
 
 ## Question 3
@@ -50,7 +50,7 @@ An EC2 instance applies 4 different security groups.
 Naive cloud architect wanted port 8080 to be opened in the machine, 
 so he went to one of the security groups and added a rule that allows inbound traffic on port 8080. 
 
-What are the potential risks associated with the architect action?
+What are the potential risks associated with the architect's action?
 
 - [ ] Other instances that belong to the same security groups will also be exposed to port 8080, potentially creating a security vulnerability.
 - [ ] The rule may not have been applied correctly.
@@ -64,17 +64,17 @@ They found that their current network configuration was causing delays in proces
 
 To resolve the issue, they can: 
 
-- [ ] Use placement group of instances to process transactions.
+- [ ] Use a placement group of instances to process transactions.
 - [ ] Use IOPS optimized instances.
-- [ ] Use larger instance type.
-- [ ] Use load balancer to balance the load evenly.
+- [ ] Use a larger instance type.
+- [ ] Use a load balancer to balance the load evenly.
 
 
 ## Question 7 
 
 How can an instance be copied to another region?
 
-- [ ] By creating an AMI and copy it to another region.
+- [ ] By creating an AMI and copying it to another region.
 - [ ] Using the `aws ec2 cp` command.
 - [ ] There is no way to copy an instance to another region.
 - [ ] By detaching the EBS volume, migrate it to another region, and attach it to the new instance.
@@ -144,7 +144,7 @@ If an outgoing request is allowed, but the inbound traffic on that port is not a
 
 ## Question 14 
 
-You want to run high cpu load instance, which instance family would you use? 
+You want to run a high cpu load instance, which instance family would you use? 
 
 - [ ] `t2`
 - [ ] `x1`

@@ -42,7 +42,7 @@
     
     <h1>AWS - EC2 and EBS - multichoice questions</h1>
 <h2>Question 1</h2>
-<p>Your app is deployed in <code>eu-north-1</code> requires 4 instances to be considered healthy.
+<p>Your app is deployed in <code>eu-north-1</code> and requires 4 instances to be considered healthy.
 Which of the following deployments is the cheapest and fault tolerant in case of AZ outage?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> 2 instances in <code>eu-north-1a</code>, 2 instances in <code>eu-north-1b</code></li>
@@ -57,7 +57,7 @@ The idea is that this would ensure that you always have a backup copy of your da
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone, you only need to enable the "auto replicate" toggle.</li>
 <li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the same availability zone as part of the normal operations of the EBS service at no additional charge.</li>
-<li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zone as part of the normal operations of the EBS service.</li>
+<li><input type="checkbox"> EBS volumes are automatically and redundantly stored in multiple physical volumes in the different availability zones as part of the normal operations of the EBS service.</li>
 <li><input type="checkbox"> EBS volumes can be redundantly stored in multiple regions as part of the normal operations of the EBS service.</li>
 </ul>
 <h2>Question 3</h2>
@@ -82,7 +82,7 @@ The idea is that this would ensure that you always have a backup copy of your da
 <p>An EC2 instance applies 4 different security groups. 
 Naive cloud architect wanted port 8080 to be opened in the machine, 
 so he went to one of the security groups and added a rule that allows inbound traffic on port 8080. </p>
-<p>What are the potential risks associated with the architect action?</p>
+<p>What are the potential risks associated with the architect's action?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Other instances that belong to the same security groups will also be exposed to port 8080, potentially creating a security vulnerability.</li>
 <li><input type="checkbox"> The rule may not have been applied correctly.</li>
@@ -94,15 +94,15 @@ so he went to one of the security groups and added a rule that allows inbound tr
 They found that their current network configuration was causing delays in processing transactions, leading to lost revenue.</p>
 <p>To resolve the issue, they can: </p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Use placement group of instances to process transactions.</li>
+<li><input type="checkbox"> Use a placement group of instances to process transactions.</li>
 <li><input type="checkbox"> Use IOPS optimized instances.</li>
-<li><input type="checkbox"> Use larger instance type.</li>
-<li><input type="checkbox"> Use load balancer to balance the load evenly.</li>
+<li><input type="checkbox"> Use a larger instance type.</li>
+<li><input type="checkbox"> Use a load balancer to balance the load evenly.</li>
 </ul>
 <h2>Question 7</h2>
 <p>How can an instance be copied to another region?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> By creating an AMI and copy it to another region.</li>
+<li><input type="checkbox"> By creating an AMI and copying it to another region.</li>
 <li><input type="checkbox"> Using the <code>aws ec2 cp</code> command.</li>
 <li><input type="checkbox"> There is no way to copy an instance to another region.</li>
 <li><input type="checkbox"> By detaching the EBS volume, migrate it to another region, and attach it to the new instance.</li>
@@ -163,7 +163,7 @@ What option should you choose?</p>
 <li><input type="checkbox"> None of the above is relevant</li>
 </ul>
 <h2>Question 14</h2>
-<p>You want to run high cpu load instance, which instance family would you use? </p>
+<p>You want to run a high cpu load instance, which instance family would you use? </p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> <code>t2</code></li>
 <li><input type="checkbox"> <code>x1</code></li>

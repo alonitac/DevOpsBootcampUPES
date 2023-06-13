@@ -206,7 +206,7 @@ Compute the monthly cost of the below instance characteristics:-
 5. `600GB` of data transferred from the instance to S3.
 6. `230GB` of data transfer out of the instance to customers around the world.
 7. `8TB` of data transferred from the instance to other instances in the same AZ.
-8. `1TB` of data transferred from the instance to instance in another region.
+8. `1TB` of data transferred from the instance to another region.
 
 
 ### :pencil2: Control EC2 from AWS cli
@@ -228,9 +228,9 @@ Perform the below operations using AWS cli directly on your instance.
 
 `boto3` is the AWS SDK for Python, which allows Python developers to write software that makes use of AWS services.
 
-1. Install it by `pip install boto3` (it's recommended to install it using PyCharm's terminal in an existed Python venv).
+1. Install it by `pip install boto3` (it's recommended to install it using PyCharm's terminal in an existing Python venv).
 2. Write to python code that:
-   1. Stops your EC2 instance.
+   1. Stop your EC2 instance.
    2. Creates an AMI from the instance.
 
 ## Optional practice

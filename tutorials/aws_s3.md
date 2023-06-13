@@ -43,7 +43,7 @@ For instance, in a photo-sharing application like Instagram, users upload their 
 
 ![](../.img/ec2-s3.png)
 
-By this means, uploading object to S3 using the web console is useless. We are interested in communicating with S3 from within EC2 instance, either via the `aws` cli, or Python code.
+By this means, uploading an object to S3 using the web console is useless. We are interested in communicating with S3 from within an EC2 instance, either via the `aws` cli, or Python code.
 
 **Disclaimer:** This is not going to work. Your EC2 instance has to have permissions to operate in S3.
 
@@ -78,7 +78,7 @@ IAM role will be taught soon. But for now, just follow the instructions below.
 
 ## Enable versioning on your bucket
 
-So far we've created an S3 bucket and communicat with it from within EC2 instance.
+So far we've created an S3 bucket and communicate with it from within an EC2 instance.
 
 You've probably noticed that in S3, objects can be easily lost by object override because the default behavior when uploading an object with the same key as an existing object is to replace the old object with the new one. If this happens unintentionally or due to a bug in the application code, it can result in the permanent loss of data.
 
@@ -152,9 +152,9 @@ Compute the monthly cost of the below bucket characteristics:
 
 ### :pencil2: Objects deletion in bucket versioning enabled
 
-In this exercise we will explore the versioning enables bucket you've created.
+In this exercise we will explore the versioning enabled bucket you've created.
 
-1. In the **Buckets** list, choose you bucket.
+1. In the **Buckets** list, choose your bucket.
 2. Choose **Upload** and upload an object multiple times under the same key, such that it has non-current versions.
 3. In the bucket console, choose the **Objects** tab, and delete the object you have just uploaded.
 4. After the deletion action, can you see the object in the bucket's objects list?
@@ -167,13 +167,13 @@ We will examine through AWS CLI what happened.
    aws --version
    ```
 
-6. List the versions of you object. Replace `<bucket-name>` by you bucket name and `<object-key>` by the object key:
+6. List the versions of your object. Replace `<bucket-name>` by you bucket name and `<object-key>` by the object key:
 
    ```shell
    aws s3api list-object-versions --bucket <bucket-name> --prefix <object-key>
    ```
 
-   Can you confirm that you object has not been deleted? Inspect `DeleteMarkers`.
+   Can you confirm that your object has not been deleted? Inspect `DeleteMarkers`.
 
 7. Delete the _delete mark_ by:
 
@@ -189,7 +189,7 @@ We will examine through AWS CLI what happened.
 ETL stands for Extract, Transform, and Load, which is a process used to extract data from various sources, transform it into a more useful format, and then load it into a destination system.
 Amazon S3 is often used as the source and destination for transformed data in ETL pipelines due to its durability, scalability, and cost-effectiveness.
 
-Implement a simple ETL Python script that transform text objects to UPPERCASE.
+Implement a simple ETL Python script that transforms text objects to UPPERCASE.
 The script lists objects under `data/` "directory" in the bucket, processes them by changing their characters to uppercase, and uploads the processed objects to a `data_processed/` "directory" in the same bucket.
 
 Test your script against real bucket and objects.

@@ -1,0 +1,104 @@
+{
+  "StartAt": "Check Job Status",
+  "States": {
+    "Check Job Status": {
+      "Next": "Job finished?",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "Type": "Task",
+      "InputPath": "$.body",
+      "OutputPath": "$.Payload",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "<check-rekognition-job-status ARN>",
+        "Payload.$": "$"
+      }
+    },
+    "Wait 1 Second": {
+      "Type": "Wait",
+      "Seconds": 1,
+      "Next": "Check Job Status"
+    },
+    "Job finished?": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.body.job_status",
+          "StringEquals": "IN_PROGRESS",
+          "Next": "Wait 1 Second"
+        },
+        {
+          "Variable": "$.body.job_status",
+          "StringEquals": "SUCCEEDED",
+          "Next": "Get Timestamps and Faces"
+        }
+      ],
+      "Default": "Execution Failed"
+    },
+    "Execution Failed": {
+      "Type": "Fail",
+      "Error": "Could not get job_status = 'SUCCEEDED'",
+      "Cause": "Face Detection Failed"
+    },
+    "Get Timestamps and Faces": {
+      "Next": "Blur Faces on Video",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "Type": "Task",
+      "InputPath": "$.body",
+      "OutputPath": "$.Payload",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "<get-rekognized-faces ARN>",
+        "Payload.$": "$"
+      }
+    },
+    "Blur Faces on Video": {
+      "Next": "Execution Succeeded",
+      "Retry": [
+        {
+          "ErrorEquals": [
+            "Lambda.ServiceException",
+            "Lambda.AWSLambdaException",
+            "Lambda.SdkClientException"
+          ],
+          "IntervalSeconds": 2,
+          "MaxAttempts": 6,
+          "BackoffRate": 2
+        }
+      ],
+      "Type": "Task",
+      "InputPath": "$.body",
+      "OutputPath": "$.Payload",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "<blur-faces ARN>",
+        "Payload.$": "$"
+      }
+    },
+    "Execution Succeeded": {
+      "Type": "Succeed"
+    }
+  },
+  "TimeoutSeconds": 900
+}

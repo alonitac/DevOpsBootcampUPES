@@ -15,7 +15,7 @@ echo "$RESPONSE" | jq -r '.serverCert' > cert.pem
 
 
 # Step 3 - Server Certificate Verification
-wget -O https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
+wget https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
 
 VERIFICATION=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 

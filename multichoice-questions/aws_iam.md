@@ -7,24 +7,24 @@ Which of the below actions can be controlled with IAM policies?
 - [ ] Creating an Amazon S3 bucket.
 - [ ] Control who can SSH into an EC2 instance.
 - [ ] Control the name of an EC2 instance.
-- [ ] Control the time in which IAM user can login to the web console. 
+- [ ] Control the time in which IAM users can login to the web console. 
 
 ## Question 2
 
 Which of the following statements best describe how a request to AWS is authorized?
 
 - [ ] The request is default denied, but this can be overridden by an allow policy. If a policy explicitly denies a request, it can be overridden by another policy.
-- [ ] The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that deny can't be overridden.
+- [ ] The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that denial can't be overridden.
 - [ ] The request can either be allowed or denied depending on the request and each can be overwritten by the other. 
 - [ ] The request is default allowed, but this can be overridden by a deny policy.
 
 ## Question 3
 
 Your AWS account has 350 IAM users.
-Your product manager asks you to allow to 50 users full access on S3. 
+Your product manager asks you to allow 50 users full access on S3. 
 How can you implement this **effectively**?
 
-- [ ] Create an IAM group, add the 50 users, and apply the policy to group.
+- [ ] Create an IAM group, add the 50 users, and apply the policy to the group.
 - [ ] Create a policy and apply it to multiple users using a Bash script.
 - [ ] Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.
 - [ ] Create a new role and add each user to the IAM role.
@@ -56,7 +56,7 @@ What does the following policy for Amazon EC2 do?
 - [ ] Allow users with the above source IP to access resources.
 - [ ] Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.
 - [ ] Denies access to AWS based on the source IP.
-- [ ] Denies access from EC2 instance to the above IP ranges.
+- [ ] Denies access from EC2 instances to the above IP ranges.
 
 ## Question 5 
 
@@ -124,7 +124,7 @@ Your instance assumes a role with the following policy:
 However, when the app running in the EC2 tries to read object, you receive the error: 
 
 ```text
-Action does not apply to any resource(s) in statement.
+Action does not apply to any resource(s) in the statement.
 ```
 
 How can you fix the error?
@@ -138,9 +138,9 @@ How can you fix the error?
 
 An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.
 
-Which of the bellow permission(s) would result a successful action?
+Which of the below permission(s) would result in a successful action?
 
-- [ ] Identity based policy which allow the users to perform operation on S3 buckets.
+- [ ] Identity based policy which allows the users to perform operations on S3 buckets.
 - [ ] Only the root user account can perform this kind of operation. 
 - [ ] Allow the user to access the other account's bucket using permission boundaries. 
-- [ ] Resource based policy on the bucket which grant permission on the user's account.
+- [ ] Resource based policy on the bucket which grants permission on the user's account.

@@ -12,7 +12,7 @@ Visit the official SLA page of AWS. What is the percentage of availability of a 
 
 ## Question 2
 
-Your company guarantee to your customers an SLA of maximum of 800 millisecond (ms) to answer a request to your servers.
+Your company guarantees to your customers an SLA of maximum of 800 millisecond (ms) to answer a request to your servers.
 You know that a set of 6 virtual machines meet this SLA.
 What architecture ensures **high availability** and **fault-tolerant** operation of your service? (assume that AZs can, and may, experience an outage)
 

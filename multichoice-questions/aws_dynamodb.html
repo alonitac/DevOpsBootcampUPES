@@ -4,7 +4,7 @@
     <html>
     <head>
         <title>
-    AWS - intro to cloud computing - multichoice questions
+    AWS - DynamoDB - multichoice questions
     </title>
         <meta name="viewport" content="width=device-width, initial-scale=1" xmlns="http://www.w3.org/1999/html">
         <script src="https://polyfill.io/v3/polyfill.min.js?features=TextEncoder%2Ccrypto.subtle"></script>
@@ -33,41 +33,52 @@
             }
         </style>
         <script>
-            const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "971e28bfa6d58f307ceb7acaa4a7720c1b96029fe5a86dbd962a85ed90f7e69d", "3": "7b877f650cb4fcb34cc421916b5138c382484e6ae5f9dcdb38817c87edd5f727"}
+            const solutions = {}
         </script>
     </head>
     <body>
     
     <article class="markdown-body">  
     
-    <h1>AWS - intro to cloud computing - multichoice questions</h1>
+    <h1>AWS - DynamoDB - multichoice questions</h1>
 <h2>Question 1</h2>
-<p>Visit the official SLA page of AWS. What is the percentage of availability of a service called S3, below which you deserve a 100% credit?</p>
+<p>You are designing a highly scalable application that utilizes DynamoDB for its database needs.
+The application is expected to handle a maximum of 1000 reads/second and 500 writes/second. 
+Items average size is 4 KB.</p>
+<p>How many RCU and WCU are required?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> &lt; 95.00%.</li>
-<li><input type="checkbox"> &lt; 99.00%.</li>
-<li><input type="checkbox"> &lt; 95.99%.</li>
-<li><input type="checkbox"> &lt; 100.00%.</li>
+<li><input type="checkbox"> 500 RCU and 2000 WCU</li>
+<li><input type="checkbox"> 2000 RCU and 500 WCU</li>
+<li><input type="checkbox"> 1000 RCU and 500 WCU</li>
+<li><input type="checkbox"> 500 RCU and 1000 WCU</li>
 </ul>
 <h2>Question 2</h2>
-<p>Your company guarantees to your customers an SLA of maximum of 800 millisecond (ms) to answer a request to your servers.
-You know that a set of 6 virtual machines meet this SLA.
-What architecture ensures <strong>high availability</strong> and <strong>fault-tolerant</strong> operation of your service? (assume that AZs can, and may, experience an outage)</p>
+<p>You're team is developing a news website that receives an average of 500 read requests per second during peak hours.
+Each news article is approximately 10 KB in size.</p>
+<p>How would you design the DB?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> 6 VMs across two AZs.</li>
-<li><input type="checkbox"> 6 VMs across one AZs.</li>
-<li><input type="checkbox"> 12 VMs across two AZs.</li>
-<li><input type="checkbox"> 12 VMs across three AZs.</li>
+<li><input type="checkbox"> Autoscale read capacity from min of 1 to max of 250.</li>
+<li><input type="checkbox"> Autoscale read capacity from min of 1 to max of 750.</li>
+<li><input type="checkbox"> Autoscale read capacity from min of 1 to max of 1000.</li>
+<li><input type="checkbox"> Autoscale read capacity from min of 1 to max of 500.</li>
 </ul>
 <h2>Question 3</h2>
-<p>One of your customers was concerned that their sensitive data could be compromised if your system is running on a shared physical hardware in AWS.
-They were worried that other customers sharing the same hardware could potentially access their data.</p>
-<p>How would you answer him?</p>
+<p>Consider the following JSON sample of an item in an DynamoDB table:</p>
+<pre><code class="language-json">{
+    &quot;item_id&quot;: &quot;123456789&quot;,
+    &quot;timestamp&quot;: &quot;2022-05-10T10:30:00Z&quot;,
+    &quot;name&quot;: &quot;Product A&quot;,
+    &quot;category&quot;: &quot;Electronics&quot;,
+    &quot;price&quot;: 99.99,
+    &quot;quantity&quot;: 10
+}
+</code></pre>
+<p>Which key from the item JSON sample would be most suitable as the partition key for the DynamoDB table?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> We will encrypt the disks</li>
-<li><input type="checkbox"> We will operate out service from a private network</li>
-<li><input type="checkbox"> It's AWS responsibility to allowed shared IaaS securely</li>
-<li><input type="checkbox"> We will run your account in a dedicated instance</li>
+<li><input type="checkbox"> <code>item_id</code></li>
+<li><input type="checkbox"> <code>name</code></li>
+<li><input type="checkbox"> <code>category</code></li>
+<li><input type="checkbox"> <code>price</code></li>
 </ul> 
     
         <script>

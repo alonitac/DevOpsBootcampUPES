@@ -30,7 +30,7 @@ if [ $? -eq 0 ]; then
   echo "$OUTPUT" 
 else
   echo "Server Certificate is invalid."
-  exit 4
+  exit 5 
 fi
 
 # Generate a  32-byte random string encoded in Base64 

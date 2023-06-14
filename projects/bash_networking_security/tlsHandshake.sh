@@ -1,7 +1,5 @@
 #!/bin/bash -x
 
-rm cert-ca-aws.pem
-rm cert.pem
 
 # Step 1 - Client Hello (Client -> Server)
 RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
@@ -18,7 +16,7 @@ echo "$RESPONSE" | jq -r '.serverCert' > cert.pem
 
 
 # Step 3 - Server Certificate Verification
-wget https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
+wget https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem -O cert-ca-aws.pem
 
 VERIFICATION=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
@@ -29,7 +27,6 @@ fi
 
 
 # Step 4 - Client-Server master-key exchange
-echo "Hi server, please encrypt me and send to client!" > masterKey.txt
 openssl rand -out masterKey.txt -base64 32
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)

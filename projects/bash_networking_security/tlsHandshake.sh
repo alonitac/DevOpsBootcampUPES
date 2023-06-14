@@ -26,11 +26,12 @@ wget "$CERT_CA_AWS_URL" -O cert-ca-aws.pem
 OUTPUT=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
 # Check if the certificate was verified successfully
-if [ $? -eq 0 ]; then
-  echo "$OUTPUT" 
+# Check if the certificate was verified successfully
+if [ $? -eq 0 ] && [[ $OUTPUT == *"OK"* ]]; then
+  echo "$OUTPUT"
 else
   echo "Server Certificate is invalid."
-  exit 5 
+  exit 5
 fi
 
 # Generate a  32-byte random string encoded in Base64 

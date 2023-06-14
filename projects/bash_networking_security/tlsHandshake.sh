@@ -22,7 +22,7 @@ SESSION_ID=$(echo "$SERVER_HELLO" | jq -r '.sessionID')
 echo "$SERVER_HELLO" | jq -r '.serverCert' > ./cert.pem
 
 # Verify the certificate 
-wget cert-ca-aws.pem "$CERT_CA_AWS_URL" -O cert-ca-aws.pem
+wget "$CERT_CA_AWS_URL" -O cert-ca-aws.pem
 OUTPUT=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
 # Check if the certificate was verified successfully
@@ -59,7 +59,8 @@ echo "$ENCRYPTED_SAMPLE_MESSAGE" | base64 -d > encryptedMessage.txt
 DECRYPTED_SAMPLE_MESSAGE=$(openssl enc -d -aes-256-cbc -pbkdf2 -in encryptedMessage.txt -k "$MASTER_KEY")
 
 # Check if the decryption was successful
-if [ $? -ne 0 ]; then
+# Compare decrypted message with the original sample message
+if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
   echo "Server symmetric encryption using the exchanged master-key has failed."
   exit 6
 fi

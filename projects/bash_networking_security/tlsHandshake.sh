@@ -1,11 +1,14 @@
 #!/bin/bash -x
 
+rm cert-ca-aws.pem
+rm cert.pem
+
 # Step 1 - Client Hello (Client -> Server)
 RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
    "version": "1.3",
    "ciphersSuites": ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"],
    "message": "Client Hello"
-}' http://16.16.183.129:8080/clienthello)
+}' http://16.16.68.127:8080/clienthello)
 
 
 # Step 2 - Server Hello (Server -> Client)
@@ -37,7 +40,7 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
   "sessionID": "'"$SESSION_ID"'",
   "masterKey": "'"$MASTER_KEY"'",
   "sampleMessage": "Hi server, please encrypt me and send to client!"
-}' http://16.16.183.129:8080/keyexchange)
+}' http://16.16.68.127:8080/keyexchange)
 
 
 # Step 6 - Client verification message

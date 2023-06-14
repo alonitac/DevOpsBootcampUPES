@@ -21,7 +21,7 @@ wget https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem -O cert-ca
 VERIFICATION=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
 if [ "$VERIFICATION" != "cert.pem: OK" ]; then
-  echo "Server Certificate is Invalid"
+  echo "Server Certificate is invalid"
   exit 5
 fi
 

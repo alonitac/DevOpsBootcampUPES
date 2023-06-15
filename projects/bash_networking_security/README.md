@@ -196,7 +196,7 @@ ssh -i "</path/key-pair-name.pem>" ubuntu@<instance-public-dns-name-or-ip>
 ```
 
 - Make sure your instance has public access to the internet.
-- Use `route -n` and the information under `/etc/resolve.conf` to determine the IP addresses of your **local DNS server**, and the **default gateway**. Copy the IPs into `SOLUTION` file in the appropriate place.
+- Use `route -n` and the information under `/etc/resolv.conf` to determine the IP addresses of your **local DNS server**, and the **default gateway**. Copy the IPs into `SOLUTION` file in the appropriate place.
 - Search in `/var/log/syslog` logs that indicate the communication of the instance with the DHCP server (`grep` may be useful...). 
   Specifically, find and indication for the 4 phases of DHCP IP allocation (DORA). Copy the relevant logs into `SOLUTION` file in the appropriate place. 
 

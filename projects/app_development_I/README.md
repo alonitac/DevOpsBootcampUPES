@@ -21,7 +21,7 @@ The service consists of 4 microservices:
 ### Create a new GitHub repo 
 
 Create a new GitHub repo for the project. 
-Copy the files under `projects/docker_final_project` into the root directory of the repo.
+Copy the files under `projects/app_development_I` into the root directory of the repo.
 
 ### Create a Telegram Bot
 

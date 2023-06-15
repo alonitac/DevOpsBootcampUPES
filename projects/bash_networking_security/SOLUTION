@@ -1,12 +1,11 @@
 Local DNS Server IP
 -------------------
-127.0.0.53
-
+10.0.0.2
 
 
 Default gateway IP
 -------------------
-10.0.128.1
+10.0.0.1
 
 
 DHCP IP allocation sys-logs

@@ -1,15 +1,20 @@
 #!/bin/bash
+
 # Check if KEY_PATH environment variable exists
 if [ -z "$KEY_PATH" ]; then
-  echo "Error: KEY_PATH environment variable is not set."
+  echo "KEY_PATH environment variable is expected"
   exit 5
 fi
 
-# Extract the filename from the key path
-key_filename=$(basename "$KEY_PATH")
+# Check if public instance IP address is provided
+if [ -z "$1" ]; then
+  echo "Please provide bastion IP address"
+  exit 5
+fi
 
-# SSH command to connect through the bastion (public instance) to the private instance
-ssh_command="ssh -o ProxyCommand=\"ssh -i $key_filename -W %h:%p ec2-user@<public_instance_ip>\" -i $KEY_PATH ec2-user@<private_instance_ip>"
-
-# Execute the SSH command
-eval "$ssh_command"
+# Connect to the private instance via the public instance using the provided key path
+if [ -z "$2" ]; then
+  ssh -i "$KEY_PATH" "ubuntu@$1"
+else
+  ssh -i "$KEY_PATH" "ubuntu@$1" ssh "ubuntu@$2" "${@:3}"
+fi

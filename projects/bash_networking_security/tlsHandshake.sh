@@ -39,7 +39,7 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
 }' http://54.193.83.1:8080/keyexchange)
 
 
-# Step 6 - Client verification message
+# Step 6 - Client verification 
 echo "$RESPONSE" | jq -r '.encryptedSampleMessage' > encSampleMsg.txt
 cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 

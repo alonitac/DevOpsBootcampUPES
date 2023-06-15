@@ -1,25 +1,9 @@
-#!/bin/bash
-
-COMMAND=$3
-
-
-# Check if the KEY_PATH environment variable is set
-if [ -z "$KEY_PATH" ]; then
-  echo "KEY_PATH env var is expected"
-  exit 5
-fi
-
-# Check if the public instance IP is provided
-if [ -z "$1" ]; then
-  echo "Please provide bastion IP address"
-  exit 5
-fi
-
-# If both public and private instance IPs are provided, connect to the private instance via the public instance
-if [ -n "$2" ]; then
-  ssh -ti "$KEY_PATH" ubuntu@"$1" ssh -i "antprivate.pem" ubuntu@"$2" "$COMMAND"
-
-# Otherwise, connect to the public instance
-else
-  ssh -i "$KEY_PATH" ubuntu@"$1" 
+if [ -z "$private_instance_ip" ]; then
+   	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip"
+elif [ -z "$command" ]; then
+    	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "$KEY_PATH" ubuntu@"$private_instance_ip"
+    ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "~/new_key" ubuntu@"$private_instance_ip"
+else 
+	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "$KEY_PATH" ubuntu@"$private_instance_ip" "$command"
+	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "~/new_key" ubuntu@"$private_instance_ip" "$command"
 fi

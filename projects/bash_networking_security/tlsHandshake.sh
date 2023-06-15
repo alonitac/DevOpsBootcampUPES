@@ -1,7 +1,7 @@
 #!/bin/bash
 # author: hwisdom/amank
 
-PUBLIC_INSTANCE_IP=ec2-16-170-201-244.eu-north-1.compute.amazonaws.com
+PUBLIC_INSTANCE_IP=16.171.41.57
 CERT_CA_AWS_URL=https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
 
 # Send a Client Hello message to port 8080 on the server

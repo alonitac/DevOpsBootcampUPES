@@ -1,3 +1,5 @@
+# python -m pip install git+https://gitlab.com/da_doomer/markdown-slides.git
+
 for s in $(ls *.md)
 do
   mdslides ./"$s" --include media

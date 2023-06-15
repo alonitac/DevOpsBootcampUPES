@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -z "$private_instance_ip" ]; then
    	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip"
 elif [ -z "$command" ]; then

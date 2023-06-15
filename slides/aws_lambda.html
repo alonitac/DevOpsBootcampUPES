@@ -1,17 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>AWS Lambda</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
 [comment]: # (mdslides presentation.md --include media)
 
-[comment]: # (THEME = white)
-[comment]: # (CODE_THEME = base16/zenburn)
 [comment]: # (The list of themes is at https://revealjs.com/themes/)
 [comment]: # (The list of code themes is at https://highlightjs.org/)
 
-[comment]: # (controls: true)
-[comment]: # (keyboard: true)
 [comment]: # (markdown: { smartypants: true })
-[comment]: # (hash: false)
-[comment]: # (respondToHashChanges: false)
-[comment]: # (width: 1500)
-[comment]: # (height: 1000)
 
 ---
 
@@ -37,7 +45,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/lambdalogo.png)
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Today's agenda
 
@@ -46,7 +55,8 @@ DevOps Bootcamp - INT College & UPES University
 - Lambda Invocations
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### What is AWS Lambda?
 
@@ -57,7 +67,8 @@ DevOps Bootcamp - INT College & UPES University
 - Pay only for the compute time that you consume
 - Invoke the Lambda functions using an API, or in response to events from other AWS services.
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Lambda concepts
 
@@ -68,7 +79,8 @@ DevOps Bootcamp - INT College & UPES University
 - **Scale concurrency** - the number of requests that your function is serving at any given time.
 - **Destination** - an AWS resource where Lambda can send events from an invocation. You can configure a destination for events that fail processing.
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling
 
@@ -79,7 +91,8 @@ The first time you invoke your function, Lambda creates an instance of the funct
 
 
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling
 
@@ -87,7 +100,8 @@ When the function returns a response, it stays active and waits to process addit
 
 ![](media/lambda2.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling
 
@@ -95,7 +109,8 @@ If you invoke the function again while the first event is being processed, Lambd
 
 ![](media/lambda3.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling
 
@@ -103,7 +118,8 @@ As more events come in, Lambda routes them to available instances and creates ne
 
 ![](media/lambda4.gif)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling
 
@@ -113,7 +129,8 @@ When the number of requests decreases, Lambda stops unused instances to free up 
 
 The default regional concurrency quota starts at 1,000 instances.
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling - Reserved concurrency
 
@@ -122,7 +139,8 @@ You can configure a **Reserved concurrency** setting for your Lambda functions t
 ![](media/lambda5.png)
 
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling - Provisioned Concurrency
 
@@ -130,14 +148,16 @@ You can reduce invocation latency by configuring **Provisioned Concurrency** for
 
 ![](media/lambda6.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Scaling - Bust limit
 
 
 ![](media/lambda7.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Lambda Invocation
 
@@ -146,7 +166,8 @@ With [synchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invoc
 
 ![](media/lambda8.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Lambda Invocation
 
@@ -155,7 +176,8 @@ With [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invo
 
 ![](media/lambda9.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Destinations
 
@@ -166,10 +188,41 @@ With [asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invo
 
 ![](media/lambda10.png)
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
 
 # Thanks
 
-[comment]: # (!!! data-background-color="aquamarine")
+</textarea></section>
+<section data-markdown ><textarea data-template>
 
 
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

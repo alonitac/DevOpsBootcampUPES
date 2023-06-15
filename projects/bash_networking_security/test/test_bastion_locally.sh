@@ -2,7 +2,7 @@ set -e
 
 source ../vpc.sh
 
-bash ../bastion_connect.sh $PUBLIC_EC2_IP $PRIVATE_EC2_IP "ls"
+bash ../bastion_connect.sh "$PUBLIC_EC2_IP" "$PRIVATE_EC2_IP" "ls"
 
 if [ $? -ne "0" ]
 then

@@ -58,4 +58,8 @@ if [ "$decrypted_sample_msg" != "Hi server, please encrypt me and send to client
   exit 6
 else
   echo "Client-Server TLS handshake has been completed successfully"
+<<<<<<< HEAD
 fi
+=======
+fiss
+>>>>>>> a1b1f0614b4fb75efb94d1196757176c46c559ec

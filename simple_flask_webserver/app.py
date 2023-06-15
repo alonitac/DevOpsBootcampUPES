@@ -47,6 +47,7 @@ def api_upload():
         }
     )
 
+{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256"],"message": "Client Hello"}
 
 # Try by: curl -X POST -H "Content-Type: application/json" -d '{"name": "linuxize", "email": "linuxize@example.com"}' http://localhost:8080/update-profile
 @app.route('/update-profile', methods=['POST'])

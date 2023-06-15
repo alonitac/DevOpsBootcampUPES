@@ -10,7 +10,7 @@ client_hello='{
   "message": "Client Hello"
 }'
 
-server_hello=$(curl -X POST -H "Content-Type: application/json" -d "$client_hello" http://server.example.com/clienthello)
+server_hello=$(curl -X POST -H "Content-Type: application/json" -d "$client_hello" http://localhost:8080/clienthello)
 version=$(echo "$server_hello" | jq -r '.version')
 cipher_suite=$(echo "$server_hello" | jq -r '.cipherSuite')
 session_id=$(echo "$server_hello" | jq -r '.sessionID')
@@ -36,7 +36,7 @@ key_exchange='{
   "sampleMessage": "Hi server, please encrypt me and send to client!"
 }'
 
-key_exchange_response=$(curl -X POST -H "Content-Type: application/json" -d "$key_exchange" http://server.example.com/keyexchange)
+key_exchange_response=$(curl -X POST -H "Content-Type: application/json" -d "$key_exchange" http://localhost:8080/keyexchange)
 encrypted_sample_message=$(echo "$key_exchange_response" | jq -r '.encryptedSampleMessage')
 
 # Step 5 - Decrypt and verify the sample message

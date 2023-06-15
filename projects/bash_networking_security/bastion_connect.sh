@@ -21,7 +21,7 @@ if [[ -n "$KEY_PATH" ]]; then
 
   if [[ -n "$PUBLIC_IP" ]] && [[ -n "$PRIVATE_IP" ]]; then
 
-    ssh -ti "$KEY_PATH" "ubuntu@$PUBLIC_IP" "ssh -i new_ssh_key 'ubuntu@$PRIVATE_IP'" "$COMMAND"
+    ssh -ti "$KEY_PATH" "ubuntu@$PUBLIC_IP" "ssh -i new_ssh_key.pub 'ubuntu@$PRIVATE_IP'" "$COMMAND"
 
   fi
 

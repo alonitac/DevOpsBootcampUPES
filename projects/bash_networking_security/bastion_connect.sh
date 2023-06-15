@@ -36,4 +36,4 @@ fi
  if [ $# -lt 1 ]; then
   echo "Please provide bastion IP address"
   exit 5
-f
+fi

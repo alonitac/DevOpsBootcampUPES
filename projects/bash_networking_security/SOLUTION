@@ -1,16 +1,29 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+192.168.177.201
+
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Jun 14 19:02:17 ip-10-0-0-45 dhclient[341]: Internet Systems Consortium DHCP Client 4.4.1
+Jun 14 19:02:17 ip-10-0-0-45 dhclient[341]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xc9127662)
+Jun 14 19:02:17 ip-10-0-0-45 dhclient[341]: DHCPOFFER of 10.0.0.45 from 10.0.0.1
+Jun 14 19:02:17 ip-10-0-0-45 dhclient[341]: DHCPREQUEST for 10.0.0.45 on eth0 to 255.255.255.255 port 67 (xid=0x627612c9)
+Jun 14 19:02:17 ip-10-0-0-45 dhclient[341]: DHCPACK of 10.0.0.45 from 10.0.0.1 (xid=0xc9127662)
+Jun 14 19:02:17 ip-10-0-0-45 systemd-networkd[380]: eth0: DHCPv4 address 10.0.0.45/24 via 10.0.0.1
+Jun 15 05:14:43 ip-10-0-0-45 dhclient[356]: Internet Systems Consortium DHCP Client 4.4.1
+Jun 15 05:14:43 ip-10-0-0-45 dhclient[356]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x351a5114)
+Jun 15 05:14:43 ip-10-0-0-45 dhclient[356]: DHCPOFFER of 10.0.0.45 from 10.0.0.1
+Jun 15 05:14:43 ip-10-0-0-45 dhclient[356]: DHCPREQUEST for 10.0.0.45 on eth0 to 255.255.255.255 port 67 (xid=0x14511a35)
+Jun 15 05:14:43 ip-10-0-0-45 dhclient[356]: DHCPACK of 10.0.0.45 from 10.0.0.1 (xid=0x351a5114)
+Jun 15 05:14:43 ip-10-0-0-45 systemd-networkd[375]: eth0: DHCPv4 address 10.0.0.45/24 via 10.0.0.1
+
 

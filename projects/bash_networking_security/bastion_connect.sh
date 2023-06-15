@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Return -> Exit Status 5
 if [ -z "$KEY_PATH" ]; then
     echo "KEY_PATH env var is expected"
     exit 5

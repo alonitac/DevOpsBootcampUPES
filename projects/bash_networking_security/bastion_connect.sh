@@ -1,26 +1,39 @@
-  GNU nano 6.2                   bastion_connect.sh                             
-#!/bin/bash
-KEY_PATH=/home/tushar/Downloads
-if [ -z "$KEY_PATH" ]; then
-echo "Error, environamt variable not set"
-exit 5
+#!/bin/bash 
+
+PUBLIC_IP=$1
+
+PRIVATE_IP=$2
+
+COMMAND=$3
+
+
+# if the keyexists - a. if public but not private exist connect to public b. if both exist then public->private. else exit ffor bad input
+
+if [[ -n "$KEY_PATH" ]]; then
+
+  if [[ -n "$PUBLIC_IP" ]] && [[ ! "$PRIVATE_IP" ]]; then
+
+    ssh -i "$KEY_PATH" "ubuntu@$PUBLIC_IP"
+
+  fi
+
+
+
+  if [[ -n "$PUBLIC_IP" ]] && [[ -n "$PRIVATE_IP" ]]; then
+
+    ssh -ti "$KEY_PATH" "ubuntu@$PUBLIC_IP" "ssh -i new_ssh_key 'ubuntu@$PRIVATE_IP'" "$COMMAND"
+
+  fi
+
+else
+
+  echo "KEY_PATH env var is expected and must point to an existing file. try: export KEY_PATH='~/pampampam.pem' "
+
+  exit 5
+
 fi
-
-echo "Enter the instance: in user@public-instance-ip "
-read inst
-ssh -i /home/tushar/Downloads/new_ssh_key "$inst" << EOF
-
-EOF
-
-
-a=.ssh/authorized_keys
-
-
-read -p "Enter the public instance " dns
-ssh -i ubuntu@$dns
  
-read -p "Enter the name of the key: " key_name 
-ssh-keygen -f $key_name
-chmod 400 $key_name
-
-cat $key_name > $a
+ if [ $# -lt 1 ]; then
+  echo "Please provide bastion IP address"
+  exit 5
+f

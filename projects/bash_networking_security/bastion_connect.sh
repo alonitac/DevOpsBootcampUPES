@@ -1,6 +1,4 @@
 #!/bin/bash
-export KEY_PATH="shambhaveenewohio.pem"
-
 if [[ -z "$KEY_PATH" ]]; then
   echo "Error: KEY_PATH environment variable is not set."
   exit 5

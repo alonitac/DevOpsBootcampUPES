@@ -1,3 +1,4 @@
+#!/bin/bash
 #!/bin/bash -x
 
 # Step 1 - Client Hello (Client -> Server)
@@ -5,7 +6,7 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
    "version": "1.3",
    "ciphersSuites": ["TLS_AES_128_GCM_SHA256", "TLS_CHACHA20_POLY1305_SHA256"],
    "message": "Client Hello"
-}' http://3.141.38.247:8080/clienthello)
+}' http://3.129.21.174:8080/clienthello)
 
 
 # Step 2 - Server Hello (Server -> Client)
@@ -43,7 +44,7 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
   "sessionID": "'"$SESSION_ID"'",
   "masterKey": "'"$MASTER_KEY"'",
   "sampleMessage": "Hi server, please encrypt me and send to client!"
-}' http://3.141.38.247:8080/keyexchange)
+}' http://3.129.21.174:8080/keyexchange)
 
 
 # Step 6 - Client verification message
@@ -58,8 +59,4 @@ if [ "$decrypted_sample_msg" != "Hi server, please encrypt me and send to client
   exit 6
 else
   echo "Client-Server TLS handshake has been completed successfully"
-<<<<<<< HEAD
 fi
-=======
-fiss
->>>>>>> a1b1f0614b4fb75efb94d1196757176c46c559ec

@@ -42,11 +42,11 @@
     
     <h1>AWS - S3 - multichoice questions</h1>
 <h2>Question 1</h2>
-<p>Your app is running in an EC2 instance, needs to read and write data to S3. 
+<p>Your app is running in an EC2 instance, and needs to read and write data to S3. 
 Which of the below methods is the most recommended to use? </p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Store the credentials in KMS, read them when in instance launches.</li>
-<li><input type="checkbox"> Use IAM role for the EC2 with an appropriate permissions in S3.</li>
+<li><input type="checkbox"> Store the credentials in KMS, read them when an instance launches.</li>
+<li><input type="checkbox"> Use the IAM role for the EC2 with appropriate permissions in S3.</li>
 <li><input type="checkbox"> Execute <code>aws configure</code> form within the instance and provide Access Key id and Access Secret Key.</li>
 <li><input type="checkbox"> Define the credentials in the instance's user data. </li>
 </ul>
@@ -74,7 +74,7 @@ Which of the below methods is the most recommended to use? </p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The bucket is strongly consistent so there is no need to check data integrity.</li>
 <li><input type="checkbox"> Check in the bucket logs.</li>
-<li><input type="checkbox"> If the request status code in 200, the object has stored successfully.</li>
+<li><input type="checkbox"> If the request status code is 200, the object has been stored successfully.</li>
 <li><input type="checkbox"> Using Content-MD5, eTag or checksums.</li>
 </ul>
 <h2>Question 5</h2>

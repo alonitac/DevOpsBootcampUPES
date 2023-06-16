@@ -166,6 +166,11 @@
     "4": "c6ac862b68b6e8ef3076d27856875d837ef4aacc06ddcc14d633c5dd7e9814bc",
     "5": "d066c2778ffdb1a902b8362cfed1a49ec8530ae9c2674b5cd2a18a0263032d95"
   },
+  "aws_dynamodb.md": {
+    "1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35",
+    "2": "971e28bfa6d58f307ceb7acaa4a7720c1b96029fe5a86dbd962a85ed90f7e69d",
+    "3": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba"
+  },
   "docker_compose.md": {
     "1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47",
     "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f"

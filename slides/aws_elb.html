@@ -1,17 +1,25 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Elastic Load Balancing</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section data-markdown  ><textarea data-template>
 [comment]: # (mdslides presentation.md --include media)
 
-[comment]: # (THEME = white)
-[comment]: # (CODE_THEME = base16/zenburn)
 [comment]: # (The list of themes is at https://revealjs.com/themes/)
 [comment]: # (The list of code themes is at https://highlightjs.org/)
 
-[comment]: # (controls: true)
-[comment]: # (keyboard: true)
 [comment]: # (markdown: { smartypants: true })
-[comment]: # (hash: false)
-[comment]: # (respondToHashChanges: false)
-[comment]: # (width: 1500)
-[comment]: # (height: 1000)
 
 ---
 
@@ -37,7 +45,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/elblogo.png)
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Today's agenda
 
@@ -45,7 +54,8 @@ DevOps Bootcamp - INT College & UPES University
 - Listeners and target groups
 - Application load balancers
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 ### Load Balancers
 
@@ -57,7 +67,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/lb1.png)
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Listeners and Target Groups
 
@@ -67,7 +78,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/lb2.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Load balancer scheme
 
@@ -78,7 +90,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/lb3.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Load balancer scheme
 
@@ -88,7 +101,8 @@ DevOps Bootcamp - INT College & UPES University
 - The nodes of an internal load balancer have only private IP addresses. The DNS of an internal load balancer is **publicly resolvable** to the private IP addresses of the nodes.
 - Both internet-facing and internal load balancers route requests to your targets using private IP addresses.
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 ### Application Load Balancer
 
@@ -100,7 +114,8 @@ DevOps Bootcamp - INT College & UPES University
 
 ![](media/lb4.png)
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 
 ### ALB and HTTP headers
@@ -109,7 +124,8 @@ DevOps Bootcamp - INT College & UPES University
 - The `X-Forwarded-Proto` request header helps you identify the protocol (HTTP or HTTPS) that a client used to connect to your load balancer.
 - The `X-Forwarded-Port` request header helps you identify the destination port that the client used to connect to the load balancer.
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  data-auto-animate><textarea data-template>
 
 
 ### Sticky sessions for the ALB
@@ -119,7 +135,8 @@ DevOps Bootcamp - INT College & UPES University
 - Sticky session ensures that all requests from the user during the session are sent to the same target.
 - This feature is useful for servers that maintain state information in order to provide a continuous experience to clients. To use sticky sessions, the client must support cookies.
 
-[comment]: # (!!! data-auto-animate)
+</textarea></section>
+<section data-markdown  ><textarea data-template>
 
 
 ### Cross-zone load balancing
@@ -131,10 +148,41 @@ DevOps Bootcamp - INT College & UPES University
 ![](media/lb5.png)
 
 
-[comment]: # (!!!)
+</textarea></section>
+<section data-markdown  data-background-color="aquamarine"><textarea data-template>
 
 # Thanks
 
-[comment]: # (!!! data-background-color="aquamarine")
+</textarea></section>
+<section data-markdown ><textarea data-template>
 
 
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+controls : true,
+keyboard : true,
+hash : false,
+respondToHashChanges : false,
+width : 1500,
+height : 1000,
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

@@ -34,7 +34,7 @@
 | 8 | 	12\6 | :mag_right: Intro to virtualization and containers, :mag_right: Demonstrate in class how to create containers from scratch: https://ericchiang.github.io/post/containers-from-scratch/ (directly using linux kernel features), :mortar_board: Docker containers, :mortar_board: Docker images                                                                                                                                                                                                                                                                                                                                                                                      | 
 | 9 | 	13\6 | :clapper: Docker networking, :mortar_board: Docker volumes, :mortar_board: Docker compose                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | 10 | 	14\6 |
-| 11 | 	15\6 |
+| 11 | 	15\6 | In ELB tutorial, let some of your students display in python application console under load (when the load test is running), terminate one of their instances, discuss the results.
 | 12 | 	16\6 |
 | 13 | 	19\6 |
 | 14 | 	20\6 |

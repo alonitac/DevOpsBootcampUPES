@@ -22,7 +22,7 @@ If you haven't created a role yet, here is a short recap.
 6. Attach the role to your EC2 instance. 
 7. Test your policy.
 
-## The least privilege principal 
+## The least privilege principle 
 
 The least privilege principle is a security best practice that involves giving users and systems only the minimum permissions necessary to perform their tasks or functions, and no more. This helps to reduce the risk of accidental or intentional damage or data loss, and limit the potential impact of security breaches or vulnerabilities.
 
@@ -64,7 +64,7 @@ Let's see an example:
 
 ### Controlling access to EC2 using resource tags
 
-In this section we are going to create a role which can start/stop EC2 instances belong to Development environment only.
+In this section we are going to create a role which can start/stop EC2 instances belonging to the Development environment only.
 
 1. In IAM console, **Roles** page, create a new role with **AWS account** trusted entity type.
 2. According to the policy described in [Controlling access to AWS resources](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-resources), create an inline policy for your role, that allows the principal assumed this role to start/stop EC2 instances that was tagged
@@ -72,7 +72,7 @@ In this section we are going to create a role which can start/stop EC2 instances
 3. Save the role.
 4. Tag some of your EC2 instance with `Env=Dev`.
 5. Now we would like to switch our AWS IAM user to assume the created role. 
-   1. In the IAM console, choose your user name on the navigation bar in the upper right\. It typically looks like this: ***username*@*account\_ID\_number\_or\_alias***\.
+   1. In the IAM console, choose your username on the navigation bar in the upper right\. It typically looks like this: ***username*@*account\_ID\_number\_or\_alias***\.
    2. Choose **Switch Role**
    3. On the **Switch Role** page, type the account ID number and the role.
 6. Test your policy by trying to start/stop EC2 instances with/without appropriate `Env` tag.
@@ -86,7 +86,7 @@ By enforcing a tagging policy, you can ensure that all resources are consistentl
 For example, you can use tags to label resources based on their project and environment. This can help you to quickly find and manage resources, monitor costs, and set up automation and policies based on tags.
 
 1. We now want to force a tagging policy in our AWS account. We want all EC2 instances to be tagged with a key `Project` with allowed values of `CloudMate`, `PipelineX`, or `SecureStack` (three imagined project names).
-2. According to the policy described in [Controlling access during AWS requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-requests), add a statement to the above inline policy, that enforces the tagging policy for EC2 instances belonging to different projects. 
+2. According to the policy described in [Controlling access during AWS requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html#access_tags_control-requests), add a statement to the above inline policy that enforces the tagging policy for EC2 instances belonging to different projects. 
 3. Switch to your role and test your policy. 
 
 # Self-check questions
@@ -100,20 +100,20 @@ For example, you can use tags to label resources based on their project and envi
 
 Create the below policies following the Principle of the [least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege).
 
-1. IAM policy with permissions to start and stop EC2 instance.
-2. IAM policy with permissions read object from S3 buckets except objects starting with "internal/"
-3. IAM policy with permissions to upload objects from STANDARD and STANDARD_IA storage classes only.
+1. IAM policy with permissions to start and stop EC2 instances.
+2. IAM policy with permissions read object from S3 buckets except objects starting with `internal/`.
+3. IAM policy with permissions to upload objects from `STANDARD` and `STANDARD_IA` storage classes only.
 4. IAM policy with permissions to attach EBS to EC2.
-5. IAM policy with permissions to attach EBS to EC2 from us-east-1 region only.
+5. IAM policy with permissions to attach EBS to EC2 from the `us-east-1` region only.
 6. IAM policy with permissions to attach EBS to EC2 from all US and EU regions.
-7. IAM policy which denying users to assign policies to and identity, which means, users under this policy cannot assign IAM policies to other users, groups, roles.
+7. IAM policy which denies users to assign policies to an identity, which means, users under this policy cannot assign IAM policies to other users, groups, roles.
 
 ### :pencil2: S3 encrypt data at transit
 
 As you may know, Amazon S3 offers encryption in **transit** and encryption **at rest**. Encryption in transit refers to HTTPS and encryption at rest refers to client-side or server-side encryption.
 
 Since Amazon S3 allows both HTTP and HTTPS requests, encryption in transit may be violated.
-We would like to create a resource-based policy that will we associated with an S3 bucket and will enforce HTTPS communication only.
+We would like to create a resource-based policy that will be associated with an S3 bucket and will enforce HTTPS communication only.
 
 Use [this resource as a reference](https://repost.aws/knowledge-center/s3-bucket-policy-for-config-rule) to define the policy and attach it to your bucket.
 

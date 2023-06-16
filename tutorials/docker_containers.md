@@ -372,7 +372,7 @@ curl -X POST 'http://localhost:8086/query' -u <your-username>:<your-password> --
 ```
 Upon successful creation, you'll get the following output: `{"results":[{"statement_id":0}]}`.
 
-3. Next, run the Grafana container, publish the relevant ports.
+3. Next, run the Grafana container: `docker run -d --name=grafana -p 3000:3000 grafana/grafana`.
    After initialization, visit your server in [http://localhost:3000](http://localhost:3000).
     1. Default username and password is `admin`.
     2. Now we want to integrate InfluxDB as a data source in Grafana. On the left menu, under **Configuration** button, click **Data sources**.

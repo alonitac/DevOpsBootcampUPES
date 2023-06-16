@@ -1,13 +1,33 @@
 name: Students Presubmit Tests
 on:
-  pull_request:
+  pull_request_target:
     types:
       - opened
       - reopened
       - edited
       - synchronize
 jobs:
+  TestIntegrityCheck:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.head_ref, 'networking_ex/')  }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
+      - name: Check tests integrity
+        run: |
+          H=$(find projects/bash_networking_security/test/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum | awk '{print $1}')
+
+          echo "Your tests hash is $H" 
+
+          if [ "$H" != "27c001c54ad7bd41bf4781f947914489" ]
+          then
+            echo "Test integrity failed. Make sure your PR has not changes the 'test' directory."
+            exit 1
+          fi
   NetworkingExTestBastionRotation:
+    needs: [TestIntegrityCheck]
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.head_ref, 'networking_ex/')  }}
     env:
@@ -15,7 +35,10 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       COURSE_STAFF_SSH_KEY: ${{ secrets.COURSE_STAFF_SSH_KEY }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - uses: hashicorp/setup-terraform@v2
       - name: Networking Ex - VPC Check
         run: |
@@ -32,14 +55,14 @@ jobs:
           cd projects/bash_networking_security/test
           bash test_rotation.sh
   NetworkingExTestTLSHandshake:
+    needs: [ TestIntegrityCheck ]
     runs-on: ubuntu-latest
     if: ${{ startsWith(github.head_ref, 'networking_ex/')  }}
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      COURSE_STAFF_SSH_KEY: ${{ secrets.COURSE_STAFF_SSH_KEY }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{github.event.pull_request.head.ref}}
+          repository: ${{github.event.pull_request.head.repo.full_name}}
       - uses: hashicorp/setup-terraform@v2
       - uses: actions/setup-python@v1
       - uses: BSFishy/pip-action@v1

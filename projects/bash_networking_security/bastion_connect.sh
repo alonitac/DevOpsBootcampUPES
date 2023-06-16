@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [[ -z "$KEY_PATH" ]]; then
   echo "KEY_PATH environment variable is not set!"
   exit 5

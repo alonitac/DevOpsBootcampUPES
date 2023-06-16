@@ -1,39 +1,25 @@
 #!/bin/bash 
+if [[ -z "$KEY_PATH" ]]; then
+  echo "KEY_PATH environment variable is not set!"
+  exit 5
+fi
 
-PUBLIC_IP=$1
+if [[ $# -lt 1 ]]; then
+  echo "KEY_PATH env var is expected"
+  echo "Please provide Public Instance (Bastion) IP address"
+  exit 5
+fi
 
-PRIVATE_IP=$2
+public_ip=$1
+private_ip=$2
+command="${@:3}"
 
-COMMAND=$3
-
-
-# if the keyexists - a. if public but not private exist connect to public b. if both exist then public->private. else exit ffor bad input
-
-if [[ -n "$KEY_PATH" ]]; then
-
-  if [[ -n "$PUBLIC_IP" ]] && [[ ! "$PRIVATE_IP" ]]; then
-
-    ssh -i "$KEY_PATH" "ubuntu@$PUBLIC_IP"
-
-  fi
-
-
-
-  if [[ -n "$PUBLIC_IP" ]] && [[ -n "$PRIVATE_IP" ]]; then
-
-    ssh -ti "$KEY_PATH" "ubuntu@$PUBLIC_IP" "ssh -i "new_ssh_key" 'ubuntu@$PRIVATE_IP'" "$COMMAND"
-
-  fi
-
+if [[ -n "$private_ip" ]]; then
+  ssh -t -i "$KEY_PATH" ubuntu@"$public_ip" ssh -i "new_ssh_key" ubuntu@"$private_ip" "$command"
 else
-
-  echo "KEY_PATH env var is expected and must point to an existing file. try: export KEY_PATH='~/pampampam.pem' "
-
-  exit 5
-
+  ssh -i "$KEY_PATH" ubuntu@"$public_ip" "$command"
 fi
- 
- if [ $# -lt 1 ]; then
-  echo "Please provide bastion IP address"
-  exit 5
-fi
+
+    
+
+  

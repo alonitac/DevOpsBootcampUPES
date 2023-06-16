@@ -1,6 +1,4 @@
 #!/bin/bash -x
-
-
 # Step 1 - Client Hello (Client -> Server)
 RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
    "version": "1.3",
@@ -8,12 +6,10 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
    "message": "Client Hello"
 }' http://16.170.234.56:8080/clienthello)
 
-
 # Step 2 - Server Hello (Server -> Client)
 SESSION_ID=$(jq -r '.sessionID' <<< "$RESPONSE")
 
 echo "$RESPONSE" | jq -r '.serverCert' > cert.pem
-
 
 # Step 3 - Server Certificate Verification
 wget https://devops-feb23.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem -O cert-ca-aws.pem
@@ -25,12 +21,10 @@ if [ "$VERIFICATION" != "cert.pem: OK" ]; then
   exit 5
 fi
 
-
 # Step 4 - Client-Server master-key exchange
 openssl rand -out masterKey.txt -base64 32
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey.txt -outform DER cert.pem | base64 -w 0)
-
 
 # Step 5 - Server verification message
 RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
@@ -38,7 +32,6 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
   "masterKey": "'"$MASTER_KEY"'",
   "sampleMessage": "Hi server, please encrypt me and send to client!"
 }' http://16.170.234.56:8080/keyexchange)
-
 
 # Step 6 - Client verification message
 echo "$RESPONSE" | jq -r '.encryptedSampleMessage' > encSampleMsg.txt

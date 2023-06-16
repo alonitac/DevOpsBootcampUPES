@@ -1,11 +1,15 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+Local DNS server IP: 127.0.0.53
+
 
 
 
 Default gateway IP
--------------------
+------Default Gateway: 
+Default Gateway: 10.0.0.1
+
+-------------
 <ip-here>
 
 
@@ -14,3 +18,28 @@ DHCP IP allocation sys-logs
 -------------------
 <logs-here>
 
+Jun 14 14:22:53 ip-10-0-0-231 dhclient[355]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xc3bea82d)
+Jun 14 16:54:57 ip-10-0-0-231 dhclient[362]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x22184278)
+Jun 15 04:53:16 ip-10-0-0-231 dhclient[370]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x9ee9214e)
+Jun 15 17:29:07 ip-10-0-0-231 dhclient[372]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x70c0936c)
+Jun 16 07:03:23 ip-10-0-0-231 dhclient[372]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x28607d5a)
+Jun 16 13:02:02 ip-10-0-0-231 dhclient[372]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x97cbe568)
+Jun 14 14:22:53 ip-10-0-0-231 dhclient[355]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 14 16:54:57 ip-10-0-0-231 dhclient[362]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 15 04:53:16 ip-10-0-0-231 dhclient[370]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 15 17:29:07 ip-10-0-0-231 dhclient[372]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 16 07:03:23 ip-10-0-0-231 dhclient[372]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 16 13:02:02 ip-10-0-0-231 dhclient[372]: DHCPOFFER of 10.0.0.231 from 10.0.0.1
+Jun 14 14:22:53 ip-10-0-0-231 dhclient[355]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x2da8bec3)
+Jun 14 16:54:57 ip-10-0-0-231 dhclient[362]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x78421822)
+Jun 15 04:53:16 ip-10-0-0-231 dhclient[370]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x4e21e99e)
+Jun 15 17:29:07 ip-10-0-0-231 dhclient[372]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x6c93c070)
+Jun 16 07:03:23 ip-10-0-0-231 dhclient[372]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x5a7d6028)
+Jun 16 13:02:02 ip-10-0-0-231 dhclient[372]: DHCPREQUEST for 10.0.0.231 on ens5 to 255.255.255.255 port 67 (xid=0x68e5cb97)
+Jun 14 14:22:53 ip-10-0-0-231 dhclient[355]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0xc3bea82d)
+Jun 14 16:54:57 ip-10-0-0-231 dhclient[362]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0x22184278)
+Jun 15 04:53:16 ip-10-0-0-231 dhclient[370]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0x9ee9214e)
+Jun 15 17:29:07 ip-10-0-0-231 dhclient[372]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0x70c0936c)
+Jun 16 07:03:23 ip-10-0-0-231 dhclient[372]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0x28607d5a)
+Jun 16 13:02:02 ip-10-0-0-231 dhclient[372]: DHCPACK of 10.0.0.231 from 10.0.0.1 (xid=0x97cbe568)
+ubuntu@ip-10-0-0-231:~$ 

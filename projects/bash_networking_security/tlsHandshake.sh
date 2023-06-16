@@ -7,7 +7,7 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
 }' http://<pub-ip>:8080/clienthello)
 
 
-# Step 2 - Server Hello (Server -> Client)
+# Step 2-Server Hello (Server -> Client)
 SESSION_ID=$(jq -r '.sessionID' <<< "$RESPONSE")
 
 echo "$RESPONSE" | jq -r '.serverCert' > cert.pem

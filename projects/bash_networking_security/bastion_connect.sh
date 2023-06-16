@@ -1,4 +1,5 @@
 #!/bin/bash
+#Project
 # Check if KEY_PATH environment variable exists
 if [[ -z "$KEY_PATH" ]]; then
     echo "KEY_PATH env var is expected"

@@ -22,9 +22,9 @@ if [ -z "$PRIVATE_IP" ]; then
 else
   # Connect to the private instance through the public instance
   if [ -z "$COMMAND" ]; then
-    ssh -i "$KEY_PATH" ubuntu@"$BASTION_IP" ssh -tt -i awsKeyPair.pem ubuntu@"$PRIVATE_IP"
+    ssh -i "$KEY_PATH" ubuntu@"$BASTION_IP" ssh -tt -i new_key ubuntu@"$PRIVATE_IP"
   else
     # Run a command on the private instance
-    ssh -i "$KEY_PATH" ubuntu@"$BASTION_IP" ssh -tt -i awsKeyPair.pem ubuntu@"$PRIVATE_IP" "$COMMAND"
+    ssh -i "$KEY_PATH" ubuntu@"$BASTION_IP" ssh -tt -i anew_key ubuntu@"$PRIVATE_IP" "$COMMAND"
   fi
 fi

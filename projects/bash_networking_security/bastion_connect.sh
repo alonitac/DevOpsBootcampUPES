@@ -25,3 +25,4 @@ else
 # For connecting to private instance(via bastion host) and execute a command
 	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "~/nizrhm-ssh-keypair.pem" ubuntu@"$private_instance_ip" "$command"
 fi
+#nothing

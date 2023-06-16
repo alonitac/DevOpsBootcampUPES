@@ -1,4 +1,5 @@
 #!/bin/bash
+#just to re-run the test
 COMMAND=$3
 
 

@@ -17,7 +17,7 @@ private_ip=$2
 command_to_run="${@:3}"
 
 if [[ -n "$private_ip" ]]; then
-  ssh -t -i "$KEY_PATH" ubuntu@"$bastion_ip" ssh -i "shambhaveenewohio.pem" ubuntu@"$private_ip" "$command_to_run"
+  ssh -t -i "$KEY_PATH" ubuntu@"$bastion_ip" ssh -i "new_key" ubuntu@"$private_ip" "$command_to_run"
 else
   ssh -i "$KEY_PATH" ubuntu@"$bastion_ip" "$command_to_run"
 fi

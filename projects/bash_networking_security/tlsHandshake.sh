@@ -40,4 +40,4 @@ if [ "$decrypted_sample_message" != "Hi server, please encrypt me and send to cl
   exit 6
 fi
 
-echo "Client-Server TLS handshake has been completed successfully"ash
+echo "Client-Server TLS handshake has been completed successfully"

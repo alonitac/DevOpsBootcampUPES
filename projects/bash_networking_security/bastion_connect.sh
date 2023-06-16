@@ -1,13 +1,22 @@
 #!/bin/bash
 
-echo "connecting to the bastion host"
+if [[ -z "$KEY_PATH" ]]; then
+  echo "ERROR: KEY_PATH environment variable not set"
+  exit 5
+fi
 
-# scp -i shweta-key.pem test.txt ubuntu@184.72.28.145:~
+if [[ $# -lt 1 ]]; then
+  echo "ERROR: Insufficient arguments"
+  echo "Usage: ./bastion_connect.sh <public-instance-ip> [<private-instance-ip>] [command]"
+  exit 1
+fi
 
-eval $(ssh-agent -s)
-ssh-add private_server_pair.pem
-ssh-add shweta-key.pem
+public_ip=$1
+private_ip=$2
+command=$3
 
-# ssh -i shweta-key.pem ubuntu@184.72.28.145 -A ubuntu@184.72.28.145 ssh ubuntu@10.0.2.254
-
-ssh -tt -A -i shweta-key.pem ubuntu@184.72.28.145 ssh -i private_server_pair.pem ubuntu@10.0.2.254
+if [[ -z "$private_ip" ]]; then
+  ssh -i "$KEY_PATH" ubuntu@"$public_ip" "$command"
+else
+  ssh -i "$KEY_PATH" -o ProxyCommand="ssh -i $KEY_PATH -W %h:%p ubuntu@$public_ip" ubuntu@"$private_ip" "$command"
+fi

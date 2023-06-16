@@ -1,16 +1,20 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+10.0.0.2
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+DHCPDISCOVER on eth0 to 255.255.25>
+DHCPOFFER of 10.0.0.188 from 10.0.>
+DHCPREQUEST for 10.0.0.188 on eth0>
+DHCPACK of 10.0.0.188 from 10.0.0.>
+
 

@@ -1,16 +1,28 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+192.168.0.1
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+192.169.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
-
+DHCPDISCOVER on eth0 to 10.0.0.215 port 67 interval 3 (xid=0x6dcc9f3b)
+DHCPOFFER of 10.0.0.215 from 10.0.0.1
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x3b9fcc6d)
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x3b9fcc6d)
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x3b9fcc6d)
+DHCPDISCOVER on eth0 to 10.0.0.215 port 67 interval 3 (xid=0xd1ee3011)
+DHCPOFFER of 10.0.0.215 from 10.0.0.1
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x1130eed1)
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x1130eed1)
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x1130eed1)
+DHCPDISCOVER on eth0 to 10.0.0.215 port 67 interval 3 (xid=0x37c2e86a)
+DHCPOFFER of 10.0.0.215 from 10.0.0.1
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x6ae8c237)
+DHCPREQUEST for 10.0.0.215 on eth0 to 10.0.0.215 port 67 (xid=0x6ae8c237)

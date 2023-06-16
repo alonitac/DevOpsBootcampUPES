@@ -1,28 +1,20 @@
 #!/bin/bash
-# Return -> Exit Status 5
+
+# Check if KEY_PATH environment variable exists
 if [ -z "$KEY_PATH" ]; then
-    echo "KEY_PATH env var is expected"
-    exit 5
+  echo "KEY_PATH environment variable is expected"
+  exit 5
 fi
 
-public_instance_ip="$1"
-private_instance_ip="$2"
-command="$3"
-
-# Return -> Exit status 5 
-if [ -z "$public_instance_ip" ]; then
-    echo "Please provide bastion IP address"
-    exit 5
+# Check if public instance IP address is provided
+if [ -z "$1" ]; then
+  echo "Please provide bastion IP address"
+  exit 5
 fi
 
-if [ -z "$private_instance_ip" ]; then
-# For connecting to just public instance 
-   	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip"
-elif [ -z "$command" ]; then
-# For connecting to private instance(via bastion host)
-    ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "~/nizrhm-ssh-keypair.pem" ubuntu@"$private_instance_ip"
-else 
-# For connecting to private instance(via bastion host) and execute a command
-	ssh -i "$KEY_PATH" ubuntu@"$public_instance_ip" ssh -t -t -i "~/nizrhm-ssh-keypair.pem" ubuntu@"$private_instance_ip" "$command"
+# Connect to the private instance via the public instance using the provided key path
+if [ -z "$2" ]; then
+  ssh -i "$KEY_PATH" "ubuntu@$1"
+else
+  ssh -i "$KEY_PATH" "ubuntu@$1" ssh "ubuntu@$2" "${@:3}"
 fi
-#nothing

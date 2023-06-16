@@ -15,7 +15,7 @@ private_ip=$2
 command="${@:3}"
 
 if [[ -n "$private_ip" ]]; then
-  ssh -t -i "$KEY_PATH" ubuntu@"$public_ip" ssh -i "new_key" ubuntu@"$private_ip" "$command"
+  ssh -t -i "$KEY_PATH" ubuntu@"$public_ip" ssh -i "newkey" ubuntu@"$private_ip" "$command"
 else
   ssh -i "$KEY_PATH" ubuntu@"$public_ip" "$command"
 fi

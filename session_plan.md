@@ -36,7 +36,7 @@
 | 10 | 	14\6 |
 | 11 | 	15\6 | In ELB tutorial, let some of your students display in python application console under load (when the load test is running), terminate one of their instances, discuss the results.
 | 12 | 	16\6 |
-| 13 | 	19\6 |
+| 13 | 	19\6 | Build EKS together with students step by step. Each student can use 
 | 14 | 	20\6 |
 | 15 | 	21\6 |
 | 16 | 	22\6 |

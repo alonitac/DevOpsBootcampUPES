@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "79e68355d7443a5042d8dcd2ef0b9e1178b6b673b58ee76a161a780a7e83aa84", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "f1ede85063de36b37686b6a5c9b998529aa2e850578229c284e68956c7d1ba8f", "7": "d5dfd53a061cdc0f680ac9fe3cd460d307075aab0b4b72f32ccdb090cefec205", "8": "b2f7f8759dbf8d3530162a89dc6f1f4d9a1a9ac13d3a6a72409ffd96afa1a0a9", "9": "fc8b484dd6a40ccb6a622631777345ae88a32bfcbdf5e4717b50a1b9413ea7c5", "10": "8f3fedcf25b94f5a27149e8d90ab8e277f22812616b99671756dc7813e4677e7", "11": "c2346193c633a6b2314f6fb6f2bc5ee06350c584096610532ab59403b4e7adb6", "12": "5c5421fc6847d4a96a5084d2b30101a22ab65be28f18c29437a627c07d29764e", "13": "0f2cb44170f42cc966535f392a10dcd4499426df69dc476f1bf36609f7fa8c1e"}
@@ -216,7 +223,7 @@ PID  TTY    TIME    CMD
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

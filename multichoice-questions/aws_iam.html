@@ -24,9 +24,16 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
-            const solutions = {}
+            const solutions = {"1": "17214e2d30ebb0eafe4b8866d63e3431e7258a23bbbc214cd92ddc72e114ba42", "2": "a72baf2ea0bfd03b5d99763aaecd821201b45acb2bbe4e7243cb7c459fae576f", "3": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "4": "c2df35004019b16591cc9c7ef6147b589d1eabd2dbd98232859c3cf9acd74a37", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "c0e034c184aedfcd6287d307419bace571213690d86c7adfd8d2922697e5ac45", "7": "31eb3d2fc4ff2727d8f1017087cab6faa1fe6ef397acb649ad267afa6cbc1f03"}
         </script>
     </head>
     <body>
@@ -34,33 +41,33 @@
     <article class="markdown-body">  
     
     <h1>AWS - IAM - multichoice questions</h1>
-<h3>Question 1</h3>
+<h2>Question 1</h2>
 <p>Which of the below actions can be controlled with IAM policies?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> Creating an Amazon S3 bucket.</li>
 <li><input type="checkbox"> Control who can SSH into an EC2 instance.</li>
 <li><input type="checkbox"> Control the name of an EC2 instance.</li>
-<li><input type="checkbox"> Control the time in which IAM user can login to the web console. </li>
+<li><input type="checkbox"> Control the time in which IAM users can login to the web console. </li>
 </ul>
-<h3>Question 2</h3>
+<h2>Question 2</h2>
 <p>Which of the following statements best describe how a request to AWS is authorized?</p>
 <ul style="list-style-type: none;">
 <li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. If a policy explicitly denies a request, it can be overridden by another policy.</li>
-<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that deny can't be overridden.</li>
+<li><input type="checkbox"> The request is default denied, but this can be overridden by an allow policy. In contrast, if a policy explicitly denies a request, that denial can't be overridden.</li>
 <li><input type="checkbox"> The request can either be allowed or denied depending on the request and each can be overwritten by the other. </li>
 <li><input type="checkbox"> The request is default allowed, but this can be overridden by a deny policy.</li>
 </ul>
-<h3>Question 3</h3>
+<h2>Question 3</h2>
 <p>Your AWS account has 350 IAM users.
-Your product manager asks you to allow to 50 users full access on S3. 
+Your product manager asks you to allow 50 users full access on S3. 
 How can you implement this <strong>effectively</strong>?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Create an IAM group, add the 50 users, and apply the policy to group.</li>
+<li><input type="checkbox"> Create an IAM group, add the 50 users, and apply the policy to the group.</li>
 <li><input type="checkbox"> Create a policy and apply it to multiple users using a Bash script.</li>
 <li><input type="checkbox"> Create an S3 bucket policy with unlimited access which includes each user's AWS account ID.</li>
 <li><input type="checkbox"> Create a new role and add each user to the IAM role.</li>
 </ul>
-<h3>Question 4</h3>
+<h2>Question 4</h2>
 <p>What does the following policy for Amazon EC2 do?</p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -84,9 +91,9 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Allow users with the above source IP to access resources.</li>
 <li><input type="checkbox"> Denies access to AWS based on the source IP, even for AWS resources who try to access other resources.</li>
 <li><input type="checkbox"> Denies access to AWS based on the source IP.</li>
-<li><input type="checkbox"> Denies access from EC2 instance to the above IP ranges.</li>
+<li><input type="checkbox"> Denies access from EC2 instances to the above IP ranges.</li>
 </ul>
-<h3>Question 5</h3>
+<h2>Question 5</h2>
 <p>What does the below policy do?</p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -125,8 +132,8 @@ How can you implement this <strong>effectively</strong>?</p>
 <li><input type="checkbox"> Allows starting or stopping an EC2 instance and deleting a security group.</li>
 <li><input type="checkbox"> Allows creating an EC2 instance and modifying a security group.</li>
 </ul>
-<h3>Question 6</h3>
-<p>You EC2 instance should read objects from <code>mybucket</code> S3 bucket.
+<h2>Question 6</h2>
+<p>Your EC2 instance should read objects from <code>mybucket</code> S3 bucket.
 Your instance assumes a role with the following policy: </p>
 <pre><code class="language-json">{
   &quot;Version&quot;: &quot;2012-10-17&quot;,
@@ -143,7 +150,7 @@ Your instance assumes a role with the following policy: </p>
 }
 </code></pre>
 <p>However, when the app running in the EC2 tries to read object, you receive the error: </p>
-<pre><code class="language-text">Action does not apply to any resource(s) in statement.
+<pre><code class="language-text">Action does not apply to any resource(s) in the statement.
 </code></pre>
 <p>How can you fix the error?</p>
 <ul style="list-style-type: none;">
@@ -152,14 +159,14 @@ Your instance assumes a role with the following policy: </p>
 <li><input type="checkbox"> Add <code>arn:aws:s3:::mybucket/*</code> to the <code>Resource</code> section.</li>
 <li><input type="checkbox"> Add an action <code>s3:ListBucket</code>.</li>
 </ul>
-<h3>Question 7</h3>
+<h2>Question 7</h2>
 <p>An IAM user is trying to perform an action on an object belonging to some other account's S3 bucket.</p>
-<p>Which of the bellow permission(s) would result a successful action?</p>
+<p>Which of the below permission(s) would result in a successful action?</p>
 <ul style="list-style-type: none;">
-<li><input type="checkbox"> Identity based policy which allow the users to perform operation on S3 buckets.</li>
+<li><input type="checkbox"> Identity based policy which allows the users to perform operations on S3 buckets.</li>
 <li><input type="checkbox"> Only the root user account can perform this kind of operation. </li>
 <li><input type="checkbox"> Allow the user to access the other account's bucket using permission boundaries. </li>
-<li><input type="checkbox"> Resource based policy on the bucket which grant permission on the user's account.</li>
+<li><input type="checkbox"> Resource based policy on the bucket which grants permission on the user's account.</li>
 </ul> 
     
         <script>
@@ -214,7 +221,7 @@ Your instance assumes a role with the following policy: </p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

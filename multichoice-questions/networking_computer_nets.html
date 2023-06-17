@@ -24,9 +24,16 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
-            const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "8807b7f0171db3551fbd6bf807ad5435dbe965001824b16be736f8ea30a1f0e3", "3": "90c057678bcaee0767b2d39294da097a6d1ac3cf2b3c1e64d496fa5d229b1c2d", "4": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "5": "01828ab6e38e6ad1e7b67be7a1cba3363096cef6ad36a68878222c3760440318", "6": "ce22f67039918cbb320b478decd852178fe502660851517fad3c8f2b6333bb6d", "7": "151669aee11086e207795e44864514abdaf950a4fc839c9cd84ce52a355c8cc6", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "9de3888231a1021acddcaa006b2f2a1ead5e245ae44a6b50e997afa9371e081e", "10": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "11": "5ce712e12851d31a4f316c59608f98e284c0a9ba07fcd6b6f0087a68540c4c9c", "12": "1e3c1e691374cd044003ae4058b5c0859abcdaf1288835327102d0cb138e79a0", "13": "6fa81431ad0cd95d8772bbdb8e1755f1e165f0414cd667ce009e41d30aea2c4b", "14": "b40e1350f4b874a48c3be66f35e3b76974593802a3ab8c8010178170bf77695d", "15": "a5382d7eb3af0babdae8c46fd5d13072011521a7b347ab49a8922f63191f4d08", "16": "eaaa13b0c1bfce6e53d58cadae09e37845e4990c934473fd53f69a2a011fba29", "17": "6336f6c7cde3673dde8c6ca171312300703d0d53144b524ecb343d5817172700"}
+            const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "3": "2fd0fcaa97438af987430e8bf091615c72e043b3ebd99b03fa8b6c9823fdfc89", "4": "c9df3029c64e26aee3c3da7a34a1270de9557c091467c5b36aa7a28d48041118", "5": "ecfb8a1334fad8ce026922c24bcfa93cb73587de9abd9391791829299d3e824c", "6": "1eb2cf2faec287ff82d265b863f54383712b6ff74d66dff812381353582362e2", "7": "be011a0b221d45c5dcf3162f0488e74c0024a2c48a5646b1b22cd44a2c0dead5", "8": "1031fd130f899c43c4761c52de1e597b7f01fea3063cb3988592c9fcc5057bb7", "9": "97c489b6c1231ecd9fac99df40e60cec000a70a057d5971fb520c578da8e8841", "10": "25f0d9bd686d3b5c80d5ab7119f9a9dcedccb13195042e3b632278029a0343f6", "11": "b5086f3f3c0f0e59a051d527f27eadc907d6cd22a3be4cf91a52a5671784b1b9", "12": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4", "13": "b4821f207fcf7b2acce3052ecfb80058953c870fb820d1923544caebcb88a600", "14": "a5382d7eb3af0babdae8c46fd5d13072011521a7b347ab49a8922f63191f4d08", "15": "d00a39f734d8f10f39201af2ee8a0802c0dad81c9ac9dc4a5383f083e559a2b2", "16": "5445f17268011b0d704bfaa4ffe9d92701fbcf6fb4fb0f8c06e9eecc10b36ec9", "17": "5c91c45a102b5100ddbc70613c3746f768f755eef4f6c369a1d7c620714012ad"}
         </script>
     </head>
     <body>
@@ -295,7 +302,7 @@ valid_lft forever preferred_lft forever
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

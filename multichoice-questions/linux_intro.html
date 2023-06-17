@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "af2aef7071ca92fd7c9b80f9eb2263ffacf7d6dae5d0612e1ba4bbc04e04fc47", "2": "fc82267b45dcbf8db9e4ec10055373cfff41efcbc5b83a304be35bd67871d710", "3": "4787e1998ea0068740a4d43cca83c84fa6233bbc66d12b8d442cda81e46e75ba", "4": "b993c8014a9a736ee31cb4d3369778bed3c20b1e72bb27e5ebe4f9b68afd418b", "5": "c9df3029c64e26aee3c3da7a34a1270de9557c091467c5b36aa7a28d48041118", "6": "ecfb8a1334fad8ce026922c24bcfa93cb73587de9abd9391791829299d3e824c", "7": "d5dfd53a061cdc0f680ac9fe3cd460d307075aab0b4b72f32ccdb090cefec205", "8": "25c7333f558be07eb1b247c5e469cc800a5beb7e6c4a529f7eacff459b3da4ee", "9": "089bee9c3b8caace8c024042fcfc73b80cf857a77bbb82a680f218cba1726aaf", "10": "4c1d77cf5e1123c03e8cbe8e01dcdeb6d4b146ca1d6c157fdf312d42713c3ea6", "11": "6a7bd1b72911ab800d1f1806f3d0f2b0d44dbb87ed4411fc841c40b8e704687a", "12": "15f5e92756d7bd73bd92fb0596b848b616687e5a114718faadf44e84ad15f951", "13": "5df94eb75cee55b04fd0a1f3f1776c42dfab6cc77ff09b4f5eff3ff06f72d4cc", "14": "e2add7688a10f2abc589660ba2a5892a34f787a8858f10cf8b37a0dca8480509", "15": "2aa71b03694a44186ea8ccf17591febd0446dc55e747e37f7e0d28cf7f637cd6", "16": "a89bb9d8e016bb0f75ed4964a9153d931aec7b8e48176564372f56a12d0d474f", "17": "3ff89028d473468d35253fe88467dae1a638b3f512357fc37fde396b2f17eace"}
@@ -244,7 +251,7 @@ the word <code>/etc</code>?</p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

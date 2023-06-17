@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871", "2": "353fd555c4572c536ad1495010504ea6cd8f1ef8cf577d99c74b86b446be9b12", "3": "dee0e46ee9d67151bdf0e8b4fc1b33070c9713fe3299ea46be32e4bcc997ed6b", "4": "cfc30c6ec0237d3c822138d697d7e7736a1fefdf88066a670e7ffc17fe671084", "5": "8dc683d465cb1e3dc211ac0360245fded07df2f1f36b9bcdf091b04bc18f6bac", "6": "188e0299e3548502133a2f6c9583a34094cc4c17ecd5f772c5fc20bc703f30cb", "7": "617d73f7daa20be81d5318b14f24db980b0f1d4e5cd897355aa57c4bcaf2c6d3", "8": "be011a0b221d45c5dcf3162f0488e74c0024a2c48a5646b1b22cd44a2c0dead5"}
@@ -165,7 +172,7 @@ directory to a remote machine's <code>/tmp</code> directory?</p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

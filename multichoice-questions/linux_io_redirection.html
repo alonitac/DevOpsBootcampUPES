@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "e9126f469646506b8e82b4214d075bf72d9d324d357650ba670ed6f6fbbf2a75", "2": "451ea98fe45ef0d6db24baeaf4dd2bb5fd8334971b6c889fe06ec2c702d0069a", "3": "e2a9bd705c0135ee242f538370abbd2560ddff689962b7f3298b3bc677ac039b", "4": "79e68355d7443a5042d8dcd2ef0b9e1178b6b673b58ee76a161a780a7e83aa84", "5": "d066c2778ffdb1a902b8362cfed1a49ec8530ae9c2674b5cd2a18a0263032d95", "6": "c0e034c184aedfcd6287d307419bace571213690d86c7adfd8d2922697e5ac45", "7": "6769ec34af2b2717b2a3804057b3d58a163e4696973c4ad10e193e86cd5a4759", "8": "be011a0b221d45c5dcf3162f0488e74c0024a2c48a5646b1b22cd44a2c0dead5", "9": "9de3888231a1021acddcaa006b2f2a1ead5e245ae44a6b50e997afa9371e081e", "10": "c02a8da03e35b07551e3fff4245a5a51404dac0569c6840986e30aaf198de486", "11": "3f87e4e3b1193397f6839af198812ee0056078cc54ea6893fe7dea646b9dbdcd", "12": "1e3c1e691374cd044003ae4058b5c0859abcdaf1288835327102d0cb138e79a0", "13": "5df94eb75cee55b04fd0a1f3f1776c42dfab6cc77ff09b4f5eff3ff06f72d4cc"}
@@ -206,7 +213,7 @@ would succeed on a default Ubuntu Linux installation?</p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

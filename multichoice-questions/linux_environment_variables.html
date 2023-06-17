@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "8597f1e3043654da36e26467d59c6c6bbc9c44d498cc15ab2f91fc84440bbc35", "2": "66af92bf73fffb190214fde65933fcbf013365a674cc320576909d939d0c1440", "3": "90c057678bcaee0767b2d39294da097a6d1ac3cf2b3c1e64d496fa5d229b1c2d", "4": "62bd5bcd7fab1803af45cee4f581fc204695900eb4a90cce63c1203fb02e835a", "5": "bd0308960fed21e376a1708cc8b18794374cb1296806b554113adf32feabacd6", "6": "d27337d22345358538f83acd45537e5078da9fcd04e2dffc5ea509da617f0efe"}
@@ -144,7 +151,7 @@ of the <code>PATH</code> environment variable?</p>
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

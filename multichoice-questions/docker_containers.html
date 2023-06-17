@@ -24,6 +24,13 @@
                     padding: 15px;
                 }
             }
+            
+            .floating-button {
+              position: fixed;
+              bottom: 20px; /* Adjust the distance from the bottom as needed */
+              right: 20px; /* Adjust the distance from the right as needed */
+              z-index: 9999; /* Ensure the button appears above other elements */
+            }
         </style>
         <script>
             const solutions = {"1": "24dc9bebea86dd4149d86b7ab672714b2c60b6e76e3f8809133c7f29b5c2d180", "2": "818ca42d051ebe1ba9d7be8398fd4ff982a0c9445ee2681bdee76771445f178a", "3": "90c057678bcaee0767b2d39294da097a6d1ac3cf2b3c1e64d496fa5d229b1c2d", "4": "14b9924bb79e4d6130f430863db83831f03f3a2f14117b74dd55e5e861535daa", "5": "8e99960adea594f6a182af856afa579d41f4230ab3e13a07e379ed359710cbe0", "6": "0ed351caaae35bc5b1c0f6a59902805e7ca9721fd53ac8a0ac944e12db9b4834", "7": "911a226c29dd38fa43b1eb0264ec10dba08d20d57581103f4d0b32c3c5e0fd5c", "8": "c18377cbb0ff2a6fc1b1998c590cbb0254e91bddefe3b589e5f9cc753e0d643a", "9": "5418a99707d5eef62a9f18ec1cc48e06410aea8596b662fc67c5b755fb5f42fe", "10": "7618f66753db7ec069c83ed8c197708e1402396774f60961065addd678933871", "11": "b4acfc90a2f9822ecce4971b4b96a78a6edb776621ead66831de794552f182f0", "12": "809067b641b0943ae44476949bfe440db5121e7f4bcc2fbf10ae8c95415256f5", "13": "f0a54be9ab778391c4a67e01c253b252e28646c9960cb00ba4da8e68c3b672b4", "14": "a8194f35d9925acbd4fdba7fe0cd741d44ccddfce47618dd411062a959ed742d", "15": "00c40f05c3dbc21ee0bdb51a2fbec86c4dedee57646832148da065aa9a40c563", "16": "0d41ae74bb908ebf03a431a19f5df49bbda3b3be8e9ff864148294dc243149c4", "17": "6336f6c7cde3673dde8c6ca171312300703d0d53144b524ecb343d5817172700", "18": "a149d3a4d3678e4282665e133c2fdba187947e3662476ebfcd2ec3093968cc29"}
@@ -500,7 +507,7 @@ See 'docker run --help'
     
         </script>
     
-        <input type="button" value="Test" onclick="test()">
+        <input type="button" class="floating-button" value="Test" onclick="test()">
     
     </article>
     </body>

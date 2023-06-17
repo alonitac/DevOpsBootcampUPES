@@ -1,4 +1,4 @@
-REGION="us-west-1b"
+REGION="us-west-1"
 VPC_ID="vpc-0c91212efdc6acbb2"
 PUBLIC_INSTANCE_ID="i-0944d11fa7dcc79dd"
 PRIVATE_INSTANCE_ID="i-0af45a43d1bcdaf7d"

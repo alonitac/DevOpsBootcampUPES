@@ -199,10 +199,107 @@ spec:
             name: grafana-datasources
 ```
 
+## Persist Grafana data using StatefulSet
 
+When deploying Grafana using a Deployment (as we did above), the problem of non-persistent data arises, as each Pod in the Deployment has its own ephemeral storage, resulting in data loss if the Pod restarts or scales down, requiring additional measures such as using a persistent volume or external storage to ensure data persistence.
+
+StatefulSets are intended to be used with stateful applications.
+The administration of stateful applications and distributed systems on Kubernetes is a broad and complex topic. 
+In this course we will only see the canonic example of persistent volume creation in k8s, without digging into details :-(
+
+The below example **will create an EBS volume in AWS** which dedicated to store Grafana data for a single pod. 
+
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: grafana
+spec:
+  replicas: 1
+  serviceName: grafana-svc
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      name: grafana
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        runAsUser: 472
+        runAsGroup: 8020
+        fsGroup: 8020
+      containers:
+      - name: grafana
+        image: grafana/grafana
+        ports:
+        - name: grafana
+          containerPort: 3000
+        env:
+          - name: GF_AUTH_BASIC_ENABLED
+            value: "true"
+          - name: GF_SECURITY_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                name: grafana-creds
+                key: username
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: grafana-creds
+                key: password
+
+        volumeMounts:
+          - name: grafana-login-dir
+            mountPath: /grafana_login_creds
+            readOnly: true
+          - name: grafana-datasources-vol
+            mountPath: "/etc/grafana/provisioning/datasources"
+          - mountPath: "/var/lib/grafana"
+            name: grafana-storage
+      volumes:
+        - name: grafana-login-dir
+          secret:
+            secretName: grafana-creds
+        - name: grafana-datasources-vol
+          configMap:
+            name: grafana-datasources
+  volumeClaimTemplates:
+    - metadata:
+        name: grafana-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: gp3
+        resources:
+          requests:
+            storage: 5Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana-svc
+spec:
+  selector:
+    app: grafana
+  ports:
+    - port: 3000
+      targetPort: 3000
+```
+
+TBD explain
 
 # Exercise
+
+## :pencil2: StatefulSet task
+
+https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
+
 
 ## :pencil2: Communicate between containers in the same pod using a shared volume
 
 https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/
+
+## :pencil2: No space left on disk
+
+TBD

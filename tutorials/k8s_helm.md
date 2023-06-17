@@ -169,10 +169,4 @@ Then go to `https://localhost:5601`.
 Update your fluentd chart to send logs to the elastic instance you've just deployed.
 
 
-## StatefulSet
-
-Follow:  
-https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
-
-
 

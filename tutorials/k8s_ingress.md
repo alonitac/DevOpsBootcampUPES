@@ -8,11 +8,7 @@ In order for the **Ingress** resource to work, the cluster must have an [**Ingre
 
 Kubernetes supports and maintains AWS, GCE, and [nginx](https://github.com/kubernetes/ingress-nginx) ingress controllers.
 
-1. If working on a shared repo, create your own namespace by:
-   ```shell
-   kubectl create ns <my-ns-name>
-   ```
-2. **In your namespace**, Deploy the following Docker image as a Deployment, with correspond Service: [`alexwhen/docker-2048`](https://hub.docker.com/r/alexwhen/docker-2048).
+1. Deploy the following Docker image as a Deployment, with correspond Service: [`alexwhen/docker-2048`](https://hub.docker.com/r/alexwhen/docker-2048).
 3. Deploy the Nginx ingres controller (done only **once per cluster**). We will deploy the [Nginx ingress controller behind a Network Load Balancer](https://kubernetes.github.io/ingress-nginx/deploy/#aws) manifest.
 
 We want to access the 2048 game application from a domain such as http://test-2048.int-devops-may22.com

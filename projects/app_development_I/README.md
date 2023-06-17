@@ -1,5 +1,7 @@
 # Deploy containerized applications
 
+**Note**: Can be done in 2-3 groups!
+
 ## Background
 
 In this project, you are going to design and deploy an image detection service that consists of multiple containers. 
@@ -207,5 +209,15 @@ Push the `frontend`, `yolo5` and `polybot` to your account in Dockerhub or ECR.
 
 Deploy your app in a single EC2 instance in a public subnet.
 Make sure the service is working as expected by communicating with it via the instance's public IP. 
+
+## Submission
+
+Tag your EC2 instance as follows:
+
+- The instance name (`Name` tag key) must start with `docker-project-`. 
+- Key `Owners` with your name(s) as value.
+- E.g.
+
+![](../../.img/docker-proj-instance-tags.png)
 
 ## Good luck

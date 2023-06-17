@@ -111,7 +111,6 @@ pipeline {
 
 # Exercises 
 
-
 ### Fine tune the Deploy pipeline
 
 Review some additional pipeline features, as part of the [`options` directive](https://www.jenkins.io/doc/book/pipeline/syntax/#options). Add the `options{}` clause with the relevant features for the Build and Deploy pipelines.

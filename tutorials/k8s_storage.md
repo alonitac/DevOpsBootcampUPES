@@ -270,7 +270,7 @@ spec:
         name: grafana-storage
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: gp3
+        storageClassName: gp2
         resources:
           requests:
             storage: 5Gi

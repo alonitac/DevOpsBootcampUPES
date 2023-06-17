@@ -50,12 +50,12 @@ helm install grafana grafana/grafana
 ```yaml
 persistence:
   enabled: true
-  storageClassName: gp3
+  storageClassName: gp2
 ```
 
 3. Upgrade your release by
 ```shell
-helm upgrade -f mysql-helm/values.yaml grafana grafana/grafana
+helm upgrade -f grafana-values.yaml grafana grafana/grafana
 ```
 
 An upgrade takes an existing release and upgrades it according to the information you provide. Because Kubernetes charts can be large and complex, Helm tries to perform the least invasive upgrade. 
@@ -67,13 +67,27 @@ If something does not go as planned during a release, it is easy to roll back to
 helm rollback grafana 1
 ```
 
+4. Try to search and update the chart values to:
+   1. Define the cloudwatch datasource as code.
+   2. Limit the RAM and CPU to TBD. 
+   3. Import the cloudwatch dashboard (TBD link).
+
 5. To uninstall this release:
 ```shell
 helm uninstall grafana
 ```
 
-Try to search and update the chart values to achieve the same results as the grafana you've provisioned in the previous tutorial. 
+
+## Deploy prometheus using Helm
+
+TBD
 
 # Exercises 
 
+## :pencil2: Add prometheus datasource as code
 
+Add prometheus 
+
+## :pencil2: Expose Grafana using ingress
+
+TBD

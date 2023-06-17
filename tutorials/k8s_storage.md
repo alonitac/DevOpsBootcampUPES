@@ -34,3 +34,7 @@ In the `mysql` Docker image, custom configurations for the MySQL server can be p
 3. Complete the MySQL Deployment under `mysql-deployment.yaml`, such that `MYSQL_ROOT_PASSWORD` env var contains the secret value and ConfigMap is mounted into `/etc/mysql/mysql.conf.d`.
 4. Make sure the new configurations applied.
 
+
+# Exercise 
+
+https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/

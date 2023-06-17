@@ -1,5 +1,7 @@
 # Deploy containerized applications
 
+**Note**: Can be done in 2-3 groups!
+
 ## Background
 
 In this project, you are going to design and deploy an image detection service that consists of multiple containers. 
@@ -20,8 +22,8 @@ The service consists of 4 microservices:
 
 ### Create a new GitHub repo 
 
-Create a new GitHub repo for the project. 
-Copy the files under `projects/app_development_I` into the root directory of the repo.
+Create a new GitHub repo for the project, clone the repo locally and open it in your favorite IDE (PyCharm, VSCode). 
+Copy the files under `projects/app_development_I` into the root directory of the repo (no need to copy the `README.md`).
 
 ### Create a Telegram Bot
 
@@ -29,7 +31,7 @@ Copy the files under `projects/app_development_I` into the root directory of the
 2. Once installed, create your own Telegram Bot by following <a href="https://core.telegram.org/bots/features#botfather">this section</a> to create a bot. Once you have your telegram token you can move to the next step.
 
 **Never** commit sensitive data like secrets in Git repo, even if the repo is private.
-For now, save the token in a file called `.telegramToken` and add this file to `.gitignore` to exclude it completely from Git.
+For now, save the token in a file called `.telegramToken` and add this file to `.gitignore` to exclude it completely from the files Git tracks.
 Later on in the course we will learn better approaches to store sensitive data.
 
 ## Guidelines
@@ -61,18 +63,18 @@ You are not provided with a `Dockerfile` for this service, create one.
 It is known for its high accuracy and real-time performance, allowing for efficient detection of objects in images and videos.
 You'll work with a lightweight model that can detect 80 objects while it's running on your poor machines (on CPU instead GPU). 
 
-This service files are under the `yolo5` directory. Take a look at the provided `Dockerfile`, it's already implemented for you, no need to touch. 
+The service files are under the `yolo5` directory. Take a look at the provided `Dockerfile`, it's already implemented for you, no need to touch. 
 The built image is based on the [yolo5](https://hub.docker.com/r/ultralytics/yolov5) image, which contains most of what you need. 
 The only thing we add is some Python wrapper which allows sending images for prediction over HTTP (based on Flask, again...).
 
 The app should store client images (both original and predicted) in Amazon S3. 
-In order to do so, you should implement the `TODO` specified in `app.py` file. 
+In order to do so, you should implement the `TODO` specified in `app.py` file. Your bucket name should not be hard-coded in the code, but be stored in `config.json` (read this json when `app.py` is launching). 
 
 Build and run this image, while publishing port `8081`. 
 Once the image was built successfully, and the container is running, you can communicate with the microservice directly by:
 
 ```bash
-curl -F 'file=@<path-to-image>' localhost:8081/predict
+curl -X POST -F 'file=@<path-to-image>' localhost:8081/predict
 ```
 
 Replace `<path-to-image>` by a file of natural image which you want to predict objects in. 
@@ -179,19 +181,21 @@ A few notes:
 
 ## Make it run locally
 
-At the end, you should have 4 running microservice up and running on your local machine.
+At the end, you should have 4 running microservices on your local machine.
 You should be able to detect objects in images sent from the Telegram Bot service, as well as the web UI. 
 
 Note that the web UI stores client detections in mongoDB (different clients are identified by their IP address).
 In the web UI, you can click the **View your recent detection** button to retrieve the last detected results. The microservice queries the information from mongoDB. 
+
+**Go wild!!!** add any functionality you wish...
 
 ## Wrap up everything as a Docker Compose project
 
 To complete the task, you should create a Docker Compose project. 
 Define the services for the Telegram bot, Web UI, YOLO5 image detection, and MongoDB in a `docker-compose.yaml` file.
 
-Please decide on the different networks that will be used within the project, ensuring proper isolation services.
-E.g. the user facing services can reside in a network considered as "public", while the internal services can reside in the "private" network. 
+Design the different **Docker networks** that each microservice in connected to, ensuring proper service isolation.
+E.g. the user facing services (`frontend`, `polybot`) can reside in a network considered as "public", while the internal services (`mongo`, `yolo5`) can reside in the "private" network. 
 
 ## Free images from security vulnerabilities. 
 
@@ -201,9 +205,18 @@ Use Snyk to scan the images.
 
 ## Deploy your app 
 
-Push the `frontend`, `yolo5` and `polybot` to your account in Dockerhub.
+Push the `frontend`, `yolo5` and `polybot` to your account in Dockerhub or ECR.
 
 Deploy your app in a single EC2 instance in a public subnet.
 Make sure the service is working as expected by communicating with it via the instance's public IP. 
+
+## Submission
+
+Tag your EC2 instance as follows:
+
+- The instance name (`Name` tag key) must start with `docker-project-`.
+- Key `Owners` with your name(s) as value.
+
+![](../../.img/docker-proj-instance-tags.png)
 
 ## Good luck

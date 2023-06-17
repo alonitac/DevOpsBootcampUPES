@@ -214,8 +214,9 @@ Make sure the service is working as expected by communicating with it via the in
 
 Tag your EC2 instance as follows:
 
-- The instance name (`Name` tag key) must start with `docker-project-`.
+- The instance name (`Name` tag key) must start with `docker-project-`. 
 - Key `Owners` with your name(s) as value.
+- E.g.
 
 ![](../../.img/docker-proj-instance-tags.png)
 

@@ -44,6 +44,8 @@ When the HTTP request is made, the Service's **load balancer** distributes the t
 Kubernetes also tries to distribute the Deployment's Pods across different nodes within the cluster to achieve **high availability**. 
 The controller for that Service continuously scans for Pods that match its selector (a.k.a. **service discovery**),
 
+![](../.img/k8s-deployment.png)
+
 ## Use Port Forwarding to Access Applications in a Cluster
 
 By default, applications running within the cluster are not accessible from outside the cluster.

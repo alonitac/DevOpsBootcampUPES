@@ -36,13 +36,21 @@ https://github.com/MuhammedKalkan/OpenLens
 
 ## Authenticating to our shared repo:
 
-TBD per batch
+Throughout the bootcamp each group work on a shared k8s cluster, as detailed below:
+
+- **Batch 1**: `k8s-batch1` located in Ohio (`us-east-2`).
+- **Batch 2**: `group2-eks` located in Ireland (`eu-west-1`).
+- **Batch 3**: `k8s-batch3` located in Oregon (`us-west-2`).
+
+Authenticate yourself by the below command:
 
 ```shell
 aws eks --region <region> update-kubeconfig --name <cluster_name>
 ```
 
-Kubernetes namespaces provide a way to logically partition and isolate resources within a cluster, allowing for better organization, access control, and resource management.
+In order to shared the cluster peacefully, each one of you can work on different k8s namespace. 
+
+**Kubernetes namespaces** provide a way to logically partition and isolate resources within a cluster, allowing for better organization, access control, and resource management.
 Create your own namespace in k8s:
 
 ```bash

@@ -1,16 +1,52 @@
 Local DNS Server IP
 -------------------
 <ip-here>
-
-
+    
+    127.0.0.53
 
 Default gateway IP
 -------------------
 <ip-here>
 
-
+    10.0.0.1
 
 DHCP IP allocation sys-logs
 -------------------
 <logs-here>
-
+    un  6 16:30:58 ip-10-0-0-129 dhclient[348]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x2c98a25b)
+    Jun  8 06:54:16 ip-10-0-0-129 dhclient[356]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xe8ba6b66)
+    Jun  8 19:47:01 ip-10-0-0-129 dhclient[362]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x4fffb74a)
+    Jun  9 07:01:18 ip-10-0-0-129 dhclient[362]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x486add46)
+    Jun 12 15:58:38 ip-10-0-0-129 dhclient[373]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x9a80357)
+    Jun 13 05:54:51 ip-10-0-0-129 dhclient[373]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x23e21015)
+    Jun 13 17:58:40 ip-10-0-0-129 dhclient[373]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xfc42f91d)
+    Jun 14 09:26:52 ip-10-0-0-129 dhclient[373]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x1832c861)
+    Jun 14 15:11:33 ip-10-0-0-129 dhclient[390]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xc5d8d72e)
+    Jun  6 16:30:58 ip-10-0-0-129 dhclient[348]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun  8 06:54:16 ip-10-0-0-129 dhclient[356]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun  8 19:47:01 ip-10-0-0-129 dhclient[362]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun  9 07:01:18 ip-10-0-0-129 dhclient[362]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun 12 15:58:38 ip-10-0-0-129 dhclient[373]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun 13 05:54:51 ip-10-0-0-129 dhclient[373]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun 13 17:58:40 ip-10-0-0-129 dhclient[373]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun 14 09:26:52 ip-10-0-0-129 dhclient[373]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun 14 15:11:33 ip-10-0-0-129 dhclient[390]: DHCPOFFER of 10.0.0.129 from 10.0.0.1
+    Jun  6 16:30:58 ip-10-0-0-129 dhclient[348]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x5ba2982c)
+    Jun  8 06:54:16 ip-10-0-0-129 dhclient[356]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x666bbae8)
+    Jun  8 19:47:01 ip-10-0-0-129 dhclient[362]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x4ab7ff4f)
+    Jun  9 07:01:18 ip-10-0-0-129 dhclient[362]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x46dd6a48)
+    Jun 12 15:58:38 ip-10-0-0-129 dhclient[373]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x5703a809)
+    Jun 13 05:54:51 ip-10-0-0-129 dhclient[373]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x1510e223)
+    Jun 13 17:58:40 ip-10-0-0-129 dhclient[373]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x1df942fc)
+    Jun 14 09:26:52 ip-10-0-0-129 dhclient[373]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x61c83218)
+    Jun 14 15:11:33 ip-10-0-0-129 dhclient[390]: DHCPREQUEST for 10.0.0.129 on eth0 to 255.255.255.255 port 67 (xid=0x2ed7d8c5)
+    Jun  6 16:30:58 ip-10-0-0-129 dhclient[348]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x2c98a25b)
+    Jun  8 06:54:16 ip-10-0-0-129 dhclient[356]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0xe8ba6b66)
+    Jun  8 19:47:01 ip-10-0-0-129 dhclient[362]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x4fffb74a)
+    Jun  9 07:01:18 ip-10-0-0-129 dhclient[362]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x486add46)
+    Jun 12 15:58:38 ip-10-0-0-129 dhclient[373]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x9a80357)
+    Jun 13 05:54:51 ip-10-0-0-129 dhclient[373]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x23e21015)
+    Jun 13 17:58:40 ip-10-0-0-129 dhclient[373]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0xfc42f91d)
+    Jun 14 09:26:52 ip-10-0-0-129 dhclient[373]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0x1832c861)
+    Jun 14 15:11:33 ip-10-0-0-129 dhclient[390]: DHCPACK of 10.0.0.129 from 10.0.0.1 (xid=0xc5d8d72e)
+    

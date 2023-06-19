@@ -245,16 +245,16 @@ Make sure the statefulset was created successfully, and the pod is up and runnin
 
 # Exercise
 
-## :pencil2: The StatefulSet task in the official k8s docs
+### :pencil2: The StatefulSet task in the official k8s docs
 
 https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/
 
 
-## :pencil2: Communicate between containers in the same pod using a shared volume
+### :pencil2: Communicate between containers in the same pod using a shared volume
 
 https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/
 
-## :pencil2: No space left on disk - increase the mounter EBS
+### :pencil2: No space left on disk - increase the mounter EBS
 
 You notice a "No space left on disk" error in the Grafana statefulset pod logs.
 Increase the size of the mounted EBS volume in the Grafana statefulset to resolve the issue and provide additional storage capacity.

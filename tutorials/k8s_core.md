@@ -74,13 +74,13 @@ kubectl port-forward service/mynginx 9000:8080
 
 # Exercises 
 
-## :pencil2: Deploy the 2048 game
+### :pencil2: Deploy the 2048 game
 
 Create a **Deployment** of 2 replicas for the [2048 game dockerized image](https://hub.docker.com/r/alexwhen/docker-2048).
 Expose the Deployment with a **Service** listening on port 5858. Visit the app locally using `port-forward`.
 
 
-## :pencil2: Expose the nginx deployment using NodePort service type 
+### :pencil2: Expose the nginx deployment using NodePort service type 
 
 The default Service type in k8s is `ClusterIP`, which exposes the Service on an internal cluster IP.
 This allows other resources within the cluster to access the Service using its cluster IP and the specified port, but it is not accessible from outside the cluster.

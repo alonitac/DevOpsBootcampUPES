@@ -23,7 +23,7 @@ Now we would like to access the 2048 game application from a domain such as http
 
 # Exercise 
 
-## :pencil2: HTTPS 
+### :pencil2: HTTPS 
 
 Generate a self-signed certificate and private key with:
 

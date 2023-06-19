@@ -178,7 +178,7 @@ https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkth
 
 # Exercise 
 
-## :pencil2: The Zero-downtime Deployment challenge
+### :pencil2: The Zero-downtime Deployment challenge
 
 Design the simple flask webserver (`simple_flask_webserver`) to support readiness probes, as follows:
 

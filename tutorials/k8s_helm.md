@@ -84,11 +84,11 @@ https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus
 
 # Exercises 
 
-## :pencil2: Add prometheus datasource as code
+### :pencil2: Add prometheus datasource as code
 
 Update the `grafana-values.yaml` chart's values file such that the prometheus you've provisioned in the cluster will be added as a datasource in grafana. 
 
-## :pencil2: Expose Grafana using ingress
+### :pencil2: Expose Grafana using ingress
 
 Read the Grafana helm chart, serve the server behind your ingress:
 

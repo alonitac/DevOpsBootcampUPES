@@ -15,7 +15,7 @@ fi
 
 # If both public and private instance IPs are provided, connect to the private instance via the public instance
 if [ -n "$2" ]; then
-  ssh -ti "$KEY_PATH" ubuntu@"$1" ssh -i "sangini-publickey.pem" ubuntu@"$2" "$COMMAND"
+  ssh -ti "$KEY_PATH" ubuntu@"$1" ssh -i "nishant-pro.pem" ubuntu@"$2" "$COMMAND"
 
 # Otherwise, connect to the public instance
 else

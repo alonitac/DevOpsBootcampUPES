@@ -7,7 +7,6 @@ RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{
    "message": "Client Hello"
 }' http://18.191.191.154:8080/clienthello)
 
-
 # Step 2 - Server Hello (Server -> Client)
 SESSION_ID=$(jq -r '.sessionID' <<< "$RESPONSE")
 

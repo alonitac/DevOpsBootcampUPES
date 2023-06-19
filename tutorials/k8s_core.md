@@ -89,3 +89,12 @@ Service of type `NodePort` exposes the Service **on each Node's IP** at a static
 
 Create a NodePort service and visit the nginx deployment from your local machine.
 
+[//]: # (## :pencil2: Jobs and cronjobs )
+
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (## :pencil2: Node selector)
+
+[//]: # ()
+

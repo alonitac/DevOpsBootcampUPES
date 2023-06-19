@@ -171,7 +171,14 @@ readinessProbe:
   periodSeconds: 5
 ```
 
-### The Zero-downtime Deployment challenge
+## HorizontalPodAutoscaler Walkthrough
+
+Follow:  
+https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+
+# Exercise 
+
+## :pencil2: The Zero-downtime Deployment challenge
 
 Design the simple flask webserver (`simple_flask_webserver`) to support readiness probes, as follows:
 
@@ -191,8 +198,12 @@ Replace `<your-app-url-and-port>` with your app URL.
 
 Your goal is to be able to perform a rolling update with zero-downtime (without losing any request).
 
-## HorizontalPodAutoscaler Walkthrough
 
-Follow:  
-https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/
+[//]: # (## :pencil2: Init containers)
+
+[//]: # ()
+[//]: # ()
+[//]: # (## :pencil2: Container lifecycle )
+
+[//]: # ()
 

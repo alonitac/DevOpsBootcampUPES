@@ -29,7 +29,7 @@ To create the secret, you can apply this yaml in the cluster.
 Alternatively, you can create the same Secret using the kubectl create secret command (and skip the Base64 encoding step):
 
 ```bash
-kubectl create secret generic test-secret --from-literal='username=john' --from-literal='password=39528$vdg7Jb'
+kubectl create secret generic grafana-creds --from-literal='username=john' --from-literal='password=39528$vdg7Jb'
 ```
 
 You can consume the data in Secrets as environment variables in your containers.

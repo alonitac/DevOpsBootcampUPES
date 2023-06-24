@@ -1,270 +1,481 @@
-# Ansible
+# Terraform 
 
-Ansible is an open-source automation tool that simplifies the process of configuring and managing remote servers.
+HashiCorp Terraform is an infrastructure as code (IaC) tool that lets you define cloud resources in human-readable configuration files that you can version, reuse, and share.
 
-- Declarative language described in YAMLs.
-- Automate repetitive tasks such as software installation, configuration management, and application deployment across multiple servers or workstations
-- Works over SSH, allowing it to manage both Linux and Windows machines.
-- Large and active community
-- Ships with an [extensible documentation](https://docs.ansible.com/ansible/latest/getting_started/index.html#getting-started-with-ansible). 
+<div align="center">
+<img src="img/terraform.png">
+</div>
 
-## Installation
+Terraform creates and manages resources on cloud platforms through their application programming interfaces (APIs). Providers enable Terraform to work with virtually any platform or service with an accessible API.
+
+<div align="center">
+<img src="img/terraform-provider.png">
+</div>
+
+HashiCorp and the Terraform community have already written more than 1700 providers to manage thousands of different types of resources and services.
+
+You can find all publicly available providers on the [Terraform Registry](https://registry.terraform.io/browse/providers), including AWS, Azure, GCP, Kubernetes, Helm, GitHub, Splunk, DataDog, and many more.
+
+## IaaC Benefits
+
+- Automated provisioning
+- Consistent environments
+- Repeatable process
+- Reusable components
+- Versioned and Documented
 
 
-https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible
+## Install Terraform
 
-**Note**: While Ansible as a tool can connect and manage remote Windows servers, installing and using Ansible **from** Windows is not supported, only Linux here. 
+Linux users can install from: https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
 
-## Choosing the right tool (Terraform vs Ansible)
+## Get Started on AWS
 
-![](img/ansible_tf.png)
+[Tutorial reference](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build)
 
-## Build simple inventory and use ad-hoc commands
 
-Ansible works against multiple managed nodes or “hosts” in your infrastructure at the same time, using a list or group of lists known as [inventory](https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html).
-The default location for inventory is a file called `/etc/ansible/hosts` (use `-i` to specify another location).
+### Deploy single EC2 instance
 
-An ad-hoc command is a single, one-time command that you run against your inventory (or a single host), without the need for a playbook.
-Ad-hoc commands are useful for performing quick and simple tasks, such as checking the uptime of a server or installing a package.
+The set of files used to describe infrastructure in Terraform is known as a Terraform configuration. You will write your first configuration to define a single AWS EC2 instance.
 
-1. In this demo we will use two **Amazon Linux** EC2 instances as the server inventory. Make sure you have access to the `.pem` private key.
-2. Create a simple `hosts` inventory file as follows:
-```ini
-<host-ip1>
-<host-ip2>
-```
+1. Edit the configuration file in `terraform_workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
+   1. `<aws-region-code>` is the region in which you want to deploy your infrastructure.
+   2. `<ec2-ami>` is the AMI you want to provision (you can choose Amazon Linux).
+   3. `<your-alias>` is the name of you EC2 instance.
+   4. `<aws-course-profile>` is the profile account with which your local credentials are associated.
+2. When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory with `terraform init`.
+   Initializing a configuration directory downloads and installs the providers defined in the configuration, which in this case is the `aws` provider.
+3. You can make sure your configuration is syntactically valid and internally consistent by using the `terraform validate` command.
+4. Apply the configuration now with the `terraform apply` command.
 
-An Ansible ad hoc command uses the `ansible` command-line tool to automate a single task. We will use the [`ping` module](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/ping_module.html) to ping our hosts.
+When you applied your configuration, Terraform wrote data into a file called `terraform.tfstate`. Terraform stores the IDs and properties of the resources it manages in this file, so that it can update or destroy those resources going forward.
+The Terraform state file is the only way Terraform can track which resources it manages, and often contains sensitive information, so you must store your state file securely, outside your version control.
 
-3. Run the following command, investigate the returned error and use the `--user` option to fix it.
-```shell
-ansible -i /path/to/inventory-file --private-key /path/to/private-key-pem-file all -m ping
-```
+5. Inspect the current state using `terraform show`.
 
-4. Let's say the hosts run webserver, we can arrange hosts under groups, and automate tasks for specific group:
-```ini
-[webserver]
-web1 ansible_host=<host-ip-1> ansible_user=<host-ssh-user>
-web2 ansible_host=<host-ip-2> ansible_user=<host-ssh-user>
-```
+### Explore the `terraform.lock.hcl` file
 
-There are two more default groups: `all` and `ungrouped`. The all group contains every host. The ungrouped group contains all hosts that don’t have another group aside from `all`.
+When you initialize a Terraform configuration for the first time, Terraform will generate a new `.terraform.lock.hcl` file in the current working directory.
+You should include the lock file in your version control repository to ensure that Terraform uses the same provider versions across your team and in ephemeral remote execution environments.
 
-5. Let's check the uptime of all server in `webserver` group:
-```shell
-ansible -i /path/to/inventory-file --private-key /path/to/private-key-pem-file webserver -m command -a "uptime"
-```
+While initializing your workspace, Terraform read the dependency lock file and download the specified versions. If Terraform did not find a lock file, it would download the latest versions of the providers that fulfill the version constraints you defined in the `required_providers` block.
 
-## Working with Playbooks
+1. Change the version constrains of `aws` provider from `4.16` to `~> 4.16`.
+2. Initialize the workspace with the `-upgrade` flag to upgrade the provider.
 
-If you need to execute a task with Ansible more than once, write a **playbook** and put it under source control.
-Ansible Playbooks offer a repeatable, re-usable and simple configuration management.
-Playbooks are expressed in YAML format, composed of one or more ‘plays’ in an **ordered** list.
-A playbook 'play' runs one or more tasks. Each task calls an Ansible module from top to bottom.
+### Change the deployed infrastructure
 
-In this demo, we will be practicing some security hardening for the webserver hosts.
+1. Now update the `ami` of your instance. Change the `aws_instance.app_server` resource under the provider block in `main.tf` by replacing the current AMI ID with a new one.
+2. Run `terraform plan` to create an execution plan, which lets you preview the changes that Terraform plans to make to your infrastructure.
+3. After changing the configuration, run `terraform apply` again to see how Terraform will apply this change to the existing resources.
 
-To demonstrate the power of Ansible, we first want to create a task that verify the installation of `httpd` (and install it if needed).
+The prefix `-/+` means that Terraform will destroy and recreate the resource, rather than updating it in-place.
+The AWS provider knows that it cannot change the AMI of an instance after it has been created, so Terraform will destroy the old instance and create a new one.
 
-1. Create the following `site.yaml` file, representing an Ansible playbook:
-```yaml
----
-- name: Harden web servers
-  hosts: <hosts-group>
-  tasks:
-    - name: Ensure httpd is at the latest version
-      ansible.builtin.yum:
-        name: httpd-2.4*
-        state: latest
-```
+### Use Variables to parametrize your configuration
 
-In the above example, [`ansible.builtin.yum`](https://docs.ansible.com/ansible/latest/modules/yum_module.html#yum-module) is the module being used, `name` and `state` are module's parameters. 
-In Ansible, a module is a small piece of code that is used to perform specific tasks, such as managing packages, files, or services on a target system.
-Ansible ships with hundreds of [built-in modules](https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html) available for usage.
+The current configuration includes a number of hard-coded values. Terraform variables allow you to write configuration that is flexible and easier to re-use.
 
-2. Apply your playbook using the following `ansible-playbook` command.
-```shell
-ansible-playbook -i /path/to/inventory-file --private-key /path/to/private-key-pem-file site.yaml
-```
+1. In the same directory as `main.tf`, create a new file called `variables.tf` with a block defining a new `env` variable.
+   ```text
+   variable "env" {
+   description = "Deployment environment"
+   type        = string
+   default     = "dev"
+   }
+   ```
+2. In `main.tf`, update the `aws_instance.app_server` resource block to use the new variable. The `env` variable block will default to its default value ("dev") unless you declare a different value.
+   ```text
+    tags = {
+   -    Name = "<instance-name>"
+   +    Name = "<instance-name>-${var.env}"
+    }
+   ```
 
-As the tasks in this playbook require root-privileges, we add the `become: yes` to enable execute tasks as a different Linux user, as well as [using variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#using-variables):
-```yaml
----
-- name: Harden web servers
-  hosts: webserver
-  become: yes
-  become_method: sudo
-  vars:
-    apache_version: 2.4  
-  vars_files:
-    - vars/amazon_linux_ssh_vars.yaml  # this file will be discussed soon...
-  tasks:
-    - name: Ensure httpd is at the latest version
-      become_user: root
-      ansible.builtin.yum:
-        name: "httpd-{{ apache_version }}*"
-        state: latest
-```
-Run the playbook again and make sure the task has been completed successfully.
+   and
 
-We now want to harden the SSH configurations of the hosts.
+   ```text
+   - instance_type = "t2.micro"
+   + instance_type = var.env == "prod" ? "t2.micro" : "t2.nano"
+   ```
 
-3. Add the following task to your playbook:
-```yaml
-  tasks:
-    # ...
+   The [conditional expression](https://www.terraform.io/language/expressions/conditionals) (among over many more [expressions](https://www.terraform.io/language/expressions)) uses the value of a boolean expression to select one of two values.
 
-    - name: Write the sshd config file
-      ansible.builtin.template:
-        src: templates/sshd_config.j2
-        dest: /etc/ssh/sshd_config
-```
+3. Apply the configuration.
 
-Ansible uses [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) templating mechanism to enable dynamic expressions and access to [variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#playbooks-variables).
-The `templates/sshd_config.j2` and its corresponding variable file `vars/amazon_linux_ssh_vars.yaml` can be found in our shared repo.
+### Extend your EC2
 
-5. Run the playbook. Connect to one of the hosts and make sure the `sshd` configuration file has been updated.
-6. For the new SSH configs to be applied, it's required to restart the `sshd` service. Let's add a `handlers:` entry with a handler that restarts the daemon after a successful configuration change:
-```yaml
----
-- name: Harden web servers
-  # ...
+Terraform infers dependencies between resources based on the configuration given,
+so that resources are created and destroyed in the correct order. Let's create a security group for our EC2:
 
-  tasks:
-    # ...
+1. Add another variable to `variables.tf`
+   ```text
+   variable "resource_alias" {
+     description = "Your name"
+     type        = string
+     default     = "=<your-name>"
+   }
+   ```
+   change `<your-name>` to your alias.
 
-  handlers:
-    - name: restart sshd
-      become_user: root
-      ansible.builtin.service:
-        name: sshd
-        state: restarted
+2. Create a security group
+   ```text
+   resource "aws_security_group" "sg_web" {
+     name = "${var.resource_alias}-${var.env}-sg"
+   
+     ingress {
+       from_port   = "8080"
+       to_port     = "8080"
+       protocol    = "tcp"
+       cidr_blocks = ["0.0.0.0/0"]
+     }
+   
+     tags = {
+       Env         = var.env
+       Terraform   = true
+     }
+   }
+   ```
+3. Add the following attributes to `aws_instance.app_server`:
+   ```text
+     vpc_security_group_ids = [aws_security_group.sg_web.id]
+     key_name = "<your-key-pair-name>"
+   ```
+4. Apply.
 
-```
-Note that in order to trigger the handles, the **Write the sshd config file** tasks needs to notify the **restart sshd** handler. [Read how to do it](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_handlers.html#handlers).
+You can use the `depends_on` meta-argument to handle hidden resource dependencies that Terraform cannot automatically infer (e.g. SQS queue should be ready before an EC2 instance can product or data).
 
-7. Run the playbook and check the status of the `sshd` service by running `sudo systemctl status sshd` in one of the hosts machine.
-8. Now, in the YAML variables file, change the `sshd_port` variable to a number other than `22` and run the playbook.
-9. You will need update your `hosts` inventory file to use the new port, as follows:
-```ini
-web1 ansible_host=... ansible_user=... ansible_port=23
-```
+5. Create the following S3 bucket
+   ```text
+   resource "aws_s3_bucket" "data_bucket" {
+     bucket = "<bucket-name>"
+   
+     tags = {
+       Name        = "${var.resource_alias}-bucket"
+       Env         = var.env
+       Terraform   = true
+     }
+   }
+   ```
+6. We assume that `aws_instance.app_server` put and retrieve data from `data_bucket`, which is an implicit dependency.
+   Add the following `depends_on` meta-attribute to `aws_instance.app_server`:
+   ```text
+   depends_on = [
+      aws_s3_bucket.data_bucket
+   ]
+   ```
 
-Make sure Ansible is able to communicate with your hosts after the change.
+### Add Outputs
 
-### Validating playbook tasks: `check` mode and `diff` mode
+Terraform output values allow you to export structured data about your resources. You can use this data to configure other parts of your infrastructure with automation tools, or as a data source for another Terraform workspace. Outputs are also necessary to share data from a child module to your root module.
 
-Ansible provides two modes of execution that validate tasks: check mode and diff mode.
-They are useful when you are creating or editing a playbook, and you want to know what it will do.
-
-In `check` mode, Ansible runs without making any changes on remote systems, and report the changes that would have made.
-In `diff` mode, Ansible provides before-and-after comparisons.
-
-Simply add the `--check` or `--diff` options (both or separated) to the `ansible-playbook` command:
-
-```shell
-ansible-playbook -i ./inventory/hosts site.yaml --check --diff 
-```
-
-## Ansible Facts
-
-You can retrieve or discover certain variables containing information about your remote systems, which are called **facts**.
-For example, with facts variables you can use the IP address of one system as a configuration value on another system. 
-Or you can perform tasks based on the specific host OS.
-
-To see all available facts, add this task to a play:
-
-```yaml
-    tasks:
-      # ...
-    - name: Print all available facts
-      ansible.builtin.debug:
-        var: ansible_facts
-```
-
-Or alternatively, run the `-m setup` ad-hoc command:
-```shell
-ansible -i ./inventory/hosts webserver -m setup
-```
-
-As the `ansible.builtin.yum` module fits only RedHat family systems (e.g. Amazon Linux), we would like to add a condition for tasks using the yum built-in module, using the `ansible_pkg_mgr` facts variable:
-
-```yaml
-    tasks:
-    # ...
-    - name: Ensure httpd is at the latest version
-      become_user: root
-      ansible.builtin.yum:
-        name: httpd-2.4*
-        state: latest
-      when: ansible_facts['pkg_mgr'] == 'yum'
-```
-
-### Try it yourself
-
-1. Create another task to make sure that the latest version of `auditd` daemon is installed. In order to do it manually, without ansible, we do `sudo yum install audit`.
-2. Add some rules to the `auditd` daemon. The config template in located under `17_ansible_workdir/templates/auditd_rules.j2`, while path in the server to which you need to apply the configurations is `/etc/audit/rules.d/audit.rules`. 
-
-You'll apply two auditing rules: 
-
-- Audit all activities in `/root` directory.
-- Audit `sudo` usage.
-
-3. Add a handler to restart the `auditd` daemon. 
-
-4. Test that the auditing rules were applied:
-   1. Execute some command as root: `sudo su -`
-   2. Search for appropriate audit logs: `sudo ausearch -k using_sudo`.
-
-## Organize the playbook using Roles
-
-[Roles](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) are collection of tasks, files, templates, variables and other Ansible artifacts that are organized in a structured way to perform a specific function.
-Roles are used to create reusable and modular code, making it easier to manage complex configurations and deployments.
-
-Collections are a distribution format for Ansible content that can include playbooks, roles, modules, and plugins. You can install and use collections through a distribution server, such as [Ansible Galaxy](https://galaxy.ansible.com). 
-
-1. Redesign your YAML files according to the following files structure:
+1. Add the following output in `outputs.tf` file:
 ```text
-#  in the working directory of your Ansible playbook
-roles/
-    sshd/
-        tasks/
-            main.yaml
-        handlers/
-            main.yaml
-        templates/
-            sshd_config.j2
-        vars/
-            main.yaml
-     auditd/
-        tasks/
-            main.yaml
-        handlers/
-            main.yaml
-        templates/
-            auditd_rules.j2
-        vars/
-            main.yaml      
+output "instance_public_ip" {
+  description = "Public IP address of the EC2 instance"
+  value       = aws_instance.app_server.public_ip
+}
+```
+2. Apply and see the output values in the stdout.
+
+
+### Modules
+
+Modules help you to package and reuse resource configurations with Terraform.
+Modules are containers for multiple resources that are used together, consists of a collection of `.tf` files **kept together in a directory**.
+
+#### The root module
+
+Every Terraform configuration has at least one module, known as its root module, which consists of the resources defined in the .tf files in the main working directory.
+
+#### Use the Terraform Registry
+
+1. Open the [Terraform Registry page for the VPC module](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws). Review the module **Inputs** and **Outputs**.
+
+2. Add the following VPC `module` block:
+   ```text
+   module "app_vpc" {
+     source  = "terraform-aws-modules/vpc/aws"
+     version = "3.14.0"
+   
+     name = "${var.resource_alias}-vpc"
+     cidr = var.vpc_cidr
+   
+     azs             = ["<az1>", "<az2>", "..."]
+     private_subnets = var.vpc_private_subnets
+     public_subnets  = var.vpc_public_subnets
+   
+     enable_nat_gateway = false
+   
+     tags = {
+       Name        = "${var.resource_alias}-vpc"
+       Env         = var.env
+       Terraform   = true
+     }
+   }
+   ```
+   Make sure you specify a list of `azs` (availability zones) according to your region.
+3. Add the following output in `outputs.tf`:
+   ```text
+   output "vpc_public_subnets" {
+     description = "IDs of the VPC's public subnets"
+     value       = module.app_vpc.public_subnets
+   }
+   ```
+4. Edit `vpc-vars.tf` so you'll have two private, and two public subnets within your VPC.
+5. Apply and inspect your VPC in AWS Console.
+
+Let's migrate the EC2 and the security group into your VPC
+
+5. Add the following attribute to `aws_security_group.sg_web`
+   ```text
+     vpc_id      = module.app_vpc.vpc_id
+   ```
+
+6. Add the following attributes to `aws_instance.app_server`:
+   ```text
+     subnet_id              = module.app_vpc.public_subnets[0]
+   ```
+
+### Data Sources
+
+Data sources allow Terraform to use information defined outside your configuration files.
+Cloud infrastructure, applications, and services emit data, which Terraform can query and act on using **data sources**.
+A data sources fetches information from cloud provider APIs, such as disk image IDs, availability zones etc...
+
+You will use the [`aws_availability_zones`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones) data source (which is part of the AWS provider) to configure your VPC's Availability Zones (AZs), allowing you to deploy this configuration in any AWS region.
+
+1. List the AZs which can be accessed by an AWS account within the region configured in the provider.
+```text
+data "aws_availability_zones" "available_azs" {
+  state = "available"
+}
+```
+2. Change the following attribute in `app_vpc` module:
+```text
+- azs             = ["<az1>", "<az2>", ...]
++ data.aws_availability_zones.available_azs.names
+```
+3. Apply. Now your `app_vpc` block is region-agnostic!
+
+The `aws_instance` configuration also uses a hard-coded AMI ID, which is only valid for the specific region. Use an `aws_ami` data source to load the correct AMI ID for the current region.
+
+4. Add the following `aws_ami` data source to fetch AMIs from AWS API
+```text
+data "aws_ami" "amazon_linux_ami" {
+  most_recent = true
+  owners      = ["amazon"]
+
+  filter {
+    name   = "name"
+    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+  }
+}
+```
+5. Replace the hard-coded AMI ID with the one loaded from the new data source.
+```text
+-  ami = "<your-hard-coded-ami>"
++  ami = data.aws_ami.amazon_linux_ami.id
+```
+6. Add the following output in `outputs.tf`:
+```text
+output "app_server_ami" {
+  description = "ID of the EC2 instance AMI"
+  value       = data.aws_ami.amazon_linux_ami
+}
+```
+7. Apply.
+
+### Manage resource drifts
+
+The Terraform state file is a record of all resources Terraform manages. You should not make manual changes to resources controlled by Terraform, because the state file will be out of sync, or "drift," from the real infrastructure.
+By default, Terraform compares your state file to real infrastructure whenever you invoke `terraform plan` or `terraform apply`.
+
+If you suspect that your infrastructure configuration changed outside of the Terraform workflow, you can use a `-refresh-only` flag to inspect what the changes to your state file would be.
+
+1. Run `terraform plan -refresh-only` to determine the drift between your current state file and actual configuration.  
+   You should be synced: `No changes. Your infrastructure still matches the configuration.`
+2. In the AWS Console, **manually** create a new security group within the `module.app_vpc` VPC (allow TCP access on port 22 for all IP addresses), attach this security group to `aws_instance.app_server` EC2 instance.
+3. Run `terraform plan -refresh-only` again. As shown in the output, Terraform has detected differences between the infrastructure and the current state, and sees that your EC2 instance has a new security group attached to it.
+4. Apply these changes by `terraform apply -refresh-only` to make your state file match your real infrastructure, **but not your Terraform configuration!!!**.
+
+A refresh-only operation does not attempt to modify your infrastructure to match your Terraform configuration -- it only gives you the option to review and track the drift in your state file.
+If you ran `terraform plan` or `terraform apply` without the `-refresh-only` flag now, Terraform would attempt to revert your manual changes.
+
+Now, you will update your configuration to associate your EC2 instance with both security groups.
+
+1. First, add the resource definition to your configuration by
+   ```text
+   resource "aws_security_group" "sg_ssh" {
+    name = "<your-security-group-name>"
+    description = "<your-security-group-description>"
+    vpc_id      = module.app_vpc.vpc_id
+   
+    ingress {
+        from_port   = "22"
+        to_port     = "22"
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+   }
+   ```
+   Make sure `<your-security-group-name>` is the same as your manually created security group.
+2. Add the security group ID to your instance resource.
+   ```text
+   - vpc_security_group_ids = [aws_security_group.sg_ssh.id]
+   + vpc_security_group_ids = [aws_security_group.sg_ssh.id, aws_security_group.sg_web.id]
+   ```
+3. Run `terraform import` to associate your resource definition with the security group created in the AWS Console:
+   ```text
+   terraform import aws_security_group.sg_ssh <sg-id>
+   ```
+   Where `<sg-id>` is your security group id.
+
+
+### Secrets and sensitive data
+
+Let's create MySQL RDS instance:
+
+1. Add the following resources to your configuration file:
+```text
+resource "aws_db_subnet_group" "private_db_subnet" {
+  subnet_ids = module.app_vpc.public_subnets
+}
+
+resource "aws_db_instance" "database" {
+  allocated_storage = 5
+  db_name              = "${var.resource_alias}mysql"
+  engine            = "mysql"
+  instance_class    = "db.t2.micro"
+  username          = "admin"
+  password          = "password"
+
+  db_subnet_group_name = aws_db_subnet_group.private_db_subnet.name
+  skip_final_snapshot = true
+}
+```
+2. The database username and password are hard-coded. Refactor this configuration to remove these values:
+   1. Explore the variables `db-vars.tf` (comment them in!). Notice that you've declared the variables as `sensitive`.
+   2.  Now update main.tf to reference these variables:
+   ```text
+   -  username          = "admin"
+   -  password          = "password"
+   +  username          = var.db_username
+   +  password          = var.db_password
+   ```
+
+If you were to run terraform apply now, Terraform would prompt you for values for these new variables since you haven't assigned defaults to them. However, entering values manually is time consuming and error prone. Next, you will use two different methods to set the sensitive variable values, and learn about security considerations of each method.
+
+**Set values with a `.tfvars` file**
+
+Terraform supports setting variable values with variable definition (.tfvars) files. You can use multiple variable definition files, and many practitioners use a separate file to set sensitive or secret values.
+
+3. Create a new file called `secret.tfvars` to assign values to the new variables.
+   ```text
+   db_username = "admin"
+   db_password = "password"
+   ```
+4. Apply by `terraform apply -var-file="secret.tfvars"`
+
+
+<details>
+<summary>Read more about `.tfvars` files</summary>
+
+To set lots of variables, it is more convenient to specify their values in a variable definitions file (with a filename ending in .tfvars) and then specify that file on the command line with `-var-file`:
+```text
+terraform apply -var-file="testing.tfvars"
 ```
 
-By default, Ansible will look in each directory within a role for a `main.yaml` file for relevant content.
+A variable definitions file uses the same basic syntax as Terraform language files, but consists only of variable name assignments:
 
-2. Create a `site.yaml` file with the following content:
-```yaml
----
-- name: Harden web servers
-  hosts: webserver
-  become: yes
-  become_method: sudo
-  roles:
-    - sshd
-    - auditd
-  tasks:
-    # ...
-
+```text
+image_id = "ami-abc123"
+availability_zone_names = [
+  "us-east-1a",
+  "us-west-1c",
+]
 ```
+</details>
 
-Ansible will execute roles first, then other tasks in the play.
+**Set values with variables**
 
-In the context of the content we've covered - system hardening, you can take a look on the [devsec.hardening](https://galaxy.ansible.com/devsec/hardening) collection. 
+Set the database administrator username and password using environment variables:
 
+3. Define the following env vars:
+   ```text
+   # Linux (or Git Bash)
+   export TF_VAR_db_username=admin TF_VAR_db_password=password
+   
+   # Powershell
+   $Env:TF_VAR_db_username = "admin"; $Env:TF_VAR_db_password = "password"
+   
+   # cmd
+   set "TF_VAR_db_username=admin" & set "TF_VAR_db_password=password"
+   ```
+4. Apply regularly by `terraform apply`.
+
+#### Reference sensitive variables
+
+Finally, you can use sensitive variables as you would any other variable.
+If those variables are sensitive, Terraform will redact these values in command output and log files, and raise an error when it detects that they will be exposed in other ways.
+
+5. Add the following output in `outputs.tf`.
+6. Apply again the changes. Terraform will raise an error, since the output is derived from sensitive variables.
+7. Flag the database connection string output as `sensitive`, causing Terraform to hide it.
+8. Apply.
+
+### Protect your infrastructure from being destroyed
+
+To prevent destroy operations for specific resources,
+you can add the `prevent_destroy` attribute to your resource definition.
+This [lifecycle](https://www.terraform.io/language/meta-arguments/lifecycle) option prevents Terraform from accidentally removing critical resources.
+
+1. Add the `lifecycle` meta-argument by:
+   ```
+   lifecycle {
+      prevent_destroy = true
+   }
+   ```
+2. Apply the change, then apply a destroying change and test the rule.
+
+### Backend configurations
+
+A backend defines where Terraform stores its [state](https://www.terraform.io/language/state) data files.
+This lets multiple people access the state data and work together on that collection of infrastructure resources.
+When changing backends, Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
+Always backup your state!
+
+1. To configure a backend, add a nested `backend` block within the top-level `terraform` block. The following example configures the `s3_backend` backend:
+   ```text
+   backend "s3" {
+    bucket = "<bucket-name>"
+    key    = "tfstate.json"
+    region = "<bucket-region>"
+    # optional: dynamodb_table = "<table-name>"
+   }
+   ```
+2. Apply the changes and make sure the state is stored in S3.
+
+This backend also supports state locking and consistency checking via Dynamo DB, which can be enabled by setting the `dynamodb_table` field to an existing DynamoDB table name.
+The table must have a partition key named `LockID` with type of `String`.
+
+### Destroy infrastructure
+
+The `terraform destroy` command terminates resources managed by your Terraform project.
+This command is the inverse of `terraform apply` in that it terminates all the resources specified in your Terraform state.
+It _does not_ destroy resources running elsewhere that are not managed by the current Terraform project.
+
+1. Destroy the resources you created by `terraform destroy`.
+
+The `-` prefix indicates that the instance will be destroyed.
+Just like with `apply`, Terraform determines the order to destroy your resources. In this case, Terraform identified a single instance with no other dependencies,
+so it destroyed the instance. In more complicated cases with multiple resources, Terraform will destroy them in a suitable order to respect dependencies.
+
+You can destroy specific resource by `terraform destroy -target RESOURCE_TYPE.NAME`.
+
+# Exercises
+
+### :pencil2: Integrate Terraform in your Jenkins pipelines
+
+Use `terraform_workspace/terraform.Jenkinsfile` as skeleton, design a Jenkins pipeline provision infrastructure using Terraform.
+The pipeline should be env- and region-agnostic. 

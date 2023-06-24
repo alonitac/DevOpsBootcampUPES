@@ -8,9 +8,11 @@ Using Docker for build and test pipelines you can benefit from:
 - Build for different environments
 - Using ephemeral containers for better resource utilization
 
-![](img/jenkinsagent.png)
+![](../.img/jenkinsagent.png)
 
-Let's create a Docker container that will be used as a build agent for the `AppBuild` and `AppDeploy` pipelines.
+Image by https://foxutech.com/author/motoskia/
+
+Let's create a Docker container that will be used as a build agent for the `Yolo5Build` and `Yolo5Deploy` pipelines.
 Take a look on the following Dockerfile:
 
 ```dockerfile

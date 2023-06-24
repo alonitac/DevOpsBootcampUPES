@@ -6,7 +6,7 @@ It's common practice to perform an extensive testing on a Pull Request before th
 So far we've seen how pipeline can be built and run around a single Git branch (e.g. `main` or `dev`). Now we would like to create a new pipeline which will be triggered on **every PR that is created in GitHub**.
 For that we will utilize Jenkins [multi-branch pipeline](https://www.jenkins.io/doc/book/pipeline/multibranch/).
 
-1. From the main Jenkins dashboard page, choose **New Item**, and create a **Multibranch Pipeline** named `PR-testing`.
+1. From the main Jenkins dashboard page, choose **New Item**, and create a **Multibranch Pipeline** named `pull-request-testing`.
 2. In the **GitHub** source section, under **Discover branches** configure this pipeline to discover PRs only!
 3. This pipeline should be defined by a Jenkinsfile called `PullRequest.Jenkinsfile`.
 4. In `main` branch, create the `PullRequest.Jenkinsfile` as follows:
@@ -54,9 +54,11 @@ Let's implement the pull request testing pipeline.
 
 ### Run unittests
 
-1. In the **updated** app directory (`14_yolo5_app`), you are given directory called `tests`. This is a common name for the directory containing all unittests files. The directory contains a file called `test_allowed_file.py` which implements unittest for the `allowed_file` function in `app.py` file. 
+Unittest is a testing framework in Python that allows developers to write and run small, isolated tests for individual units of code to ensure their correctness and detect any potential bugs or issues.
 
-2. Run the unittest locally (you may need to install the following requirements: `pytest`), check that all tests are passed:
+1. In the `projects/app_development_I/yolo5` directory, you are given directory called `tests`. This is a common name for the directory containing all unittests files. The directory contains a file called `test_allowed_file.py` which implements unittest for the `allowed_file` function in `utils.py` file. 
+
+2. Run the unittest locally (you may need to install the requirements: `pip install -r requirements.txt`), check that all tests are passed:
 ```shell
 python3 -m pytest --junitxml results.xml tests
 ```

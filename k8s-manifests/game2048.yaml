@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: 2048-game
+spec:
+  selector:
+    matchLabels:
+      app: 2048-game
+  replicas: 1 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: 2048-game
+    spec:
+      containers:
+      - name: 2048-game
+        image: alexwhen/docker-2048:latest
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mygame
+spec:
+  selector:
+    app: 2048-game
+  ports:
+    - port: 5858
+      targetPort: 80

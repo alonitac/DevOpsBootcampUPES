@@ -1,6 +1,6 @@
 # Terraform 
 
-HashiCorp Terraform is an infrastructure as a code (IaaC) tool that lets you define cloud resources in human-readable configuration files that you can version, reuse, and share.
+HashiCorp Terraform is an infrastructure as code (IaC) tool that lets you define cloud resources in human-readable configuration files that you can version, reuse, and share.
 
 <div align="center">
 <img src="../.img/terraform.png">
@@ -27,17 +27,7 @@ You can find all publicly available providers on the [Terraform Registry](https:
 
 ## Install Terraform
 
-### Linux
-
 Linux users can install from: https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started
-
-### Windows
-
-- Got to https://www.terraform.io/downloads.
-- Download the Windows Binary (386 or amd64).
-- Unzip and put the `terraform.exe` file in `c:\terraform\terraform.exe`.
-- Make sure that terraform binary [is available on your PATH](https://stackoverflow.com/questions/1618280/where-can-i-set-path-to-make-exe-on-windows).
-
 
 ## Get Started on AWS
 
@@ -48,7 +38,7 @@ Linux users can install from: https://learn.hashicorp.com/tutorials/terraform/in
 
 The set of files used to describe infrastructure in Terraform is known as a Terraform configuration. You will write your first configuration to define a single AWS EC2 instance.
 
-1. Edit the configuration file in `16_terraform_workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
+1. Edit the configuration file in `terraform_workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
    1. `<aws-region-code>` is the region in which you want to deploy your infrastructure.
    2. `<ec2-ami>` is the AMI you want to provision (you can choose Amazon Linux).
    3. `<your-alias>` is the name of you EC2 instance.
@@ -483,3 +473,9 @@ so it destroyed the instance. In more complicated cases with multiple resources,
 
 You can destroy specific resource by `terraform destroy -target RESOURCE_TYPE.NAME`.
 
+# Exercises
+
+### :pencil2: Integrate Terraform in your Jenkins pipelines
+
+Use `terraform_workspace/terraform.Jenkinsfile` as skeleton, design a Jenkins pipeline provision infrastructure using Terraform.
+The pipeline should be env- and region-agnostic. 

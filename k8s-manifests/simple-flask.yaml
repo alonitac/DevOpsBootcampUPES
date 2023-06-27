@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-flask
+spec:
+  selector:
+    matchLabels:
+      app: simple-flask
+  replicas: 6
+  template:
+    metadata:
+      labels:
+        app: simple-flask
+    spec:
+      containers:
+      - name: simple-flask
+        image: 854171615125.dkr.ecr.us-east-2.amazonaws.com/alonit-simple-flask:0.1
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /status
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: myflask
+spec:
+  selector:
+    app: simple-flask
+  ports:
+    - port: 8080
+      targetPort: 8080

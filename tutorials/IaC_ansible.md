@@ -3,13 +3,13 @@
 HashiCorp Terraform is an infrastructure as a code (IaaC) tool that lets you define cloud resources in human-readable configuration files that you can version, reuse, and share.
 
 <div align="center">
-<img src="../.img/terraform.png">
+<img src="img/terraform.png">
 </div>
 
 Terraform creates and manages resources on cloud platforms through their application programming interfaces (APIs). Providers enable Terraform to work with virtually any platform or service with an accessible API.
 
 <div align="center">
-<img src="../.img/terraform-provider.png">
+<img src="img/terraform-provider.png">
 </div>
 
 HashiCorp and the Terraform community have already written more than 1700 providers to manage thousands of different types of resources and services.

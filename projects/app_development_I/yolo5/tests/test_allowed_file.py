@@ -1,5 +1,5 @@
 import unittest
-from app import allowed_file, ALLOWED_EXTENSIONS
+from utils import allowed_file, ALLOWED_EXTENSIONS
 
 
 class TestBacklogPerInstanceMetric(unittest.TestCase):

@@ -1,0 +1,35 @@
+#cpu-demo
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cpu-demo
+spec:
+  containers:
+  - name: cpu-demo-ctr
+    image: vish/stress
+    args:
+    - -cpus
+    - "2"
+    resources:
+      limits:
+        cpu: "1"
+      requests:
+        cpu: "0.5"
+
+---
+#memory demo
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-demo
+spec:
+  containers:
+  - name: memory-demo-ctr
+    image: polinux/stress
+    command: ["stress"]
+    args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"]
+    resources:
+      requests:
+        memory: "50Mi"
+      limits:
+        memory: "100Mi"

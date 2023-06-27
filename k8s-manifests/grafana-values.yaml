@@ -5,9 +5,12 @@ persistence:
 env:
   GF_DASHBOARDS_VERSIONS_TO_KEEP: '10'
 
-#datasources:
-#  - name: CloudWatch
-#    type: cloudwatch
-#    jsonData:
-#      authType: default
-#      defaultRegion: us-east-2
+datasources:
+  datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: CloudWatch
+          type: cloudwatch
+          jsonData:
+            authType: default
+            defaultRegion: us-east-2

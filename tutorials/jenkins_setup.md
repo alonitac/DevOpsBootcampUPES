@@ -16,6 +16,7 @@ sudo apt install openjdk-11-jre
 4. On Jenkins machine, [install Docker engine](https://docs.docker.com/engine/install/ubuntu/). You may want to add jenkins linux user the docker group, so Jenkins could run docker commands:
    ```shell
    sudo usermod -a -G docker jenkins
+   sudo usermod -a -G docker $USER
    ```
 5. Install `kubectl`. 
 6. Install Git if you don't have.

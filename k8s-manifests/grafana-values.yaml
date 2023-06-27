@@ -1,0 +1,13 @@
+persistence:
+  enabled: true
+  size: 5Gi
+
+env:
+  GF_DASHBOARDS_VERSIONS_TO_KEEP: '10'
+
+#datasources:
+#  - name: CloudWatch
+#    type: cloudwatch
+#    jsonData:
+#      authType: default
+#      defaultRegion: us-east-2

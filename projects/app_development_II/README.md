@@ -28,8 +28,9 @@ cd projects/app_development_II
 locust
 ```
 
+Open http://localhost:8089. Provide the host name of your server and try it out!
+
 3. Test your service when performing a rolling update for each one of the services, is it updated seamlessly with zero-downtime?  
 
-Open http://localhost:8089. Provide the host name of your server and try it out!
 
 # Good Luck

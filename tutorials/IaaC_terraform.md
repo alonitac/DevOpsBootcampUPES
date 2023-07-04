@@ -41,18 +41,17 @@ Linux users can install from: https://learn.hashicorp.com/tutorials/terraform/in
 
 ## Get Started on AWS
 
-[Tutorial reference](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build)
+[Tutorial reference](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build) (no need to do)
 
 
 ### Deploy single EC2 instance
 
 The set of files used to describe infrastructure in Terraform is known as a Terraform configuration. You will write your first configuration to define a single AWS EC2 instance.
 
-1. Edit the configuration file in `16_terraform_workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
+1. Edit the configuration file in `terraform_workspace/main.tf`. This is a complete configuration that you can deploy with Terraform.
    1. `<aws-region-code>` is the region in which you want to deploy your infrastructure.
    2. `<ec2-ami>` is the AMI you want to provision (you can choose Amazon Linux).
    3. `<your-alias>` is the name of you EC2 instance.
-   4. `<aws-course-profile>` is the profile account with which your local credentials are associated.
 2. When you create a new configuration — or check out an existing configuration from version control — you need to initialize the directory with `terraform init`.
    Initializing a configuration directory downloads and installs the providers defined in the configuration, which in this case is the `aws` provider.
 3. You can make sure your configuration is syntactically valid and internally consistent by using the `terraform validate` command.
@@ -63,7 +62,7 @@ The Terraform state file is the only way Terraform can track which resources it 
 
 5. Inspect the current state using `terraform show`.
 
-### Explore the `terraform.lock.hcl` file
+### (optional) Explore the `terraform.lock.hcl` file
 
 When you initialize a Terraform configuration for the first time, Terraform will generate a new `.terraform.lock.hcl` file in the current working directory.
 You should include the lock file in your version control repository to ensure that Terraform uses the same provider versions across your team and in ephemeral remote execution environments.
@@ -187,6 +186,27 @@ output "instance_public_ip" {
 }
 ```
 2. Apply and see the output values in the stdout.
+
+### Backend configurations
+
+A backend defines where Terraform stores its [state](https://www.terraform.io/language/state) data files.
+This lets multiple people access the state data and work together on that collection of infrastructure resources.
+When changing backends, Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
+Always backup your state!
+
+1. To configure a backend, add a nested `backend` block within the top-level `terraform` block. The following example configures the `s3_backend` backend:
+   ```text
+   backend "s3" {
+    bucket = "<bucket-name>"
+    key    = "tfstate.json"
+    region = "<bucket-region>"
+    # optional: dynamodb_table = "<table-name>"
+   }
+   ```
+2. Apply the changes and make sure the state is stored in S3.
+
+This backend also supports state locking and consistency checking via Dynamo DB, which can be enabled by setting the `dynamodb_table` field to an existing DynamoDB table name.
+The table must have a partition key named `LockID` with type of `String`.
 
 
 ### Modules
@@ -448,26 +468,6 @@ This [lifecycle](https://www.terraform.io/language/meta-arguments/lifecycle) opt
    ```
 2. Apply the change, then apply a destroying change and test the rule.
 
-### Backend configurations
-
-A backend defines where Terraform stores its [state](https://www.terraform.io/language/state) data files.
-This lets multiple people access the state data and work together on that collection of infrastructure resources.
-When changing backends, Terraform will give you the option to migrate your state to the new backend. This lets you adopt backends without losing any existing state.
-Always backup your state!
-
-1. To configure a backend, add a nested `backend` block within the top-level `terraform` block. The following example configures the `s3_backend` backend:
-   ```text
-   backend "s3" {
-    bucket = "<bucket-name>"
-    key    = "tfstate.json"
-    region = "<bucket-region>"
-    # optional: dynamodb_table = "<table-name>"
-   }
-   ```
-2. Apply the changes and make sure the state is stored in S3.
-
-This backend also supports state locking and consistency checking via Dynamo DB, which can be enabled by setting the `dynamodb_table` field to an existing DynamoDB table name.
-The table must have a partition key named `LockID` with type of `String`.
 
 ### Destroy infrastructure
 

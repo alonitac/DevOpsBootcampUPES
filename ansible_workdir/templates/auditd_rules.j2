@@ -1,0 +1,2 @@
+-a always,exit -F arch=b64 -S rename,rmdir,unlink,unlinkat,renameat -F auid>=500 -F auid!=-1 -F dir=/root/ -F key=touching_root
+-a always,exit -F arch=b64 -F euid=0 -S execve -F key=using_sudo

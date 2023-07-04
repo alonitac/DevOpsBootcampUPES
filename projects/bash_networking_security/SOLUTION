@@ -1,16 +1,26 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+ 10.0.2.2
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Jun 17 01:20:34 ubuntu systemd[832]: Started Service for snap application snapd-desktop-integration.snapd-desktop-integration.
+Jun 17 01:20:34 ubuntu snapd-desktop-integration.snapd-desktop-integration[23752]: Content snap command-chain for /snap/snapd-desktop-integration/83/gnome-platform/command-chain/desktop-launch not found: ensure slot is connected
+Jun 17 01:20:37 ubuntu systemd[832]: snap.snapd-desktop-integration.snapd-desktop-integration.service: Scheduled restart job, restart counter is at 638.
+Jun 17 01:20:37 ubuntu systemd[832]: Stopped Service for snap application snapd-desktop-integration.snapd-desktop-integration.
+Jun 17 01:20:37 ubuntu systemd[832]: Started Service for snap application snapd-desktop-integration.snapd-desktop-integration.
+Jun 17 01:20:37 ubuntu snapd-desktop-integration.snapd-desktop-integration[23784]: Content snap command-chain for /snap/snapd-desktop-integration/83/gnome-platform/command-chain/desktop-launch not found: ensure slot is connected
+Jun 17 01:20:39 ubuntu systemd[832]: snap.snapd-desktop-integration.snapd-desktop-integration.service: Scheduled restart job, restart counter is at 639.
+Jun 17 01:20:39 ubuntu systemd[832]: Stopped Service for snap application snapd-desktop-integration.snapd-desktop-integration.
+Jun 17 01:20:39 ubuntu systemd[832]: Started Service for snap application snapd-desktop-integration.snapd-desktop-integration.
+Jun 17 01:20:39 ubuntu snapd-desktop-integration.snapd-desktop-integration[23813]: Content snap command-chain for /snap/snapd-desktop-integration/83/gnome-platform/command-chain/desktop-launch not found: ensure slot is connected
+
 

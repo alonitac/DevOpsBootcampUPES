@@ -44,6 +44,8 @@ When the HTTP request is made, the Service's **load balancer** distributes the t
 Kubernetes also tries to distribute the Deployment's Pods across different nodes within the cluster to achieve **high availability**. 
 The controller for that Service continuously scans for Pods that match its selector (a.k.a. **service discovery**),
 
+![](../.img/k8s-deployment.png)
+
 ## Use Port Forwarding to Access Applications in a Cluster
 
 By default, applications running within the cluster are not accessible from outside the cluster.
@@ -72,13 +74,13 @@ kubectl port-forward service/mynginx 9000:8080
 
 # Exercises 
 
-## :pencil2: Deploy the 2048 game
+### :pencil2: Deploy the 2048 game
 
 Create a **Deployment** of 2 replicas for the [2048 game dockerized image](https://hub.docker.com/r/alexwhen/docker-2048).
 Expose the Deployment with a **Service** listening on port 5858. Visit the app locally using `port-forward`.
 
 
-## :pencil2: Expose the nginx deployment using NodePort service type 
+### :pencil2: Expose the nginx deployment using NodePort service type 
 
 The default Service type in k8s is `ClusterIP`, which exposes the Service on an internal cluster IP.
 This allows other resources within the cluster to access the Service using its cluster IP and the specified port, but it is not accessible from outside the cluster.
@@ -86,4 +88,13 @@ This allows other resources within the cluster to access the Service using its c
 Service of type `NodePort` exposes the Service **on each Node's IP** at a static port (the NodePort), allowing external access to the Service by using the (public) node's IP address and the allocated node port.
 
 Create a NodePort service and visit the nginx deployment from your local machine.
+
+[//]: # (## :pencil2: Jobs and cronjobs )
+
+[//]: # ()
+[//]: # ()
+[//]: # ()
+[//]: # (## :pencil2: Node selector)
+
+[//]: # ()
 

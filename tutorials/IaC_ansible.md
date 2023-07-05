@@ -17,7 +17,7 @@ https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.ht
 
 ## Choosing the right tool (Terraform vs Ansible)
 
-![](img/ansible_tf.png)
+![](../.img/ansible_tf.png)
 
 ## Build simple inventory and use ad-hoc commands
 
@@ -27,8 +27,10 @@ The default location for inventory is a file called `/etc/ansible/hosts` (use `-
 An ad-hoc command is a single, one-time command that you run against your inventory (or a single host), without the need for a playbook.
 Ad-hoc commands are useful for performing quick and simple tasks, such as checking the uptime of a server or installing a package.
 
-1. In this demo we will use two **Amazon Linux** EC2 instances as the server inventory. Make sure you have access to the `.pem` private key.
-2. Create a simple `hosts` inventory file as follows:
+Tutorial files can be found under `ansible_workdir` in our shared repo. 
+
+1. In this demo we will use two **Ubuntu** EC2 instances as the server inventory. Make sure you have access to the `.pem` private key.
+2. In `ansible_workdir`, create a file called `hosts`, which is a simple inventory file as follows:
 ```ini
 <host-ip1>
 <host-ip2>
@@ -48,43 +50,44 @@ web1 ansible_host=<host-ip-1> ansible_user=<host-ssh-user>
 web2 ansible_host=<host-ip-2> ansible_user=<host-ssh-user>
 ```
 
-There are two more default groups: `all` and `ungrouped`. The all group contains every host. The ungrouped group contains all hosts that don't have another group aside from `all`.
+There are two more default groups: `all` and `ungrouped`. The all group contains every host. The ungrouped group contains all hosts that don’t have another group aside from `all`.
 
 5. Let's check the uptime of all server in `webserver` group:
 ```shell
-ansible -i /path/to/inventory-file --private-key /path/to/private-key-pem-file webserver -m command -a "uptime"
+cd ansible_workdir
+ansible -i hosts --private-key /path/to/private-key-pem-file webserver -m command -a "uptime"
 ```
 
 ## Working with Playbooks
 
 If you need to execute a task with Ansible more than once, write a **playbook** and put it under source control.
 Ansible Playbooks offer a repeatable, re-usable and simple configuration management.
-Playbooks are expressed in YAML format, composed of one or more 'plays' in an **ordered** list.
+Playbooks are expressed in YAML format, composed of one or more ‘plays’ in an **ordered** list.
 A playbook 'play' runs one or more tasks. Each task calls an Ansible module from top to bottom.
 
 In this demo, we will be practicing some security hardening for the webserver hosts.
 
 To demonstrate the power of Ansible, we first want to create a task that verify the installation of `httpd` (and install it if needed).
 
-1. Create the following `site.yaml` file, representing an Ansible playbook:
+1. In `ansible_workdir`, create the following `site.yaml` file, representing an Ansible playbook:
 ```yaml
 ---
 - name: Harden web servers
   hosts: <hosts-group>
   tasks:
     - name: Ensure httpd is at the latest version
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name: httpd-2.4*
         state: latest
 ```
 
-In the above example, [`ansible.builtin.yum`](https://docs.ansible.com/ansible/latest/modules/yum_module.html#yum-module) is the module being used, `name` and `state` are module's parameters. 
+In the above example, [`ansible.builtin.apt`](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html) is the module being used, `name` and `state` are module's parameters. 
 In Ansible, a module is a small piece of code that is used to perform specific tasks, such as managing packages, files, or services on a target system.
 Ansible ships with hundreds of [built-in modules](https://docs.ansible.com/ansible/latest/modules/list_of_all_modules.html) available for usage.
 
 2. Apply your playbook using the following `ansible-playbook` command.
 ```shell
-ansible-playbook -i /path/to/inventory-file --private-key /path/to/private-key-pem-file site.yaml
+ansible-playbook -i hosts --private-key /path/to/private-key-pem-file site.yaml
 ```
 
 As the tasks in this playbook require root-privileges, we add the `become: yes` to enable execute tasks as a different Linux user, as well as [using variables](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_variables.html#using-variables):
@@ -97,11 +100,11 @@ As the tasks in this playbook require root-privileges, we add the `become: yes` 
   vars:
     apache_version: 2.4  
   vars_files:
-    - vars/amazon_linux_ssh_vars.yaml  # this file will be discussed soon...
+    - vars/ubuntu_ssh_vars.yaml  # this file will be discussed soon...
   tasks:
     - name: Ensure httpd is at the latest version
       become_user: root
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name: "httpd-{{ apache_version }}*"
         state: latest
 ```
@@ -121,7 +124,7 @@ We now want to harden the SSH configurations of the hosts.
 ```
 
 Ansible uses [Jinja2](https://jinja.palletsprojects.com/en/3.1.x/) templating mechanism to enable dynamic expressions and access to [variables](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#playbooks-variables).
-The `templates/sshd_config.j2` and its corresponding variable file `vars/amazon_linux_ssh_vars.yaml` can be found in our shared repo.
+The `templates/sshd_config.j2` and its corresponding variable file `vars/ubuntu_ssh_vars.yaml` can be found in our shared repo.
 
 5. Run the playbook. Connect to one of the hosts and make sure the `sshd` configuration file has been updated.
 6. For the new SSH configs to be applied, it's required to restart the `sshd` service. Let's add a `handlers:` entry with a handler that restarts the daemon after a successful configuration change:
@@ -163,7 +166,7 @@ In `diff` mode, Ansible provides before-and-after comparisons.
 Simply add the `--check` or `--diff` options (both or separated) to the `ansible-playbook` command:
 
 ```shell
-ansible-playbook -i ./inventory/hosts site.yaml --check --diff 
+ansible-playbook -i hosts site.yaml --check --diff 
 ```
 
 ## Ansible Facts
@@ -184,26 +187,26 @@ To see all available facts, add this task to a play:
 
 Or alternatively, run the `-m setup` ad-hoc command:
 ```shell
-ansible -i ./inventory/hosts webserver -m setup
+ansible -i hosts webserver -m setup
 ```
 
-As the `ansible.builtin.yum` module fits only RedHat family systems (e.g. Amazon Linux), we would like to add a condition for tasks using the yum built-in module, using the `ansible_pkg_mgr` facts variable:
+As the `ansible.builtin.apt` module fits only RedHat family systems (e.g. Amazon Linux), we would like to add a condition for tasks using the yum built-in module, using the `ansible_pkg_mgr` facts variable:
 
 ```yaml
     tasks:
     # ...
     - name: Ensure httpd is at the latest version
       become_user: root
-      ansible.builtin.yum:
+      ansible.builtin.apt:
         name: httpd-2.4*
         state: latest
-      when: ansible_facts['pkg_mgr'] == 'yum'
+      when: ansible_facts['pkg_mgr'] == 'apt'
 ```
 
 ### Try it yourself
 
 1. Create another task to make sure that the latest version of `auditd` daemon is installed. In order to do it manually, without ansible, we do `sudo yum install audit`.
-2. Add some rules to the `auditd` daemon. The config template in located under `17_ansible_workdir/templates/auditd_rules.j2`, while path in the server to which you need to apply the configurations is `/etc/audit/rules.d/audit.rules`. 
+2. Add some rules to the `auditd` daemon. The config template in located under `ansible_workdir/templates/auditd_rules.j2`, while path in the server to which you need to apply the configurations is `/etc/audit/rules.d/audit.rules`. 
 
 You'll apply two auditing rules: 
 

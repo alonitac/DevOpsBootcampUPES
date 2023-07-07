@@ -1,0 +1,21 @@
+master:
+  persistence:
+    size: 30Gi
+
+
+data:
+  persistence:
+    size: 30Gi
+
+
+coordinating:
+  replicaCount: 0
+
+
+ingest:
+  enabled: false
+
+
+global:
+  kibanaEnabled: true
+

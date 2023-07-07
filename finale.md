@@ -1,4 +1,16 @@
-# Final Project Extension Ideas
+# Final Project 
+
+## Project evaluation criteria 
+
+Your projects would be evaluated according to the below list, in order of priority:
+
+1. Showcasing a live, working demo of your work.
+2. Applying DevOps practices - containerized applications, app deployed to k8s, CI/CD pipeline, IaC, usage of cloud resources.
+3. Demonstrating deep understanding of your system.
+4. Successful integration of a new tool, idea, or extension within the DevOps workflow (see ideas below). Be creative!
+5. Project complexity. E.g. security measures, scalability, zero-downtime, cost-efficient architecture.
+
+## Extension Ideas
 
 ### DevSecOps
 

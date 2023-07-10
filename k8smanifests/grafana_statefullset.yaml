@@ -1,0 +1,71 @@
+#Before you apply the below manifest, delete your grafana deployment by:
+#kubectl delete deployment grafana
+
+#Before we start, we need to enable the EBS CSI plugin in EKS, allowing the cluster
+#to create EBS for individual pods (should be done only once per cluster).
+#    In your EKS cluster main page, choose the Add-ons tab.
+#    Choose Add new.
+#    Select Amazon EBS CSI Driver for Name.
+#    Add your cluster node role the AmazonEBSCSIDriverPolicy permission.
+
+#The below example will create an
+#EBS volume in AWS which dedicated to store Grafana data for a single pod.
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: grafana
+spec:
+  replicas: 1
+  serviceName: grafana-svc
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      name: grafana
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        runAsUser: 472
+        runAsGroup: 8020
+        fsGroup: 8020
+      containers:
+      - name: grafana
+        image: grafana/grafana
+        ports:
+        - name: grafana
+          containerPort: 3000
+        env:
+          - name: GF_AUTH_BASIC_ENABLED
+            value: "true"
+          - name: GF_SECURITY_ADMIN_USER
+            valueFrom:
+              secretKeyRef:
+                name: grafana-creds
+                key: username
+          - name: GF_SECURITY_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: grafana-creds
+                key: password
+        volumeMounts:
+          - name: grafana-datasources-vol
+            mountPath: "/etc/grafana/provisioning/datasources"
+          - name: grafana-storage
+            mountPath: "/var/lib/grafana"
+      volumes:
+        - name: grafana-datasources-vol
+          configMap:
+            name: grafana-datasources
+  volumeClaimTemplates:
+    - metadata:
+        name: grafana-storage
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        storageClassName: gp2
+        resources:
+          requests:
+            storage: 5Gi
+
+

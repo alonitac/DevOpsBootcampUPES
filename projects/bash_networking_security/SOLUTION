@@ -1,16 +1,32 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
+
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+192.168.29.2
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
-
+$ grep "DHCP" /var/log/syslog
+Jun 15 00:19:05 raj-virtual-machine NetworkManager[950]: <info>  [1686768545.5255] dhcp-init: Using DHCP client 'internal'
+Jun 15 00:33:01 raj-virtual-machine NetworkManager[787]: <info>  [1686769381.7210] dhcp-init: Using DHCP client 'internal'
+Jun 15 09:31:18 raj-virtual-machine NetworkManager[787]: <info>  [1686801678.3694] dhcp4 (ens33): canceled DHCP transaction
+Jun 15 12:34:23 raj-virtual-machine NetworkManager[787]: <info>  [1686812663.6266] dhcp4 (ens33): canceled DHCP transaction
+Jun 15 23:26:53 raj-virtual-machine NetworkManager[955]: <info>  [1686851813.3395] dhcp-init: Using DHCP client 'internal'
+Jun 15 23:27:09 raj-virtual-machine NetworkManager[955]: <info>  [1686851829.5212] dhcp4 (ens33): canceled DHCP transaction
+Jun 15 23:30:28 raj-virtual-machine NetworkManager[955]: <info>  [1686852028.2316] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 00:09:00 raj-virtual-machine NetworkManager[947]: <info>  [1686854340.8814] dhcp-init: Using DHCP client 'internal'
+Jun 16 21:00:19 raj-virtual-machine NetworkManager[961]: <info>  [1686929419.0867] dhcp-init: Using DHCP client 'internal'
+Jun 16 21:12:20 raj-virtual-machine NetworkManager[961]: <info>  [1686930140.5507] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:12:28 raj-virtual-machine NetworkManager[961]: <info>  [1686930148.5983] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:16:00 raj-virtual-machine NetworkManager[961]: <info>  [1686930360.2464] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:16:06 raj-virtual-machine NetworkManager[961]: <info>  [1686930366.3305] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:16:40 raj-virtual-machine NetworkManager[961]: <info>  [1686930400.5622] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:16:54 raj-virtual-machine NetworkManager[961]: <info>  [1686930414.7062] dhcp4 (ens33): canceled DHCP transaction
+Jun 16 21:19:11 raj-virtual-machine NetworkManager[961]: <info>  [1686930551.7505] dhcp4 (ens33): canceled DHCP transaction

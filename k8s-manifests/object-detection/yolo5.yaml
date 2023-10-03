@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yolo5
+spec:
+  selector:
+    matchLabels:
+      app: yolo5
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yolo5
+    spec:
+      containers:
+      - name: yolo5
+        image: IMG_URL # TODO change IMG_URL to your yolo5 image in dockerhub or ECR
+        ports:
+        - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yolo5
+spec:
+  selector:
+    app: yolo5
+  ports:
+    - port: 8081
+      targetPort: 8081

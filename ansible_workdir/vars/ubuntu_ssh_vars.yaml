@@ -1,0 +1,10 @@
+sshd_port: 22
+permit_root_login: 'no'
+max_auth_tries: '3'
+empty_pass: 'no'
+pass_auth: 'no'
+agent_fwd: 'no'
+tcp_fwd: 'no'
+x11_fwd: 'no'
+user_envs: 'no'
+permit_tunnel: 'no'

@@ -1,0 +1,10 @@
+fileConfigs:
+  04_outputs.conf: |-
+    <label @OUTPUT>
+      <match **>
+        @type elasticsearch
+        host "elastic-elasticsearch"
+        port 9200
+        logstash_format true
+      </match>
+    </label>

@@ -1,16 +1,19 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1 
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Jun 10 20:25:30 ip-10-0-0-30 dhclient[356]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x54c12a57)
+Jun 10 20:25:30 ip-10-0-0-30 dhclient[356]: DHCPOFFER of 10.0.0.30 from 10.0.0.1
+Jun 10 20:25:30 ip-10-0-0-30 dhclient[356]: DHCPREQUEST for 10.0.0.30 on ens5 to 255.255.255.255 port 67 (xid=0x572ac154)
+Jun 10 20:25:30 ip-10-0-0-30 dhclient[356]: DHCPACK of 10.0.0.30 from 10.0.0.1 (xid=0x54c12a57)
 

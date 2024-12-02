@@ -1,16 +1,25 @@
 Local DNS Server IP
 -------------------
-<ip-here>
-
-
+127.0.0.53
 
 Default gateway IP
 -------------------
-<ip-here>
-
+10.0.0.1
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Jun 15 05:37:09 ip-10-0-0-141 dhclient[359]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xec60204a)
+Jun 15 14:55:28 ip-10-0-0-141 dhclient[364]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xed569a5d)
+Jun 16 06:48:30 ip-10-0-0-141 dhclient[368]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x19be7604)
+Jun 15 05:37:09 ip-10-0-0-141 dhclient[359]: DHCPOFFER of 10.0.0.141 from 10.0.0.1
+Jun 15 14:55:28 ip-10-0-0-141 dhclient[364]: DHCPOFFER of 10.0.0.141 from 10.0.0.1
+Jun 16 06:48:30 ip-10-0-0-141 dhclient[368]: DHCPOFFER of 10.0.0.141 from 10.0.0.1
+Jun 15 05:37:09 ip-10-0-0-141 dhclient[359]: DHCPREQUEST for 10.0.0.141 on ens5 to 255.255.255.255 port 67 (xid=0x4a2060ec)
+Jun 15 14:55:28 ip-10-0-0-141 dhclient[364]: DHCPREQUEST for 10.0.0.141 on ens5 to 255.255.255.255 port 67 (xid=0x5d9a56ed)
+Jun 16 06:48:30 ip-10-0-0-141 dhclient[368]: DHCPREQUEST for 10.0.0.141 on ens5 to 255.255.255.255 port 67 (xid=0x476be19)
+Jun 15 05:37:09 ip-10-0-0-141 dhclient[359]: DHCPACK of 10.0.0.141 from 10.0.0.1 (xid=0xec60204a)
+Jun 15 14:55:28 ip-10-0-0-141 dhclient[364]: DHCPACK of 10.0.0.141 from 10.0.0.1 (xid=0xed569a5d)
+Jun 16 06:48:30 ip-10-0-0-141 dhclient[368]: DHCPACK of 10.0.0.141 from 10.0.0.1 (xid=0x19be7604)
+
 

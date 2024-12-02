@@ -1,16 +1,28 @@
 Local DNS Server IP
 -------------------
 <ip-here>
+127.0.0.53
 
 
 
 Default gateway IP
 -------------------
 <ip-here>
+10.0.0.1
+
 
 
 
 DHCP IP allocation sys-logs
 -------------------
 <logs-here>
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: Internet Systems Consortium DHCP Client 4.4.1
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: For info, please visit https://www.isc.org/software/dhcp/
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xf987522e)
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: DHCPOFFER of 10.0.0.219 from 10.0.0.1
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: DHCPREQUEST for 10.0.0.219 on eth0 to 255.255.255.255 port 67 (xid=0x2e5287f9)
+Jun 11 17:22:11 ip-10-0-0-219 dhclient[339]: DHCPACK of 10.0.0.219 from 10.0.0.1 (xid=0xf987522e)
+Jun 11 17:22:11 ip-10-0-0-219 systemd-networkd[378]: eth0: DHCPv4 address 10.0.0.219/24 via 10.0.0.1
+Jun 11 17:22:11 ip-10-0-0-219 kernel: [    6.533590] audit: type=1400 audit(1686504123.476:5): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=311 comm="apparmor_parser"
+Jun 11 17:22:11 ip-10-0-0-219 kernel: [    6.534684] audit: type=1400 audit(1686504123.480:6): apparmor="STATUS" operation="profile_load" profile="unconfined" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=311 comm="apparmor_parser"
 

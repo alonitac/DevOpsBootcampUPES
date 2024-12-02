@@ -1,16 +1,26 @@
 Local DNS Server IP
 -------------------
 <ip-here>
+ 127.0.0.53
+
+
 
 
 
 Default gateway IP
 -------------------
 <ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
 <logs-here>
-
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.409527] systemd[1]: Detected virtualization xen.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.413368] systemd[1]: Detected architecture x86-64.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.422724] systemd[1]: Hostname set to <ip-10-0-0-242>.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.830820] systemd[1]: Queued start job for default target Graphical Interface.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.836910] systemd[1]: Created slice Slice /system/modprobe.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.844069] systemd[1]: Created slice Slice /system/serial-getty.
+    Jun 15 13:07:48 ip-10-0-0-242 kernel: [    3.852027] systemd[1]: Created slice Slice /system/systemd-fsck.

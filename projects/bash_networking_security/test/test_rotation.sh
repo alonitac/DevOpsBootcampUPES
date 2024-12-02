@@ -35,4 +35,3 @@ then
 fi
 
 echo "Good rotation!"
-
